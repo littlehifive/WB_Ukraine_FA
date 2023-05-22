@@ -1,0 +1,332 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/21/2023  10:31 AM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor DASS Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+    empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1;
+    !empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+    Categorical is
+    empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1;
+    !empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    empathy_1 by empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1;
+    !empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Tutor DASS Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         100
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   EMPATHY1    EMPATHY2    EMPATHY3    EMPATHY4    EMPATHY5
+
+Continuous latent variables
+   EMPATHY_
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       1.000
+ EMPATHY2       1.000         1.000
+ EMPATHY3       1.000         1.000         1.000
+ EMPATHY4       1.000         1.000         1.000         1.000
+ EMPATHY5       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    EMPATHY1
+      Category 1    0.090            9.000
+      Category 2    0.620           62.000
+      Category 3    0.290           29.000
+    EMPATHY2
+      Category 1    0.010            1.000
+      Category 2    0.340           34.000
+      Category 3    0.600           60.000
+      Category 4    0.050            5.000
+    EMPATHY3
+      Category 1    0.130           13.000
+      Category 2    0.710           71.000
+      Category 3    0.160           16.000
+    EMPATHY4
+      Category 1    0.060            6.000
+      Category 2    0.510           51.000
+      Category 3    0.430           43.000
+    EMPATHY5
+      Category 1    0.010            1.000
+      Category 2    0.060            6.000
+      Category 3    0.620           62.000
+      Category 4    0.310           31.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY1      EMPATHY1      EMPATHY2      EMPATHY2      EMPATHY2
+              ________      ________      ________      ________      ________
+               -1.341         0.553        -2.326        -0.385         1.645
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY3      EMPATHY3      EMPATHY4      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+               -1.126         0.994        -1.555         0.176        -2.326
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY5      EMPATHY5
+              ________      ________
+               -1.476         0.496
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1
+ EMPATHY2      -0.071
+ EMPATHY3       0.525         0.083
+ EMPATHY4       0.488        -0.061         0.413
+ EMPATHY5       0.395         0.168         0.395         0.647
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       17
+
+Chi-Square Test of Model Fit
+
+          Value                             12.284*
+          Degrees of Freedom                     5
+          P-Value                           0.0311
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.121
+          90 Percent C.I.                    0.034  0.208
+          Probability RMSEA <= .05           0.077
+
+CFI/TLI
+
+          CFI                                0.947
+          TLI                                0.894
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            147.844
+          Degrees of Freedom                    10
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.054
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.40317488D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ EMPATHY_ BY
+    EMPATHY1_1         1.000      0.000    999.000    999.000
+    EMPATHY2_1         0.089      0.158      0.562      0.574
+    EMPATHY3_1         0.940      0.195      4.820      0.000
+    EMPATHY4_1         1.232      0.190      6.470      0.000
+    EMPATHY5_1         1.114      0.257      4.343      0.000
+
+ Thresholds
+    EMPATHY1$1        -1.341      0.176     -7.608      0.000
+    EMPATHY1$2         0.553      0.133      4.175      0.000
+    EMPATHY2$1        -2.326      0.373     -6.231      0.000
+    EMPATHY2$2        -0.385      0.129     -2.992      0.003
+    EMPATHY2$3         1.645      0.211      7.784      0.000
+    EMPATHY3$1        -1.126      0.159     -7.085      0.000
+    EMPATHY3$2         0.994      0.151      6.600      0.000
+    EMPATHY4$1        -1.555      0.199     -7.799      0.000
+    EMPATHY4$2         0.176      0.126      1.399      0.162
+    EMPATHY5$1        -2.326      0.373     -6.231      0.000
+    EMPATHY5$2        -1.476      0.190     -7.766      0.000
+    EMPATHY5$3         0.496      0.131      3.782      0.000
+
+ Variances
+    EMPATHY_1          0.428      0.124      3.453      0.001
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ EMPATHY_ BY
+    EMPATHY1_1         0.654      0.095      6.907      0.000
+    EMPATHY2_1         0.058      0.101      0.576      0.565
+    EMPATHY3_1         0.615      0.087      7.095      0.000
+    EMPATHY4_1         0.806      0.079     10.207      0.000
+    EMPATHY5_1         0.729      0.106      6.866      0.000
+
+ Thresholds
+    EMPATHY1$1        -1.341      0.176     -7.608      0.000
+    EMPATHY1$2         0.553      0.133      4.175      0.000
+    EMPATHY2$1        -2.326      0.373     -6.231      0.000
+    EMPATHY2$2        -0.385      0.129     -2.992      0.003
+    EMPATHY2$3         1.645      0.211      7.784      0.000
+    EMPATHY3$1        -1.126      0.159     -7.085      0.000
+    EMPATHY3$2         0.994      0.151      6.600      0.000
+    EMPATHY4$1        -1.555      0.199     -7.799      0.000
+    EMPATHY4$2         0.176      0.126      1.399      0.162
+    EMPATHY5$1        -2.326      0.373     -6.231      0.000
+    EMPATHY5$2        -1.476      0.190     -7.766      0.000
+    EMPATHY5$3         0.496      0.131      3.782      0.000
+
+ Variances
+    EMPATHY_1          1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    EMPATHY1           0.428      0.124      3.453      0.001      0.572
+    EMPATHY2           0.003      0.012      0.288      0.773      0.997
+    EMPATHY3           0.378      0.107      3.548      0.000      0.622
+    EMPATHY4           0.650      0.127      5.103      0.000      0.350
+    EMPATHY5           0.531      0.155      3.433      0.001      0.469
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.905E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+     Beginning Time:  10:31:46
+        Ending Time:  10:31:46
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

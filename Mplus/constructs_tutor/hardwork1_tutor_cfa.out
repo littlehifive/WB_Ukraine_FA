@@ -1,0 +1,336 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/20/2023   2:12 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Hard Work Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hw1_1 hw2_1 hw3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	hw1_1 hw2_1 hw3_1;
+
+    Categorical is
+  	hw1_1 hw2_1 hw3_1;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    hardwork_1 by hw1_1 hw2_1 hw3_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Tutor Hard Work Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         100
+
+Number of dependent variables                                    3
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   HW1_1       HW2_1       HW3_1
+
+Continuous latent variables
+   HARDWORK
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              HW1_1         HW2_1         HW3_1
+              ________      ________      ________
+ HW1_1          1.000
+ HW2_1          1.000         1.000
+ HW3_1          1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    HW1_1
+      Category 1    0.020            2.000
+      Category 2    0.030            3.000
+      Category 3    0.110           11.000
+      Category 4    0.110           11.000
+      Category 5    0.190           19.000
+      Category 6    0.230           23.000
+      Category 7    0.190           19.000
+      Category 8    0.120           12.000
+    HW2_1
+      Category 1    0.250           25.000
+      Category 2    0.190           19.000
+      Category 3    0.090            9.000
+      Category 4    0.080            8.000
+      Category 5    0.140           14.000
+      Category 6    0.060            6.000
+      Category 7    0.010            1.000
+      Category 8    0.120           12.000
+      Category 9    0.030            3.000
+      Category 10    0.030            3.000
+    HW3_1
+      Category 1    0.090            9.000
+      Category 2    0.600           60.000
+      Category 3    0.310           31.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              HW1_1$1       HW1_1$2       HW1_1$3       HW1_1$4       HW1_1$5
+              ________      ________      ________      ________      ________
+               -2.054        -1.645        -0.994        -0.613        -0.100
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              HW1_1$6       HW1_1$7       HW2_1$1       HW2_1$2       HW2_1$3
+              ________      ________      ________      ________      ________
+                0.496         1.175        -0.674        -0.151         0.075
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              HW2_1$4       HW2_1$5       HW2_1$6       HW2_1$7       HW2_1$8
+              ________      ________      ________      ________      ________
+                0.279         0.674         0.878         0.915         1.555
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              HW2_1$9       HW3_1$1       HW3_1$2
+              ________      ________      ________
+                1.881        -1.341         0.496
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              HW1_1         HW2_1         HW3_1
+              ________      ________      ________
+ HW1_1
+ HW2_1         -0.077
+ HW3_1          0.096        -0.380
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       21
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000*
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                             19.132
+          Degrees of Freedom                     3
+          P-Value                           0.0003
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.53491760D-10
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ HARDWORK BY
+    HW1_1              1.000      0.000    999.000    999.000
+    HW2_1             -3.953      4.072     -0.971      0.332
+    HW3_1              4.934      5.359      0.921      0.357
+
+ Thresholds
+    HW1_1$1           -2.054      0.289     -7.103      0.000
+    HW1_1$2           -1.645      0.211     -7.784      0.000
+    HW1_1$3           -0.994      0.151     -6.600      0.000
+    HW1_1$4           -0.613      0.134     -4.564      0.000
+    HW1_1$5           -0.100      0.126     -0.800      0.424
+    HW1_1$6            0.496      0.131      3.782      0.000
+    HW1_1$7            1.175      0.162      7.233      0.000
+    HW2_1$1           -0.674      0.136     -4.950      0.000
+    HW2_1$2           -0.151      0.126     -1.200      0.230
+    HW2_1$3            0.075      0.125      0.600      0.549
+    HW2_1$4            0.279      0.127      2.197      0.028
+    HW2_1$5            0.674      0.136      4.950      0.000
+    HW2_1$6            0.878      0.145      6.073      0.000
+    HW2_1$7            0.915      0.146      6.252      0.000
+    HW2_1$8            1.555      0.199      7.799      0.000
+    HW2_1$9            1.881      0.251      7.502      0.000
+    HW3_1$1           -1.341      0.176     -7.608      0.000
+    HW3_1$2            0.496      0.131      3.782      0.000
+
+ Variances
+    HARDWORK_1         0.019      0.032      0.614      0.539
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ HARDWORK BY
+    HW1_1              0.140      0.114      1.228      0.219
+    HW2_1             -0.552      0.352     -1.569      0.117
+    HW3_1              0.689      0.450      1.529      0.126
+
+ Thresholds
+    HW1_1$1           -2.054      0.289     -7.103      0.000
+    HW1_1$2           -1.645      0.211     -7.784      0.000
+    HW1_1$3           -0.994      0.151     -6.600      0.000
+    HW1_1$4           -0.613      0.134     -4.564      0.000
+    HW1_1$5           -0.100      0.126     -0.800      0.424
+    HW1_1$6            0.496      0.131      3.782      0.000
+    HW1_1$7            1.175      0.162      7.233      0.000
+    HW2_1$1           -0.674      0.136     -4.950      0.000
+    HW2_1$2           -0.151      0.126     -1.200      0.230
+    HW2_1$3            0.075      0.125      0.600      0.549
+    HW2_1$4            0.279      0.127      2.197      0.028
+    HW2_1$5            0.674      0.136      4.950      0.000
+    HW2_1$6            0.878      0.145      6.073      0.000
+    HW2_1$7            0.915      0.146      6.252      0.000
+    HW2_1$8            1.555      0.199      7.799      0.000
+    HW2_1$9            1.881      0.251      7.502      0.000
+    HW3_1$1           -1.341      0.176     -7.608      0.000
+    HW3_1$2            0.496      0.131      3.782      0.000
+
+ Variances
+    HARDWORK_1         1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    HW1_1              0.019      0.032      0.614      0.539      0.981
+    HW2_1              0.305      0.388      0.785      0.433      0.695
+    HW3_1              0.475      0.621      0.765      0.444      0.525
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.425E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+     Beginning Time:  14:12:17
+        Ending Time:  14:12:17
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

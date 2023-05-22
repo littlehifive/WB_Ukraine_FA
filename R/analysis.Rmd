@@ -1,0 +1,791 @@
+---
+title: "Untitled"
+author: "Michael Wu"
+date: "2023-04-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(MplusAutomation)
+library(tidyverse)
+#devtools::install_github("nyuglobalties/mrautomatr")
+library(mrautomatr)
+```
+
+# Parents 
+
+## DASS (Stress) Time 1
+
+```{r}
+prop.table(table(dat_dass_b$female))
+prop.table(table(dat_dass_b$age_w))
+```
+
+```{r}
+# EFA
+runModels(
+  "Mplus/dass_parent/dass1_parent_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/dass_parent/dass1_parent_cfa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_parent/dass1_parent_cfa1.inp", # final
+  recursive=TRUE)
+
+# Treatment measurement invariance
+runModels(
+  "Mplus/dass_parent/dass1_parent_tx_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_parent/dass1_parent_tx_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_parent/dass1_parent_tx_inv_scalar.inp",
+  recursive=TRUE)
+
+# Gender measurement invariance
+runModels(
+  "Mplus/dass_parent/dass1_parent_gender_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_parent/dass1_parent_gender_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_parent/dass1_parent_gender_inv_scalar.inp",
+  recursive=TRUE)
+
+# Age measurement invariance
+runModels(
+  "Mplus/dass_parent/dass1_parent_age_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_parent/dass1_parent_age_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_parent/dass1_parent_age_inv_scalar.inp",
+  recursive=TRUE)
+```
+
+```{r}
+# render_report_manual(output_file = "Report_dass_parent.docx",
+#                      output_dir = "/Users/michaelfive/Library/CloudStorage/GoogleDrive-wuzezhen33@gmail.com/My Drive/WB Ukraine Study/Reports")
+
+render_report(output_dir = "/Users/michaelfive/Library/CloudStorage/GoogleDrive-wuzezhen33@gmail.com/My Drive/WB Ukraine Study/Reports",
+               output_file = "Report_dass_parent.docx",
+               parameters = list(
+                 # set R code print options
+                 printcode = FALSE,
+                 printwarning = FALSE,
+                 storecache = FALSE,
+
+                 # set report overall parameters
+                 template = here::here("Mplus/dass_parent/input_dass_parent.xlsx"),
+                 set_title = "Measurement Report - DASS Baseline (Parent)",
+                 set_author = "Zezhen Wu",
+
+                 # select report sections
+                 item = TRUE,
+                 descriptive = TRUE,
+                 ds_plot = TRUE,
+                 correlation_matrix_lg = FALSE,
+                 correlation_matrix_bivar = FALSE,
+                 correlation_matrix_item = TRUE, # BE CAREFUL! This might crash the document.
+                 efa_screeplot = TRUE,
+                 cfa_model_fit = TRUE,
+                 cfa_model_plot = TRUE,
+                 cfa_model_parameters = TRUE,
+                 cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
+                 cfa_r2 = TRUE,
+                 internal_reliability = TRUE,
+                 summary_item_statistics = TRUE,
+                 item_total_statistics = TRUE,
+                 inv_tx = TRUE,
+                 inv_gender = TRUE,
+                 inv_age = TRUE,
+                 inv_lg = FALSE)
+                 )
+
+```
+
+# Students
+
+## Grit Time 1 and 2
+```{r}
+# EFA
+runModels(
+  "Mplus/grit_student/grit1_student_efa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/grit_student/grit1_student_cfa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_cfa1.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_cfa2.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_cfa.inp",
+  recursive=TRUE)
+
+# Treatment measurement invariance
+runModels(
+  "Mplus/grit_student/grit1_student_tx_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_tx_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_tx_inv_scalar.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_tx_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_tx_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_tx_inv_scalar.inp",
+  recursive=TRUE)
+
+# Gender measurement invariance
+runModels(
+  "Mplus/grit_student/grit1_student_gender_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_gender_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_gender_inv_scalar.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_gender_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_gender_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_gender_inv_scalar.inp",
+  recursive=TRUE)
+
+# Age measurement invariance
+runModels(
+  "Mplus/grit_student/grit1_student_age_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_age_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit1_student_age_inv_scalar.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_age_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_age_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit2_student_age_inv_scalar.inp",
+  recursive=TRUE)
+
+# Longitudinal invariance
+runModels(
+  "Mplus/grit_student/grit12_student_lg_inv_baseline.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit12_student_lg_inv_loading.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit12_student_lg_inv_threshold.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/grit_student/grit12_student_lg_inv_unique.inp",
+  recursive=TRUE)
+```
+
+```{r}
+# render_report_manual(output_file = "Report_dass_parent.docx",
+#                      output_dir = "/Users/michaelfive/Library/CloudStorage/GoogleDrive-wuzezhen33@gmail.com/My Drive/WB Ukraine Study/Reports")
+
+render_report(output_dir = "/Users/michaelfive/Library/CloudStorage/GoogleDrive-wuzezhen33@gmail.com/My Drive/WB Ukraine Study/Reports",
+               output_file = "Report_grit_student.docx",
+               parameters = list(
+                 # set R code print options
+                 printcode = FALSE,
+                 printwarning = FALSE,
+                 storecache = FALSE,
+
+                 # set report overall parameters
+                 template = here::here("Mplus/grit_student/input_grit_student.xlsx"),
+                 set_title = "Measurement Report - Grit (Student)",
+                 set_author = "Zezhen Wu",
+
+                 # select report sections
+                 item = TRUE,
+                 descriptive = TRUE,
+                 ds_plot = TRUE,
+                 correlation_matrix_lg = FALSE,
+                 correlation_matrix_bivar = FALSE,
+                 correlation_matrix_item = TRUE, # BE CAREFUL! This might crash the document.
+                 efa_screeplot = TRUE,
+                 cfa_model_fit = TRUE,
+                 cfa_model_plot = TRUE,
+                 cfa_model_parameters = TRUE,
+                 cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
+                 cfa_r2 = TRUE,
+                 internal_reliability = TRUE,
+                 summary_item_statistics = TRUE,
+                 item_total_statistics = TRUE,
+                 inv_tx = TRUE,
+                 inv_gender = TRUE,
+                 inv_age = TRUE,
+                 inv_lg = TRUE)
+                 )
+
+```
+
+## Sleep Time 1
+```{r}
+# EFA
+runModels(
+  "Mplus/sleep_student/sleep1_student_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/sleep_student/sleep1_student_cfa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/sleep_student/sleep1_student_cfa1.inp",
+  recursive=TRUE)
+
+# Treatment measurement invariance
+runModels(
+  "Mplus/sleep_student/sleep1_student_tx_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/sleep_student/sleep1_student_tx_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/sleep_student/sleep1_student_tx_inv_scalar.inp",
+  recursive=TRUE)
+
+# Gender measurement invariance
+runModels(
+  "Mplus/sleep_student/sleep1_student_gender_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/sleep_student/sleep1_student_gender_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/sleep_student/sleep1_student_gender_inv_scalar.inp",
+  recursive=TRUE)
+
+# Age measurement invariance
+runModels(
+  "Mplus/sleep_student/sleep1_student_age_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/sleep_student/sleep1_student_age_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/sleep_student/sleep1_student_age_inv_scalar.inp",
+  recursive=TRUE)
+```
+
+```{r}
+render_report(output_dir = "/Users/michaelfive/Library/CloudStorage/GoogleDrive-wuzezhen33@gmail.com/My Drive/WB Ukraine Study/Reports",
+               output_file = "Report_sleep_student.docx",
+               parameters = list(
+                 # set R code print options
+                 printcode = FALSE,
+                 printwarning = FALSE,
+                 storecache = FALSE,
+
+                 # set report overall parameters
+                 template = here::here("Mplus/sleep_student/input_sleep_student.xlsx"),
+                 set_title = "Measurement Report - Insomnia Severity Index - Baseline (Student)",
+                 set_author = "Zezhen Wu",
+
+                 # select report sections
+                 item = TRUE,
+                 descriptive = TRUE,
+                 ds_plot = TRUE,
+                 correlation_matrix_lg = FALSE,
+                 correlation_matrix_bivar = FALSE,
+                 correlation_matrix_item = TRUE, # BE CAREFUL! This might crash the document.
+                 efa_screeplot = TRUE,
+                 cfa_model_fit = TRUE,
+                 cfa_model_plot = TRUE,
+                 cfa_model_parameters = TRUE,
+                 cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
+                 cfa_r2 = TRUE,
+                 internal_reliability = TRUE,
+                 summary_item_statistics = TRUE,
+                 item_total_statistics = TRUE,
+                 inv_tx = TRUE,
+                 inv_gender = TRUE,
+                 inv_age = TRUE,
+                 inv_lg = FALSE)
+                 )
+
+```
+
+## DASS (Anxiety and Stress) 
+```{r}
+# EFA
+runModels(
+  "Mplus/dass_student/dass1_student_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/dass_student/dass1_student_cfa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass1_student_cfa1.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_cfa.inp",
+  recursive=TRUE)
+
+# Treatment measurement invariance
+runModels(
+  "Mplus/dass_student/dass1_student_tx_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass1_student_tx_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass1_student_tx_inv_scalar.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_tx_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_tx_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_tx_inv_scalar.inp",
+  recursive=TRUE)
+
+# Gender measurement invariance
+runModels(
+  "Mplus/dass_student/dass1_student_gender_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass1_student_gender_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass1_student_gender_inv_scalar.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_gender_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_gender_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_gender_inv_scalar.inp",
+  recursive=TRUE)
+
+# Age measurement invariance
+runModels(
+  "Mplus/dass_student/dass1_student_age_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass1_student_age_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass1_student_age_inv_scalar.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_age_inv_config.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_age_inv_metric.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass2_student_age_inv_scalar.inp",
+  recursive=TRUE)
+
+# Longitudinal measurement invariance
+runModels(
+  "Mplus/dass_student/dass12_student_lg_inv_baseline.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass12_student_lg_inv_loading.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass12_student_lg_inv_threshold.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/dass_student/dass12_student_lg_inv_unique.inp",
+  recursive=TRUE)
+```
+
+```{r}
+render_report(output_dir = "/Users/michaelfive/Library/CloudStorage/GoogleDrive-wuzezhen33@gmail.com/My Drive/WB Ukraine Study/Reports",
+               output_file = "Report_dass_student.docx",
+               parameters = list(
+                 # set R code print options
+                 printcode = FALSE,
+                 printwarning = FALSE,
+                 storecache = FALSE,
+
+                 # set report overall parameters
+                 template = here::here("Mplus/dass_student/input_dass_student.xlsx"),
+                 set_title = "Measurement Report - DASS Baseline (Student)",
+                 set_author = "Zezhen Wu",
+
+                 # select report sections
+                 item = TRUE,
+                 descriptive = TRUE,
+                 ds_plot = TRUE,
+                 correlation_matrix_lg = FALSE,
+                 correlation_matrix_bivar = FALSE,
+                 correlation_matrix_item = TRUE, # BE CAREFUL! This might crash the document.
+                 efa_screeplot = TRUE,
+                 cfa_model_fit = TRUE,
+                 cfa_model_plot = TRUE,
+                 cfa_model_parameters = TRUE,
+                 cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
+                 cfa_r2 = FALSE,
+                 internal_reliability = TRUE,
+                 summary_item_statistics = TRUE,
+                 item_total_statistics = TRUE,
+                 inv_tx = TRUE,
+                 inv_gender = TRUE,
+                 inv_age = TRUE,
+                 inv_lg = TRUE)
+                 )
+
+```
+
+
+## Locus of Control Time 1
+```{r}
+# EFA
+runModels(
+  "Mplus/loc_student/loc1_student_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/loc_student/loc1_student_cfa.inp",
+  recursive=TRUE)
+```
+
+# Tutors
+
+## DASS
+```{r}
+# EFA
+runModels(
+  "Mplus/constructs_tutor/dass1_tutor_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/constructs_tutor/dass1_tutor_cfa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/constructs_tutor/dass1_tutor_cfa1.inp",
+  recursive=TRUE)
+```
+
+## Empathy
+```{r}
+# EFA
+runModels(
+  "Mplus/constructs_tutor/empathy1_tutor_efa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/constructs_tutor/empathy1_tutor_efa1.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/constructs_tutor/empathy1_tutor_cfa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/constructs_tutor/empathy1_tutor_cfa1.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/constructs_tutor/empathy1_tutor_cfa2.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/constructs_tutor/empathy1_tutor_cfa3.inp",
+  recursive=TRUE)
+```
+
+## Auto (work-related efficacy)
+```{r}
+# EFA
+runModels(
+  "Mplus/constructs_tutor/auto1_tutor_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/constructs_tutor/auto1_tutor_cfa.inp",
+  recursive=TRUE)
+```
+
+## Bias (?)
+```{r}
+# EFA
+runModels(
+  "Mplus/constructs_tutor/bias1_tutor_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/constructs_tutor/bias1_tutor_cfa.inp",
+  recursive=TRUE)
+
+# Categorical variable BIAS5_1 contains less than 2 categories.
+
+runModels(
+  "Mplus/constructs_tutor/bias1_tutor_cfa1.inp",
+  recursive=TRUE)
+```
+
+## Hard Work
+```{r}
+# EFA
+runModels(
+  "Mplus/constructs_tutor/hardwork1_tutor_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/constructs_tutor/hardwork1_tutor_cfa.inp",
+  recursive=TRUE)
+```
+
+## Prosociality (?)
+```{r}
+# EFA
+runModels(
+  "Mplus/constructs_tutor/prosocial1_tutor_efa.inp",
+  recursive=TRUE)
+
+# CFA 
+
+# theory-based one factor model (better fit)
+runModels(
+  "Mplus/constructs_tutor/prosocial1_tutor_cfa.inp",
+  recursive=TRUE)
+
+# three-factor model
+runModels(
+  "Mplus/constructs_tutor/prosocial1_tutor_cfa1.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/constructs_tutor/prosocial1_tutor_cfa2.inp",
+  recursive=TRUE)
+```
+
+## Perceptions
+```{r}
+# EFA
+runModels(
+  "Mplus/constructs_tutor/perceptions1_tutor_efa.inp",
+  recursive=TRUE)
+
+# CFA 
+runModels(
+  "Mplus/constructs_tutor/perceptions1_tutor_cfa.inp",
+  recursive=TRUE)
+```
+
+```{r}
+args <- list(
+    output_dir = "/Users/michaelfive/Library/CloudStorage/GoogleDrive-wuzezhen33@gmail.com/My Drive/WB Ukraine Study/Reports",  
+    parameters = list(
+    # set R code print options
+    printcode = FALSE,
+    printwarning = FALSE,
+    storecache = FALSE,
+
+    # set report overall parameters
+    set_author = "Zezhen Wu",
+
+    # select report sections
+    item = TRUE,
+    descriptive = TRUE,
+    ds_plot = TRUE,
+    correlation_matrix_lg = FALSE,
+    correlation_matrix_bivar = FALSE,
+    correlation_matrix_item = TRUE,
+    efa_screeplot = TRUE,
+    cfa_model_fit = TRUE,
+    cfa_model_plot = TRUE,
+    cfa_model_parameters = TRUE,
+    cfa_model_thresholds = FALSE,
+    cfa_r2 = FALSE,
+    internal_reliability = TRUE,
+    summary_item_statistics = FALSE,
+    item_total_statistics = TRUE,
+    inv_tx = FALSE,
+    inv_gender = FALSE,
+    inv_age = FALSE,
+    inv_lg = FALSE
+  )
+)
+```
+
+```{r}
+args$output_file = "Report_dass_tutor.docx"
+args$parameters$template = here::here("Mplus/constructs_tutor/input_dass_tutor.xlsx")
+args$parameters$set_title = "Measurement Report - DASS Baseline (Tutors)"
+
+do.call(render_report, args)
+```
+
+```{r}
+args$output_file = "Report_empathy_tutor.docx"
+args$parameters$template = here::here("Mplus/constructs_tutor/input_empathy_tutor.xlsx")
+args$parameters$set_title = "Measurement Report - Empathy Baseline (Tutors)"
+
+do.call(render_report, args)
+```
+
+```{r}
+args$output_file = "Report_auto_tutor.docx"
+args$parameters$template = here::here("Mplus/constructs_tutor/input_auto_tutor.xlsx")
+args$parameters$set_title = "Measurement Report - Work-related Efficacy Baseline (Tutors)"
+
+do.call(render_report, args)
+```
+
+```{r}
+args$output_file = "Report_bias_tutor.docx"
+args$parameters$template = here::here("Mplus/constructs_tutor/input_bias_tutor.xlsx")
+args$parameters$set_title = "Measurement Report - Bias Baseline (Tutors)"
+
+do.call(render_report, args)
+```
+
+```{r}
+args$output_file = "Report_hardwork_tutor.docx"
+args$parameters$template = here::here("Mplus/constructs_tutor/input_hardwork_tutor.xlsx")
+args$parameters$set_title = "Measurement Report - Hard Work Baseline (Tutors)"
+
+do.call(render_report, args)
+```
+
+```{r}
+args$output_file = "Report_prosociality_tutor.docx"
+args$parameters$template = here::here("Mplus/constructs_tutor/input_prosociality_tutor.xlsx")
+args$parameters$set_title = "Measurement Report - Prosociality Baseline (Tutors)"
+
+do.call(render_report, args)
+```
+
+```{r}
+args$output_file = "Report_perceptions_tutor.docx"
+args$parameters$template = here::here("Mplus/constructs_tutor/input_perceptions_tutor.xlsx")
+args$parameters$set_title = "Measurement Report - Perceptions Baseline (Tutors)"
+
+do.call(render_report, args)
+```
+
+```{r}
+get.omega.bywave(model = "dass1_tutor_cfa1.out",
+                 path = "Mplus/constructs_tutor")
+
+get.omega.bywave(model = "empathy1_tutor_cfa1.out",
+                 path = "Mplus/constructs_tutor")
+
+get.omega.bywave(model = "auto1_tutor_cfa.out",
+                 path = "Mplus/constructs_tutor")
+
+get.omega.bywave(model = "bias1_tutor_cfa.out",
+                 path = "Mplus/constructs_tutor")
+
+get.omega.bywave(model = "hardwork1_tutor_cfa.out",
+                 path = "Mplus/constructs_tutor")
+
+get.omega.bywave(model = "perceptions1_tutor_cfa.out",
+                 path = "Mplus/constructs_tutor")
+
+get.omega.bywave(model = "prosocial1_tutor_cfa2.out",
+                 path = "Mplus/constructs_tutor")
+```
+

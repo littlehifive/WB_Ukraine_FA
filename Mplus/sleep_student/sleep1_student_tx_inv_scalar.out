@@ -1,0 +1,837 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/03/2023  10:10 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Sleep Treatment Measurement Invariance Scalar Model;
+
+    Data:
+       File is ../dat_stu.txt;
+
+    Variable:
+       Names are studentid index treatment girl age_w child_grade in_ukr
+       guardian_living guardian_region
+       grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1
+       loc1_1 loc2_1 loc3_1 loc4_1
+       dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+       dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+       sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1
+       efficacy_1 edugoals_1 remotediff_1 timeclass_1 timehomework_1
+       grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2
+       loc1_2 loc2_2 loc3_2 loc4_2
+       dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+       dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+       efficacy_2 edugoals_2 timeclass_2 timehomework_2 compmath_2 half;
+       Missing are . ;
+
+      Usevariable are
+    	sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1;
+
+      Categorical is
+    	sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1;
+
+      Idvariable is studentid;
+
+      Group is treatment (1 = Treated 0 = Control);
+
+  Analysis:
+     Estimator = wlsmv;
+     Parameterization = theta;
+     Difftest = sleep1_student_tx_inv_metric.dat
+
+
+  !!! Model for Control Group !!!
+
+  Model:
+    ! Factor loadings all freely estimated
+    sleep_1 by
+      sleep1_1-sleep7_1* (L1-L7);
+
+    sleep1_1 with sleep2_1;
+    sleep6_1 with sleep7_1;
+
+    !estimating thresholds freely
+    [sleep1_1$1-sleep7_1$1*] (T1_1-T1_7);
+    [sleep1_1$2-sleep7_1$2*] (T2_1-T2_7);
+    [sleep1_1$3-sleep7_1$3*] (T3_1-T3_7);
+
+    !constraining item residual variance to 1 for identification
+    sleep1_1-sleep7_1@1;
+
+    !fixing latent mean to zero for identification
+    [sleep_1@0];
+
+    !fixing latent variance to one for identification
+    sleep_1@1;
+
+  !!! Model for Treatment Group !!!
+
+  Model Treated:
+    ! Factor loadings constrained to *be equal to the control group*
+    sleep_1 by sleep1_1-sleep7_1* (L1-L7);
+
+    sleep1_1 with sleep2_1;
+    sleep6_1 with sleep7_1;
+
+    ! *thresholds held equal to the control group when left blank*
+
+    ! constraining item residual variance to 1 for identification
+    sleep1_1-sleep7_1@1;
+
+    ! latent factor mean *estimated*
+    [sleep_1*];
+
+    ! latent factor variance *estimated*
+    sleep_1*;
+
+  Output: sampstat stdyx modindices(all);
+  Savedata: Difftest is sleep1_student_tx_inv_scalar.dat;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Student Sleep Treatment Measurement Invariance Scalar Model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group CONTROL                                              1259
+   Group TREATED                                              1285
+   Total sample size                                          2544
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SLEEP1_1    SLEEP2_1    SLEEP3_1    SLEEP4_1    SLEEP5_1    SLEEP6_1
+   SLEEP7_1
+
+Continuous latent variables
+   SLEEP_1
+
+Variables with special functions
+
+  Grouping variable     TREATMEN
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group CONTROL
+     Number of missing data patterns             1
+
+   Group TREATED
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR CONTROL
+
+
+           Covariance Coverage
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       1.000
+ SLEEP2_1       1.000         1.000
+ SLEEP3_1       1.000         1.000         1.000
+ SLEEP4_1       1.000         1.000         1.000         1.000
+ SLEEP5_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP6_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP7_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       1.000
+ SLEEP7_1       1.000         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR TREATED
+
+
+           Covariance Coverage
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       1.000
+ SLEEP2_1       1.000         1.000
+ SLEEP3_1       1.000         1.000         1.000
+ SLEEP4_1       1.000         1.000         1.000         1.000
+ SLEEP5_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP6_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP7_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       1.000
+ SLEEP7_1       1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+  Group CONTROL
+    SLEEP1_1
+      Category 1    0.258          325.000
+      Category 2    0.375          472.000
+      Category 3    0.235          296.000
+      Category 4    0.102          129.000
+      Category 5    0.029           37.000
+    SLEEP2_1
+      Category 1    0.379          477.000
+      Category 2    0.328          413.000
+      Category 3    0.203          256.000
+      Category 4    0.074           93.000
+      Category 5    0.016           20.000
+    SLEEP3_1
+      Category 1    0.480          604.000
+      Category 2    0.336          423.000
+      Category 3    0.115          145.000
+      Category 4    0.057           72.000
+      Category 5    0.012           15.000
+    SLEEP4_1
+      Category 1    0.129          162.000
+      Category 2    0.358          451.000
+      Category 3    0.343          432.000
+      Category 4    0.142          179.000
+      Category 5    0.028           35.000
+    SLEEP5_1
+      Category 1    0.505          636.000
+      Category 2    0.299          377.000
+      Category 3    0.133          167.000
+      Category 4    0.048           61.000
+      Category 5    0.014           18.000
+    SLEEP6_1
+      Category 1    0.689          867.000
+      Category 2    0.205          258.000
+      Category 3    0.089          112.000
+      Category 4    0.012           15.000
+      Category 5    0.006            7.000
+    SLEEP7_1
+      Category 1    0.485          611.000
+      Category 2    0.322          405.000
+      Category 3    0.126          159.000
+      Category 4    0.057           72.000
+      Category 5    0.010           12.000
+
+  Group TREATED
+    SLEEP1_1
+      Category 1    0.258          332.000
+      Category 2    0.388          498.000
+      Category 3    0.230          296.000
+      Category 4    0.094          121.000
+      Category 5    0.030           38.000
+    SLEEP2_1
+      Category 1    0.374          481.000
+      Category 2    0.350          450.000
+      Category 3    0.187          240.000
+      Category 4    0.075           96.000
+      Category 5    0.014           18.000
+    SLEEP3_1
+      Category 1    0.445          572.000
+      Category 2    0.363          466.000
+      Category 3    0.129          166.000
+      Category 4    0.051           66.000
+      Category 5    0.012           15.000
+    SLEEP4_1
+      Category 1    0.154          198.000
+      Category 2    0.352          452.000
+      Category 3    0.331          425.000
+      Category 4    0.140          180.000
+      Category 5    0.023           30.000
+    SLEEP5_1
+      Category 1    0.519          667.000
+      Category 2    0.296          381.000
+      Category 3    0.132          170.000
+      Category 4    0.037           47.000
+      Category 5    0.016           20.000
+    SLEEP6_1
+      Category 1    0.683          878.000
+      Category 2    0.220          283.000
+      Category 3    0.071           91.000
+      Category 4    0.023           29.000
+      Category 5    0.003            4.000
+    SLEEP7_1
+      Category 1    0.489          629.000
+      Category 2    0.314          404.000
+      Category 3    0.139          178.000
+      Category 4    0.047           60.000
+      Category 5    0.011           14.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS FOR CONTROL
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP2_1
+              ________      ________      ________      ________      ________
+               -0.649         0.340         1.118         1.890        -0.308
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP2_1      SLEEP2_1      SLEEP2_1      SLEEP3_1      SLEEP3_1
+              ________      ________      ________      ________      ________
+                0.544         1.342         2.147        -0.051         0.899
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP3_1      SLEEP3_1      SLEEP4_1      SLEEP4_1      SLEEP4_1
+              ________      ________      ________      ________      ________
+                1.483         2.260        -1.133        -0.033         0.954
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP4_1      SLEEP5_1      SLEEP5_1      SLEEP5_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                1.914         0.013         0.858         1.532         2.189
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP7_1
+              ________      ________      ________      ________      ________
+                0.492         1.246         2.109         2.539        -0.037
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP7_1      SLEEP7_1      SLEEP7_1
+              ________      ________      ________
+                0.867         1.501         2.344
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1
+ SLEEP2_1       0.815
+ SLEEP3_1       0.507         0.604
+ SLEEP4_1       0.547         0.560         0.410
+ SLEEP5_1       0.509         0.528         0.414         0.480
+ SLEEP6_1       0.546         0.590         0.466         0.541         0.598
+ SLEEP7_1       0.510         0.554         0.417         0.597         0.559
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP7_1       0.660
+
+
+     ESTIMATED SAMPLE STATISTICS FOR TREATED
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP2_1
+              ________      ________      ________      ________      ________
+               -0.648         0.374         1.157         1.887        -0.320
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP2_1      SLEEP2_1      SLEEP2_1      SLEEP3_1      SLEEP3_1
+              ________      ________      ________      ________      ________
+                0.596         1.349         2.197        -0.138         0.870
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP3_1      SLEEP3_1      SLEEP4_1      SLEEP4_1      SLEEP4_1
+              ________      ________      ________      ________      ________
+                1.530         2.268        -1.019         0.015         0.980
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP4_1      SLEEP5_1      SLEEP5_1      SLEEP5_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                1.989         0.048         0.899         1.624         2.155
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP7_1
+              ________      ________      ________      ________      ________
+                0.477         1.302         1.948         2.736        -0.026
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP7_1      SLEEP7_1      SLEEP7_1
+              ________      ________      ________
+                0.856         1.575         2.294
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1
+ SLEEP2_1       0.814
+ SLEEP3_1       0.517         0.636
+ SLEEP4_1       0.569         0.573         0.400
+ SLEEP5_1       0.544         0.571         0.428         0.530
+ SLEEP6_1       0.548         0.600         0.500         0.609         0.650
+ SLEEP7_1       0.499         0.527         0.407         0.577         0.637
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP7_1       0.691
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       41
+
+Chi-Square Test of Model Fit
+
+          Value                            253.000*
+          Degrees of Freedom                    57
+          P-Value                           0.0000
+
+Chi-Square Contribution From Each Group
+
+          CONTROL                           99.593
+          TREATED                          153.407
+
+Chi-Square Test for Difference Testing
+
+          Value                             20.463*
+          Degrees of Freedom                    20
+          P-Value                           0.4293
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.052
+          90 Percent C.I.                    0.046  0.059
+          Probability RMSEA <= .05           0.297
+
+CFI/TLI
+
+          CFI                                0.991
+          TLI                                0.993
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          21271.622
+          Degrees of Freedom                    42
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.029
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.39241485D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group CONTROL
+
+ SLEEP_1  BY
+    SLEEP1_1           1.043      0.044     23.832      0.000
+    SLEEP2_1           1.269      0.051     24.792      0.000
+    SLEEP3_1           0.857      0.038     22.568      0.000
+    SLEEP4_1           1.053      0.041     25.598      0.000
+    SLEEP5_1           1.079      0.047     23.010      0.000
+    SLEEP6_1           1.230      0.059     20.784      0.000
+    SLEEP7_1           1.086      0.046     23.449      0.000
+
+ SLEEP1_1 WITH
+    SLEEP2_1           0.578      0.023     25.594      0.000
+
+ SLEEP6_1 WITH
+    SLEEP7_1           0.210      0.045      4.634      0.000
+
+ Means
+    SLEEP_1            0.000      0.000    999.000    999.000
+
+ Thresholds
+    SLEEP1_1$1        -0.966      0.047    -20.492      0.000
+    SLEEP1_1$2         0.500      0.044     11.287      0.000
+    SLEEP1_1$3         1.637      0.054     30.096      0.000
+    SLEEP1_1$4         2.732      0.079     34.434      0.000
+    SLEEP2_1$1        -0.538      0.050    -10.771      0.000
+    SLEEP2_1$2         0.906      0.054     16.905      0.000
+    SLEEP2_1$3         2.172      0.069     31.580      0.000
+    SLEEP2_1$4         3.519      0.108     32.609      0.000
+    SLEEP3_1$1        -0.142      0.038     -3.735      0.000
+    SLEEP3_1$2         1.157      0.044     25.996      0.000
+    SLEEP3_1$3         1.981      0.057     34.978      0.000
+    SLEEP3_1$4         2.987      0.094     31.642      0.000
+    SLEEP4_1$1        -1.594      0.053    -29.848      0.000
+    SLEEP4_1$2        -0.034      0.043     -0.780      0.435
+    SLEEP4_1$3         1.397      0.051     27.271      0.000
+    SLEEP4_1$4         2.835      0.081     35.164      0.000
+    SLEEP5_1$1         0.024      0.044      0.554      0.579
+    SLEEP5_1$2         1.283      0.053     24.308      0.000
+    SLEEP5_1$3         2.319      0.070     33.258      0.000
+    SLEEP5_1$4         3.205      0.100     32.131      0.000
+    SLEEP6_1$1         0.752      0.054     13.954      0.000
+    SLEEP6_1$2         2.015      0.072     28.055      0.000
+    SLEEP6_1$3         3.208      0.108     29.809      0.000
+    SLEEP6_1$4         4.159      0.172     24.201      0.000
+    SLEEP7_1$1        -0.068      0.044     -1.540      0.124
+    SLEEP7_1$2         1.262      0.053     23.874      0.000
+    SLEEP7_1$3         2.268      0.069     33.006      0.000
+    SLEEP7_1$4         3.432      0.113     30.374      0.000
+
+ Variances
+    SLEEP_1            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    SLEEP1_1           1.000      0.000    999.000    999.000
+    SLEEP2_1           1.000      0.000    999.000    999.000
+    SLEEP3_1           1.000      0.000    999.000    999.000
+    SLEEP4_1           1.000      0.000    999.000    999.000
+    SLEEP5_1           1.000      0.000    999.000    999.000
+    SLEEP6_1           1.000      0.000    999.000    999.000
+    SLEEP7_1           1.000      0.000    999.000    999.000
+
+Group TREATED
+
+ SLEEP_1  BY
+    SLEEP1_1           1.043      0.044     23.832      0.000
+    SLEEP2_1           1.269      0.051     24.792      0.000
+    SLEEP3_1           0.857      0.038     22.568      0.000
+    SLEEP4_1           1.053      0.041     25.598      0.000
+    SLEEP5_1           1.079      0.047     23.010      0.000
+    SLEEP6_1           1.230      0.059     20.784      0.000
+    SLEEP7_1           1.086      0.046     23.449      0.000
+
+ SLEEP1_1 WITH
+    SLEEP2_1           0.560      0.023     24.543      0.000
+
+ SLEEP6_1 WITH
+    SLEEP7_1           0.253      0.042      6.023      0.000
+
+ Means
+    SLEEP_1           -0.039      0.046     -0.858      0.391
+
+ Thresholds
+    SLEEP1_1$1        -0.966      0.047    -20.492      0.000
+    SLEEP1_1$2         0.500      0.044     11.287      0.000
+    SLEEP1_1$3         1.637      0.054     30.096      0.000
+    SLEEP1_1$4         2.732      0.079     34.434      0.000
+    SLEEP2_1$1        -0.538      0.050    -10.771      0.000
+    SLEEP2_1$2         0.906      0.054     16.905      0.000
+    SLEEP2_1$3         2.172      0.069     31.580      0.000
+    SLEEP2_1$4         3.519      0.108     32.609      0.000
+    SLEEP3_1$1        -0.142      0.038     -3.735      0.000
+    SLEEP3_1$2         1.157      0.044     25.996      0.000
+    SLEEP3_1$3         1.981      0.057     34.978      0.000
+    SLEEP3_1$4         2.987      0.094     31.642      0.000
+    SLEEP4_1$1        -1.594      0.053    -29.848      0.000
+    SLEEP4_1$2        -0.034      0.043     -0.780      0.435
+    SLEEP4_1$3         1.397      0.051     27.271      0.000
+    SLEEP4_1$4         2.835      0.081     35.164      0.000
+    SLEEP5_1$1         0.024      0.044      0.554      0.579
+    SLEEP5_1$2         1.283      0.053     24.308      0.000
+    SLEEP5_1$3         2.319      0.070     33.258      0.000
+    SLEEP5_1$4         3.205      0.100     32.131      0.000
+    SLEEP6_1$1         0.752      0.054     13.954      0.000
+    SLEEP6_1$2         2.015      0.072     28.055      0.000
+    SLEEP6_1$3         3.208      0.108     29.809      0.000
+    SLEEP6_1$4         4.159      0.172     24.201      0.000
+    SLEEP7_1$1        -0.068      0.044     -1.540      0.124
+    SLEEP7_1$2         1.262      0.053     23.874      0.000
+    SLEEP7_1$3         2.268      0.069     33.006      0.000
+    SLEEP7_1$4         3.432      0.113     30.374      0.000
+
+ Variances
+    SLEEP_1            1.070      0.077     13.871      0.000
+
+ Residual Variances
+    SLEEP1_1           1.000      0.000    999.000    999.000
+    SLEEP2_1           1.000      0.000    999.000    999.000
+    SLEEP3_1           1.000      0.000    999.000    999.000
+    SLEEP4_1           1.000      0.000    999.000    999.000
+    SLEEP5_1           1.000      0.000    999.000    999.000
+    SLEEP6_1           1.000      0.000    999.000    999.000
+    SLEEP7_1           1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group CONTROL
+
+ SLEEP_1  BY
+    SLEEP1_1           0.722      0.015     49.734      0.000
+    SLEEP2_1           0.785      0.012     64.711      0.000
+    SLEEP3_1           0.651      0.017     39.158      0.000
+    SLEEP4_1           0.725      0.013     53.968      0.000
+    SLEEP5_1           0.734      0.015     49.822      0.000
+    SLEEP6_1           0.776      0.015     52.207      0.000
+    SLEEP7_1           0.736      0.014     51.101      0.000
+
+ SLEEP1_1 WITH
+    SLEEP2_1           0.578      0.023     25.594      0.000
+
+ SLEEP6_1 WITH
+    SLEEP7_1           0.210      0.045      4.634      0.000
+
+ Means
+    SLEEP_1            0.000      0.000    999.000    999.000
+
+ Thresholds
+    SLEEP1_1$1        -0.669      0.033    -20.443      0.000
+    SLEEP1_1$2         0.346      0.030     11.468      0.000
+    SLEEP1_1$3         1.133      0.036     31.084      0.000
+    SLEEP1_1$4         1.891      0.056     33.765      0.000
+    SLEEP2_1$1        -0.333      0.031    -10.571      0.000
+    SLEEP2_1$2         0.561      0.032     17.595      0.000
+    SLEEP2_1$3         1.344      0.041     32.456      0.000
+    SLEEP2_1$4         2.178      0.071     30.562      0.000
+    SLEEP3_1$1        -0.108      0.029     -3.713      0.000
+    SLEEP3_1$2         0.878      0.033     26.796      0.000
+    SLEEP3_1$3         1.504      0.043     35.277      0.000
+    SLEEP3_1$4         2.267      0.074     30.670      0.000
+    SLEEP4_1$1        -1.098      0.038    -29.091      0.000
+    SLEEP4_1$2        -0.023      0.030     -0.779      0.436
+    SLEEP4_1$3         0.962      0.034     27.952      0.000
+    SLEEP4_1$4         1.953      0.058     33.609      0.000
+    SLEEP5_1$1         0.016      0.030      0.555      0.579
+    SLEEP5_1$2         0.872      0.034     25.938      0.000
+    SLEEP5_1$3         1.576      0.045     35.150      0.000
+    SLEEP5_1$4         2.178      0.069     31.512      0.000
+    SLEEP6_1$1         0.474      0.031     15.162      0.000
+    SLEEP6_1$2         1.271      0.039     32.393      0.000
+    SLEEP6_1$3         2.024      0.063     31.946      0.000
+    SLEEP6_1$4         2.624      0.109     24.077      0.000
+    SLEEP7_1$1        -0.046      0.030     -1.534      0.125
+    SLEEP7_1$2         0.855      0.034     25.361      0.000
+    SLEEP7_1$3         1.536      0.044     34.666      0.000
+    SLEEP7_1$4         2.325      0.078     29.733      0.000
+
+ Variances
+    SLEEP_1            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    SLEEP1_1           0.479      0.021     22.879      0.000
+    SLEEP2_1           0.383      0.019     20.095      0.000
+    SLEEP3_1           0.576      0.022     26.634      0.000
+    SLEEP4_1           0.474      0.019     24.347      0.000
+    SLEEP5_1           0.462      0.022     21.378      0.000
+    SLEEP6_1           0.398      0.023     17.266      0.000
+    SLEEP7_1           0.459      0.021     21.666      0.000
+
+Group TREATED
+
+ SLEEP_1  BY
+    SLEEP1_1           0.733      0.014     52.248      0.000
+    SLEEP2_1           0.795      0.012     68.130      0.000
+    SLEEP3_1           0.663      0.016     42.155      0.000
+    SLEEP4_1           0.736      0.013     57.220      0.000
+    SLEEP5_1           0.745      0.014     52.649      0.000
+    SLEEP6_1           0.786      0.014     55.551      0.000
+    SLEEP7_1           0.747      0.014     53.389      0.000
+
+ SLEEP1_1 WITH
+    SLEEP2_1           0.560      0.023     24.543      0.000
+
+ SLEEP6_1 WITH
+    SLEEP7_1           0.253      0.042      6.023      0.000
+
+ Means
+    SLEEP_1           -0.038      0.044     -0.863      0.388
+
+ Thresholds
+    SLEEP1_1$1        -0.657      0.031    -21.115      0.000
+    SLEEP1_1$2         0.340      0.030     11.232      0.000
+    SLEEP1_1$3         1.113      0.037     29.708      0.000
+    SLEEP1_1$4         1.858      0.055     33.719      0.000
+    SLEEP2_1$1        -0.326      0.030    -10.792      0.000
+    SLEEP2_1$2         0.549      0.033     16.895      0.000
+    SLEEP2_1$3         1.316      0.042     31.030      0.000
+    SLEEP2_1$4         2.133      0.070     30.602      0.000
+    SLEEP3_1$1        -0.106      0.028     -3.730      0.000
+    SLEEP3_1$2         0.865      0.033     26.178      0.000
+    SLEEP3_1$3         1.482      0.043     34.615      0.000
+    SLEEP3_1$4         2.235      0.073     30.756      0.000
+    SLEEP4_1$1        -1.078      0.035    -30.583      0.000
+    SLEEP4_1$2        -0.023      0.029     -0.781      0.435
+    SLEEP4_1$3         0.945      0.035     26.698      0.000
+    SLEEP4_1$4         1.918      0.058     33.184      0.000
+    SLEEP5_1$1         0.016      0.029      0.555      0.579
+    SLEEP5_1$2         0.856      0.034     24.863      0.000
+    SLEEP5_1$3         1.547      0.047     32.939      0.000
+    SLEEP5_1$4         2.138      0.069     30.926      0.000
+    SLEEP6_1$1         0.465      0.032     14.726      0.000
+    SLEEP6_1$2         1.245      0.041     30.394      0.000
+    SLEEP6_1$3         1.983      0.062     31.958      0.000
+    SLEEP6_1$4         2.571      0.106     24.279      0.000
+    SLEEP7_1$1        -0.045      0.029     -1.538      0.124
+    SLEEP7_1$2         0.839      0.034     24.467      0.000
+    SLEEP7_1$3         1.508      0.046     33.083      0.000
+    SLEEP7_1$4         2.282      0.079     28.934      0.000
+
+ Variances
+    SLEEP_1            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    SLEEP1_1           0.462      0.021     22.472      0.000
+    SLEEP2_1           0.367      0.019     19.780      0.000
+    SLEEP3_1           0.560      0.021     26.807      0.000
+    SLEEP4_1           0.458      0.019     24.134      0.000
+    SLEEP5_1           0.445      0.021     21.122      0.000
+    SLEEP6_1           0.382      0.022     17.176      0.000
+    SLEEP7_1           0.442      0.021     21.164      0.000
+
+
+R-SQUARE
+
+Group CONTROL
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    SLEEP1_1           0.521      0.021     24.867      0.000      0.692
+    SLEEP2_1           0.617      0.019     32.356      0.000      0.619
+    SLEEP3_1           0.424      0.022     19.579      0.000      0.759
+    SLEEP4_1           0.526      0.019     26.984      0.000      0.689
+    SLEEP5_1           0.538      0.022     24.911      0.000      0.680
+    SLEEP6_1           0.602      0.023     26.103      0.000      0.631
+    SLEEP7_1           0.541      0.021     25.551      0.000      0.677
+
+Group TREATED
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    SLEEP1_1           0.538      0.021     26.124      0.000      0.680
+    SLEEP2_1           0.633      0.019     34.065      0.000      0.606
+    SLEEP3_1           0.440      0.021     21.078      0.000      0.748
+    SLEEP4_1           0.542      0.019     28.610      0.000      0.676
+    SLEEP5_1           0.555      0.021     26.325      0.000      0.667
+    SLEEP6_1           0.618      0.022     27.775      0.000      0.618
+    SLEEP7_1           0.558      0.021     26.695      0.000      0.665
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.898E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+Group CONTROL
+
+
+ON Statements
+
+SLEEP2_1 ON SLEEP3_1              24.193     0.168      0.168        0.137
+SLEEP3_1 ON SLEEP2_1              11.677     0.070      0.070        0.086
+SLEEP7_1 ON SLEEP4_1              11.041     0.093      0.093        0.091
+
+WITH Statements
+
+SLEEP3_1 WITH SLEEP2_1            34.432     0.263      0.263        0.263
+SLEEP7_1 WITH SLEEP4_1            18.542     0.187      0.187        0.187
+
+Variances/Residual Variances
+
+SLEEP5_1                          10.476     0.275      0.275        0.127
+
+Group TREATED
+
+
+ON Statements
+
+SLEEP2_1 ON SLEEP3_1              25.730     0.177      0.177        0.144
+SLEEP3_1 ON SLEEP2_1              12.147     0.073      0.073        0.090
+SLEEP5_1 ON SLEEP6_1              18.208     0.120      0.120        0.130
+SLEEP5_1 ON SLEEP7_1              28.083     0.154      0.154        0.155
+SLEEP6_1 ON SLEEP5_1              10.095     0.111      0.111        0.102
+SLEEP7_1 ON SLEEP3_1              10.651    -0.118     -0.118       -0.105
+
+WITH Statements
+
+SLEEP3_1 WITH SLEEP2_1            54.025     0.341      0.341        0.341
+SLEEP4_1 WITH SLEEP3_1            16.888    -0.214     -0.214       -0.214
+SLEEP6_1 WITH SLEEP5_1            17.513     0.244      0.244        0.244
+SLEEP7_1 WITH SLEEP2_1            14.269    -0.215     -0.215       -0.215
+SLEEP7_1 WITH SLEEP3_1            16.015    -0.217     -0.217       -0.217
+SLEEP7_1 WITH SLEEP5_1            37.270     0.310      0.310        0.310
+
+Variances/Residual Variances
+
+SLEEP5_1                          10.461    -0.275     -0.275       -0.122
+
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    sleep1_student_tx_inv_scalar.dat
+  Save format      Free
+
+     Beginning Time:  22:10:08
+        Ending Time:  22:10:08
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

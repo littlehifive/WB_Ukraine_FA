@@ -1,0 +1,70 @@
+Title: Parent DASS Gender Measurement Invariance Scalar Model;
+
+Data:
+   File is dass_parent_1.txt;
+
+Variable:
+   Names are studentid treatment female age_w dass1_1 dass2_1 dass3_1
+   dass4_1 dass5_1 dass6_1 dass7_1 half; 
+   Missing are . ;
+
+  Usevariable are
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+   
+  Categorical is
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+    
+  Group is female (1 = Female 0 = Male);
+
+Analysis:
+   Estimator = wlsmv;
+   Parameterization = theta;
+   Difftest = dass1_parent_gender_inv_metric.dat
+  
+  
+!!! Model for Male !!!
+
+Model:
+  ! Factor loadings all freely estimated
+  dassp_1 by
+    dass1_1-dass7_1* (L1-L7);
+    
+  dass1_1 with dass2_1;
+  dass6_1 with dass7_1;
+  
+  !estimating thresholds freely
+  [dass1_1$1-dass7_1$1*] (T1_1-T1_7);
+  [dass1_1$2-dass7_1$2*] (T2_1-T2_7);
+  [dass1_1$3-dass7_1$3*] (T3_1-T3_7);
+  
+  !constraining item residual variance to 1 for identification
+  dass1_1-dass7_1@1;
+
+  !fixing latent mean to zero for identification
+  [dassp_1@0];
+  
+  !fixing latent variance to one for identification
+  dassp_1@1;
+  
+!!! Model for Female !!!
+
+Model Female:
+  ! Factor loadings constrained to *be equal to the comparison group*
+  dassp_1 by dass1_1-dass7_1* (L1-L7);
+    
+  dass1_1 with dass2_1;
+  dass6_1 with dass7_1;
+  
+  ! *thresholds held equal to the comparison group when left blank*
+  
+  ! constraining item residual variance to 1 for identification
+  dass1_1-dass7_1@1;
+
+  ! latent factor mean *estimated*
+  [dassp_1*];
+  
+  ! latent factor variance *estimated*
+  dassp_1*;
+     
+Output: sampstat stdyx modindices(all);
+Savedata: Difftest is dass1_parent_gender_inv_scalar.dat;

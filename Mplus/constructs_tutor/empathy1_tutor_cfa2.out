@@ -1,0 +1,443 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/21/2023  10:25 AM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor DASS Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+    empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+    empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+    Categorical is
+    empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+    empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    empathy_1 by empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+    empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Tutor DASS Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         100
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   EMPATHY1    EMPATHY2    EMPATHY3    EMPATHY4    EMPATHY5    EMPATHY6
+   EMPATHY7    EMPATHY8    EMPATHY9
+
+Continuous latent variables
+   EMPATHY_
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       1.000
+ EMPATHY2       1.000         1.000
+ EMPATHY3       1.000         1.000         1.000
+ EMPATHY4       1.000         1.000         1.000         1.000
+ EMPATHY5       1.000         1.000         1.000         1.000         1.000
+ EMPATHY6       1.000         1.000         1.000         1.000         1.000
+ EMPATHY7       1.000         1.000         1.000         1.000         1.000
+ EMPATHY8       1.000         1.000         1.000         1.000         1.000
+ EMPATHY9       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       1.000
+ EMPATHY7       1.000         1.000
+ EMPATHY8       1.000         1.000         1.000
+ EMPATHY9       1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    EMPATHY1
+      Category 1    0.090            9.000
+      Category 2    0.620           62.000
+      Category 3    0.290           29.000
+    EMPATHY2
+      Category 1    0.010            1.000
+      Category 2    0.340           34.000
+      Category 3    0.600           60.000
+      Category 4    0.050            5.000
+    EMPATHY3
+      Category 1    0.130           13.000
+      Category 2    0.710           71.000
+      Category 3    0.160           16.000
+    EMPATHY4
+      Category 1    0.060            6.000
+      Category 2    0.510           51.000
+      Category 3    0.430           43.000
+    EMPATHY5
+      Category 1    0.010            1.000
+      Category 2    0.060            6.000
+      Category 3    0.620           62.000
+      Category 4    0.310           31.000
+    EMPATHY6
+      Category 1    0.030            3.000
+      Category 2    0.280           28.000
+      Category 3    0.600           60.000
+      Category 4    0.090            9.000
+    EMPATHY7
+      Category 1    0.060            6.000
+      Category 2    0.440           44.000
+      Category 3    0.440           44.000
+      Category 4    0.060            6.000
+    EMPATHY8
+      Category 1    0.030            3.000
+      Category 2    0.170           17.000
+      Category 3    0.660           66.000
+      Category 4    0.140           14.000
+    EMPATHY9
+      Category 1    0.030            3.000
+      Category 2    0.260           26.000
+      Category 3    0.610           61.000
+      Category 4    0.100           10.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY1      EMPATHY1      EMPATHY2      EMPATHY2      EMPATHY2
+              ________      ________      ________      ________      ________
+               -1.341         0.553        -2.326        -0.385         1.645
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY3      EMPATHY3      EMPATHY4      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+               -1.126         0.994        -1.555         0.176        -2.326
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY5      EMPATHY5      EMPATHY6      EMPATHY6      EMPATHY6
+              ________      ________      ________      ________      ________
+               -1.476         0.496        -1.881        -0.496         1.341
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY7      EMPATHY7      EMPATHY7      EMPATHY8      EMPATHY8
+              ________      ________      ________      ________      ________
+               -1.555         0.000         1.555        -1.881        -0.842
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY8      EMPATHY9      EMPATHY9      EMPATHY9
+              ________      ________      ________      ________
+                1.080        -1.881        -0.553         1.282
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1
+ EMPATHY2      -0.071
+ EMPATHY3       0.525         0.083
+ EMPATHY4       0.488        -0.061         0.413
+ EMPATHY5       0.395         0.168         0.395         0.647
+ EMPATHY6       0.581         0.075         0.749         0.309         0.394
+ EMPATHY7       0.276         0.242         0.414         0.140         0.396
+ EMPATHY8       0.244        -0.005         0.453         0.044         0.143
+ EMPATHY9       0.495         0.168         0.365         0.285         0.429
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY7       0.449
+ EMPATHY8       0.406         0.608
+ EMPATHY9       0.368         0.644         0.643
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       33
+
+Chi-Square Test of Model Fit
+
+          Value                            106.532*
+          Degrees of Freedom                    27
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.172
+          90 Percent C.I.                    0.138  0.206
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.841
+          TLI                                0.788
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            535.736
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.103
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.45404620D+00
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ EMPATHY_ BY
+    EMPATHY1_1         1.000      0.000    999.000    999.000
+    EMPATHY2_1         0.211      0.169      1.254      0.210
+    EMPATHY3_1         1.208      0.154      7.825      0.000
+    EMPATHY4_1         0.822      0.143      5.740      0.000
+    EMPATHY5_1         0.977      0.163      6.003      0.000
+    EMPATHY6_1         1.183      0.131      9.053      0.000
+    EMPATHY7_1         1.134      0.146      7.778      0.000
+    EMPATHY8_1         1.070      0.139      7.680      0.000
+    EMPATHY9_1         1.260      0.166      7.604      0.000
+
+ Thresholds
+    EMPATHY1$1        -1.341      0.176     -7.608      0.000
+    EMPATHY1$2         0.553      0.133      4.175      0.000
+    EMPATHY2$1        -2.326      0.373     -6.231      0.000
+    EMPATHY2$2        -0.385      0.129     -2.992      0.003
+    EMPATHY2$3         1.645      0.211      7.784      0.000
+    EMPATHY3$1        -1.126      0.159     -7.085      0.000
+    EMPATHY3$2         0.994      0.151      6.600      0.000
+    EMPATHY4$1        -1.555      0.199     -7.799      0.000
+    EMPATHY4$2         0.176      0.126      1.399      0.162
+    EMPATHY5$1        -2.326      0.373     -6.231      0.000
+    EMPATHY5$2        -1.476      0.190     -7.766      0.000
+    EMPATHY5$3         0.496      0.131      3.782      0.000
+    EMPATHY6$1        -1.881      0.251     -7.502      0.000
+    EMPATHY6$2        -0.496      0.131     -3.782      0.000
+    EMPATHY6$3         1.341      0.176      7.608      0.000
+    EMPATHY7$1        -1.555      0.199     -7.799      0.000
+    EMPATHY7$2         0.000      0.125      0.000      1.000
+    EMPATHY7$3         1.555      0.199      7.799      0.000
+    EMPATHY8$1        -1.881      0.251     -7.502      0.000
+    EMPATHY8$2        -0.842      0.143     -5.891      0.000
+    EMPATHY8$3         1.080      0.156      6.930      0.000
+    EMPATHY9$1        -1.881      0.251     -7.502      0.000
+    EMPATHY9$2        -0.553      0.133     -4.175      0.000
+    EMPATHY9$3         1.282      0.171      7.497      0.000
+
+ Variances
+    EMPATHY_1          0.383      0.084      4.576      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ EMPATHY_ BY
+    EMPATHY1_1         0.619      0.068      9.151      0.000
+    EMPATHY2_1         0.131      0.100      1.310      0.190
+    EMPATHY3_1         0.747      0.046     16.317      0.000
+    EMPATHY4_1         0.508      0.078      6.534      0.000
+    EMPATHY5_1         0.604      0.076      7.973      0.000
+    EMPATHY6_1         0.732      0.069     10.582      0.000
+    EMPATHY7_1         0.702      0.052     13.539      0.000
+    EMPATHY8_1         0.662      0.053     12.455      0.000
+    EMPATHY9_1         0.780      0.057     13.681      0.000
+
+ Thresholds
+    EMPATHY1$1        -1.341      0.176     -7.608      0.000
+    EMPATHY1$2         0.553      0.133      4.175      0.000
+    EMPATHY2$1        -2.326      0.373     -6.231      0.000
+    EMPATHY2$2        -0.385      0.129     -2.992      0.003
+    EMPATHY2$3         1.645      0.211      7.784      0.000
+    EMPATHY3$1        -1.126      0.159     -7.085      0.000
+    EMPATHY3$2         0.994      0.151      6.600      0.000
+    EMPATHY4$1        -1.555      0.199     -7.799      0.000
+    EMPATHY4$2         0.176      0.126      1.399      0.162
+    EMPATHY5$1        -2.326      0.373     -6.231      0.000
+    EMPATHY5$2        -1.476      0.190     -7.766      0.000
+    EMPATHY5$3         0.496      0.131      3.782      0.000
+    EMPATHY6$1        -1.881      0.251     -7.502      0.000
+    EMPATHY6$2        -0.496      0.131     -3.782      0.000
+    EMPATHY6$3         1.341      0.176      7.608      0.000
+    EMPATHY7$1        -1.555      0.199     -7.799      0.000
+    EMPATHY7$2         0.000      0.125      0.000      1.000
+    EMPATHY7$3         1.555      0.199      7.799      0.000
+    EMPATHY8$1        -1.881      0.251     -7.502      0.000
+    EMPATHY8$2        -0.842      0.143     -5.891      0.000
+    EMPATHY8$3         1.080      0.156      6.930      0.000
+    EMPATHY9$1        -1.881      0.251     -7.502      0.000
+    EMPATHY9$2        -0.553      0.133     -4.175      0.000
+    EMPATHY9$3         1.282      0.171      7.497      0.000
+
+ Variances
+    EMPATHY_1          1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    EMPATHY1           0.383      0.084      4.576      0.000      0.617
+    EMPATHY2           0.017      0.026      0.655      0.512      0.983
+    EMPATHY3           0.558      0.068      8.159      0.000      0.442
+    EMPATHY4           0.259      0.079      3.267      0.001      0.741
+    EMPATHY5           0.365      0.092      3.987      0.000      0.635
+    EMPATHY6           0.536      0.101      5.291      0.000      0.464
+    EMPATHY7           0.492      0.073      6.769      0.000      0.508
+    EMPATHY8           0.438      0.070      6.227      0.000      0.562
+    EMPATHY9           0.608      0.089      6.841      0.000      0.392
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.168E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON Statements
+
+EMPATHY_ ON EMPATHY1             999.000     0.000      0.000        0.000
+EMPATHY3 ON EMPATHY6              15.439     0.369      0.369        0.369
+EMPATHY4 ON EMPATHY5              30.358     0.469      0.469        0.469
+EMPATHY4 ON EMPATHY8              11.428    -0.356     -0.356       -0.356
+EMPATHY5 ON EMPATHY4              30.359     0.469      0.469        0.469
+EMPATHY6 ON EMPATHY3              15.438     0.369      0.369        0.369
+EMPATHY7 ON EMPATHY8              12.017     0.267      0.267        0.267
+EMPATHY8 ON EMPATHY4              11.425    -0.356     -0.356       -0.356
+EMPATHY8 ON EMPATHY7              12.019     0.267      0.267        0.267
+
+WITH Statements
+
+EMPATHY1 WITH EMPATHY_           999.000     0.000      0.000        0.000
+EMPATHY5 WITH EMPATHY4            30.358     0.469      0.469        0.684
+EMPATHY6 WITH EMPATHY3            15.437     0.369      0.369        0.814
+EMPATHY8 WITH EMPATHY4            11.427    -0.356     -0.356       -0.552
+EMPATHY8 WITH EMPATHY7            12.017     0.267      0.267        0.499
+
+
+     Beginning Time:  10:25:41
+        Ending Time:  10:25:41
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

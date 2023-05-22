@@ -1,0 +1,169 @@
+Title: Student DASS Longitudinal Measurement Invariance Loading Model;
+
+Data:
+   File is ../dat_stu.txt;
+
+Variable:
+   Names are studentid index treatment girl age_w child_grade in_ukr
+   guardian_living guardian_region 
+   grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1 
+   loc1_1 loc2_1 loc3_1 loc4_1 
+   dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+   dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1 
+   sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1 
+   efficacy_1 edugoals_1 remotediff_1 timeclass_1 timehomework_1 
+   grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2 
+   loc1_2 loc2_2 loc3_2 loc4_2 
+   dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+   dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2 
+   efficacy_2 edugoals_2 timeclass_2 timehomework_2 compmath_2 half; 
+   Missing are . ;
+
+  Usevariable are
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+  dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+  dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+  dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2;
+   
+  Categorical is
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+  dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+  dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+  dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2;
+   
+  Idvariable is studentid;  
+
+Analysis:
+   Estimator = wlsmv;
+   Parameterization = theta;
+   DIFFTEST IS dass12_student_lg_inv_baseline.dat;
+   
+Model:
+  ! Factor loadings
+  stress_1 by
+      dass1_1* (17) 
+      dass4_1* (18)
+      dass6_1@1 
+      dass8_1* (19)
+      dass9_1* (20)
+      dass10_1* (21)
+      dass12_1* (22);
+
+  anxiety_1 by
+      dass2_1* (23)
+      dass3_1* (24)
+      dass5_1* (25)
+      dass7_1* (26)
+      dass11_1@1 
+      dass13_1* (27)
+      dass14_1* (28);
+
+  stress_2 by
+      dass1_2* (17)
+      dass4_2* (18)
+      dass6_2@1 
+      dass8_2* (19)
+      dass9_2* (20)
+      dass10_2* (21)
+      dass12_2* (22);
+
+  anxiety_2 by
+      dass2_2* (23)
+      dass3_2* (24)
+      dass5_2* (25)
+      dass7_2* (26)
+      dass11_2@1 
+      dass13_2* (27)
+      dass14_2* (28);
+      
+  ! Thresholds
+  [dass1_1$1 dass1_2$1];
+  [dass1_1$2 dass1_2$2] (1);
+  [dass1_1$3 dass1_2$3];
+  
+  [dass4_1$1 dass4_2$1];
+  [dass4_1$2 dass4_2$2] (2);
+  [dass4_1$3 dass4_2$3];
+  
+  [dass6_1$1 dass6_2$1];
+  [dass6_1$2 dass6_2$2] (3);
+  [dass6_1$3 dass6_2$3] (4);
+  
+  [dass8_1$1 dass8_2$1];
+  [dass8_1$2 dass8_2$2] (5);
+  [dass8_1$3 dass8_2$3];
+  
+  [dass9_1$1 dass9_2$1];
+  [dass9_1$2 dass9_2$2] (6);
+  [dass9_1$3 dass9_2$3];
+  
+  [dass10_1$1 dass10_2$1];
+  [dass10_1$2 dass10_2$2] (7);
+  [dass10_1$3 dass10_2$3];
+  
+  [dass12_1$1 dass12_2$1];
+  [dass12_1$2 dass12_2$2] (8);
+  [dass12_1$3 dass12_2$3];
+  
+  [dass2_1$1 dass2_2$1];
+  [dass2_1$2 dass2_2$2] (9);
+  [dass2_1$3 dass2_2$3];
+  
+  [dass3_1$1 dass3_2$1];
+  [dass3_1$2 dass3_2$2] (10);
+  [dass3_1$3 dass3_2$3];
+  
+  [dass5_1$1 dass5_2$1];
+  [dass5_1$2 dass5_2$2] (11);
+  [dass5_1$3 dass5_2$3];
+  
+  [dass7_1$1 dass7_2$1];
+  [dass7_1$2 dass7_2$2] (12);
+  [dass7_1$3 dass7_2$3];
+  
+  [dass11_1$1 dass11_2$1];
+  [dass11_1$2 dass11_2$2] (13);
+  [dass11_1$3 dass11_2$3] (14);
+  
+  [dass13_1$1 dass13_2$1];
+  [dass13_1$2 dass13_2$2] (15);
+  [dass13_1$3 dass13_2$3];
+  
+  [dass14_1$1 dass14_2$1];
+  [dass14_1$2 dass14_2$2] (16);
+  [dass14_1$3 dass14_2$3];
+  
+  ! Common factor covariance matrix;
+  stress_1 stress_2 with stress_1 stress_2;
+  anxiety_1 anxiety_2 with anxiety_1 anxiety_2;
+  
+  ! Common factor means;
+  [stress_1@0 stress_2*];
+  [anxiety_1@0 anxiety_2*];
+  
+  ! Unique variances;
+  dass1_1@1 dass4_1@1 dass6_1@1 dass8_1@1 dass9_1@1 dass10_1@1 dass12_1@1;
+  dass1_2 dass4_2 dass6_2 dass8_2 dass9_2 dass10_2 dass12_2;
+
+  dass2_1@1 dass3_1@1 dass5_1@1 dass6_1@1 dass11_1@1 dass13_1@1 dass14_1@1;
+  dass2_2 dass3_2 dass5_2 dass7_2 dass11_2 dass13_2 dass14_2;
+  
+  ! Lagged unique factor covariances;
+  dass1_1 with dass1_2*;
+  dass2_1 with dass2_2*;
+  dass3_1 with dass3_2*;
+  dass4_1 with dass4_2*;
+  dass5_1 with dass5_2*;
+  dass6_1 with dass6_2*;
+  dass7_1 with dass7_2*;
+  dass8_1 with dass8_2*;
+  dass9_1 with dass9_2*;
+  dass10_1 with dass10_2*;
+  dass11_1 with dass11_2*;
+  dass12_1 with dass12_2*;
+  dass13_1 with dass13_2*;
+  dass14_1 with dass14_2*;
+
+
+Output: sampstat stdyx residual modindices(all);
+Savedata: Difftest is dass12_student_lg_inv_loading.dat;

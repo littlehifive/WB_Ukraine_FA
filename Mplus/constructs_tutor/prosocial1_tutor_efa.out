@@ -1,0 +1,1448 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/19/2023  11:51 AM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Prosociality Baseline EFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosoc1_1 prosoc2_1 prosoc3_1 prosoc4_1
+     prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1
+     prosoc9_1 prosoc10_1 prosoc11_1 prosoc12_1
+     prosoc13_1 prosoc14_1 prosoc15_1 prosoc16_1
+     percep1_1 percep2a_1 percep2b_1 percep2c_1
+     percep2d_1 percep2e_1 percep2f_1 percep2g_1
+     percep2h_1 percep3_1 percep4_1 percep5_1
+     percep6a_1 percep6b_1 percep6c_1 percep6d_1
+     percep7_1 percep8a_1 percep8b_1 percep8c_1
+     percep8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	 prosoc1_1 prosoc2_1 prosoc3_1 prosoc4_1
+     prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1
+     prosoc9_1 prosoc10_1 prosoc11_1 prosoc12_1
+     prosoc13_1 prosoc14_1 prosoc15_1 prosoc16_1 ;
+
+    Categorical is
+  	 prosoc1_1 prosoc2_1 prosoc3_1 prosoc4_1
+     prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1
+     prosoc9_1 prosoc10_1 prosoc11_1 prosoc12_1
+     prosoc13_1 prosoc14_1 prosoc15_1 prosoc16_1 ;
+
+    Useobservations is half eq 1;
+
+  Analysis:
+     Type = efa 1 3;
+     Estimator = wlsmv;
+
+  Output: sampstat stdy modindices(all);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=EFA.
+  Request for STANDARDIZED options will be ignored.  Note that STANDARDIZED options
+  are available with the use of EFA factors (ESEM) declared in the MODEL command.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Tutor Prosociality Baseline EFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         100
+
+Number of dependent variables                                   16
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   PROSOC1_    PROSOC2_    PROSOC3_    PROSOC4_    PROSOC5_    PROSOC6_
+   PROSOC7_    PROSOC8_    PROSOC9_    PROSOC10    PROSOC11    PROSOC12
+   PROSOC13    PROSOC14    PROSOC15    PROSOC16
+
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_       1.000
+ PROSOC2_       1.000         1.000
+ PROSOC3_       1.000         1.000         1.000
+ PROSOC4_       1.000         1.000         1.000         1.000
+ PROSOC5_       1.000         1.000         1.000         1.000         1.000
+ PROSOC6_       1.000         1.000         1.000         1.000         1.000
+ PROSOC7_       1.000         1.000         1.000         1.000         1.000
+ PROSOC8_       1.000         1.000         1.000         1.000         1.000
+ PROSOC9_       1.000         1.000         1.000         1.000         1.000
+ PROSOC10       1.000         1.000         1.000         1.000         1.000
+ PROSOC11       1.000         1.000         1.000         1.000         1.000
+ PROSOC12       1.000         1.000         1.000         1.000         1.000
+ PROSOC13       1.000         1.000         1.000         1.000         1.000
+ PROSOC14       1.000         1.000         1.000         1.000         1.000
+ PROSOC15       1.000         1.000         1.000         1.000         1.000
+ PROSOC16       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC6_       1.000
+ PROSOC7_       1.000         1.000
+ PROSOC8_       1.000         1.000         1.000
+ PROSOC9_       1.000         1.000         1.000         1.000
+ PROSOC10       1.000         1.000         1.000         1.000         1.000
+ PROSOC11       1.000         1.000         1.000         1.000         1.000
+ PROSOC12       1.000         1.000         1.000         1.000         1.000
+ PROSOC13       1.000         1.000         1.000         1.000         1.000
+ PROSOC14       1.000         1.000         1.000         1.000         1.000
+ PROSOC15       1.000         1.000         1.000         1.000         1.000
+ PROSOC16       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC11       1.000
+ PROSOC12       1.000         1.000
+ PROSOC13       1.000         1.000         1.000
+ PROSOC14       1.000         1.000         1.000         1.000
+ PROSOC15       1.000         1.000         1.000         1.000         1.000
+ PROSOC16       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PROSOC16
+              ________
+ PROSOC16       1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    PROSOC1_
+      Category 1    0.010            1.000
+      Category 2    0.110           11.000
+      Category 3    0.460           46.000
+      Category 4    0.420           42.000
+    PROSOC2_
+      Category 1    0.080            8.000
+      Category 2    0.510           51.000
+      Category 3    0.410           41.000
+    PROSOC3_
+      Category 1    0.050            5.000
+      Category 2    0.460           46.000
+      Category 3    0.490           49.000
+    PROSOC4_
+      Category 1    0.030            3.000
+      Category 2    0.120           12.000
+      Category 3    0.550           55.000
+      Category 4    0.300           30.000
+    PROSOC5_
+      Category 1    0.030            3.000
+      Category 2    0.070            7.000
+      Category 3    0.460           46.000
+      Category 4    0.440           44.000
+    PROSOC6_
+      Category 1    0.020            2.000
+      Category 2    0.070            7.000
+      Category 3    0.210           21.000
+      Category 4    0.470           47.000
+      Category 5    0.230           23.000
+    PROSOC7_
+      Category 1    0.070            7.000
+      Category 2    0.140           14.000
+      Category 3    0.590           59.000
+      Category 4    0.200           20.000
+    PROSOC8_
+      Category 1    0.010            1.000
+      Category 2    0.050            5.000
+      Category 3    0.180           18.000
+      Category 4    0.560           56.000
+      Category 5    0.200           20.000
+    PROSOC9_
+      Category 1    0.020            2.000
+      Category 2    0.080            8.000
+      Category 3    0.510           51.000
+      Category 4    0.390           39.000
+    PROSOC10
+      Category 1    0.020            2.000
+      Category 2    0.110           11.000
+      Category 3    0.490           49.000
+      Category 4    0.380           38.000
+    PROSOC11
+      Category 1    0.150           15.000
+      Category 2    0.150           15.000
+      Category 3    0.270           27.000
+      Category 4    0.340           34.000
+      Category 5    0.090            9.000
+    PROSOC12
+      Category 1    0.060            6.000
+      Category 2    0.170           17.000
+      Category 3    0.600           60.000
+      Category 4    0.170           17.000
+    PROSOC13
+      Category 1    0.020            2.000
+      Category 2    0.120           12.000
+      Category 3    0.610           61.000
+      Category 4    0.250           25.000
+    PROSOC14
+      Category 1    0.010            1.000
+      Category 2    0.140           14.000
+      Category 3    0.520           52.000
+      Category 4    0.330           33.000
+    PROSOC15
+      Category 1    0.040            4.000
+      Category 2    0.060            6.000
+      Category 3    0.260           26.000
+      Category 4    0.530           53.000
+      Category 5    0.110           11.000
+    PROSOC16
+      Category 1    0.030            3.000
+      Category 2    0.020            2.000
+      Category 3    0.240           24.000
+      Category 4    0.570           57.000
+      Category 5    0.140           14.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC1_      PROSOC1_      PROSOC1_      PROSOC2_      PROSOC2_
+              ________      ________      ________      ________      ________
+               -2.326        -1.175         0.202        -1.405         0.228
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC3_      PROSOC3_      PROSOC4_      PROSOC4_      PROSOC4_
+              ________      ________      ________      ________      ________
+               -1.645         0.025        -1.881        -1.036         0.524
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC5_      PROSOC5_      PROSOC5_      PROSOC6_      PROSOC6_
+              ________      ________      ________      ________      ________
+               -1.881        -1.282         0.151        -2.054        -1.341
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC6_      PROSOC6_      PROSOC7_      PROSOC7_      PROSOC7_
+              ________      ________      ________      ________      ________
+               -0.524         0.739        -1.476        -0.806         0.842
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC8_      PROSOC8_      PROSOC8_      PROSOC8_      PROSOC9_
+              ________      ________      ________      ________      ________
+               -2.326        -1.555        -0.706         0.842        -2.054
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC9_      PROSOC9_      PROSOC10      PROSOC10      PROSOC10
+              ________      ________      ________      ________      ________
+               -1.282         0.279        -2.054        -1.126         0.305
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC11      PROSOC11      PROSOC11      PROSOC11      PROSOC12
+              ________      ________      ________      ________      ________
+               -1.036        -0.524         0.176         1.341        -1.555
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC12      PROSOC12      PROSOC13      PROSOC13      PROSOC13
+              ________      ________      ________      ________      ________
+               -0.739         0.954        -2.054        -1.080         0.674
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC14      PROSOC14      PROSOC14      PROSOC15      PROSOC15
+              ________      ________      ________      ________      ________
+               -2.326        -1.036         0.440        -1.751        -1.282
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC15      PROSOC15      PROSOC16      PROSOC16      PROSOC16
+              ________      ________      ________      ________      ________
+               -0.358         1.227        -1.881        -1.645        -0.553
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PROSOC16
+              ________
+                1.080
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_
+ PROSOC2_       0.652
+ PROSOC3_       0.657         0.785
+ PROSOC4_       0.535         0.541         0.649
+ PROSOC5_       0.341         0.491         0.668         0.706
+ PROSOC6_       0.550         0.403         0.495         0.576         0.719
+ PROSOC7_       0.527         0.369         0.466         0.415         0.587
+ PROSOC8_       0.422         0.495         0.556         0.383         0.414
+ PROSOC9_       0.595         0.536         0.654         0.563         0.518
+ PROSOC10       0.512         0.566         0.569         0.440         0.575
+ PROSOC11       0.133         0.322         0.124         0.254         0.440
+ PROSOC12       0.330         0.414         0.343         0.281         0.429
+ PROSOC13       0.591         0.503         0.601         0.560         0.697
+ PROSOC14       0.397         0.505         0.334         0.231         0.252
+ PROSOC15       0.248         0.316         0.304         0.165         0.392
+ PROSOC16       0.407         0.407         0.335         0.135         0.158
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC7_       0.695
+ PROSOC8_       0.402         0.543
+ PROSOC9_       0.512         0.517         0.588
+ PROSOC10       0.459         0.580         0.514         0.633
+ PROSOC11       0.436         0.322         0.227         0.196         0.346
+ PROSOC12       0.489         0.650         0.645         0.369         0.634
+ PROSOC13       0.683         0.645         0.460         0.626         0.817
+ PROSOC14       0.367         0.501         0.394         0.467         0.564
+ PROSOC15       0.467         0.538         0.235         0.172         0.348
+ PROSOC16       0.274         0.394         0.573         0.313         0.425
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC12       0.444
+ PROSOC13       0.382         0.578
+ PROSOC14       0.162         0.558         0.601
+ PROSOC15       0.438         0.461         0.494         0.628
+ PROSOC16       0.202         0.620         0.392         0.484         0.641
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PROSOC16
+              ________
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor          16            275.416       104       0.0000
+     2-factor          31            178.110        89       0.0000
+     3-factor          45            127.838        75       0.0001
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor        87.572        15       0.0000
+     2-factor against 3-factor        49.026        14       0.0000
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+                8.089         1.780         1.339         0.854         0.799
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6             7             8             9            10
+              ________      ________      ________      ________      ________
+                0.701         0.550         0.420         0.397         0.357
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                 11            12            13            14            15
+              ________      ________      ________      ________      ________
+                0.243         0.184         0.128         0.084         0.065
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                 16
+              ________
+                0.012
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       16
+
+Chi-Square Test of Model Fit
+
+          Value                            275.416*
+          Degrees of Freedom                   104
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.128
+          90 Percent C.I.                    0.110  0.147
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.892
+          TLI                                0.876
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1710.982
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.121
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       8.02107
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ PROSOC1_       0.687*
+ PROSOC2_       0.745*
+ PROSOC3_       0.802*
+ PROSOC4_       0.668*
+ PROSOC5_       0.757*
+ PROSOC6_       0.763*
+ PROSOC7_       0.771*
+ PROSOC8_       0.661*
+ PROSOC9_       0.719*
+ PROSOC10       0.803*
+ PROSOC11       0.437*
+ PROSOC12       0.712*
+ PROSOC13       0.848*
+ PROSOC14       0.651*
+ PROSOC15       0.621*
+ PROSOC16       0.572*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                0.528         0.445         0.358         0.553         0.426
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                0.417         0.405         0.563         0.483         0.355
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+                0.809         0.493         0.281         0.577         0.614
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                0.673
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ PROSOC1_       0.054
+ PROSOC2_       0.047
+ PROSOC3_       0.037
+ PROSOC4_       0.059
+ PROSOC5_       0.042
+ PROSOC6_       0.048
+ PROSOC7_       0.049
+ PROSOC8_       0.059
+ PROSOC9_       0.054
+ PROSOC10       0.045
+ PROSOC11       0.069
+ PROSOC12       0.058
+ PROSOC13       0.041
+ PROSOC14       0.061
+ PROSOC15       0.068
+ PROSOC16       0.062
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                0.075         0.070         0.060         0.079         0.064
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                0.073         0.076         0.078         0.078         0.073
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+                0.060         0.083         0.069         0.079         0.084
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                0.071
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ PROSOC1_      12.666
+ PROSOC2_      15.812
+ PROSOC3_      21.386
+ PROSOC4_      11.274
+ PROSOC5_      18.010
+ PROSOC6_      15.985
+ PROSOC7_      15.738
+ PROSOC8_      11.224
+ PROSOC9_      13.309
+ PROSOC10      17.756
+ PROSOC11       6.350
+ PROSOC12      12.212
+ PROSOC13      20.833
+ PROSOC14      10.704
+ PROSOC15       9.157
+ PROSOC16       9.274
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                7.070         6.338         5.952         6.980         6.695
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                5.725         5.364         7.242         6.216         4.878
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+               13.456         5.947         4.073         7.286         7.292
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                9.528
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       31
+
+Chi-Square Test of Model Fit
+
+          Value                            178.110*
+          Degrees of Freedom                    89
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.100
+          90 Percent C.I.                    0.079  0.121
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.944
+          TLI                                0.924
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1710.982
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.086
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       1.76779
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ PROSOC1_       0.707*        0.026
+ PROSOC2_       0.766*        0.013
+ PROSOC3_       0.951*       -0.172
+ PROSOC4_       0.900*       -0.274*
+ PROSOC5_       0.814*       -0.038
+ PROSOC6_       0.649*        0.208
+ PROSOC7_       0.484*        0.429*
+ PROSOC8_       0.453*        0.320*
+ PROSOC9_       0.740*        0.029
+ PROSOC10       0.583*        0.350*
+ PROSOC11       0.222*        0.308*
+ PROSOC12       0.217         0.674*
+ PROSOC13       0.651*        0.321*
+ PROSOC14       0.209         0.608*
+ PROSOC15      -0.023         0.807*
+ PROSOC16       0.002         0.731*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.489*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                0.481         0.404         0.226         0.356         0.366
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                0.404         0.379         0.551         0.431         0.338
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+                0.789         0.356         0.269         0.462         0.366
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                0.464
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ PROSOC1_       0.083         0.099
+ PROSOC2_       0.053         0.047
+ PROSOC3_       0.058         0.090
+ PROSOC4_       0.075         0.107
+ PROSOC5_       0.067         0.100
+ PROSOC6_       0.097         0.123
+ PROSOC7_       0.122         0.119
+ PROSOC8_       0.100         0.110
+ PROSOC9_       0.087         0.114
+ PROSOC10       0.082         0.098
+ PROSOC11       0.109         0.118
+ PROSOC12       0.123         0.105
+ PROSOC13       0.081         0.093
+ PROSOC14       0.120         0.092
+ PROSOC15       0.114         0.083
+ PROSOC16       0.013         0.053
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.096         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                0.081         0.073         0.059         0.087         0.063
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                0.074         0.070         0.077         0.083         0.074
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+                0.065         0.085         0.070         0.074         0.085
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                0.078
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ PROSOC1_       8.519         0.262
+ PROSOC2_      14.452         0.277
+ PROSOC3_      16.473        -1.914
+ PROSOC4_      11.962        -2.546
+ PROSOC5_      12.082        -0.383
+ PROSOC6_       6.725         1.684
+ PROSOC7_       3.964         3.617
+ PROSOC8_       4.547         2.904
+ PROSOC9_       8.521         0.259
+ PROSOC10       7.150         3.589
+ PROSOC11       2.032         2.618
+ PROSOC12       1.765         6.428
+ PROSOC13       8.052         3.446
+ PROSOC14       1.737         6.581
+ PROSOC15      -0.201         9.689
+ PROSOC16       0.126        13.684
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         5.078         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                5.944         5.559         3.832         4.090         5.813
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                5.440         5.425         7.152         5.162         4.562
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+               12.106         4.168         3.851         6.260         4.319
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                5.980
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ PROSOC1_       0.720         0.372
+ PROSOC2_       0.772         0.387
+ PROSOC3_       0.867         0.293
+ PROSOC4_       0.766         0.167
+ PROSOC5_       0.796         0.360
+ PROSOC6_       0.751         0.525
+ PROSOC7_       0.693         0.665
+ PROSOC8_       0.610         0.541
+ PROSOC9_       0.754         0.391
+ PROSOC10       0.754         0.635
+ PROSOC11       0.372         0.416
+ PROSOC12       0.547         0.780
+ PROSOC13       0.808         0.640
+ PROSOC14       0.507         0.710
+ PROSOC15       0.372         0.796
+ PROSOC16       0.359         0.732
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       45
+
+Chi-Square Test of Model Fit
+
+          Value                            127.838*
+          Degrees of Freedom                    75
+          P-Value                           0.0001
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.084
+          90 Percent C.I.                    0.058  0.108
+          Probability RMSEA <= .05           0.018
+
+CFI/TLI
+
+          CFI                                0.967
+          TLI                                0.947
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1710.982
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.063
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.93307
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+ PROSOC1_       0.532*        0.152         0.216
+ PROSOC2_       0.680*       -0.003         0.257*
+ PROSOC3_       0.823*        0.225         0.009
+ PROSOC4_       0.488*        0.584*       -0.156
+ PROSOC5_       0.214         0.789*        0.017
+ PROSOC6_       0.003         0.653*        0.303*
+ PROSOC7_      -0.018         0.368*        0.567*
+ PROSOC8_       0.352*       -0.045         0.497*
+ PROSOC9_       0.527*        0.220         0.201
+ PROSOC10       0.198         0.282*        0.509*
+ PROSOC11      -0.234         0.358*        0.375*
+ PROSOC12      -0.084         0.042         0.814*
+ PROSOC13       0.128         0.470*        0.471*
+ PROSOC14       0.006        -0.077         0.771*
+ PROSOC15      -0.373*        0.004         0.935*
+ PROSOC16       0.009        -0.424*        0.959*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+      1         1.000
+      2         0.358*        1.000
+      3         0.510*        0.487*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                0.441         0.296         0.130         0.358         0.194
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                0.286         0.354         0.481         0.400         0.339
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+                0.695         0.368         0.220         0.453         0.340
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                0.290
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ PROSOC1_       0.116         0.108         0.115
+ PROSOC2_       0.098         0.017         0.098
+ PROSOC3_       0.093         0.121         0.010
+ PROSOC4_       0.116         0.127         0.121
+ PROSOC5_       0.116         0.085         0.018
+ PROSOC6_       0.041         0.085         0.096
+ PROSOC7_       0.076         0.101         0.106
+ PROSOC8_       0.117         0.139         0.117
+ PROSOC9_       0.120         0.127         0.119
+ PROSOC10       0.114         0.106         0.095
+ PROSOC11       0.138         0.115         0.113
+ PROSOC12       0.118         0.118         0.106
+ PROSOC13       0.111         0.103         0.097
+ PROSOC14       0.107         0.105         0.089
+ PROSOC15       0.115         0.008         0.091
+ PROSOC16       0.028         0.134         0.113
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.140         0.000
+      3         0.100         0.112         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                0.096         0.080         0.081         0.089         0.075
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                0.077         0.066         0.090         0.090         0.072
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+                0.095         0.083         0.068         0.072         0.088
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                0.103
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ PROSOC1_       4.567         1.400         1.875
+ PROSOC2_       6.926        -0.178         2.621
+ PROSOC3_       8.894         1.854         0.885
+ PROSOC4_       4.217         4.601        -1.290
+ PROSOC5_       1.849         9.257         0.979
+ PROSOC6_       0.076         7.679         3.156
+ PROSOC7_      -0.236         3.659         5.368
+ PROSOC8_       3.011        -0.322         4.234
+ PROSOC9_       4.400         1.730         1.690
+ PROSOC10       1.747         2.666         5.356
+ PROSOC11      -1.697         3.117         3.326
+ PROSOC12      -0.714         0.354         7.701
+ PROSOC13       1.147         4.566         4.878
+ PROSOC14       0.052        -0.729         8.668
+ PROSOC15      -3.236         0.440        10.285
+ PROSOC16       0.331        -3.167         8.515
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         2.551         0.000
+      3         5.114         4.332         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+                4.570         3.712         1.602         4.032         2.590
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+                3.735         5.385         5.328         4.465         4.686
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+                7.293         4.404         3.235         6.256         3.870
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              PROSOC16
+              ________
+                2.814
+
+
+           FACTOR STRUCTURE
+                  1             2             3
+              ________      ________      ________
+ PROSOC1_       0.696         0.447         0.561
+ PROSOC2_       0.810         0.365         0.603
+ PROSOC3_       0.908         0.524         0.539
+ PROSOC4_       0.618         0.683         0.378
+ PROSOC5_       0.505         0.874         0.511
+ PROSOC6_       0.392         0.802         0.623
+ PROSOC7_       0.403         0.638         0.737
+ PROSOC8_       0.590         0.324         0.655
+ PROSOC9_       0.708         0.506         0.576
+ PROSOC10       0.559         0.601         0.748
+ PROSOC11       0.085         0.457         0.430
+ PROSOC12       0.347         0.408         0.792
+ PROSOC13       0.536         0.746         0.766
+ PROSOC14       0.372         0.301         0.737
+ PROSOC15       0.106         0.326         0.747
+ PROSOC16       0.347         0.047         0.758
+
+
+MODIFICATION INDICES
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 1 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_       0.000
+ PROSOC2_       3.531         0.000
+ PROSOC3_       1.790        20.360         0.000
+ PROSOC4_       0.645         0.210         2.345         0.000
+ PROSOC5_       2.692         0.841         1.296        11.335         0.000
+ PROSOC6_       0.123         2.448         2.274         0.678         5.047
+ PROSOC7_       0.002         3.487         2.557         1.203         0.002
+ PROSOC8_       0.107         0.001         0.101         0.492         1.058
+ PROSOC9_       1.407         0.000         1.044         1.079         0.113
+ PROSOC10       0.292         0.298         0.986         1.523         0.247
+ PROSOC11       2.221         0.002         4.322         0.130         1.750
+ PROSOC12       2.418         1.592         4.648         3.985         1.093
+ PROSOC13       0.017         5.104         1.213         0.007         0.509
+ PROSOC14       0.466         0.111         5.057         3.675         7.093
+ PROSOC15       2.657         1.685         3.030         5.332         0.569
+ PROSOC16       0.018         0.037         1.774         3.943         9.572
+
+
+           THETA
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC6_       0.000
+ PROSOC7_       4.708         0.000
+ PROSOC8_       1.373         0.236         0.000
+ PROSOC9_       0.197         0.359         2.750         0.000
+ PROSOC10       1.884         0.251         0.046         0.615         0.000
+ PROSOC11       1.641         0.028         0.419         1.055         0.003
+ PROSOC12       0.385         2.206         4.717         2.782         0.863
+ PROSOC13       0.383         0.015         1.343         0.050         9.489
+ PROSOC14       1.741         0.000         0.201         0.000         0.344
+ PROSOC15       0.008         0.530         3.336         7.240         2.432
+ PROSOC16       3.578         0.260         5.261         0.942         0.244
+
+
+           THETA
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC11       0.000
+ PROSOC12       2.299         0.000
+ PROSOC13       0.014         0.174         0.000
+ PROSOC14       1.036         1.724         0.641         0.000
+ PROSOC15       3.519         0.050         0.157        14.597         0.000
+ PROSOC16       0.285         7.330         2.359         2.258        25.151
+
+
+           THETA
+              PROSOC16
+              ________
+ PROSOC16       0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_       0.000
+ PROSOC2_       0.165         0.000
+ PROSOC3_       0.124         0.288         0.000
+ PROSOC4_       0.084         0.048         0.136         0.000
+ PROSOC5_      -0.196        -0.085         0.083         0.255         0.000
+ PROSOC6_       0.030        -0.181        -0.139         0.077         0.177
+ PROSOC7_      -0.004        -0.224        -0.171        -0.113         0.004
+ PROSOC8_      -0.035         0.003         0.031        -0.066        -0.099
+ PROSOC9_       0.115         0.000         0.092         0.095        -0.031
+ PROSOC10      -0.048        -0.042        -0.089        -0.114        -0.041
+ PROSOC11      -0.178        -0.004        -0.245        -0.040         0.124
+ PROSOC12      -0.175        -0.131        -0.251        -0.216        -0.121
+ PROSOC13       0.010        -0.169        -0.096        -0.008         0.065
+ PROSOC14      -0.058         0.025        -0.213        -0.220        -0.268
+ PROSOC15      -0.193        -0.159        -0.211        -0.270        -0.086
+ PROSOC16       0.015        -0.021        -0.137        -0.260        -0.305
+
+
+           THETA
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC6_       0.000
+ PROSOC7_       0.149         0.000
+ PROSOC8_      -0.116         0.041         0.000
+ PROSOC9_      -0.043        -0.047         0.135         0.000
+ PROSOC10      -0.168        -0.046        -0.020         0.067         0.000
+ PROSOC11       0.117        -0.017        -0.067        -0.126        -0.005
+ PROSOC12      -0.062         0.123         0.200        -0.163         0.077
+ PROSOC13       0.047        -0.011        -0.115         0.020         0.204
+ PROSOC14      -0.142        -0.001        -0.041        -0.001         0.049
+ PROSOC15      -0.009         0.069        -0.192        -0.300        -0.168
+ PROSOC16      -0.182        -0.052         0.216        -0.106        -0.041
+
+
+           THETA
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC11       0.000
+ PROSOC12       0.147         0.000
+ PROSOC13       0.012        -0.032         0.000
+ PROSOC14      -0.128         0.110         0.062         0.000
+ PROSOC15       0.182         0.022        -0.038         0.275         0.000
+ PROSOC16      -0.051         0.241        -0.117         0.126         0.348
+
+
+           THETA
+              PROSOC16
+              ________
+ PROSOC16       0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 2 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_       0.000
+ PROSOC2_       2.322         0.000
+ PROSOC3_       0.332        16.157         0.000
+ PROSOC4_       0.020         0.402         1.014         0.000
+ PROSOC5_       6.038         3.333         0.456         4.321         0.000
+ PROSOC6_       0.007         3.722         4.077         0.465         5.805
+ PROSOC7_       0.079         3.172         0.989         0.130         0.578
+ PROSOC8_       0.073         0.070         1.004         0.067         0.739
+ PROSOC9_       0.510         0.352         0.004         0.021         1.536
+ PROSOC10       0.341         0.151         0.387         1.016         0.068
+ PROSOC11       2.076         0.137         3.036         0.154         4.832
+ PROSOC12       0.812         0.040         0.261         0.001         0.024
+ PROSOC13       0.002         6.487         0.958         0.010         0.919
+ PROSOC14       0.110         5.364         0.153         0.128         3.210
+ PROSOC15       0.164         0.050         1.092         0.383         2.184
+ PROSOC16       2.670         2.243         3.023         0.016         2.389
+
+
+           THETA
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC6_       0.000
+ PROSOC7_       6.330         0.000
+ PROSOC8_       1.899         0.072         0.000
+ PROSOC9_       0.659         0.087         4.270         0.000
+ PROSOC10       2.673         0.684         0.200         0.850         0.000
+ PROSOC11       2.375         0.215         0.793         0.833         0.044
+ PROSOC12       0.146         0.862         4.930         0.701         0.592
+ PROSOC13       0.253         0.106         2.101         0.023         9.937
+ PROSOC14       1.690         0.625         0.860         1.017         0.119
+ PROSOC15       0.875         0.072         5.962         2.454         3.482
+ PROSOC16       2.561         1.570         6.668         0.101         0.543
+
+
+           THETA
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC11       0.000
+ PROSOC12       1.310         0.000
+ PROSOC13       0.005         0.323         0.000
+ PROSOC14       2.677         0.321         0.699         0.000
+ PROSOC15       2.645         6.921         0.003         3.197         0.000
+ PROSOC16       2.115         0.751         2.625         0.460         3.670
+
+
+           THETA
+              PROSOC16
+              ________
+ PROSOC16       0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_       0.000
+ PROSOC2_       0.124         0.000
+ PROSOC3_       0.053         0.288         0.000
+ PROSOC4_      -0.015        -0.064        -0.103         0.000
+ PROSOC5_      -0.269        -0.158        -0.054         0.173         0.000
+ PROSOC6_       0.007        -0.201        -0.178         0.062         0.177
+ PROSOC7_       0.024        -0.193        -0.100        -0.036         0.063
+ PROSOC8_      -0.026         0.025         0.092        -0.024        -0.076
+ PROSOC9_       0.064        -0.056         0.006        -0.013        -0.106
+ PROSOC10      -0.047        -0.027        -0.053        -0.089        -0.020
+ PROSOC11      -0.155         0.036        -0.194         0.042         0.192
+ PROSOC12      -0.096        -0.020        -0.059         0.003         0.017
+ PROSOC13       0.004        -0.176        -0.082         0.010         0.080
+ PROSOC14       0.028         0.172        -0.037        -0.040        -0.172
+ PROSOC15      -0.047         0.027         0.133         0.079         0.169
+ PROSOC16       0.176         0.160         0.191         0.017        -0.155
+
+
+           THETA
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC6_       0.000
+ PROSOC7_       0.158         0.000
+ PROSOC8_      -0.121         0.020         0.000
+ PROSOC9_      -0.071        -0.022         0.154         0.000
+ PROSOC10      -0.178        -0.069        -0.037         0.071         0.000
+ PROSOC11       0.126        -0.042        -0.082        -0.101        -0.019
+ PROSOC12      -0.036         0.075         0.195        -0.079         0.061
+ PROSOC13       0.034        -0.025        -0.128         0.012         0.187
+ PROSOC14      -0.129        -0.065        -0.079         0.091         0.027
+ PROSOC15       0.089         0.026        -0.252        -0.174        -0.194
+ PROSOC16      -0.150        -0.124         0.238         0.034        -0.061
+
+
+           THETA
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC11       0.000
+ PROSOC12       0.106         0.000
+ PROSOC13       0.006        -0.042         0.000
+ PROSOC14      -0.189        -0.049         0.061         0.000
+ PROSOC15       0.162        -0.288        -0.005         0.160         0.000
+ PROSOC16      -0.139         0.086        -0.123        -0.062         0.198
+
+
+           THETA
+              PROSOC16
+              ________
+ PROSOC16       0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 3 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_       0.000
+ PROSOC2_       0.673         0.000
+ PROSOC3_       0.240         4.090         0.000
+ PROSOC4_       0.117         0.189         0.172         0.000
+ PROSOC5_       5.213         0.162         3.613         1.007         0.000
+ PROSOC6_       3.469         0.093         0.085         0.075         0.080
+ PROSOC7_       1.050         1.483         0.063         0.404         0.102
+ PROSOC8_       1.408         1.559         0.023         0.021         0.152
+ PROSOC9_       0.091         2.456         1.219         0.048         0.719
+ PROSOC10       0.488         0.014         0.426         1.525         0.536
+ PROSOC11       0.895         6.411         0.594         0.033         1.207
+ PROSOC12       1.484         0.165         0.362         0.004         0.074
+ PROSOC13       0.418         2.443         0.106         0.094         0.164
+ PROSOC14       0.014         3.406         0.751         0.026         1.907
+ PROSOC15       0.067         0.548         4.594         0.346         2.411
+ PROSOC16       0.672         0.173         0.377         0.546         0.598
+
+
+           THETA
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC6_       0.000
+ PROSOC7_       3.475         0.000
+ PROSOC8_       0.027         1.730         0.000
+ PROSOC9_       0.006         0.138         2.691         0.000
+ PROSOC10       4.002         0.922         0.232         1.207         0.000
+ PROSOC11       0.017         2.033         0.003         0.191         0.084
+ PROSOC12       0.109         1.536         7.328         1.119         1.002
+ PROSOC13       1.148         1.208         1.471         0.251        12.749
+ PROSOC14       0.663         0.173         2.667         0.934         0.377
+ PROSOC15       0.314         0.004         6.342         2.471         4.704
+ PROSOC16       0.067         0.623         2.551         0.251         0.992
+
+
+           THETA
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC11       0.000
+ PROSOC12       1.974         0.000
+ PROSOC13       0.476         0.573         0.000
+ PROSOC14       2.498         0.249         2.368         0.000
+ PROSOC15       1.609         8.958         0.206         6.100         0.000
+ PROSOC16       0.110         0.513         0.798         6.960         7.428
+
+
+           THETA
+              PROSOC16
+              ________
+ PROSOC16       0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              PROSOC1_      PROSOC2_      PROSOC3_      PROSOC4_      PROSOC5_
+              ________      ________      ________      ________      ________
+ PROSOC1_       0.000
+ PROSOC2_       0.070         0.000
+ PROSOC3_      -0.046         0.203         0.000
+ PROSOC4_       0.031         0.041        -0.039         0.000
+ PROSOC5_      -0.229         0.036         0.158         0.092         0.000
+ PROSOC6_       0.143        -0.031        -0.026         0.024        -0.027
+ PROSOC7_       0.077        -0.120        -0.023        -0.055        -0.026
+ PROSOC8_      -0.105        -0.115        -0.014         0.012         0.034
+ PROSOC9_       0.024        -0.144        -0.100         0.018        -0.069
+ PROSOC10      -0.049        -0.008        -0.051        -0.093        -0.054
+ PROSOC11      -0.092         0.248        -0.083         0.017         0.099
+ PROSOC12      -0.112        -0.037        -0.062        -0.006         0.027
+ PROSOC13       0.041        -0.106        -0.025        -0.026        -0.034
+ PROSOC14      -0.009         0.134        -0.074        -0.016        -0.127
+ PROSOC15      -0.027         0.083         0.258         0.064         0.163
+ PROSOC16       0.084        -0.046         0.065         0.091         0.089
+
+
+           THETA
+              PROSOC6_      PROSOC7_      PROSOC8_      PROSOC9_      PROSOC10
+              ________      ________      ________      ________      ________
+ PROSOC6_       0.000
+ PROSOC7_       0.127         0.000
+ PROSOC8_      -0.014         0.091         0.000
+ PROSOC9_       0.006         0.025         0.115         0.000
+ PROSOC10      -0.195        -0.070        -0.035         0.073         0.000
+ PROSOC11       0.011        -0.119         0.005        -0.043        -0.023
+ PROSOC12      -0.029         0.088         0.211        -0.086         0.067
+ PROSOC13      -0.077        -0.077        -0.095         0.035         0.192
+ PROSOC14      -0.074        -0.030        -0.126         0.076         0.041
+ PROSOC15       0.051        -0.005        -0.231        -0.154        -0.194
+ PROSOC16       0.026        -0.072         0.153        -0.050        -0.078
+
+
+           THETA
+              PROSOC11      PROSOC12      PROSOC13      PROSOC14      PROSOC15
+              ________      ________      ________      ________      ________
+ PROSOC11       0.000
+ PROSOC12       0.117         0.000
+ PROSOC13      -0.060        -0.049         0.000
+ PROSOC14      -0.160        -0.037         0.099         0.000
+ PROSOC15       0.119        -0.279        -0.038         0.191         0.000
+ PROSOC16      -0.032         0.068        -0.066        -0.253         0.273
+
+
+           THETA
+              PROSOC16
+              ________
+ PROSOC16       0.000
+
+
+     Beginning Time:  11:51:05
+        Ending Time:  11:51:05
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

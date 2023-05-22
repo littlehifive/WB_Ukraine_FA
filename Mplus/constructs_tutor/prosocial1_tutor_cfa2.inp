@@ -1,0 +1,51 @@
+Title: Tutor Prosociality Baseline CFA;
+
+Data:
+   File is ../dat_tutor.txt;
+
+Variable:
+   Names are tutorid 
+   dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+   empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1 
+   empathy6_1 empathy7_1 empathy8_1 empathy9_1 
+   auto1_1 auto2_1 auto3_1 auto4_1 auto5_1 
+   auto6_1 auto7_1 auto8_1 auto9_1 auto10_1 
+   bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1 
+   bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1 
+   hard_work1_1 hard_work2_1 hard_work3_1 
+   prosoc1_1 prosoc2_1 prosoc3_1 prosoc4_1 
+   prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1 
+   prosoc9_1 prosoc10_1 prosoc11_1 prosoc12_1 
+   prosoc13_1 prosoc14_1 prosoc15_1 prosoc16_1 
+   percep1_1 percep2a_1 percep2b_1 percep2c_1
+   percep2d_1 percep2e_1 percep2f_1 percep2g_1
+   percep2h_1 percep3_1 percep4_1 percep5_1
+   percep6a_1 percep6b_1 percep6c_1 percep6d_1
+   percep7_1 percep8a_1 percep8b_1 percep8c_1 
+   percep8d_1 half; 
+   Missing are . ;
+
+  Usevariable are
+	  prosoc2_1 prosoc3_1 prosoc4_1 
+   prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1 
+    prosoc10_1 prosoc12_1 
+   prosoc13_1 prosoc15_1 prosoc16_1 ;
+   
+  Categorical is
+	 	  prosoc2_1 prosoc3_1 prosoc4_1 
+   prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1 
+    prosoc10_1 prosoc12_1 
+   prosoc13_1 prosoc15_1 prosoc16_1 ;
+    
+  Useobservations is half eq 0;
+
+Analysis:
+   Estimator = wlsmv;
+   
+Model:
+  prosoc_1 by 	  prosoc2_1 prosoc3_1 prosoc4_1 
+   prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1 
+    prosoc10_1 prosoc12_1 
+   prosoc13_1 prosoc15_1 prosoc16_1;
+
+Output: sampstat stdyx modindices(all);

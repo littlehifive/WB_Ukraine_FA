@@ -1,0 +1,390 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/19/2023  10:20 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor DASS Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+
+    Categorical is
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    dasst_1 by
+      dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+
+    dass6_1 WITH dass4_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Tutor DASS Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         100
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   DASS1_1     DASS2_1     DASS3_1     DASS4_1     DASS5_1     DASS6_1
+   DASS7_1
+
+Continuous latent variables
+   DASST_1
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        1.000
+ DASS2_1        1.000         1.000
+ DASS3_1        1.000         1.000         1.000
+ DASS4_1        1.000         1.000         1.000         1.000
+ DASS5_1        1.000         1.000         1.000         1.000         1.000
+ DASS6_1        1.000         1.000         1.000         1.000         1.000
+ DASS7_1        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        1.000
+ DASS7_1        1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    DASS1_1
+      Category 1    0.410           41.000
+      Category 2    0.540           54.000
+      Category 3    0.050            5.000
+    DASS2_1
+      Category 1    0.410           41.000
+      Category 2    0.560           56.000
+      Category 3    0.020            2.000
+      Category 4    0.010            1.000
+    DASS3_1
+      Category 1    0.300           30.000
+      Category 2    0.610           61.000
+      Category 3    0.080            8.000
+      Category 4    0.010            1.000
+    DASS4_1
+      Category 1    0.250           25.000
+      Category 2    0.670           67.000
+      Category 3    0.070            7.000
+      Category 4    0.010            1.000
+    DASS5_1
+      Category 1    0.360           36.000
+      Category 2    0.560           56.000
+      Category 3    0.070            7.000
+      Category 4    0.010            1.000
+    DASS6_1
+      Category 1    0.610           61.000
+      Category 2    0.380           38.000
+      Category 3    0.010            1.000
+    DASS7_1
+      Category 1    0.400           40.000
+      Category 2    0.520           52.000
+      Category 3    0.060            6.000
+      Category 4    0.020            2.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS1_1$      DASS1_1$      DASS2_1$      DASS2_1$      DASS2_1$
+              ________      ________      ________      ________      ________
+               -0.228         1.645        -0.228         1.881         2.326
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS3_1$      DASS3_1$      DASS3_1$      DASS4_1$      DASS4_1$
+              ________      ________      ________      ________      ________
+               -0.524         1.341         2.326        -0.674         1.405
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS4_1$      DASS5_1$      DASS5_1$      DASS5_1$      DASS6_1$
+              ________      ________      ________      ________      ________
+                2.326        -0.358         1.405         2.326         0.279
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS6_1$      DASS7_1$      DASS7_1$      DASS7_1$
+              ________      ________      ________      ________
+                2.326        -0.253         1.405         2.054
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1
+ DASS2_1        0.561
+ DASS3_1        0.554         0.498
+ DASS4_1        0.503         0.364         0.534
+ DASS5_1        0.526         0.491         0.553         0.417
+ DASS6_1        0.349         0.481         0.331         0.073         0.427
+ DASS7_1        0.432         0.554         0.696         0.653         0.375
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS7_1        0.498
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Chi-Square Test of Model Fit
+
+          Value                             20.647*
+          Degrees of Freedom                    13
+          P-Value                           0.0802
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.077
+          90 Percent C.I.                    0.000  0.136
+          Probability RMSEA <= .05           0.220
+
+CFI/TLI
+
+          CFI                                0.986
+          TLI                                0.977
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            551.632
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.050
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.67023047D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ DASST_1  BY
+    DASS1_1            1.000      0.000    999.000    999.000
+    DASS2_1            0.972      0.105      9.246      0.000
+    DASS3_1            1.152      0.113     10.200      0.000
+    DASS4_1            1.018      0.112      9.105      0.000
+    DASS5_1            0.947      0.091     10.391      0.000
+    DASS6_1            0.819      0.138      5.927      0.000
+    DASS7_1            1.183      0.140      8.430      0.000
+
+ DASS6_1  WITH
+    DASS4_1           -0.323      0.091     -3.534      0.000
+
+ Thresholds
+    DASS1_1$1         -0.228      0.127     -1.799      0.072
+    DASS1_1$2          1.645      0.211      7.784      0.000
+    DASS2_1$1         -0.228      0.127     -1.799      0.072
+    DASS2_1$2          1.881      0.251      7.502      0.000
+    DASS2_1$3          2.326      0.373      6.231      0.000
+    DASS3_1$1         -0.524      0.132     -3.979      0.000
+    DASS3_1$2          1.341      0.176      7.608      0.000
+    DASS3_1$3          2.326      0.373      6.231      0.000
+    DASS4_1$1         -0.674      0.136     -4.950      0.000
+    DASS4_1$2          1.405      0.182      7.700      0.000
+    DASS4_1$3          2.326      0.373      6.231      0.000
+    DASS5_1$1         -0.358      0.128     -2.794      0.005
+    DASS5_1$2          1.405      0.182      7.700      0.000
+    DASS5_1$3          2.326      0.373      6.231      0.000
+    DASS6_1$1          0.279      0.127      2.197      0.028
+    DASS6_1$2          2.326      0.373      6.231      0.000
+    DASS7_1$1         -0.253      0.127     -1.998      0.046
+    DASS7_1$2          1.405      0.182      7.700      0.000
+    DASS7_1$3          2.054      0.289      7.103      0.000
+
+ Variances
+    DASST_1            0.475      0.076      6.275      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ DASST_1  BY
+    DASS1_1            0.689      0.055     12.551      0.000
+    DASS2_1            0.670      0.059     11.289      0.000
+    DASS3_1            0.794      0.048     16.598      0.000
+    DASS4_1            0.702      0.057     12.358      0.000
+    DASS5_1            0.653      0.052     12.446      0.000
+    DASS6_1            0.564      0.092      6.147      0.000
+    DASS7_1            0.815      0.068     11.903      0.000
+
+ DASS6_1  WITH
+    DASS4_1           -0.548      0.176     -3.122      0.002
+
+ Thresholds
+    DASS1_1$1         -0.228      0.127     -1.799      0.072
+    DASS1_1$2          1.645      0.211      7.784      0.000
+    DASS2_1$1         -0.228      0.127     -1.799      0.072
+    DASS2_1$2          1.881      0.251      7.502      0.000
+    DASS2_1$3          2.326      0.373      6.231      0.000
+    DASS3_1$1         -0.524      0.132     -3.979      0.000
+    DASS3_1$2          1.341      0.176      7.608      0.000
+    DASS3_1$3          2.326      0.373      6.231      0.000
+    DASS4_1$1         -0.674      0.136     -4.950      0.000
+    DASS4_1$2          1.405      0.182      7.700      0.000
+    DASS4_1$3          2.326      0.373      6.231      0.000
+    DASS5_1$1         -0.358      0.128     -2.794      0.005
+    DASS5_1$2          1.405      0.182      7.700      0.000
+    DASS5_1$3          2.326      0.373      6.231      0.000
+    DASS6_1$1          0.279      0.127      2.197      0.028
+    DASS6_1$2          2.326      0.373      6.231      0.000
+    DASS7_1$1         -0.253      0.127     -1.998      0.046
+    DASS7_1$2          1.405      0.182      7.700      0.000
+    DASS7_1$3          2.054      0.289      7.103      0.000
+
+ Variances
+    DASST_1            1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    DASS1_1            0.475      0.076      6.275      0.000      0.525
+    DASS2_1            0.449      0.079      5.644      0.000      0.551
+    DASS3_1            0.630      0.076      8.299      0.000      0.370
+    DASS4_1            0.492      0.080      6.179      0.000      0.508
+    DASS5_1            0.426      0.068      6.223      0.000      0.574
+    DASS6_1            0.318      0.104      3.073      0.002      0.682
+    DASS7_1            0.664      0.112      5.952      0.000      0.336
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.246E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+     Beginning Time:  22:20:07
+        Ending Time:  22:20:07
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

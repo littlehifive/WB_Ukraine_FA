@@ -1,0 +1,967 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/18/2023  10:49 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Work-related Efficacy Baseline EFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	auto1_1 auto2_1 auto3_1 auto4_1 auto5_1 auto6_1 auto7_1 auto8_1 auto9_1 auto10_1;
+
+    Categorical is
+  	auto1_1 auto2_1 auto3_1 auto4_1 auto5_1 auto6_1 auto7_1 auto8_1 auto9_1 auto10_1;
+
+    Useobservations is half eq 1;
+
+  Analysis:
+     Type = efa 1 3;
+     Estimator = wlsmv;
+
+  Output: sampstat stdy modindices(all);
+
+
+
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=EFA.
+  Request for STANDARDIZED options will be ignored.  Note that STANDARDIZED options
+  are available with the use of EFA factors (ESEM) declared in the MODEL command.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Tutor Work-related Efficacy Baseline EFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         100
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   AUTO1_1     AUTO2_1     AUTO3_1     AUTO4_1     AUTO5_1     AUTO6_1
+   AUTO7_1     AUTO8_1     AUTO9_1     AUTO10_1
+
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        1.000
+ AUTO2_1        1.000         1.000
+ AUTO3_1        1.000         1.000         1.000
+ AUTO4_1        1.000         1.000         1.000         1.000
+ AUTO5_1        1.000         1.000         1.000         1.000         1.000
+ AUTO6_1        1.000         1.000         1.000         1.000         1.000
+ AUTO7_1        1.000         1.000         1.000         1.000         1.000
+ AUTO8_1        1.000         1.000         1.000         1.000         1.000
+ AUTO9_1        1.000         1.000         1.000         1.000         1.000
+ AUTO10_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        1.000
+ AUTO7_1        1.000         1.000
+ AUTO8_1        1.000         1.000         1.000
+ AUTO9_1        1.000         1.000         1.000         1.000
+ AUTO10_1       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    AUTO1_1
+      Category 1    0.010            1.000
+      Category 2    0.150           15.000
+      Category 3    0.590           59.000
+      Category 4    0.250           25.000
+    AUTO2_1
+      Category 1    0.010            1.000
+      Category 2    0.230           23.000
+      Category 3    0.620           62.000
+      Category 4    0.140           14.000
+    AUTO3_1
+      Category 1    0.030            3.000
+      Category 2    0.410           41.000
+      Category 3    0.400           40.000
+      Category 4    0.140           14.000
+      Category 5    0.020            2.000
+    AUTO4_1
+      Category 1    0.210           21.000
+      Category 2    0.670           67.000
+      Category 3    0.090            9.000
+      Category 4    0.030            3.000
+    AUTO5_1
+      Category 1    0.080            8.000
+      Category 2    0.400           40.000
+      Category 3    0.460           46.000
+      Category 4    0.050            5.000
+      Category 5    0.010            1.000
+    AUTO6_1
+      Category 1    0.040            4.000
+      Category 2    0.390           39.000
+      Category 3    0.480           48.000
+      Category 4    0.090            9.000
+    AUTO7_1
+      Category 1    0.260           26.000
+      Category 2    0.570           57.000
+      Category 3    0.170           17.000
+    AUTO8_1
+      Category 1    0.130           13.000
+      Category 2    0.500           50.000
+      Category 3    0.290           29.000
+      Category 4    0.080            8.000
+    AUTO9_1
+      Category 1    0.210           21.000
+      Category 2    0.560           56.000
+      Category 3    0.170           17.000
+      Category 4    0.050            5.000
+      Category 5    0.010            1.000
+    AUTO10_1
+      Category 1    0.070            7.000
+      Category 2    0.340           34.000
+      Category 3    0.310           31.000
+      Category 4    0.280           28.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO1_1$      AUTO1_1$      AUTO1_1$      AUTO2_1$      AUTO2_1$
+              ________      ________      ________      ________      ________
+               -2.326        -0.994         0.674        -2.326        -0.706
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO2_1$      AUTO3_1$      AUTO3_1$      AUTO3_1$      AUTO3_1$
+              ________      ________      ________      ________      ________
+                1.080        -1.881        -0.151         0.994         2.054
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO4_1$      AUTO4_1$      AUTO4_1$      AUTO5_1$      AUTO5_1$
+              ________      ________      ________      ________      ________
+               -0.806         1.175         1.881        -1.405        -0.050
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO5_1$      AUTO5_1$      AUTO6_1$      AUTO6_1$      AUTO6_1$
+              ________      ________      ________      ________      ________
+                1.555         2.326        -1.751        -0.176         1.341
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO7_1$      AUTO7_1$      AUTO8_1$      AUTO8_1$      AUTO8_1$
+              ________      ________      ________      ________      ________
+               -0.643         0.954        -1.126         0.332         1.405
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO9_1$      AUTO9_1$      AUTO9_1$      AUTO9_1$      AUTO10_1
+              ________      ________      ________      ________      ________
+               -0.806         0.739         1.555         2.326        -1.476
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO10_1      AUTO10_1
+              ________      ________
+               -0.228         0.583
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1
+ AUTO2_1        0.869
+ AUTO3_1       -0.374        -0.321
+ AUTO4_1       -0.410        -0.261         0.501
+ AUTO5_1       -0.315        -0.329         0.259         0.236
+ AUTO6_1        0.584         0.650        -0.529        -0.422        -0.426
+ AUTO7_1        0.555         0.494        -0.414        -0.479        -0.105
+ AUTO8_1       -0.363        -0.378         0.190         0.491         0.286
+ AUTO9_1       -0.425        -0.465         0.290         0.350         0.215
+ AUTO10_1      -0.149        -0.357         0.464         0.290         0.237
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO7_1        0.474
+ AUTO8_1       -0.539        -0.251
+ AUTO9_1       -0.296        -0.462         0.306
+ AUTO10_1      -0.382        -0.346         0.301         0.311
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor          10            105.534        35       0.0000
+     2-factor          19             43.376        26       0.0176
+     3-factor          27             32.031        18       0.0218
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor        64.884         9       0.0000
+     2-factor against 3-factor        13.079         8       0.1092
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+                4.520         1.102         1.014         0.849         0.751
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6             7             8             9            10
+              ________      ________      ________      ________      ________
+                0.672         0.441         0.370         0.217         0.064
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       10
+
+Chi-Square Test of Model Fit
+
+          Value                            105.534*
+          Degrees of Freedom                    35
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.142
+          90 Percent C.I.                    0.111  0.173
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.905
+          TLI                                0.878
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            789.669
+          Degrees of Freedom                    45
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.100
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       4.13435
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ AUTO1_1       -0.844*
+ AUTO2_1       -0.825*
+ AUTO3_1        0.547*
+ AUTO4_1        0.592*
+ AUTO5_1        0.429*
+ AUTO6_1       -0.798*
+ AUTO7_1       -0.650*
+ AUTO8_1        0.557*
+ AUTO9_1        0.543*
+ AUTO10_1       0.492*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                0.287         0.320         0.701         0.649         0.816
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                0.363         0.578         0.690         0.705         0.758
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ AUTO1_1        0.047
+ AUTO2_1        0.041
+ AUTO3_1        0.052
+ AUTO4_1        0.063
+ AUTO5_1        0.085
+ AUTO6_1        0.046
+ AUTO7_1        0.077
+ AUTO8_1        0.073
+ AUTO9_1        0.073
+ AUTO10_1       0.074
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                0.079         0.068         0.056         0.075         0.073
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                0.073         0.100         0.081         0.079         0.073
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ AUTO1_1      -18.081
+ AUTO2_1      -20.114
+ AUTO3_1       10.600
+ AUTO4_1        9.336
+ AUTO5_1        5.030
+ AUTO6_1      -17.483
+ AUTO7_1       -8.444
+ AUTO8_1        7.615
+ AUTO9_1        7.433
+ AUTO10_1       6.646
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                3.644         4.723        12.431         8.639        11.180
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                4.975         5.786         8.463         8.887        10.383
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       19
+
+Chi-Square Test of Model Fit
+
+          Value                             43.376*
+          Degrees of Freedom                    26
+          P-Value                           0.0176
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.082
+          90 Percent C.I.                    0.034  0.123
+          Probability RMSEA <= .05           0.114
+
+CFI/TLI
+
+          CFI                                0.977
+          TLI                                0.960
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            789.669
+          Degrees of Freedom                    45
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.070
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.80615
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ AUTO1_1        0.716*       -0.217
+ AUTO2_1        1.066*        0.004
+ AUTO3_1        0.016         0.683*
+ AUTO4_1        0.093         0.775*
+ AUTO5_1       -0.173         0.315*
+ AUTO6_1        0.332*       -0.592*
+ AUTO7_1        0.267        -0.479*
+ AUTO8_1       -0.127         0.504*
+ AUTO9_1       -0.268*        0.359*
+ AUTO10_1      -0.024         0.530*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2        -0.469*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                0.295        -0.132         0.544         0.458         0.820
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                0.355         0.579         0.670         0.709         0.707
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ AUTO1_1        0.150         0.150
+ AUTO2_1        0.095         0.006
+ AUTO3_1        0.051         0.058
+ AUTO4_1        0.107         0.082
+ AUTO5_1        0.120         0.104
+ AUTO6_1        0.134         0.112
+ AUTO7_1        0.153         0.126
+ AUTO8_1        0.118         0.096
+ AUTO9_1        0.131         0.120
+ AUTO10_1       0.125         0.100
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.074         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                0.109         0.208         0.084         0.092         0.071
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                0.079         0.099         0.083         0.078         0.076
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ AUTO1_1        4.765        -1.448
+ AUTO2_1       11.176         0.717
+ AUTO3_1        0.317        11.705
+ AUTO4_1        0.872         9.497
+ AUTO5_1       -1.444         3.038
+ AUTO6_1        2.465        -5.291
+ AUTO7_1        1.748        -3.788
+ AUTO8_1       -1.077         5.254
+ AUTO9_1       -2.055         2.980
+ AUTO10_1      -0.189         5.286
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2        -6.297         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                2.697        -0.635         6.465         5.001        11.595
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                4.510         5.842         8.030         9.040         9.356
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ AUTO1_1        0.817        -0.552
+ AUTO2_1        1.064        -0.496
+ AUTO3_1       -0.304         0.675
+ AUTO4_1       -0.270         0.732
+ AUTO5_1       -0.320         0.396
+ AUTO6_1        0.609        -0.748
+ AUTO7_1        0.492        -0.604
+ AUTO8_1       -0.363         0.564
+ AUTO9_1       -0.437         0.485
+ AUTO10_1      -0.272         0.541
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Chi-Square Test of Model Fit
+
+          Value                             32.031*
+          Degrees of Freedom                    18
+          P-Value                           0.0218
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.088
+          90 Percent C.I.                    0.033  0.137
+          Probability RMSEA <= .05           0.105
+
+CFI/TLI
+
+          CFI                                0.981
+          TLI                                0.953
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            789.669
+          Degrees of Freedom                    45
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.054
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.33474
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+ AUTO1_1        0.799*       -0.083        -0.009
+ AUTO2_1        1.043*        0.000         0.223
+ AUTO3_1       -0.024         0.537*        0.341*
+ AUTO4_1        0.044         0.599*        0.402*
+ AUTO5_1       -0.004         0.520*       -0.135
+ AUTO6_1        0.196        -0.712*        0.012
+ AUTO7_1        0.578*        0.005        -0.563*
+ AUTO8_1        0.002         0.621*        0.017
+ AUTO9_1       -0.391*        0.132         0.247*
+ AUTO10_1      -0.033         0.441*        0.234
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+      1         1.000
+      2        -0.628*        1.000
+      3        -0.094         0.106         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                0.270        -0.094         0.539         0.462         0.724
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                0.281         0.291         0.613         0.679         0.707
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ AUTO1_1        0.162         0.169         0.015
+ AUTO2_1        0.131         0.004         0.166
+ AUTO3_1        0.047         0.135         0.122
+ AUTO4_1        0.101         0.185         0.160
+ AUTO5_1        0.053         0.122         0.139
+ AUTO6_1        0.133         0.119         0.025
+ AUTO7_1        0.212         0.007         0.156
+ AUTO8_1        0.109         0.125         0.114
+ AUTO9_1        0.172         0.173         0.126
+ AUTO10_1       0.124         0.146         0.127
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.107         0.000
+      3         0.306         0.347         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                0.116         0.197         0.090         0.090         0.104
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                0.084         0.216         0.106         0.091         0.075
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ AUTO1_1        4.942        -0.489        -0.632
+ AUTO2_1        7.976         0.044         1.345
+ AUTO3_1       -0.497         3.986         2.789
+ AUTO4_1        0.431         3.242         2.519
+ AUTO5_1       -0.078         4.271        -0.976
+ AUTO6_1        1.474        -5.985         0.462
+ AUTO7_1        2.731         0.773        -3.618
+ AUTO8_1        0.017         4.981         0.145
+ AUTO9_1       -2.275         0.762         1.962
+ AUTO10_1      -0.269         3.031         1.842
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2        -5.858         0.000
+      3        -0.308         0.306         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+                2.322        -0.478         5.976         5.108         6.929
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+                3.336         1.351         5.800         7.482         9.448
+
+
+           FACTOR STRUCTURE
+                  1             2             3
+              ________      ________      ________
+ AUTO1_1        0.852        -0.585        -0.093
+ AUTO2_1        1.022        -0.631         0.125
+ AUTO3_1       -0.393         0.588         0.400
+ AUTO4_1       -0.371         0.615         0.462
+ AUTO5_1       -0.318         0.508        -0.080
+ AUTO6_1        0.642        -0.834        -0.082
+ AUTO7_1        0.628        -0.418        -0.617
+ AUTO8_1       -0.390         0.622         0.082
+ AUTO9_1       -0.497         0.404         0.298
+ AUTO10_1      -0.332         0.487         0.284
+
+
+MODIFICATION INDICES
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 1 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        0.000
+ AUTO2_1       41.395         0.000
+ AUTO3_1        4.261        11.367         0.000
+ AUTO4_1        1.439        15.880        10.040         0.000
+ AUTO5_1        0.504         0.079         0.312         0.034         0.000
+ AUTO6_1        3.144         0.066         4.249         0.468         1.858
+ AUTO7_1        0.007         0.291         0.579         1.704         3.845
+ AUTO8_1        2.791         1.356         2.722         7.631         0.308
+ AUTO9_1        0.243         0.072         0.009         0.145         0.028
+ AUTO10_1      10.068         0.475        10.153         0.001         0.112
+
+
+           THETA
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        0.000
+ AUTO7_1        0.299         0.000
+ AUTO8_1        3.791         1.996         0.000
+ AUTO9_1        3.132         2.426         0.003         0.000
+ AUTO10_1       0.027         0.123         0.128         0.355         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        0.000
+ AUTO2_1        0.465         0.000
+ AUTO3_1        0.135         0.210         0.000
+ AUTO4_1        0.115         0.327         0.220         0.000
+ AUTO5_1        0.062         0.029         0.033        -0.019         0.000
+ AUTO6_1       -0.150        -0.019        -0.134         0.064        -0.111
+ AUTO7_1        0.008        -0.055        -0.068        -0.118         0.196
+ AUTO8_1        0.143         0.104        -0.131         0.205         0.052
+ AUTO9_1        0.045        -0.023        -0.008         0.033        -0.019
+ AUTO10_1       0.324         0.063         0.232        -0.002         0.029
+
+
+           THETA
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        0.000
+ AUTO7_1       -0.056         0.000
+ AUTO8_1       -0.142         0.132         0.000
+ AUTO9_1        0.170        -0.136         0.004         0.000
+ AUTO10_1       0.014        -0.032         0.030         0.051         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 2 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        0.000
+ AUTO2_1        0.000         0.000
+ AUTO3_1        0.109         0.001         0.000
+ AUTO4_1        0.997         0.980         0.032         0.000
+ AUTO5_1        0.000         0.035         0.032         0.234         0.000
+ AUTO6_1        0.123         0.059         0.693         2.741         2.133
+ AUTO7_1        1.216         0.344         0.018         0.934         4.095
+ AUTO8_1        0.114         0.022        10.842         3.970         0.322
+ AUTO9_1        0.015         0.001         0.314         0.057         0.017
+ AUTO10_1       4.716         2.851         4.467         3.041         0.073
+
+
+           THETA
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        0.000
+ AUTO7_1        0.379         0.000
+ AUTO8_1        3.701         2.509         0.000
+ AUTO9_1        3.426         2.878         0.011         0.000
+ AUTO10_1       0.238         0.042         0.011         0.422         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        0.000
+ AUTO2_1       -0.007         0.000
+ AUTO3_1       -0.027         0.004         0.000
+ AUTO4_1       -0.111         0.175         0.019         0.000
+ AUTO5_1        0.001         0.026        -0.012        -0.052         0.000
+ AUTO6_1       -0.034         0.034        -0.065         0.170        -0.114
+ AUTO7_1        0.116        -0.088        -0.013        -0.098         0.193
+ AUTO8_1        0.030         0.019        -0.288         0.177         0.051
+ AUTO9_1       -0.012        -0.005        -0.048         0.023        -0.014
+ AUTO10_1       0.225        -0.240         0.182        -0.181         0.023
+
+
+           THETA
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        0.000
+ AUTO7_1       -0.061         0.000
+ AUTO8_1       -0.140         0.144         0.000
+ AUTO9_1        0.171        -0.142         0.008         0.000
+ AUTO10_1       0.042        -0.019        -0.009         0.054         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 3 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        0.000
+ AUTO2_1        0.051         0.000
+ AUTO3_1        0.089         0.000         0.000
+ AUTO4_1        1.262         0.986         0.031         0.000
+ AUTO5_1        0.185         0.170         0.052         0.101         0.000
+ AUTO6_1        0.001         0.015         1.941         2.744         0.001
+ AUTO7_1        0.134         0.658         0.888         0.067         0.617
+ AUTO8_1        0.000         0.065        13.228         7.905         0.261
+ AUTO9_1        0.033         0.174         0.604         0.033         0.278
+ AUTO10_1       5.599         3.690         5.382         3.523         0.125
+
+
+           THETA
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        0.000
+ AUTO7_1        2.373         0.000
+ AUTO8_1        0.742         0.184         0.000
+ AUTO9_1        2.121         0.087         1.129         0.000
+ AUTO10_1       0.307         0.007         0.011         0.624         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        0.000
+ AUTO2_1        0.096         0.000
+ AUTO3_1       -0.023        -0.002         0.000
+ AUTO4_1       -0.116         0.155         0.019         0.000
+ AUTO5_1       -0.041         0.056         0.017        -0.034         0.000
+ AUTO6_1        0.004        -0.018        -0.113         0.173        -0.004
+ AUTO7_1        0.061        -0.167         0.129        -0.041         0.133
+ AUTO8_1        0.001         0.030        -0.306         0.252        -0.057
+ AUTO9_1        0.018        -0.055        -0.065         0.017         0.059
+ AUTO10_1       0.228        -0.243         0.185        -0.179         0.031
+
+
+           THETA
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        0.000
+ AUTO7_1        0.245         0.000
+ AUTO8_1       -0.093         0.059         0.000
+ AUTO9_1        0.140        -0.046         0.088         0.000
+ AUTO10_1       0.049         0.010        -0.009         0.063         0.000
+
+
+     Beginning Time:  22:49:47
+        Ending Time:  22:49:48
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

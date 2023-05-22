@@ -1,0 +1,475 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/19/2023  10:35 AM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Bias Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	bias1_1 bias2_1 bias3_1 bias4_1 bias6_1 bias7_1
+  	bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1;
+
+    Categorical is
+  	bias1_1 bias2_1 bias3_1 bias4_1 bias6_1 bias7_1
+  	bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    !Self-Efficacy and Attitude towards Challenges:
+    f1 by bias1_1 bias2_1 bias3_1 bias4_1 bias11_1;
+
+    ! Interpersonal Skills and Ethics:
+    f2 by bias7_1 bias9_1 bias6_1 bias13_1;
+
+    ! Attitude Towards Conflict, Open-Mindedness, and Tolerance:
+    f3 by bias8_1 bias10_1 bias12_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Tutor Bias Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         100
+
+Number of dependent variables                                   12
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   BIAS1_1     BIAS2_1     BIAS3_1     BIAS4_1     BIAS6_1     BIAS7_1
+   BIAS8_1     BIAS9_1     BIAS10_1    BIAS11_1    BIAS12_1    BIAS13_1
+
+Continuous latent variables
+   F1          F2          F3
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              BIAS1_1       BIAS2_1       BIAS3_1       BIAS4_1       BIAS6_1
+              ________      ________      ________      ________      ________
+ BIAS1_1        1.000
+ BIAS2_1        1.000         1.000
+ BIAS3_1        1.000         1.000         1.000
+ BIAS4_1        1.000         1.000         1.000         1.000
+ BIAS6_1        1.000         1.000         1.000         1.000         1.000
+ BIAS7_1        1.000         1.000         1.000         1.000         1.000
+ BIAS8_1        1.000         1.000         1.000         1.000         1.000
+ BIAS9_1        1.000         1.000         1.000         1.000         1.000
+ BIAS10_1       1.000         1.000         1.000         1.000         1.000
+ BIAS11_1       1.000         1.000         1.000         1.000         1.000
+ BIAS12_1       1.000         1.000         1.000         1.000         1.000
+ BIAS13_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              BIAS7_1       BIAS8_1       BIAS9_1       BIAS10_1      BIAS11_1
+              ________      ________      ________      ________      ________
+ BIAS7_1        1.000
+ BIAS8_1        1.000         1.000
+ BIAS9_1        1.000         1.000         1.000
+ BIAS10_1       1.000         1.000         1.000         1.000
+ BIAS11_1       1.000         1.000         1.000         1.000         1.000
+ BIAS12_1       1.000         1.000         1.000         1.000         1.000
+ BIAS13_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              BIAS12_1      BIAS13_1
+              ________      ________
+ BIAS12_1       1.000
+ BIAS13_1       1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    BIAS1_1
+      Category 1    0.580           58.000
+      Category 2    0.420           42.000
+    BIAS2_1
+      Category 1    0.380           38.000
+      Category 2    0.620           62.000
+    BIAS3_1
+      Category 1    0.860           86.000
+      Category 2    0.140           14.000
+    BIAS4_1
+      Category 1    0.850           85.000
+      Category 2    0.150           15.000
+    BIAS6_1
+      Category 1    0.710           71.000
+      Category 2    0.290           29.000
+    BIAS7_1
+      Category 1    0.080            8.000
+      Category 2    0.920           92.000
+    BIAS8_1
+      Category 1    0.880           88.000
+      Category 2    0.120           12.000
+    BIAS9_1
+      Category 1    0.120           12.000
+      Category 2    0.880           88.000
+    BIAS10_1
+      Category 1    0.360           36.000
+      Category 2    0.640           64.000
+    BIAS11_1
+      Category 1    0.670           67.000
+      Category 2    0.330           33.000
+    BIAS12_1
+      Category 1    0.690           69.000
+      Category 2    0.310           31.000
+    BIAS13_1
+      Category 1    0.990           99.000
+      Category 2    0.010            1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BIAS1_1$      BIAS2_1$      BIAS3_1$      BIAS4_1$      BIAS6_1$
+              ________      ________      ________      ________      ________
+                0.202        -0.305         1.080         1.036         0.553
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BIAS7_1$      BIAS8_1$      BIAS9_1$      BIAS10_1      BIAS11_1
+              ________      ________      ________      ________      ________
+               -1.405         1.175        -1.175        -0.358         0.440
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BIAS12_1      BIAS13_1
+              ________      ________
+                0.496         2.326
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BIAS1_1       BIAS2_1       BIAS3_1       BIAS4_1       BIAS6_1
+              ________      ________      ________      ________      ________
+ BIAS1_1
+ BIAS2_1        0.199
+ BIAS3_1        0.127         0.289
+ BIAS4_1        0.288         0.322         0.159
+ BIAS6_1       -0.164         0.393         0.238         0.080
+ BIAS7_1       -0.109        -0.409        -0.424        -0.560        -0.128
+ BIAS8_1        0.121         0.214         0.069         0.226         0.332
+ BIAS9_1       -0.365        -0.214        -0.069         0.195         0.072
+ BIAS10_1       0.145         0.092        -0.334        -0.283        -0.195
+ BIAS11_1       0.010         0.406         0.277         0.231         0.409
+ BIAS12_1       0.213         0.437         0.201         0.370         0.456
+ BIAS13_1       0.076        -0.115         0.406         0.389         0.208
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BIAS7_1       BIAS8_1       BIAS9_1       BIAS10_1      BIAS11_1
+              ________      ________      ________      ________      ________
+ BIAS8_1       -0.013
+ BIAS9_1        0.635        -0.473
+ BIAS10_1       0.355        -0.215         0.452
+ BIAS11_1      -0.397         0.139        -0.264        -0.225
+ BIAS12_1      -0.425         0.298        -0.415        -0.281         0.283
+ BIAS13_1      -0.528         0.441        -0.441        -0.135         0.165
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BIAS12_1      BIAS13_1
+              ________      ________
+ BIAS13_1       0.186
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS1_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS2_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS3_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS4_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS6_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS7_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS8_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS9_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS10_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS11_1 HAS AN EMPTY CELL.
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS12_1 HAS AN EMPTY CELL.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Chi-Square Test of Model Fit
+
+          Value                             72.675*
+          Degrees of Freedom                    51
+          P-Value                           0.0247
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.065
+          90 Percent C.I.                    0.024  0.097
+          Probability RMSEA <= .05           0.226
+
+CFI/TLI
+
+          CFI                                0.857
+          TLI                                0.815
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            217.692
+          Degrees of Freedom                    66
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.148
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.35073039D+00
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    BIAS1_1            1.000      0.000    999.000    999.000
+    BIAS2_1            1.356      0.836      1.621      0.105
+    BIAS3_1            2.859      1.590      1.798      0.072
+    BIAS4_1            3.003      1.647      1.823      0.068
+    BIAS11_1           2.243      1.238      1.812      0.070
+
+ F2       BY
+    BIAS7_1            1.000      0.000    999.000    999.000
+    BIAS9_1            0.793      0.147      5.387      0.000
+    BIAS6_1           -0.475      0.133     -3.572      0.000
+    BIAS13_1          -0.624      0.170     -3.682      0.000
+
+ F3       BY
+    BIAS8_1            1.000      0.000    999.000    999.000
+    BIAS10_1          -0.632      0.235     -2.687      0.007
+    BIAS12_1           0.897      0.241      3.723      0.000
+
+ F2       WITH
+    F1                -0.154      0.083     -1.867      0.062
+
+ F3       WITH
+    F1                 0.117      0.070      1.669      0.095
+    F2                -0.506      0.127     -3.997      0.000
+
+ Thresholds
+    BIAS1_1$1          0.202      0.126      1.599      0.110
+    BIAS2_1$1         -0.305      0.127     -2.396      0.017
+    BIAS3_1$1          1.080      0.156      6.930      0.000
+    BIAS4_1$1          1.036      0.153      6.768      0.000
+    BIAS6_1$1          0.553      0.133      4.175      0.000
+    BIAS7_1$1         -1.405      0.182     -7.700      0.000
+    BIAS8_1$1          1.175      0.162      7.233      0.000
+    BIAS9_1$1         -1.175      0.162     -7.233      0.000
+    BIAS10_1$1        -0.358      0.128     -2.794      0.005
+    BIAS11_1$1         0.440      0.130      3.388      0.001
+    BIAS12_1$1         0.496      0.131      3.782      0.000
+    BIAS13_1$1         2.326      0.373      6.231      0.000
+
+ Variances
+    F1                 0.049      0.056      0.882      0.378
+    F2                 0.785      0.201      3.913      0.000
+    F3                 0.382      0.210      1.822      0.068
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    BIAS1_1            0.222      0.126      1.764      0.078
+    BIAS2_1            0.301      0.122      2.472      0.013
+    BIAS3_1            0.634      0.177      3.581      0.000
+    BIAS4_1            0.666      0.174      3.820      0.000
+    BIAS11_1           0.497      0.135      3.678      0.000
+
+ F2       BY
+    BIAS7_1            0.886      0.113      7.826      0.000
+    BIAS9_1            0.702      0.112      6.290      0.000
+    BIAS6_1           -0.421      0.117     -3.590      0.000
+    BIAS13_1          -0.553      0.108     -5.131      0.000
+
+ F3       BY
+    BIAS8_1            0.618      0.170      3.644      0.000
+    BIAS10_1          -0.390      0.121     -3.218      0.001
+    BIAS12_1           0.554      0.131      4.225      0.000
+
+ F2       WITH
+    F1                -0.785      0.174     -4.499      0.000
+
+ F3       WITH
+    F1                 0.852      0.231      3.690      0.000
+    F2                -0.924      0.215     -4.301      0.000
+
+ Thresholds
+    BIAS1_1$1          0.202      0.126      1.599      0.110
+    BIAS2_1$1         -0.305      0.127     -2.396      0.017
+    BIAS3_1$1          1.080      0.156      6.930      0.000
+    BIAS4_1$1          1.036      0.153      6.768      0.000
+    BIAS6_1$1          0.553      0.133      4.175      0.000
+    BIAS7_1$1         -1.405      0.182     -7.700      0.000
+    BIAS8_1$1          1.175      0.162      7.233      0.000
+    BIAS9_1$1         -1.175      0.162     -7.233      0.000
+    BIAS10_1$1        -0.358      0.128     -2.794      0.005
+    BIAS11_1$1         0.440      0.130      3.388      0.001
+    BIAS12_1$1         0.496      0.131      3.782      0.000
+    BIAS13_1$1         2.326      0.373      6.231      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    BIAS1_1            0.049      0.056      0.882      0.378      0.951
+    BIAS2_1            0.090      0.073      1.236      0.216      0.910
+    BIAS3_1            0.402      0.224      1.791      0.073      0.598
+    BIAS4_1            0.443      0.232      1.910      0.056      0.557
+    BIAS6_1            0.177      0.099      1.795      0.073      0.823
+    BIAS7_1            0.785      0.201      3.913      0.000      0.215
+    BIAS8_1            0.382      0.210      1.822      0.068      0.618
+    BIAS9_1            0.493      0.157      3.145      0.002      0.507
+    BIAS10_1           0.152      0.095      1.609      0.108      0.848
+    BIAS11_1           0.247      0.135      1.839      0.066      0.753
+    BIAS12_1           0.307      0.145      2.112      0.035      0.693
+    BIAS13_1           0.306      0.119      2.566      0.010      0.694
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.669E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON Statements
+
+BIAS2_1  ON BIAS13_1              17.435    -0.382     -0.382       -0.382
+BIAS13_1 ON BIAS2_1               17.157    -0.398     -0.398       -0.398
+
+WITH Statements
+
+BIAS13_1 WITH BIAS2_1             17.398    -0.406     -0.406       -0.512
+
+
+     Beginning Time:  10:35:30
+        Ending Time:  10:35:30
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

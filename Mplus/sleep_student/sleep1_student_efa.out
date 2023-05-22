@@ -1,0 +1,677 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+05/03/2023   8:58 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Sleep Baseline EFA;
+
+  Data:
+     File is ../dat_stu.txt;
+
+  Variable:
+     Names are studentid index treatment girl age_w child_grade in_ukr
+     guardian_living guardian_region
+     grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1
+     loc1_1 loc2_1 loc3_1 loc4_1
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+     dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+     sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1
+     efficacy_1 edugoals_1 remotediff_1 timeclass_1 timehomework_1
+     grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2
+     loc1_2 loc2_2 loc3_2 loc4_2
+     dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     efficacy_2 edugoals_2 timeclass_2 timehomework_2 compmath_2 half;
+     Missing are . ;
+
+    Usevariable are
+  	sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1;
+
+    Categorical is
+  	sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1;
+
+    Idvariable is studentid;
+
+    Useobservations is half eq 1;
+
+  Analysis:
+     Type = efa 1 3;
+     Estimator = wlsmv;
+
+  Output: sampstat stdy modindices(all);
+
+
+
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=EFA.
+  Request for STANDARDIZED options will be ignored.  Note that STANDARDIZED options
+  are available with the use of EFA factors (ESEM) declared in the MODEL command.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Student Sleep Baseline EFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1272
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SLEEP1_1    SLEEP2_1    SLEEP3_1    SLEEP4_1    SLEEP5_1    SLEEP6_1
+   SLEEP7_1
+
+Variables with special functions
+
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       1.000
+ SLEEP2_1       1.000         1.000
+ SLEEP3_1       1.000         1.000         1.000
+ SLEEP4_1       1.000         1.000         1.000         1.000
+ SLEEP5_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP6_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP7_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       1.000
+ SLEEP7_1       1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SLEEP1_1
+      Category 1    0.256          325.000
+      Category 2    0.393          500.000
+      Category 3    0.229          291.000
+      Category 4    0.093          118.000
+      Category 5    0.030           38.000
+    SLEEP2_1
+      Category 1    0.388          494.000
+      Category 2    0.339          431.000
+      Category 3    0.189          240.000
+      Category 4    0.068           87.000
+      Category 5    0.016           20.000
+    SLEEP3_1
+      Category 1    0.483          614.000
+      Category 2    0.339          431.000
+      Category 3    0.111          141.000
+      Category 4    0.051           65.000
+      Category 5    0.017           21.000
+    SLEEP4_1
+      Category 1    0.154          196.000
+      Category 2    0.350          445.000
+      Category 3    0.328          417.000
+      Category 4    0.142          181.000
+      Category 5    0.026           33.000
+    SLEEP5_1
+      Category 1    0.520          662.000
+      Category 2    0.289          368.000
+      Category 3    0.139          177.000
+      Category 4    0.040           51.000
+      Category 5    0.011           14.000
+    SLEEP6_1
+      Category 1    0.695          884.000
+      Category 2    0.202          257.000
+      Category 3    0.082          104.000
+      Category 4    0.016           20.000
+      Category 5    0.006            7.000
+    SLEEP7_1
+      Category 1    0.486          618.000
+      Category 2    0.320          407.000
+      Category 3    0.127          161.000
+      Category 4    0.054           69.000
+      Category 5    0.013           17.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP2_1
+              ________      ________      ________      ________      ________
+               -0.657         0.382         1.162         1.883        -0.284
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP2_1      SLEEP2_1      SLEEP2_1      SLEEP3_1      SLEEP3_1
+              ________      ________      ________      ________      ________
+                0.604         1.378         2.151        -0.043         0.921
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP3_1      SLEEP3_1      SLEEP4_1      SLEEP4_1      SLEEP4_1
+              ________      ________      ________      ________      ________
+                1.494         2.132        -1.019         0.010         0.961
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP4_1      SLEEP5_1      SLEEP5_1      SLEEP5_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                1.944         0.051         0.877         1.634         2.290
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP7_1
+              ________      ________      ________      ________      ________
+                0.510         1.265         2.029         2.542        -0.035
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP7_1      SLEEP7_1      SLEEP7_1
+              ________      ________      ________
+                0.863         1.494         2.215
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1
+ SLEEP2_1       0.815
+ SLEEP3_1       0.539         0.642
+ SLEEP4_1       0.555         0.578         0.399
+ SLEEP5_1       0.514         0.559         0.405         0.510
+ SLEEP6_1       0.551         0.598         0.489         0.588         0.637
+ SLEEP7_1       0.499         0.577         0.430         0.582         0.616
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP7_1       0.681
+
+
+     NO CONVERGENCE.  NUMBER OF ITERATIONS EXCEEDED.
+     PROBLEM OCCURRED IN EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S).
+
+
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor           7            430.500        14       0.0000
+     2-factor          13             21.725         8       0.0055
+     3-factor         N/A
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor       316.539         6       0.0000
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+                4.378         0.792         0.533         0.458         0.358
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6             7
+              ________      ________
+                0.314         0.166
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        7
+
+Chi-Square Test of Model Fit
+
+          Value                            430.500*
+          Degrees of Freedom                    14
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.153
+          90 Percent C.I.                    0.141  0.166
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.961
+          TLI                                0.941
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          10638.148
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.073
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       4.09894
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ SLEEP1_1       0.842*
+ SLEEP2_1       0.904*
+ SLEEP3_1       0.641*
+ SLEEP4_1       0.692*
+ SLEEP5_1       0.708*
+ SLEEP6_1       0.788*
+ SLEEP7_1       0.748*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                0.291         0.182         0.589         0.522         0.499
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+                0.379         0.441
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ SLEEP1_1       0.011
+ SLEEP2_1       0.009
+ SLEEP3_1       0.019
+ SLEEP4_1       0.016
+ SLEEP5_1       0.018
+ SLEEP6_1       0.017
+ SLEEP7_1       0.016
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                0.019         0.017         0.025         0.022         0.026
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+                0.026         0.024
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ SLEEP1_1      73.443
+ SLEEP2_1      97.692
+ SLEEP3_1      33.243
+ SLEEP4_1      43.840
+ SLEEP5_1      39.309
+ SLEEP6_1      47.125
+ SLEEP7_1      45.892
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+               15.040        10.872        23.834        23.905        19.544
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+               14.371        18.096
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       13
+
+Chi-Square Test of Model Fit
+
+          Value                             21.725*
+          Degrees of Freedom                     8
+          P-Value                           0.0055
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.037
+          90 Percent C.I.                    0.019  0.056
+          Probability RMSEA <= .05           0.866
+
+CFI/TLI
+
+          CFI                                0.999
+          TLI                                0.997
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          10638.148
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.014
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.35600
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ SLEEP1_1       0.762*        0.096
+ SLEEP2_1       0.986*       -0.009*
+ SLEEP3_1       0.548*        0.137*
+ SLEEP4_1       0.181*        0.567*
+ SLEEP5_1       0.033         0.724*
+ SLEEP6_1       0.002         0.837*
+ SLEEP7_1      -0.065         0.870*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.744*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                0.301         0.041         0.570         0.493         0.439
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+                0.296         0.323
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ SLEEP1_1       0.056         0.059
+ SLEEP2_1       0.014         0.004
+ SLEEP3_1       0.052         0.057
+ SLEEP4_1       0.049         0.045
+ SLEEP5_1       0.054         0.047
+ SLEEP6_1       0.002         0.018
+ SLEEP7_1       0.062         0.052
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.032         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                0.026         0.033         0.025         0.023         0.028
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+                0.029         0.028
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ SLEEP1_1      13.656         1.638
+ SLEEP2_1      68.816        -2.043
+ SLEEP3_1      10.468         2.404
+ SLEEP4_1       3.720        12.721
+ SLEEP5_1       0.617        15.379
+ SLEEP6_1       1.047        46.899
+ SLEEP7_1      -1.064        16.665
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2        23.450         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+               11.766         1.230        22.483        21.751        15.900
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+               10.254        11.752
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ SLEEP1_1       0.834         0.663
+ SLEEP2_1       0.979         0.724
+ SLEEP3_1       0.649         0.544
+ SLEEP4_1       0.603         0.702
+ SLEEP5_1       0.572         0.749
+ SLEEP6_1       0.625         0.839
+ SLEEP7_1       0.581         0.821
+
+
+MODIFICATION INDICES
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 1 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       0.000
+ SLEEP2_1     232.319         0.000
+ SLEEP3_1       0.009        36.020         0.000
+ SLEEP4_1       4.814        17.515         6.173         0.000
+ SLEEP5_1      30.221        40.760         6.921         1.769         0.000
+ SLEEP6_1      45.076        61.097         0.724         7.120        33.446
+ SLEEP7_1      76.567        67.687         7.305        28.354        55.309
+
+
+           THETA
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       0.000
+ SLEEP7_1      56.050         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       0.000
+ SLEEP2_1       0.263         0.000
+ SLEEP3_1      -0.002         0.115         0.000
+ SLEEP4_1      -0.042        -0.081        -0.055         0.000
+ SLEEP5_1      -0.116        -0.130        -0.059         0.027         0.000
+ SLEEP6_1      -0.158        -0.179        -0.020         0.058         0.117
+ SLEEP7_1      -0.186        -0.166        -0.061         0.097         0.135
+
+
+           THETA
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       0.000
+ SLEEP7_1       0.147         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 2 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       0.000
+ SLEEP2_1       4.286         0.000
+ SLEEP3_1       4.029        11.369         0.000
+ SLEEP4_1       9.838         2.337         3.920         0.000
+ SLEEP5_1       0.347         0.117         0.539         2.942         0.000
+ SLEEP6_1       0.291         1.511         5.752         0.010         1.531
+ SLEEP7_1       5.796         3.605         0.000         2.553         0.199
+
+
+           THETA
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       0.000
+ SLEEP7_1       3.047         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       0.000
+ SLEEP2_1      -0.255         0.000
+ SLEEP3_1      -0.089         0.205         0.000
+ SLEEP4_1       0.054        -0.032        -0.036         0.000
+ SLEEP5_1       0.011         0.008        -0.015        -0.032         0.000
+ SLEEP6_1      -0.012        -0.032         0.052        -0.002         0.031
+ SLEEP7_1      -0.051         0.049         0.000         0.033         0.012
+
+
+           THETA
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       0.000
+ SLEEP7_1      -0.058         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 3 FACTOR(S)
+
+
+
+     Beginning Time:  20:58:52
+        Ending Time:  20:58:52
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

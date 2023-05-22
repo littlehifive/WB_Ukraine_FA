@@ -1,0 +1,42 @@
+Title: Student Grit Baseline CFA;
+
+Data:
+   File is ../dat_stu.txt;
+
+Variable:
+   Names are studentid index treatment girl age_w child_grade in_ukr
+   guardian_living guardian_region 
+   grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1 
+   loc1_1 loc2_1 loc3_1 loc4_1 
+   dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+   dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1 
+   sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1 
+   efficacy_1 edugoals_1 remotediff_1 timeclass_1 timehomework_1 
+   grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2 
+   loc1_2 loc2_2 loc3_2 loc4_2 
+   dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+   dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2 
+   efficacy_2 edugoals_2 timeclass_2 timehomework_2 compmath_2 half; 
+   Missing are . ;
+
+  Usevariable are
+	grit1_1 grit5_1 grit6_1 grit7_1 grit8_1;
+   
+  Categorical is
+	grit1_1 grit5_1 grit6_1 grit7_1 grit8_1;
+   
+  Idvariable is studentid;  
+   
+  Useobservations is half eq 0;
+
+Analysis:
+   Estimator = wlsmv;
+   
+Model:
+  grit_1 by
+    grit1_1  grit5_1 grit6_1 grit7_1 grit8_1;
+    
+  grit1_1 with grit6_1; !worded positively
+  grit1_1 with grit7_1; !both about schoolwork
+
+Output: sampstat stdyx modindices(all);

@@ -1,0 +1,840 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+04/22/2023  10:04 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Parent DASS Baseline EFA;
+
+  Data:
+     File is dass_parent_1.txt;
+
+  Variable:
+     Names are studentid treatment female age_w dass1_1 dass2_1
+     dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+
+    Categorical is
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+
+    Useobservations is half eq 1;
+
+  Analysis:
+     Type = efa 1 3;
+     Estimator = wlsmv;
+
+  Output: sampstat stdy modindices(all);
+
+
+
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=EFA.
+  Request for STANDARDIZED options will be ignored.  Note that STANDARDIZED options
+  are available with the use of EFA factors (ESEM) declared in the MODEL command.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Parent DASS Baseline EFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1161
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   DASS1_1     DASS2_1     DASS3_1     DASS4_1     DASS5_1     DASS6_1
+   DASS7_1
+
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Link                                                        PROBIT
+
+Input data file(s)
+  dass_parent_1.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        1.000
+ DASS2_1        1.000         1.000
+ DASS3_1        1.000         1.000         1.000
+ DASS4_1        1.000         1.000         1.000         1.000
+ DASS5_1        1.000         1.000         1.000         1.000         1.000
+ DASS6_1        1.000         1.000         1.000         1.000         1.000
+ DASS7_1        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        1.000
+ DASS7_1        1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    DASS1_1
+      Category 1    0.097          113.000
+      Category 2    0.465          540.000
+      Category 3    0.278          323.000
+      Category 4    0.159          185.000
+    DASS2_1
+      Category 1    0.109          126.000
+      Category 2    0.496          576.000
+      Category 3    0.276          320.000
+      Category 4    0.120          139.000
+    DASS3_1
+      Category 1    0.106          123.000
+      Category 2    0.397          461.000
+      Category 3    0.301          350.000
+      Category 4    0.196          227.000
+    DASS4_1
+      Category 1    0.078           90.000
+      Category 2    0.468          543.000
+      Category 3    0.317          368.000
+      Category 4    0.138          160.000
+    DASS5_1
+      Category 1    0.115          134.000
+      Category 2    0.430          499.000
+      Category 3    0.301          350.000
+      Category 4    0.153          178.000
+    DASS6_1
+      Category 1    0.222          258.000
+      Category 2    0.513          596.000
+      Category 3    0.196          227.000
+      Category 4    0.069           80.000
+    DASS7_1
+      Category 1    0.151          175.000
+      Category 2    0.450          522.000
+      Category 3    0.282          327.000
+      Category 4    0.118          137.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS1_1$      DASS1_1$      DASS1_1$      DASS2_1$      DASS2_1$
+              ________      ________      ________      ________      ________
+               -1.297         0.157         0.997        -1.234         0.265
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS2_1$      DASS3_1$      DASS3_1$      DASS3_1$      DASS4_1$
+              ________      ________      ________      ________      ________
+                1.176        -1.248         0.008         0.858        -1.422
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS4_1$      DASS4_1$      DASS5_1$      DASS5_1$      DASS5_1$
+              ________      ________      ________      ________      ________
+                0.114         1.090        -1.198         0.114         1.022
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS6_1$      DASS6_1$      DASS6_1$      DASS7_1$      DASS7_1$
+              ________      ________      ________      ________      ________
+               -0.765         0.630         1.484        -1.033         0.254
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS7_1$
+              ________
+                1.185
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1
+ DASS2_1        0.772
+ DASS3_1        0.698         0.735
+ DASS4_1        0.728         0.705         0.799
+ DASS5_1        0.681         0.673         0.747         0.738
+ DASS6_1        0.522         0.590         0.622         0.582         0.611
+ DASS7_1        0.650         0.669         0.709         0.706         0.697
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS7_1        0.702
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor           7            277.911        14       0.0000
+     2-factor          13            100.789         8       0.0000
+     3-factor          18             20.680         3       0.0001
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor       167.001         6       0.0000
+     2-factor against 3-factor        75.499         5       0.0000
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+                5.104         0.564         0.373         0.274         0.274
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6             7
+              ________      ________
+                0.230         0.181
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        7
+
+Chi-Square Test of Model Fit
+
+          Value                            277.911*
+          Degrees of Freedom                    14
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.127
+          90 Percent C.I.                    0.115  0.141
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.985
+          TLI                                0.978
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          18015.886
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.040
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       4.84752
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ DASS1_1        0.833*
+ DASS2_1        0.842*
+ DASS3_1        0.880*
+ DASS4_1        0.871*
+ DASS5_1        0.834*
+ DASS6_1        0.728*
+ DASS7_1        0.827*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                0.306         0.291         0.226         0.241         0.304
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+                0.469         0.316
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ DASS1_1        0.011
+ DASS2_1        0.011
+ DASS3_1        0.008
+ DASS4_1        0.009
+ DASS5_1        0.011
+ DASS6_1        0.016
+ DASS7_1        0.011
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                0.018         0.018         0.015         0.015         0.018
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+                0.023         0.019
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ DASS1_1       75.231
+ DASS2_1       78.408
+ DASS3_1      106.614
+ DASS4_1      101.124
+ DASS5_1       79.143
+ DASS6_1       46.707
+ DASS7_1       73.841
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+               16.620        16.052        15.565        16.092        17.268
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+               20.653        17.033
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       13
+
+Chi-Square Test of Model Fit
+
+          Value                            100.789*
+          Degrees of Freedom                     8
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.100
+          90 Percent C.I.                    0.083  0.118
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.995
+          TLI                                0.986
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          18015.886
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.022
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.89030
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ DASS1_1        0.861*       -0.285*
+ DASS2_1        0.853*       -0.160*
+ DASS3_1        0.879*        0.007
+ DASS4_1        0.872*       -0.028
+ DASS5_1        0.830*        0.046
+ DASS6_1        0.701*        0.341*
+ DASS7_1        0.812*        0.238*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.077         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                0.216         0.267         0.227         0.242         0.303
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+                0.356         0.255
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ DASS1_1        0.031         0.044
+ DASS2_1        0.021         0.033
+ DASS3_1        0.008         0.005
+ DASS4_1        0.009         0.030
+ DASS5_1        0.013         0.034
+ DASS6_1        0.046         0.051
+ DASS7_1        0.032         0.041
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.084         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                0.025         0.020         0.015         0.015         0.018
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+                0.033         0.021
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ DASS1_1       27.870        -6.502
+ DASS2_1       40.877        -4.892
+ DASS3_1      104.035         1.293
+ DASS4_1       97.773        -0.951
+ DASS5_1       63.749         1.367
+ DASS6_1       15.254         6.626
+ DASS7_1       25.496         5.856
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.916         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                8.546        13.558        15.563        16.188        17.252
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+               10.726        11.936
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ DASS1_1        0.839        -0.219
+ DASS2_1        0.841        -0.094
+ DASS3_1        0.879         0.074
+ DASS4_1        0.870         0.039
+ DASS5_1        0.833         0.110
+ DASS6_1        0.727         0.395
+ DASS7_1        0.830         0.300
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       18
+
+Chi-Square Test of Model Fit
+
+          Value                             20.680*
+          Degrees of Freedom                     3
+          P-Value                           0.0001
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.071
+          90 Percent C.I.                    0.044  0.102
+          Probability RMSEA <= .05           0.093
+
+CFI/TLI
+
+          CFI                                0.999
+          TLI                                0.993
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          18015.886
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.008
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.16366
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+ DASS1_1        0.794         0.102        -0.004
+ DASS2_1        0.756*       -0.003         0.169*
+ DASS3_1       -0.001         0.804*        0.108
+ DASS4_1       -0.035         0.943*       -0.016
+ DASS5_1        0.007         0.675*        0.193
+ DASS6_1       -0.101         0.003         0.960*
+ DASS7_1        0.018         0.395*        0.487*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+      1         1.000
+      2         0.892*        1.000
+      3         0.708*        0.769*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                0.220         0.224         0.209         0.191         0.297
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+                0.202         0.285
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ DASS1_1        0.916         0.897         0.015
+ DASS2_1        0.130         0.030         0.073
+ DASS3_1        0.038         0.099         0.090
+ DASS4_1        0.100         0.080         0.030
+ DASS5_1        0.045         0.114         0.100
+ DASS6_1        0.173         0.006         0.127
+ DASS7_1        0.022         0.194         0.197
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.117         0.000
+      3         0.174         0.099         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                0.169         0.156         0.019         0.025         0.019
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+                0.139         0.033
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ DASS1_1        0.866         0.114        -0.261
+ DASS2_1        5.832        -0.103         2.325
+ DASS3_1       -0.013         8.107         1.201
+ DASS4_1       -0.354        11.715        -0.522
+ DASS5_1        0.150         5.902         1.919
+ DASS6_1       -0.582         0.498         7.575
+ DASS7_1        0.816         2.033         2.470
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         7.593         0.000
+      3         4.059         7.750         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+                1.302         1.440        11.160         7.526        15.573
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              DASS6_1       DASS7_1
+              ________      ________
+                1.453         8.618
+
+
+           FACTOR STRUCTURE
+                  1             2             3
+              ________      ________      ________
+ DASS1_1        0.882         0.807         0.636
+ DASS2_1        0.873         0.801         0.701
+ DASS3_1        0.793         0.887         0.727
+ DASS4_1        0.794         0.899         0.685
+ DASS5_1        0.745         0.829         0.717
+ DASS6_1        0.581         0.651         0.891
+ DASS7_1        0.715         0.786         0.804
+
+
+MODIFICATION INDICES
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 1 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        0.000
+ DASS2_1      125.990         0.000
+ DASS3_1       15.245         0.755         0.000
+ DASS4_1        0.096        12.958        30.429         0.000
+ DASS5_1        2.160        10.908         3.232         2.131         0.000
+ DASS6_1       39.011         4.467         2.787        17.215         0.080
+ DASS7_1       14.575         9.275         5.590         2.914         0.700
+
+
+           THETA
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        0.000
+ DASS7_1      133.313         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        0.000
+ DASS2_1        0.129         0.000
+ DASS3_1       -0.052        -0.011         0.000
+ DASS4_1        0.004        -0.046         0.064         0.000
+ DASS5_1       -0.020        -0.044         0.022         0.018         0.000
+ DASS6_1       -0.105        -0.032        -0.026        -0.067         0.004
+ DASS7_1       -0.054        -0.040        -0.030        -0.022         0.011
+
+
+           THETA
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        0.000
+ DASS7_1        0.151         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 2 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        0.000
+ DASS2_1       85.567         0.000
+ DASS3_1       38.313         0.384         0.000
+ DASS4_1        4.289        26.364        39.506         0.000
+ DASS5_1        0.520         7.234         4.545         4.128         0.000
+ DASS6_1        2.657        21.362         5.887        18.389         2.321
+ DASS7_1       17.766         2.014        15.022         2.066         1.007
+
+
+           THETA
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        0.000
+ DASS7_1       66.202         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        0.000
+ DASS2_1        0.246         0.000
+ DASS3_1       -0.102        -0.008         0.000
+ DASS4_1       -0.036        -0.072         0.067         0.000
+ DASS5_1       -0.011        -0.035         0.024         0.023         0.000
+ DASS6_1        0.059         0.095        -0.044        -0.078        -0.029
+ DASS7_1        0.102         0.022        -0.058        -0.021        -0.016
+
+
+           THETA
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        0.000
+ DASS7_1        0.340         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 3 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        0.000
+ DASS2_1        2.867         0.000
+ DASS3_1       16.597        18.083         0.000
+ DASS4_1       10.565        11.478        11.282         0.000
+ DASS5_1        2.547         3.423         5.974         8.081         0.000
+ DASS6_1        4.745         4.484         0.239         0.675         2.488
+ DASS7_1        2.271         2.093         4.273         1.502         6.925
+
+
+           THETA
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        0.000
+ DASS7_1        2.452         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        0.000
+ DASS2_1       11.679         0.000
+ DASS3_1       -0.054         0.055         0.000
+ DASS4_1        0.070        -0.074         0.191         0.000
+ DASS5_1        0.022        -0.025         0.084        -0.064         0.000
+ DASS6_1       -0.232         0.199         0.012         0.037        -0.050
+ DASS7_1        0.034        -0.031        -0.024         0.027         0.055
+
+
+           THETA
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        0.000
+ DASS7_1        0.303         0.000
+
+
+     Beginning Time:  22:04:47
+        Ending Time:  22:04:47
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

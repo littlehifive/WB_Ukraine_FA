@@ -1,0 +1,2161 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+04/30/2023   5:45 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Grit Longitudinal Measurement Invariance Threshold Model;
+
+  Data:
+     File is ../dat_stu.txt;
+
+  Variable:
+     Names are studentid index treatment girl age_w child_grade in_ukr
+     guardian_living guardian_region
+     grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1
+     loc1_1 loc2_1 loc3_1 loc4_1
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+     dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+     sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1
+     efficacy_1 edugoals_1 remotediff_1 timeclass_1 timehomework_1
+     grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2
+     loc1_2 loc2_2 loc3_2 loc4_2
+     dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     efficacy_2 edugoals_2 timeclass_2 timehomework_2 compmath_2 half;
+     Missing are . ;
+
+    Usevariable are
+  	grit1_1 grit5_1 grit6_1 grit7_1 grit8_1
+  	grit1_2 grit5_2 grit6_2 grit7_2 grit8_2;
+
+    Categorical is
+  	grit1_1 grit5_1 grit6_1 grit7_1 grit8_1
+  	grit1_2 grit5_2 grit6_2 grit7_2 grit8_2;
+
+    Idvariable is studentid;
+
+  Analysis:
+     Estimator = wlsmv;
+     Parameterization = theta;
+     DIFFTEST IS grit12_student_lg_inv_loading.dat
+
+  Model:
+    ! Factor loadings
+    grit_1 by
+      grit1_1* (7)
+      grit5_1* (8)
+      grit6_1* (9)
+      grit7_1* (10)
+      grit8_1@1;
+
+    grit_2 by
+      grit1_2* (7)
+      grit5_2* (8)
+      grit6_2* (9)
+      grit7_2* (10)
+      grit8_2@1;
+
+    grit1_1 with grit6_1; !worded positively
+    grit1_1 with grit7_1; !both about schoolwork
+    grit1_2 with grit6_2; !worded positively
+    grit1_2 with grit7_2; !both about schoolwork
+
+    ! Thresholds
+    [grit1_1$1 grit1_2$1] (11);
+    [grit1_1$2 grit1_2$2] (1);
+    [grit1_1$3 grit1_2$3] (12);
+
+    [grit5_1$1 grit5_2$1] (13);
+    [grit5_1$2 grit5_2$2] (2);
+    [grit5_1$3 grit5_2$3] (14);
+
+    [grit6_1$1 grit6_2$1] (15);
+    [grit6_1$2 grit6_2$2] (3);
+    [grit6_1$3 grit6_2$3] (16);
+
+    [grit7_1$1 grit7_2$1] (17);
+    [grit7_1$2 grit7_2$2] (4);
+    [grit7_1$3 grit7_2$3] (18);
+
+    [grit8_1$1 grit8_2$1] (19);
+    [grit8_1$2 grit8_2$2] (5);
+    [grit8_1$3 grit8_2$3] (6);
+
+    ! Common factor covariance matrix;
+    grit_1 grit_2 with grit_1 grit_2;
+
+    ! Common factor means;
+    [grit_1@0 grit_2*];
+
+    ! Unique variances;
+    grit1_1@1 grit5_1@1 grit6_1@1 grit7_1@1 grit8_1@1;
+    grit1_2 grit5_2 grit6_2 grit7_2 grit8_2;
+
+    ! Lagged unique factor covariances;
+    grit1_1 with grit1_2*;
+    grit5_1 with grit5_2*;
+    grit6_1 with grit6_2*;
+    grit7_1 with grit7_2*;
+    grit8_1 with grit8_2*;
+
+
+  Output: sampstat stdyx residual modindices(all);
+  Savedata: Difftest is grit12_student_lg_inv_threshold.dat;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Student Grit Longitudinal Measurement Invariance Threshold Model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2544
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GRIT1_1     GRIT5_1     GRIT6_1     GRIT7_1     GRIT8_1     GRIT1_2
+   GRIT5_2     GRIT6_2     GRIT7_2     GRIT8_2
+
+Continuous latent variables
+   GRIT_1      GRIT_2
+
+Variables with special functions
+
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              GRIT1_1       GRIT5_1       GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        1.000
+ GRIT5_1        1.000         1.000
+ GRIT6_1        1.000         1.000         1.000
+ GRIT7_1        1.000         1.000         1.000         1.000
+ GRIT8_1        1.000         1.000         1.000         1.000         1.000
+ GRIT1_2        0.617         0.617         0.617         0.617         0.617
+ GRIT5_2        0.617         0.617         0.617         0.617         0.617
+ GRIT6_2        0.617         0.617         0.617         0.617         0.617
+ GRIT7_2        0.617         0.617         0.617         0.617         0.617
+ GRIT8_2        0.617         0.617         0.617         0.617         0.617
+
+
+           Covariance Coverage
+              GRIT1_2       GRIT5_2       GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________      ________      ________
+ GRIT1_2        0.617
+ GRIT5_2        0.617         0.617
+ GRIT6_2        0.617         0.617         0.617
+ GRIT7_2        0.617         0.617         0.617         0.617
+ GRIT8_2        0.617         0.617         0.617         0.617         0.617
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    GRIT1_1
+      Category 1    0.101          257.000
+      Category 2    0.234          595.000
+      Category 3    0.268          681.000
+      Category 4    0.352          895.000
+      Category 5    0.046          116.000
+    GRIT5_1
+      Category 1    0.049          124.000
+      Category 2    0.280          712.000
+      Category 3    0.242          615.000
+      Category 4    0.311          792.000
+      Category 5    0.118          301.000
+    GRIT6_1
+      Category 1    0.031           78.000
+      Category 2    0.143          365.000
+      Category 3    0.316          805.000
+      Category 4    0.421         1070.000
+      Category 5    0.089          226.000
+    GRIT7_1
+      Category 1    0.194          494.000
+      Category 2    0.477         1213.000
+      Category 3    0.174          442.000
+      Category 4    0.127          323.000
+      Category 5    0.028           72.000
+    GRIT8_1
+      Category 1    0.053          135.000
+      Category 2    0.318          808.000
+      Category 3    0.254          645.000
+      Category 4    0.289          736.000
+      Category 5    0.086          220.000
+    GRIT1_2
+      Category 1    0.122          192.000
+      Category 2    0.244          383.000
+      Category 3    0.270          424.000
+      Category 4    0.307          482.000
+      Category 5    0.056           88.000
+    GRIT5_2
+      Category 1    0.068          107.000
+      Category 2    0.224          352.000
+      Category 3    0.253          397.000
+      Category 4    0.298          468.000
+      Category 5    0.156          245.000
+    GRIT6_2
+      Category 1    0.027           43.000
+      Category 2    0.111          174.000
+      Category 3    0.294          461.000
+      Category 4    0.456          715.000
+      Category 5    0.112          176.000
+    GRIT7_2
+      Category 1    0.220          345.000
+      Category 2    0.403          632.000
+      Category 3    0.235          368.000
+      Category 4    0.108          170.000
+      Category 5    0.034           54.000
+    GRIT8_2
+      Category 1    0.064          100.000
+      Category 2    0.257          403.000
+      Category 3    0.289          453.000
+      Category 4    0.290          455.000
+      Category 5    0.101          158.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT5_1$
+              ________      ________      ________      ________      ________
+               -1.276        -0.426         0.260         1.689        -1.657
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT5_1$      GRIT5_1$      GRIT5_1$      GRIT6_1$      GRIT6_1$
+              ________      ________      ________      ________      ________
+               -0.444         0.177         1.183        -1.871        -0.938
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT6_1$      GRIT6_1$      GRIT7_1$      GRIT7_1$      GRIT7_1$
+              ________      ________      ________      ________      ________
+               -0.024         1.348        -0.863         0.443         1.014
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT7_1$      GRIT8_1$      GRIT8_1$      GRIT8_1$      GRIT8_1$
+              ________      ________      ________      ________      ________
+                1.906        -1.616        -0.330         0.317         1.363
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT5_2$
+              ________      ________      ________      ________      ________
+               -1.163        -0.341         0.350         1.588        -1.489
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT5_2$      GRIT5_2$      GRIT5_2$      GRIT6_2$      GRIT6_2$
+              ________      ________      ________      ________      ________
+               -0.546         0.114         1.010        -1.920        -1.088
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT6_2$      GRIT6_2$      GRIT7_2$      GRIT7_2$      GRIT7_2$
+              ________      ________      ________      ________      ________
+               -0.171         1.215        -0.773         0.313         1.068
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT7_2$      GRIT8_2$      GRIT8_2$      GRIT8_2$      GRIT8_2$
+              ________      ________      ________      ________      ________
+                1.820        -1.524        -0.466         0.278         1.278
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT1_1       GRIT5_1       GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________      ________      ________
+ GRIT1_1
+ GRIT5_1        0.140
+ GRIT6_1        0.363         0.306
+ GRIT7_1        0.278         0.327         0.243
+ GRIT8_1        0.210         0.425         0.351         0.480
+ GRIT1_2        0.320         0.159         0.245         0.190         0.170
+ GRIT5_2        0.166         0.372         0.223         0.206         0.254
+ GRIT6_2        0.256         0.154         0.437         0.239         0.285
+ GRIT7_2        0.171         0.179         0.189         0.373         0.212
+ GRIT8_2        0.178         0.252         0.270         0.260         0.319
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT1_2       GRIT5_2       GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________      ________      ________
+ GRIT5_2        0.236
+ GRIT6_2        0.328         0.318
+ GRIT7_2        0.223         0.358         0.159
+ GRIT8_2        0.246         0.522         0.343         0.436
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       47
+
+Chi-Square Test of Model Fit
+
+          Value                            312.390*
+          Degrees of Freedom                    38
+          P-Value                           0.0000
+
+Chi-Square Test for Difference Testing
+
+          Value                             85.576*
+          Degrees of Freedom                     9
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.053
+          90 Percent C.I.                    0.048  0.059
+          Probability RMSEA <= .05           0.155
+
+CFI/TLI
+
+          CFI                                0.957
+          TLI                                0.949
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           6393.799
+          Degrees of Freedom                    45
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.033
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.47851360D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GRIT_1   BY
+    GRIT1_1            0.328      0.026     12.510      0.000
+    GRIT5_1            0.636      0.041     15.481      0.000
+    GRIT6_1            0.475      0.032     15.079      0.000
+    GRIT7_1            0.625      0.039     16.035      0.000
+    GRIT8_1            1.000      0.000    999.000    999.000
+
+ GRIT_2   BY
+    GRIT1_2            0.328      0.026     12.510      0.000
+    GRIT5_2            0.636      0.041     15.481      0.000
+    GRIT6_2            0.475      0.032     15.079      0.000
+    GRIT7_2            0.625      0.039     16.035      0.000
+    GRIT8_2            1.000      0.000    999.000    999.000
+
+ GRIT_1   WITH
+    GRIT_2             0.892      0.087     10.243      0.000
+
+ GRIT1_1  WITH
+    GRIT6_1            0.242      0.020     12.114      0.000
+    GRIT7_1            0.104      0.021      4.953      0.000
+    GRIT1_2            0.284      0.027     10.432      0.000
+
+ GRIT1_2  WITH
+    GRIT6_2            0.189      0.030      6.274      0.000
+    GRIT7_2            0.048      0.033      1.472      0.141
+
+ GRIT5_1  WITH
+    GRIT5_2            0.197      0.031      6.369      0.000
+
+ GRIT6_1  WITH
+    GRIT6_2            0.353      0.027     13.126      0.000
+
+ GRIT7_1  WITH
+    GRIT7_2            0.273      0.034      8.018      0.000
+
+ GRIT8_1  WITH
+    GRIT8_2           -0.147      0.051     -2.906      0.004
+
+ Means
+    GRIT_1             0.000      0.000    999.000    999.000
+    GRIT_2             0.064      0.039      1.637      0.102
+
+ Thresholds
+    GRIT1_1$1         -1.327      0.036    -36.980      0.000
+    GRIT1_1$2         -0.419      0.024    -17.280      0.000
+    GRIT1_1$3          0.325      0.024     13.436      0.000
+    GRIT1_1$4          1.800      0.047     38.702      0.000
+    GRIT5_1$1         -1.922      0.054    -35.702      0.000
+    GRIT5_1$2         -0.575      0.030    -19.389      0.000
+    GRIT5_1$3          0.203      0.027      7.398      0.000
+    GRIT5_1$4          1.454      0.041     35.372      0.000
+    GRIT6_1$1         -2.121      0.053    -39.902      0.000
+    GRIT6_1$2         -1.108      0.032    -34.411      0.000
+    GRIT6_1$3         -0.078      0.025     -3.116      0.002
+    GRIT6_1$4          1.528      0.040     37.984      0.000
+    GRIT7_1$1         -1.040      0.034    -30.466      0.000
+    GRIT7_1$2          0.515      0.030     17.128      0.000
+    GRIT7_1$3          1.322      0.037     35.323      0.000
+    GRIT7_1$4          2.329      0.063     37.105      0.000
+    GRIT8_1$1         -2.378      0.077    -30.734      0.000
+    GRIT8_1$2         -0.555      0.037    -15.014      0.000
+    GRIT8_1$3          0.483      0.037     12.889      0.000
+    GRIT8_1$4          2.049      0.065     31.654      0.000
+    GRIT1_2$1         -1.327      0.036    -36.980      0.000
+    GRIT1_2$2         -0.419      0.024    -17.280      0.000
+    GRIT1_2$3          0.325      0.024     13.436      0.000
+    GRIT1_2$4          1.790      0.088     20.302      0.000
+    GRIT5_2$1         -1.922      0.054    -35.702      0.000
+    GRIT5_2$2         -0.575      0.030    -19.389      0.000
+    GRIT5_2$3          0.203      0.027      7.398      0.000
+    GRIT5_2$4          1.272      0.065     19.645      0.000
+    GRIT6_2$1         -2.121      0.053    -39.902      0.000
+    GRIT6_2$2         -1.108      0.032    -34.411      0.000
+    GRIT6_2$3         -0.078      0.025     -3.116      0.002
+    GRIT6_2$4          1.391      0.069     20.143      0.000
+    GRIT7_2$1         -1.040      0.034    -30.466      0.000
+    GRIT7_2$2          0.515      0.030     17.128      0.000
+    GRIT7_2$3          1.322      0.037     35.323      0.000
+    GRIT7_2$4          2.519      0.104     24.129      0.000
+    GRIT8_2$1         -2.378      0.077    -30.734      0.000
+    GRIT8_2$2         -0.555      0.037    -15.014      0.000
+    GRIT8_2$3          0.483      0.037     12.889      0.000
+    GRIT8_2$4          2.045      0.103     19.806      0.000
+
+ Variances
+    GRIT_1             1.260      0.113     11.110      0.000
+    GRIT_2             1.415      0.139     10.149      0.000
+
+ Residual Variances
+    GRIT1_1            1.000      0.000    999.000    999.000
+    GRIT5_1            1.000      0.000    999.000    999.000
+    GRIT6_1            1.000      0.000    999.000    999.000
+    GRIT7_1            1.000      0.000    999.000    999.000
+    GRIT8_1            1.000      0.000    999.000    999.000
+    GRIT1_2            1.089      0.082     13.205      0.000
+    GRIT5_2            0.915      0.071     12.918      0.000
+    GRIT6_2            0.935      0.067     14.015      0.000
+    GRIT7_2            1.303      0.090     14.421      0.000
+    GRIT8_2            0.990      0.092     10.763      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GRIT_1   BY
+    GRIT1_1            0.345      0.019     17.800      0.000
+    GRIT5_1            0.581      0.016     35.409      0.000
+    GRIT6_1            0.471      0.017     27.416      0.000
+    GRIT7_1            0.575      0.016     36.019      0.000
+    GRIT8_1            0.747      0.015     50.219      0.000
+
+ GRIT_2   BY
+    GRIT1_2            0.350      0.020     17.089      0.000
+    GRIT5_2            0.620      0.017     35.665      0.000
+    GRIT6_2            0.505      0.020     25.759      0.000
+    GRIT7_2            0.546      0.019     29.103      0.000
+    GRIT8_2            0.767      0.017     43.972      0.000
+
+ GRIT_1   WITH
+    GRIT_2             0.668      0.029     23.192      0.000
+
+ GRIT1_1  WITH
+    GRIT6_1            0.242      0.020     12.114      0.000
+    GRIT7_1            0.104      0.021      4.953      0.000
+    GRIT1_2            0.272      0.024     11.585      0.000
+
+ GRIT1_2  WITH
+    GRIT6_2            0.187      0.027      7.003      0.000
+    GRIT7_2            0.041      0.027      1.489      0.136
+
+ GRIT5_1  WITH
+    GRIT5_2            0.206      0.031      6.746      0.000
+
+ GRIT6_1  WITH
+    GRIT6_2            0.365      0.025     14.469      0.000
+
+ GRIT7_1  WITH
+    GRIT7_2            0.239      0.028      8.447      0.000
+
+ GRIT8_1  WITH
+    GRIT8_2           -0.148      0.051     -2.909      0.004
+
+ Means
+    GRIT_1             0.000      0.000    999.000    999.000
+    GRIT_2             0.054      0.032      1.652      0.099
+
+ Thresholds
+    GRIT1_1$1         -1.245      0.033    -38.242      0.000
+    GRIT1_1$2         -0.394      0.023    -17.404      0.000
+    GRIT1_1$3          0.305      0.023     13.485      0.000
+    GRIT1_1$4          1.689      0.043     39.126      0.000
+    GRIT5_1$1         -1.565      0.039    -40.438      0.000
+    GRIT5_1$2         -0.468      0.023    -20.125      0.000
+    GRIT5_1$3          0.165      0.022      7.424      0.000
+    GRIT5_1$4          1.183      0.032     36.601      0.000
+    GRIT6_1$1         -1.871      0.045    -41.838      0.000
+    GRIT6_1$2         -0.978      0.027    -36.048      0.000
+    GRIT6_1$3         -0.069      0.022     -3.118      0.002
+    GRIT6_1$4          1.348      0.035     38.430      0.000
+    GRIT7_1$1         -0.851      0.027    -31.573      0.000
+    GRIT7_1$2          0.422      0.024     17.488      0.000
+    GRIT7_1$3          1.082      0.029     37.304      0.000
+    GRIT7_1$4          1.906      0.051     37.583      0.000
+    GRIT8_1$1         -1.582      0.038    -41.893      0.000
+    GRIT8_1$2         -0.369      0.023    -15.790      0.000
+    GRIT8_1$3          0.321      0.024     13.470      0.000
+    GRIT8_1$4          1.363      0.035     38.546      0.000
+    GRIT1_2$1         -1.191      0.037    -31.936      0.000
+    GRIT1_2$2         -0.377      0.023    -16.491      0.000
+    GRIT1_2$3          0.291      0.022     13.145      0.000
+    GRIT1_2$4          1.607      0.052     31.174      0.000
+    GRIT5_2$1         -1.576      0.044    -36.112      0.000
+    GRIT5_2$2         -0.472      0.025    -18.615      0.000
+    GRIT5_2$3          0.167      0.022      7.463      0.000
+    GRIT5_2$4          1.044      0.039     27.019      0.000
+    GRIT6_2$1         -1.893      0.058    -32.764      0.000
+    GRIT6_2$2         -0.989      0.034    -29.223      0.000
+    GRIT6_2$3         -0.070      0.023     -3.091      0.002
+    GRIT6_2$4          1.242      0.043     29.116      0.000
+    GRIT7_2$1         -0.763      0.027    -28.355      0.000
+    GRIT7_2$2          0.378      0.022     17.284      0.000
+    GRIT7_2$3          0.970      0.030     32.629      0.000
+    GRIT7_2$4          1.849      0.059     31.412      0.000
+    GRIT8_2$1         -1.533      0.044    -34.766      0.000
+    GRIT8_2$2         -0.358      0.024    -14.783      0.000
+    GRIT8_2$3          0.311      0.023     13.569      0.000
+    GRIT8_2$4          1.318      0.044     29.870      0.000
+
+ Variances
+    GRIT_1             1.000      0.000    999.000    999.000
+    GRIT_2             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRIT1_1            0.881      0.013     65.850      0.000
+    GRIT5_1            0.663      0.019     34.766      0.000
+    GRIT6_1            0.778      0.016     48.126      0.000
+    GRIT7_1            0.670      0.018     36.534      0.000
+    GRIT8_1            0.442      0.022     19.928      0.000
+    GRIT1_2            0.878      0.014     61.271      0.000
+    GRIT5_2            0.615      0.022     28.527      0.000
+    GRIT6_2            0.745      0.020     37.629      0.000
+    GRIT7_2            0.702      0.020     34.248      0.000
+    GRIT8_2            0.412      0.027     15.386      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    GRIT1_1            0.119      0.013      8.900      0.000      0.939
+    GRIT5_1            0.337      0.019     17.705      0.000      0.814
+    GRIT6_1            0.222      0.016     13.708      0.000      0.882
+    GRIT7_1            0.330      0.018     18.010      0.000      0.818
+    GRIT8_1            0.558      0.022     25.109      0.000      0.665
+    GRIT1_2            0.122      0.014      8.544      0.000      0.898
+    GRIT5_2            0.385      0.022     17.833      0.000      0.820
+    GRIT6_2            0.255      0.020     12.879      0.000      0.893
+    GRIT7_2            0.298      0.020     14.551      0.000      0.734
+    GRIT8_2            0.588      0.027     21.986      0.000      0.645
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.147E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT5_1$
+              ________      ________      ________      ________      ________
+               -1.245        -0.394         0.305         1.689        -1.565
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT5_1$      GRIT5_1$      GRIT5_1$      GRIT6_1$      GRIT6_1$
+              ________      ________      ________      ________      ________
+               -0.468         0.165         1.183        -1.871        -0.978
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT6_1$      GRIT6_1$      GRIT7_1$      GRIT7_1$      GRIT7_1$
+              ________      ________      ________      ________      ________
+               -0.069         1.348        -0.851         0.422         1.082
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT7_1$      GRIT8_1$      GRIT8_1$      GRIT8_1$      GRIT8_1$
+              ________      ________      ________      ________      ________
+                1.906        -1.582        -0.369         0.321         1.363
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT5_2$
+              ________      ________      ________      ________      ________
+               -1.210        -0.395         0.273         1.589        -1.610
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT5_2$      GRIT5_2$      GRIT5_2$      GRIT6_2$      GRIT6_2$
+              ________      ________      ________      ________      ________
+               -0.505         0.133         1.010        -1.921        -1.017
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT6_2$      GRIT6_2$      GRIT7_2$      GRIT7_2$      GRIT7_2$
+              ________      ________      ________      ________      ________
+               -0.097         1.215        -0.792         0.349         0.941
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              GRIT7_2$      GRIT8_2$      GRIT8_2$      GRIT8_2$      GRIT8_2$
+              ________      ________      ________      ________      ________
+                1.820        -1.575        -0.399         0.270         1.277
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT5_1$
+              ________      ________      ________      ________      ________
+               -0.031        -0.033        -0.045         0.000        -0.093
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT5_1$      GRIT5_1$      GRIT5_1$      GRIT6_1$      GRIT6_1$
+              ________      ________      ________      ________      ________
+                0.025         0.012         0.000         0.000         0.040
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT6_1$      GRIT6_1$      GRIT7_1$      GRIT7_1$      GRIT7_1$
+              ________      ________      ________      ________      ________
+                0.046         0.000        -0.012         0.021        -0.067
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT7_1$      GRIT8_1$      GRIT8_1$      GRIT8_1$      GRIT8_1$
+              ________      ________      ________      ________      ________
+                0.000        -0.034         0.039        -0.004         0.000
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT5_2$
+              ________      ________      ________      ________      ________
+                0.047         0.054         0.077         0.000         0.120
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT5_2$      GRIT5_2$      GRIT5_2$      GRIT6_2$      GRIT6_2$
+              ________      ________      ________      ________      ________
+               -0.041        -0.019         0.000         0.000        -0.071
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT6_2$      GRIT6_2$      GRIT7_2$      GRIT7_2$      GRIT7_2$
+              ________      ________      ________      ________      ________
+               -0.074         0.000         0.020        -0.036         0.127
+
+
+           Residuals for Means/Intercepts/Thresholds
+              GRIT7_2$      GRIT8_2$      GRIT8_2$      GRIT8_2$      GRIT8_2$
+              ________      ________      ________      ________      ________
+                0.000         0.050        -0.067         0.007         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              GRIT1_1       GRIT5_1       GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________      ________      ________
+ GRIT1_1
+ GRIT5_1        0.200
+ GRIT6_1        0.363         0.274
+ GRIT7_1        0.278         0.334         0.271
+ GRIT8_1        0.258         0.434         0.352         0.429
+ GRIT1_2        0.320         0.136         0.110         0.134         0.175
+ GRIT5_2        0.143         0.372         0.195         0.238         0.309
+ GRIT6_2        0.116         0.196         0.437         0.194         0.252
+ GRIT7_2        0.126         0.212         0.172         0.373         0.272
+ GRIT8_2        0.177         0.298         0.241         0.294         0.319
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              GRIT1_2       GRIT5_2       GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________      ________      ________
+ GRIT5_2        0.217
+ GRIT6_2        0.328         0.313
+ GRIT7_2        0.223         0.339         0.276
+ GRIT8_2        0.268         0.476         0.387         0.419
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              GRIT1_1       GRIT5_1       GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________      ________      ________
+ GRIT1_1
+ GRIT5_1       -0.060
+ GRIT6_1        0.000         0.032
+ GRIT7_1        0.000        -0.007        -0.027
+ GRIT8_1       -0.048        -0.008        -0.001         0.051
+ GRIT1_2        0.000         0.023         0.135         0.056        -0.004
+ GRIT5_2        0.023         0.000         0.028        -0.032        -0.055
+ GRIT6_2        0.140        -0.042         0.000         0.045         0.033
+ GRIT7_2        0.045        -0.033         0.017         0.000        -0.061
+ GRIT8_2        0.001        -0.046         0.029        -0.034         0.000
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              GRIT1_2       GRIT5_2       GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________      ________      ________
+ GRIT5_2        0.019
+ GRIT6_2        0.000         0.005
+ GRIT7_2        0.000         0.019        -0.117
+ GRIT8_2       -0.022         0.047        -0.044         0.017
+
+
+     UNIVARIATE PROPORTIONS FOR CATEGORICAL VARIABLES
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     GRIT1_1
+       Category  1       0.101          0.107                 -0.006               -0.904
+       Category  2       0.234          0.240                 -0.006               -0.764
+       Category  3       0.268          0.273                 -0.005               -0.574
+       Category  4       0.352          0.335                  0.017                1.824
+       Category  5       0.046          0.046                  0.000                0.002
+     GRIT5_1
+       Category  1       0.049          0.059                 -0.010               -2.163
+       Category  2       0.280          0.261                  0.019                2.171
+       Category  3       0.242          0.246                 -0.004               -0.486
+       Category  4       0.311          0.316                 -0.005               -0.505
+       Category  5       0.118          0.118                  0.000               -0.002
+     GRIT6_1
+       Category  1       0.031          0.031                  0.000               -0.003
+       Category  2       0.143          0.133                  0.010                1.488
+       Category  3       0.316          0.308                  0.008                0.889
+       Category  4       0.421          0.439                 -0.018               -1.845
+       Category  5       0.089          0.089                  0.000               -0.002
+     GRIT7_1
+       Category  1       0.194          0.197                 -0.003               -0.407
+       Category  2       0.477          0.466                  0.011                1.091
+       Category  3       0.174          0.197                 -0.023               -2.934
+       Category  4       0.127          0.111                  0.016                2.494
+       Category  5       0.028          0.028                  0.000               -0.004
+     GRIT8_1
+       Category  1       0.053          0.057                 -0.004               -0.820
+       Category  2       0.318          0.299                  0.018                2.017
+       Category  3       0.254          0.270                 -0.016               -1.846
+       Category  4       0.289          0.288                  0.002                0.190
+       Category  5       0.086          0.086                  0.000               -0.003
+     GRIT1_2
+       Category  1       0.122          0.113                  0.009                1.152
+       Category  2       0.244          0.233                  0.011                1.029
+       Category  3       0.270          0.261                  0.009                0.819
+       Category  4       0.307          0.336                 -0.029               -2.454
+       Category  5       0.056          0.056                  0.000                0.001
+     GRIT5_2
+       Category  1       0.068          0.054                  0.014                2.539
+       Category  2       0.224          0.253                 -0.029               -2.614
+       Category  3       0.253          0.246                  0.007                0.619
+       Category  4       0.298          0.291                  0.008                0.656
+       Category  5       0.156          0.156                  0.000               -0.003
+     GRIT6_2
+       Category  1       0.027          0.027                  0.000                0.003
+       Category  2       0.111          0.127                 -0.016               -1.949
+       Category  3       0.294          0.307                 -0.013               -1.099
+       Category  4       0.456          0.427                  0.029                2.338
+       Category  5       0.112          0.112                  0.000               -0.001
+     GRIT7_2
+       Category  1       0.220          0.214                  0.006                0.561
+       Category  2       0.403          0.422                 -0.020               -1.568
+       Category  3       0.235          0.190                  0.044                4.486
+       Category  4       0.108          0.139                 -0.031               -3.515
+       Category  5       0.034          0.034                  0.000                0.001
+     GRIT8_2
+       Category  1       0.064          0.058                  0.006                1.028
+       Category  2       0.257          0.287                 -0.031               -2.673
+       Category  3       0.289          0.261                  0.027                2.466
+       Category  4       0.290          0.293                 -0.003               -0.247
+       Category  5       0.101          0.101                  0.000               -0.005
+
+
+     BIVARIATE PROPORTIONS FOR CATEGORICAL VARIABLES
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     GRIT1_1        GRIT5_1
+       Category 1     Category 1        0.014       0.011             0.002            1.089
+       Category 1     Category 2        0.025       0.037            -0.012           -3.162
+       Category 1     Category 3        0.024       0.026            -0.002           -0.647
+       Category 1     Category 4        0.021       0.026            -0.005           -1.566
+       Category 1     Category 5        0.017       0.006             0.011            6.908
+       Category 2     Category 1        0.013       0.018            -0.006           -2.088
+       Category 2     Category 2        0.082       0.072             0.010            1.994
+       Category 2     Category 3        0.055       0.061            -0.005           -1.152
+       Category 2     Category 4        0.066       0.069            -0.003           -0.532
+       Category 2     Category 5        0.018       0.021            -0.003           -1.079
+       Category 3     Category 1        0.007       0.015            -0.008           -3.393
+       Category 3     Category 2        0.072       0.072             0.000            0.021
+       Category 3     Category 3        0.087       0.068             0.019            3.766
+       Category 3     Category 4        0.077       0.087            -0.010           -1.714
+       Category 3     Category 5        0.024       0.031            -0.006           -1.815
+       Category 4     Category 1        0.011       0.013            -0.002           -0.866
+       Category 4     Category 2        0.092       0.073             0.019            3.684
+       Category 4     Category 3        0.069       0.080            -0.011           -2.077
+       Category 4     Category 4        0.131       0.117             0.014            2.173
+       Category 4     Category 5        0.048       0.051            -0.003           -0.622
+       Category 5     Category 1        0.004       0.001             0.003            5.367
+       Category 5     Category 2        0.009       0.007             0.001            0.771
+       Category 5     Category 3        0.006       0.010            -0.004           -2.195
+       Category 5     Category 4        0.016       0.017            -0.001           -0.530
+       Category 5     Category 5        0.011       0.010             0.001            0.521
+     GRIT1_1        GRIT6_1
+       Category 1     Category 1        0.014       0.010             0.004            2.115
+       Category 1     Category 2        0.026       0.028            -0.002           -0.684
+       Category 1     Category 3        0.024       0.039            -0.015           -3.953
+       Category 1     Category 4        0.029       0.028             0.002            0.557
+       Category 1     Category 5        0.008       0.002             0.006            6.813
+       Category 2     Category 1        0.007       0.011            -0.004           -1.974
+       Category 2     Category 2        0.055       0.044             0.011            2.786
+       Category 2     Category 3        0.084       0.087            -0.003           -0.479
+       Category 2     Category 4        0.079       0.089            -0.010           -1.687
+       Category 2     Category 5        0.008       0.010            -0.002           -0.814
+       Category 3     Category 1        0.006       0.006            -0.001           -0.334
+       Category 3     Category 2        0.029       0.035            -0.005           -1.497
+       Category 3     Category 3        0.120       0.089             0.032            5.589
+       Category 3     Category 4        0.099       0.123            -0.024           -3.663
+       Category 3     Category 5        0.013       0.020            -0.007           -2.449
+       Category 4     Category 1        0.003       0.003             0.000           -0.251
+       Category 4     Category 2        0.031       0.025             0.006            1.850
+       Category 4     Category 3        0.082       0.086            -0.004           -0.765
+       Category 4     Category 4        0.191       0.174             0.017            2.208
+       Category 4     Category 5        0.044       0.045            -0.001           -0.185
+       Category 5     Category 1        0.001       0.000             0.001            3.140
+       Category 5     Category 2        0.002       0.001             0.001            0.848
+       Category 5     Category 3        0.006       0.007            -0.001           -0.738
+       Category 5     Category 4        0.022       0.025            -0.003           -1.041
+       Category 5     Category 5        0.015       0.012             0.003            1.455
+     GRIT1_1        GRIT7_1
+       Category 1     Category 1        0.037       0.037             0.000           -0.006
+       Category 1     Category 2        0.044       0.050            -0.006           -1.488
+       Category 1     Category 3        0.009       0.013            -0.004           -1.954
+       Category 1     Category 4        0.004       0.005            -0.001           -0.443
+       Category 1     Category 5        0.007       0.001             0.006           11.188
+       Category 2     Category 1        0.053       0.061            -0.008           -1.618
+       Category 2     Category 2        0.132       0.118             0.014            2.183
+       Category 2     Category 3        0.027       0.040            -0.013           -3.249
+       Category 2     Category 4        0.019       0.018             0.001            0.443
+       Category 2     Category 5        0.002       0.003            -0.001           -1.185
+       Category 3     Category 1        0.053       0.052             0.000            0.096
+       Category 3     Category 2        0.135       0.132             0.003            0.486
+       Category 3     Category 3        0.053       0.054            -0.001           -0.135
+       Category 3     Category 4        0.023       0.029            -0.006           -1.748
+       Category 3     Category 5        0.004       0.006            -0.002           -1.509
+       Category 4     Category 1        0.045       0.044             0.001            0.321
+       Category 4     Category 2        0.151       0.149             0.002            0.297
+       Category 4     Category 3        0.077       0.078            -0.001           -0.189
+       Category 4     Category 4        0.070       0.050             0.020            4.747
+       Category 4     Category 5        0.008       0.014            -0.006           -2.490
+       Category 5     Category 1        0.006       0.003             0.003            2.508
+       Category 5     Category 2        0.015       0.017            -0.002           -0.818
+       Category 5     Category 3        0.007       0.012            -0.005           -2.104
+       Category 5     Category 4        0.010       0.010             0.000            0.148
+       Category 5     Category 5        0.007       0.004             0.004            2.877
+     GRIT1_1        GRIT8_1
+       Category 1     Category 1        0.017       0.013             0.004            1.618
+       Category 1     Category 2        0.034       0.044            -0.009           -2.338
+       Category 1     Category 3        0.019       0.027            -0.008           -2.536
+       Category 1     Category 4        0.016       0.020            -0.003           -1.273
+       Category 1     Category 5        0.015       0.003             0.012           10.448
+       Category 2     Category 1        0.015       0.018            -0.004           -1.448
+       Category 2     Category 2        0.097       0.085             0.012            2.112
+       Category 2     Category 3        0.057       0.066            -0.009           -1.804
+       Category 2     Category 4        0.054       0.058            -0.004           -0.859
+       Category 2     Category 5        0.011       0.013            -0.001           -0.644
+       Category 3     Category 1        0.007       0.014            -0.008           -3.220
+       Category 3     Category 2        0.084       0.083             0.001            0.244
+       Category 3     Category 3        0.088       0.076             0.012            2.227
+       Category 3     Category 4        0.077       0.079            -0.001           -0.204
+       Category 3     Category 5        0.012       0.021            -0.009           -3.303
+       Category 4     Category 1        0.013       0.011             0.002            0.956
+       Category 4     Category 2        0.093       0.081             0.012            2.269
+       Category 4     Category 3        0.084       0.090            -0.006           -1.066
+       Category 4     Category 4        0.127       0.113             0.013            2.094
+       Category 4     Category 5        0.036       0.040            -0.004           -1.090
+       Category 5     Category 1        0.003       0.001             0.002            4.139
+       Category 5     Category 2        0.010       0.007             0.003            1.504
+       Category 5     Category 3        0.006       0.011            -0.005           -2.379
+       Category 5     Category 4        0.015       0.018            -0.003           -1.100
+       Category 5     Category 5        0.012       0.009             0.003            1.663
+     GRIT1_1        GRIT1_2
+       Category 1     Category 1        0.032       0.026             0.006            1.409
+       Category 1     Category 2        0.027       0.034            -0.007           -1.442
+       Category 1     Category 3        0.023       0.026            -0.003           -0.680
+       Category 1     Category 4        0.018       0.019            -0.002           -0.437
+       Category 1     Category 5        0.003       0.001             0.002            2.006
+       Category 2     Category 1        0.033       0.037            -0.005           -1.018
+       Category 2     Category 2        0.079       0.068             0.011            1.754
+       Category 2     Category 3        0.068       0.065             0.003            0.438
+       Category 2     Category 4        0.046       0.064            -0.018           -2.907
+       Category 2     Category 5        0.008       0.006             0.001            0.607
+       Category 3     Category 1        0.026       0.028            -0.002           -0.525
+       Category 3     Category 2        0.075       0.065             0.010            1.562
+       Category 3     Category 3        0.092       0.075             0.017            2.538
+       Category 3     Category 4        0.076       0.092            -0.015           -2.072
+       Category 3     Category 5        0.009       0.012            -0.004           -1.270
+       Category 4     Category 1        0.027       0.020             0.007            2.043
+       Category 4     Category 2        0.055       0.061            -0.006           -1.005
+       Category 4     Category 3        0.082       0.086            -0.005           -0.672
+       Category 4     Category 4        0.153       0.139             0.014            1.574
+       Category 4     Category 5        0.026       0.028            -0.002           -0.484
+       Category 5     Category 1        0.004       0.001             0.003            4.003
+       Category 5     Category 2        0.008       0.005             0.003            1.564
+       Category 5     Category 3        0.006       0.009            -0.003           -1.241
+       Category 5     Category 4        0.014       0.023            -0.008           -2.265
+       Category 5     Category 5        0.010       0.008             0.003            1.137
+     GRIT1_1        GRIT5_2
+       Category 1     Category 1        0.014       0.009             0.005            2.098
+       Category 1     Category 2        0.030       0.033            -0.003           -0.739
+       Category 1     Category 3        0.022       0.027            -0.005           -1.271
+       Category 1     Category 4        0.024       0.026            -0.003           -0.710
+       Category 1     Category 5        0.014       0.011             0.003            1.184
+       Category 2     Category 1        0.014       0.016            -0.002           -0.513
+       Category 2     Category 2        0.060       0.067            -0.007           -1.171
+       Category 2     Category 3        0.071       0.061             0.011            1.791
+       Category 2     Category 4        0.057       0.066            -0.009           -1.455
+       Category 2     Category 5        0.031       0.031             0.000           -0.090
+       Category 3     Category 1        0.019       0.014             0.005            1.583
+       Category 3     Category 2        0.063       0.069            -0.006           -0.985
+       Category 3     Category 3        0.073       0.068             0.005            0.753
+       Category 3     Category 4        0.091       0.080             0.011            1.604
+       Category 3     Category 5        0.033       0.042            -0.008           -1.668
+       Category 4     Category 1        0.018       0.014             0.005            1.710
+       Category 4     Category 2        0.065       0.075            -0.010           -1.464
+       Category 4     Category 3        0.080       0.081            -0.001           -0.152
+       Category 4     Category 4        0.115       0.104             0.011            1.491
+       Category 4     Category 5        0.064       0.062             0.002            0.402
+       Category 5     Category 1        0.003       0.001             0.001            1.491
+       Category 5     Category 2        0.006       0.008            -0.002           -0.827
+       Category 5     Category 3        0.008       0.010            -0.003           -1.024
+       Category 5     Category 4        0.012       0.015            -0.003           -0.955
+       Category 5     Category 5        0.014       0.011             0.003            1.234
+     GRIT1_1        GRIT6_2
+       Category 1     Category 1        0.007       0.004             0.003            1.516
+       Category 1     Category 2        0.018       0.017             0.001            0.300
+       Category 1     Category 3        0.035       0.036            -0.001           -0.148
+       Category 1     Category 4        0.034       0.041            -0.007           -1.373
+       Category 1     Category 5        0.009       0.008             0.001            0.303
+       Category 2     Category 1        0.010       0.008             0.002            1.049
+       Category 2     Category 2        0.033       0.034            -0.002           -0.395
+       Category 2     Category 3        0.074       0.077            -0.003           -0.498
+       Category 2     Category 4        0.099       0.098             0.001            0.168
+       Category 2     Category 5        0.017       0.023            -0.006           -1.636
+       Category 3     Category 1        0.006       0.007            -0.001           -0.449
+       Category 3     Category 2        0.028       0.035            -0.007           -1.449
+       Category 3     Category 3        0.099       0.084             0.015            2.170
+       Category 3     Category 4        0.121       0.117             0.005            0.564
+       Category 3     Category 5        0.024       0.030            -0.006           -1.475
+       Category 4     Category 1        0.003       0.007            -0.004           -1.833
+       Category 4     Category 2        0.029       0.037            -0.007           -1.565
+       Category 4     Category 3        0.079       0.097            -0.018           -2.450
+       Category 4     Category 4        0.184       0.150             0.034            3.821
+       Category 4     Category 5        0.047       0.044             0.003            0.652
+       Category 5     Category 1        0.001       0.001             0.000           -0.051
+       Category 5     Category 2        0.003       0.004            -0.001           -0.907
+       Category 5     Category 3        0.006       0.012            -0.006           -2.047
+       Category 5     Category 4        0.017       0.021            -0.004           -1.154
+       Category 5     Category 5        0.016       0.007             0.008            3.873
+     GRIT1_1        GRIT7_2
+       Category 1     Category 1        0.031       0.030             0.001            0.293
+       Category 1     Category 2        0.045       0.046            -0.002           -0.313
+       Category 1     Category 3        0.016       0.017            -0.001           -0.419
+       Category 1     Category 4        0.006       0.011            -0.004           -1.710
+       Category 1     Category 5        0.005       0.002             0.003            2.523
+       Category 2     Category 1        0.061       0.058             0.002            0.411
+       Category 2     Category 2        0.101       0.104            -0.003           -0.395
+       Category 2     Category 3        0.048       0.043             0.005            0.948
+       Category 2     Category 4        0.017       0.029            -0.013           -2.957
+       Category 2     Category 5        0.007       0.006             0.001            0.290
+       Category 3     Category 1        0.063       0.058             0.005            0.805
+       Category 3     Category 2        0.113       0.116            -0.003           -0.404
+       Category 3     Category 3        0.070       0.052             0.018            3.251
+       Category 3     Category 4        0.028       0.037            -0.009           -1.961
+       Category 3     Category 5        0.004       0.009            -0.005           -1.900
+       Category 4     Category 1        0.057       0.061            -0.004           -0.724
+       Category 4     Category 2        0.133       0.138            -0.006           -0.675
+       Category 4     Category 3        0.091       0.068             0.023            3.540
+       Category 4     Category 4        0.048       0.053            -0.005           -0.808
+       Category 4     Category 5        0.015       0.014             0.000            0.163
+       Category 5     Category 1        0.008       0.007             0.002            0.853
+       Category 5     Category 2        0.012       0.018            -0.006           -1.703
+       Category 5     Category 3        0.010       0.010             0.000            0.102
+       Category 5     Category 4        0.009       0.009             0.000            0.125
+       Category 5     Category 5        0.003       0.003             0.001            0.392
+     GRIT1_1        GRIT8_2
+       Category 1     Category 1        0.013       0.011             0.002            0.844
+       Category 1     Category 2        0.031       0.039            -0.007           -1.530
+       Category 1     Category 3        0.031       0.027             0.003            0.759
+       Category 1     Category 4        0.020       0.024            -0.004           -1.109
+       Category 1     Category 5        0.009       0.006             0.003            1.629
+       Category 2     Category 1        0.015       0.017            -0.003           -0.816
+       Category 2     Category 2        0.073       0.078            -0.005           -0.732
+       Category 2     Category 3        0.068       0.064             0.005            0.730
+       Category 2     Category 4        0.057       0.064            -0.006           -1.002
+       Category 2     Category 5        0.020       0.018             0.002            0.468
+       Category 3     Category 1        0.016       0.015             0.001            0.231
+       Category 3     Category 2        0.068       0.079            -0.011           -1.688
+       Category 3     Category 3        0.099       0.072             0.027            4.137
+       Category 3     Category 4        0.076       0.080            -0.004           -0.596
+       Category 3     Category 5        0.020       0.026            -0.006           -1.595
+       Category 4     Category 1        0.019       0.013             0.006            1.953
+       Category 4     Category 2        0.076       0.083            -0.007           -0.970
+       Category 4     Category 3        0.082       0.087            -0.005           -0.647
+       Category 4     Category 4        0.125       0.109             0.016            2.046
+       Category 4     Category 5        0.040       0.042            -0.002           -0.443
+       Category 5     Category 1        0.001       0.001             0.000            0.202
+       Category 5     Category 2        0.009       0.009             0.000            0.048
+       Category 5     Category 3        0.008       0.011            -0.003           -1.035
+       Category 5     Category 4        0.012       0.016            -0.004           -1.363
+       Category 5     Category 5        0.012       0.008             0.004            1.733
+     GRIT5_1        GRIT6_1
+       Category 1     Category 1        0.006       0.005             0.001            0.906
+       Category 1     Category 2        0.011       0.014            -0.004           -1.544
+       Category 1     Category 3        0.018       0.021            -0.004           -1.246
+       Category 1     Category 4        0.011       0.017            -0.006           -2.441
+       Category 1     Category 5        0.004       0.001             0.002            2.702
+       Category 2     Category 1        0.008       0.012            -0.004           -1.813
+       Category 2     Category 2        0.059       0.047             0.013            3.002
+       Category 2     Category 3        0.107       0.091             0.016            2.780
+       Category 2     Category 4        0.094       0.098            -0.005           -0.787
+       Category 2     Category 5        0.012       0.013            -0.001           -0.419
+       Category 3     Category 1        0.006       0.007            -0.001           -0.693
+       Category 3     Category 2        0.037       0.034             0.003            0.838
+       Category 3     Category 3        0.094       0.079             0.015            2.721
+       Category 3     Category 4        0.092       0.108            -0.015           -2.467
+       Category 3     Category 5        0.013       0.018            -0.005           -2.034
+       Category 4     Category 1        0.003       0.005            -0.003           -1.849
+       Category 4     Category 2        0.031       0.032            -0.001           -0.278
+       Category 4     Category 3        0.082       0.090            -0.008           -1.467
+       Category 4     Category 4        0.162       0.154             0.008            1.147
+       Category 4     Category 5        0.034       0.035            -0.001           -0.237
+       Category 5     Category 1        0.007       0.001             0.007           10.632
+       Category 5     Category 2        0.006       0.007            -0.001           -0.558
+       Category 5     Category 3        0.016       0.027            -0.010           -3.267
+       Category 5     Category 4        0.062       0.062             0.000           -0.067
+       Category 5     Category 5        0.026       0.021             0.005            1.801
+     GRIT5_1        GRIT7_1
+       Category 1     Category 1        0.026       0.025             0.001            0.352
+       Category 1     Category 2        0.015       0.027            -0.012           -3.764
+       Category 1     Category 3        0.004       0.005            -0.002           -1.336
+       Category 1     Category 4        0.003       0.002             0.001            1.695
+       Category 1     Category 5        0.002       0.000             0.001            4.897
+       Category 2     Category 1        0.061       0.074            -0.013           -2.499
+       Category 2     Category 2        0.169       0.129             0.039            5.892
+       Category 2     Category 3        0.029       0.039            -0.010           -2.688
+       Category 2     Category 4        0.019       0.016             0.003            1.268
+       Category 2     Category 5        0.002       0.003             0.000           -0.191
+       Category 3     Category 1        0.048       0.049            -0.001           -0.258
+       Category 3     Category 2        0.121       0.121            -0.001           -0.083
+       Category 3     Category 3        0.058       0.048             0.010            2.420
+       Category 3     Category 4        0.013       0.024            -0.010           -3.432
+       Category 3     Category 5        0.002       0.005            -0.002           -1.744
+       Category 4     Category 1        0.042       0.042             0.000           -0.026
+       Category 4     Category 2        0.138       0.145            -0.006           -0.898
+       Category 4     Category 3        0.059       0.073            -0.014           -2.714
+       Category 4     Category 4        0.066       0.045             0.022            5.308
+       Category 4     Category 5        0.006       0.012            -0.006           -2.839
+       Category 5     Category 1        0.018       0.008             0.010            5.510
+       Category 5     Category 2        0.035       0.044            -0.010           -2.362
+       Category 5     Category 3        0.024       0.031            -0.007           -2.033
+       Category 5     Category 4        0.025       0.025             0.000           -0.127
+       Category 5     Category 5        0.017       0.009             0.007            3.768
+     GRIT5_1        GRIT8_1
+       Category 1     Category 1        0.015       0.013             0.003            1.163
+       Category 1     Category 2        0.020       0.029            -0.008           -2.513
+       Category 1     Category 3        0.005       0.012            -0.006           -3.051
+       Category 1     Category 4        0.005       0.005             0.000           -0.135
+       Category 1     Category 5        0.003       0.000             0.002            5.606
+       Category 2     Category 1        0.016       0.025            -0.010           -3.079
+       Category 2     Category 2        0.140       0.109             0.031            5.011
+       Category 2     Category 3        0.067       0.071            -0.004           -0.754
+       Category 2     Category 4        0.048       0.049            -0.002           -0.352
+       Category 2     Category 5        0.010       0.007             0.003            1.781
+       Category 3     Category 1        0.009       0.011            -0.002           -1.145
+       Category 3     Category 2        0.067       0.079            -0.012           -2.275
+       Category 3     Category 3        0.096       0.073             0.023            4.523
+       Category 3     Category 4        0.059       0.068            -0.009           -1.797
+       Category 3     Category 5        0.010       0.014            -0.004           -1.667
+       Category 4     Category 1        0.007       0.007             0.000            0.285
+       Category 4     Category 2        0.075       0.070             0.005            1.046
+       Category 4     Category 3        0.066       0.089            -0.022           -3.981
+       Category 4     Category 4        0.140       0.115             0.025            3.966
+       Category 4     Category 5        0.023       0.036            -0.013           -3.505
+       Category 5     Category 1        0.006       0.001             0.005            9.932
+       Category 5     Category 2        0.016       0.013             0.003            1.158
+       Category 5     Category 3        0.018       0.025            -0.007           -2.184
+       Category 5     Category 4        0.038       0.050            -0.013           -2.915
+       Category 5     Category 5        0.040       0.029             0.012            3.499
+     GRIT5_1        GRIT1_2
+       Category 1     Category 1        0.010       0.010             0.000            0.033
+       Category 1     Category 2        0.014       0.016            -0.002           -0.730
+       Category 1     Category 3        0.009       0.015            -0.006           -2.028
+       Category 1     Category 4        0.006       0.015            -0.009           -2.900
+       Category 1     Category 5        0.003       0.002             0.001            0.710
+       Category 2     Category 1        0.040       0.036             0.004            0.806
+       Category 2     Category 2        0.075       0.067             0.008            1.249
+       Category 2     Category 3        0.068       0.069            -0.001           -0.178
+       Category 2     Category 4        0.083       0.079             0.004            0.585
+       Category 2     Category 5        0.011       0.011             0.001            0.196
+       Category 3     Category 1        0.031       0.028             0.002            0.558
+       Category 3     Category 2        0.054       0.058            -0.004           -0.712
+       Category 3     Category 3        0.075       0.065             0.010            1.566
+       Category 3     Category 4        0.069       0.082            -0.013           -1.840
+       Category 3     Category 5        0.008       0.013            -0.005           -1.832
+       Category 4     Category 1        0.034       0.030             0.003            0.800
+       Category 4     Category 2        0.078       0.069             0.009            1.465
+       Category 4     Category 3        0.092       0.082             0.010            1.429
+       Category 4     Category 4        0.105       0.114            -0.009           -1.150
+       Category 4     Category 5        0.023       0.020             0.003            0.712
+       Category 5     Category 1        0.008       0.009             0.000           -0.189
+       Category 5     Category 2        0.023       0.023             0.000            0.078
+       Category 5     Category 3        0.027       0.030            -0.003           -0.738
+       Category 5     Category 4        0.045       0.047            -0.002           -0.435
+       Category 5     Category 5        0.011       0.010             0.001            0.557
+     GRIT5_1        GRIT5_2
+       Category 1     Category 1        0.009       0.010            -0.002           -0.598
+       Category 1     Category 2        0.015       0.025            -0.010           -2.424
+       Category 1     Category 3        0.008       0.013            -0.005           -1.716
+       Category 1     Category 4        0.008       0.009             0.000           -0.095
+       Category 1     Category 5        0.001       0.002            -0.001           -0.501
+       Category 2     Category 1        0.025       0.023             0.002            0.521
+       Category 2     Category 2        0.099       0.090             0.009            1.273
+       Category 2     Category 3        0.071       0.069             0.003            0.403
+       Category 2     Category 4        0.062       0.060             0.002            0.345
+       Category 2     Category 5        0.018       0.019            -0.001           -0.229
+       Category 3     Category 1        0.016       0.012             0.004            1.585
+       Category 3     Category 2        0.053       0.066            -0.013           -2.033
+       Category 3     Category 3        0.069       0.065             0.004            0.656
+       Category 3     Category 4        0.073       0.072             0.000            0.066
+       Category 3     Category 5        0.025       0.031            -0.006           -1.413
+       Category 4     Category 1        0.014       0.008             0.006            2.854
+       Category 4     Category 2        0.047       0.060            -0.014           -2.307
+       Category 4     Category 3        0.084       0.077             0.007            1.088
+       Category 4     Category 4        0.117       0.107             0.010            1.283
+       Category 4     Category 5        0.070       0.064             0.006            1.024
+       Category 5     Category 1        0.004       0.001             0.003            4.226
+       Category 5     Category 2        0.011       0.013            -0.002           -0.626
+       Category 5     Category 3        0.020       0.022            -0.002           -0.619
+       Category 5     Category 4        0.038       0.042            -0.005           -0.941
+       Category 5     Category 5        0.041       0.040             0.001            0.236
+     GRIT5_1        GRIT6_2
+       Category 1     Category 1        0.001       0.004            -0.002           -1.504
+       Category 1     Category 2        0.004       0.012            -0.007           -2.718
+       Category 1     Category 3        0.015       0.021            -0.006           -1.549
+       Category 1     Category 4        0.016       0.019            -0.004           -1.022
+       Category 1     Category 5        0.005       0.003             0.002            1.506
+       Category 2     Category 1        0.010       0.010             0.000           -0.169
+       Category 2     Category 2        0.041       0.042            -0.001           -0.145
+       Category 2     Category 3        0.085       0.088            -0.003           -0.423
+       Category 2     Category 4        0.120       0.101             0.018            2.419
+       Category 2     Category 5        0.021       0.020             0.001            0.209
+       Category 3     Category 1        0.006       0.007            -0.001           -0.432
+       Category 3     Category 2        0.029       0.032            -0.003           -0.602
+       Category 3     Category 3        0.083       0.077             0.005            0.794
+       Category 3     Category 4        0.094       0.105            -0.010           -1.327
+       Category 3     Category 5        0.024       0.025            -0.002           -0.409
+       Category 4     Category 1        0.007       0.006             0.001            0.548
+       Category 4     Category 2        0.028       0.033            -0.005           -1.106
+       Category 4     Category 3        0.091       0.091            -0.001           -0.098
+       Category 4     Category 4        0.166       0.144             0.022            2.468
+       Category 4     Category 5        0.041       0.042            -0.001           -0.227
+       Category 5     Category 1        0.004       0.001             0.003            2.735
+       Category 5     Category 2        0.008       0.009            -0.001           -0.237
+       Category 5     Category 3        0.020       0.029            -0.009           -2.076
+       Category 5     Category 4        0.060       0.057             0.003            0.462
+       Category 5     Category 5        0.022       0.022             0.000           -0.018
+     GRIT5_1        GRIT7_2
+       Category 1     Category 1        0.013       0.021            -0.007           -2.051
+       Category 1     Category 2        0.017       0.025            -0.008           -2.057
+       Category 1     Category 3        0.006       0.008            -0.001           -0.664
+       Category 1     Category 4        0.004       0.004             0.000            0.170
+       Category 1     Category 5        0.001       0.001             0.000           -0.024
+       Category 2     Category 1        0.068       0.071            -0.003           -0.488
+       Category 2     Category 2        0.131       0.115             0.016            1.976
+       Category 2     Category 3        0.048       0.043             0.004            0.862
+       Category 2     Category 4        0.022       0.027            -0.005           -1.136
+       Category 2     Category 5        0.008       0.005             0.002            1.364
+       Category 3     Category 1        0.056       0.054             0.002            0.429
+       Category 3     Category 2        0.093       0.106            -0.013           -1.724
+       Category 3     Category 3        0.063       0.046             0.017            3.151
+       Category 3     Category 4        0.017       0.032            -0.015           -3.367
+       Category 3     Category 5        0.006       0.007            -0.001           -0.382
+       Category 4     Category 1        0.064       0.055             0.010            1.703
+       Category 4     Category 2        0.128       0.131            -0.003           -0.363
+       Category 4     Category 3        0.083       0.066             0.018            2.854
+       Category 4     Category 4        0.047       0.051            -0.004           -0.717
+       Category 4     Category 5        0.009       0.013            -0.004           -1.534
+       Category 5     Category 1        0.018       0.014             0.004            1.379
+       Category 5     Category 2        0.034       0.045            -0.011           -2.068
+       Category 5     Category 3        0.034       0.027             0.007            1.693
+       Category 5     Category 4        0.017       0.025            -0.007           -1.878
+       Category 5     Category 5        0.011       0.008             0.003            1.249
+     GRIT5_1        GRIT8_2
+       Category 1     Category 1        0.008       0.009            -0.001           -0.584
+       Category 1     Category 2        0.013       0.025            -0.012           -2.964
+       Category 1     Category 3        0.012       0.014            -0.002           -0.588
+       Category 1     Category 4        0.008       0.009            -0.002           -0.697
+       Category 1     Category 5        0.001       0.002             0.000           -0.245
+       Category 2     Category 1        0.022       0.023            -0.001           -0.140
+       Category 2     Category 2        0.095       0.094             0.001            0.111
+       Category 2     Category 3        0.080       0.070             0.010            1.576
+       Category 2     Category 4        0.059       0.061            -0.002           -0.334
+       Category 2     Category 5        0.020       0.014             0.007            2.244
+       Category 3     Category 1        0.012       0.013            -0.001           -0.459
+       Category 3     Category 2        0.064       0.074            -0.010           -1.538
+       Category 3     Category 3        0.080       0.067             0.013            2.071
+       Category 3     Category 4        0.062       0.071            -0.008           -1.287
+       Category 3     Category 5        0.017       0.021            -0.003           -0.933
+       Category 4     Category 1        0.016       0.011             0.005            2.108
+       Category 4     Category 2        0.066       0.075            -0.009           -1.354
+       Category 4     Category 3        0.088       0.083             0.004            0.644
+       Category 4     Category 4        0.126       0.107             0.020            2.520
+       Category 4     Category 5        0.036       0.040            -0.004           -0.897
+       Category 5     Category 1        0.006       0.002             0.004            3.588
+       Category 5     Category 2        0.018       0.019             0.000           -0.138
+       Category 5     Category 3        0.029       0.027             0.001            0.337
+       Category 5     Category 4        0.035       0.045            -0.010           -1.981
+       Category 5     Category 5        0.026       0.025             0.001            0.352
+     GRIT6_1        GRIT7_1
+       Category 1     Category 1        0.011       0.012            -0.001           -0.426
+       Category 1     Category 2        0.009       0.014            -0.005           -1.946
+       Category 1     Category 3        0.002       0.003            -0.002           -1.421
+       Category 1     Category 4        0.002       0.001             0.001            1.347
+       Category 1     Category 5        0.006       0.000             0.006           26.060
+       Category 2     Category 1        0.042       0.041             0.002            0.419
+       Category 2     Category 2        0.081       0.065             0.016            3.316
+       Category 2     Category 3        0.008       0.019            -0.011           -3.926
+       Category 2     Category 4        0.010       0.008             0.002            1.422
+       Category 2     Category 5        0.002       0.001             0.000            0.454
+       Category 3     Category 1        0.064       0.070            -0.006           -1.163
+       Category 3     Category 2        0.168       0.151             0.017            2.420
+       Category 3     Category 3        0.060       0.055             0.005            1.028
+       Category 3     Category 4        0.022       0.027            -0.005           -1.496
+       Category 3     Category 5        0.002       0.005            -0.003           -2.068
+       Category 4     Category 1        0.061       0.067            -0.005           -1.049
+       Category 4     Category 2        0.194       0.202            -0.008           -0.984
+       Category 4     Category 3        0.084       0.097            -0.013           -2.183
+       Category 4     Category 4        0.073       0.058             0.015            3.147
+       Category 4     Category 5        0.008       0.015            -0.007           -2.856
+       Category 5     Category 1        0.015       0.007             0.007            4.214
+       Category 5     Category 2        0.024       0.035            -0.010           -2.814
+       Category 5     Category 3        0.020       0.023            -0.003           -0.948
+       Category 5     Category 4        0.020       0.018             0.002            0.918
+       Category 5     Category 5        0.010       0.006             0.003            2.174
+     GRIT6_1        GRIT8_1
+       Category 1     Category 1        0.006       0.006             0.000            0.060
+       Category 1     Category 2        0.010       0.014            -0.005           -1.960
+       Category 1     Category 3        0.005       0.006            -0.001           -0.797
+       Category 1     Category 4        0.003       0.003             0.000           -0.136
+       Category 1     Category 5        0.006       0.000             0.006           16.253
+       Category 2     Category 1        0.016       0.016             0.000           -0.024
+       Category 2     Category 2        0.072       0.057             0.015            3.346
+       Category 2     Category 3        0.029       0.034            -0.006           -1.559
+       Category 2     Category 4        0.024       0.023             0.001            0.356
+       Category 2     Category 5        0.003       0.003            -0.001           -0.582
+       Category 3     Category 1        0.014       0.021            -0.006           -2.297
+       Category 3     Category 2        0.123       0.108             0.015            2.518
+       Category 3     Category 3        0.106       0.087             0.019            3.386
+       Category 3     Category 4        0.061       0.077            -0.016           -2.988
+       Category 3     Category 5        0.012       0.016            -0.004           -1.636
+       Category 4     Category 1        0.011       0.013            -0.002           -1.044
+       Category 4     Category 2        0.101       0.108            -0.007           -1.121
+       Category 4     Category 3        0.100       0.122            -0.022           -3.333
+       Category 4     Category 4        0.168       0.148             0.020            2.878
+       Category 4     Category 5        0.040       0.047            -0.008           -1.786
+       Category 5     Category 1        0.006       0.001             0.005            8.784
+       Category 5     Category 2        0.011       0.012            -0.001           -0.444
+       Category 5     Category 3        0.013       0.020            -0.007           -2.405
+       Category 5     Category 4        0.033       0.036            -0.004           -0.997
+       Category 5     Category 5        0.026       0.020             0.006            2.277
+     GRIT6_1        GRIT1_2
+       Category 1     Category 1        0.008       0.005             0.003            1.403
+       Category 1     Category 2        0.007       0.008            -0.001           -0.610
+       Category 1     Category 3        0.003       0.008            -0.005           -2.118
+       Category 1     Category 4        0.005       0.008            -0.003           -1.366
+       Category 1     Category 5        0.001       0.001             0.000           -0.447
+       Category 2     Category 1        0.030       0.019             0.011            3.173
+       Category 2     Category 2        0.040       0.035             0.006            1.218
+       Category 2     Category 3        0.031       0.035            -0.004           -0.946
+       Category 2     Category 4        0.031       0.040            -0.009           -1.813
+       Category 2     Category 5        0.009       0.005             0.004            1.905
+       Category 3     Category 1        0.041       0.038             0.004            0.763
+       Category 3     Category 2        0.094       0.075             0.019            2.819
+       Category 3     Category 3        0.108       0.081             0.027            3.862
+       Category 3     Category 4        0.087       0.099            -0.013           -1.670
+       Category 3     Category 5        0.008       0.015            -0.007           -2.238
+       Category 4     Category 1        0.038       0.044            -0.007           -1.290
+       Category 4     Category 2        0.090       0.098            -0.008           -1.050
+       Category 4     Category 3        0.110       0.115            -0.004           -0.533
+       Category 4     Category 4        0.146       0.155            -0.009           -0.978
+       Category 4     Category 5        0.027       0.027             0.000           -0.122
+       Category 5     Category 1        0.006       0.007            -0.001           -0.583
+       Category 5     Category 2        0.013       0.017            -0.004           -1.237
+       Category 5     Category 3        0.018       0.023            -0.004           -1.098
+       Category 5     Category 4        0.039       0.035             0.004            0.930
+       Category 5     Category 5        0.011       0.007             0.004            1.987
+     GRIT6_1        GRIT5_2
+       Category 1     Category 1        0.003       0.004             0.000           -0.271
+       Category 1     Category 2        0.006       0.011            -0.005           -1.739
+       Category 1     Category 3        0.004       0.008            -0.004           -1.708
+       Category 1     Category 4        0.006       0.006             0.000           -0.028
+       Category 1     Category 5        0.004       0.002             0.002            1.437
+       Category 2     Category 1        0.013       0.011             0.002            0.780
+       Category 2     Category 2        0.044       0.042             0.002            0.332
+       Category 2     Category 3        0.034       0.034             0.000            0.109
+       Category 2     Category 4        0.038       0.033             0.005            1.050
+       Category 2     Category 5        0.011       0.013            -0.002           -0.775
+       Category 3     Category 1        0.023       0.019             0.004            1.153
+       Category 3     Category 2        0.085       0.085            -0.001           -0.077
+       Category 3     Category 3        0.110       0.078             0.031            4.628
+       Category 3     Category 4        0.089       0.086             0.003            0.418
+       Category 3     Category 5        0.032       0.040            -0.008           -1.665
+       Category 4     Category 1        0.025       0.018             0.008            2.297
+       Category 4     Category 2        0.076       0.100            -0.024           -3.132
+       Category 4     Category 3        0.087       0.107            -0.020           -2.524
+       Category 4     Category 4        0.136       0.136             0.000            0.053
+       Category 4     Category 5        0.085       0.078             0.007            1.023
+       Category 5     Category 1        0.003       0.002             0.001            1.002
+       Category 5     Category 2        0.013       0.015            -0.002           -0.519
+       Category 5     Category 3        0.018       0.020            -0.002           -0.490
+       Category 5     Category 4        0.029       0.030            -0.001           -0.129
+       Category 5     Category 5        0.024       0.022             0.002            0.487
+     GRIT6_1        GRIT6_2
+       Category 1     Category 1        0.004       0.005             0.000           -0.136
+       Category 1     Category 2        0.006       0.010            -0.004           -1.518
+       Category 1     Category 3        0.006       0.011            -0.005           -1.909
+       Category 1     Category 4        0.004       0.005             0.000           -0.200
+       Category 1     Category 5        0.003       0.000             0.002            5.918
+       Category 2     Category 1        0.008       0.009            -0.002           -0.693
+       Category 2     Category 2        0.035       0.033             0.002            0.490
+       Category 2     Category 3        0.048       0.052            -0.004           -0.710
+       Category 2     Category 4        0.045       0.036             0.009            1.886
+       Category 2     Category 5        0.004       0.003             0.001            0.932
+       Category 3     Category 1        0.010       0.009             0.000            0.148
+       Category 3     Category 2        0.046       0.049            -0.003           -0.519
+       Category 3     Category 3        0.131       0.112             0.019            2.429
+       Category 3     Category 4        0.133       0.121             0.013            1.523
+       Category 3     Category 5        0.018       0.018             0.000            0.033
+       Category 4     Category 1        0.004       0.004             0.000           -0.132
+       Category 4     Category 2        0.021       0.034            -0.012           -2.746
+       Category 4     Category 3        0.102       0.120            -0.018           -2.145
+       Category 4     Category 4        0.231       0.219             0.012            1.108
+       Category 4     Category 5        0.053       0.063            -0.010           -1.573
+       Category 5     Category 1        0.002       0.000             0.002            6.111
+       Category 5     Category 2        0.003       0.002             0.001            0.482
+       Category 5     Category 3        0.007       0.013            -0.006           -1.995
+       Category 5     Category 4        0.042       0.046            -0.003           -0.659
+       Category 5     Category 5        0.034       0.029             0.006            1.397
+     GRIT6_1        GRIT7_2
+       Category 1     Category 1        0.007       0.010            -0.003           -1.343
+       Category 1     Category 2        0.011       0.013            -0.002           -0.830
+       Category 1     Category 3        0.003       0.004            -0.002           -1.034
+       Category 1     Category 4        0.003       0.002             0.000            0.167
+       Category 1     Category 5        0.001       0.000             0.000            0.502
+       Category 2     Category 1        0.040       0.038             0.002            0.469
+       Category 2     Category 2        0.059       0.058             0.000            0.050
+       Category 2     Category 3        0.027       0.021             0.005            1.440
+       Category 2     Category 4        0.011       0.013            -0.002           -0.819
+       Category 2     Category 5        0.004       0.003             0.001            1.033
+       Category 3     Category 1        0.079       0.073             0.006            0.944
+       Category 3     Category 2        0.154       0.134             0.021            2.401
+       Category 3     Category 3        0.068       0.056             0.012            2.143
+       Category 3     Category 4        0.030       0.038            -0.008           -1.631
+       Category 3     Category 5        0.006       0.008            -0.002           -0.825
+       Category 4     Category 1        0.085       0.081             0.004            0.615
+       Category 4     Category 2        0.148       0.183            -0.035           -3.609
+       Category 4     Category 3        0.110       0.089             0.021            2.901
+       Category 4     Category 4        0.050       0.068            -0.018           -2.886
+       Category 4     Category 5        0.018       0.018             0.000            0.067
+       Category 5     Category 1        0.008       0.012            -0.003           -1.265
+       Category 5     Category 2        0.031       0.034            -0.003           -0.619
+       Category 5     Category 3        0.027       0.020             0.008            2.165
+       Category 5     Category 4        0.015       0.018            -0.002           -0.706
+       Category 5     Category 5        0.006       0.006             0.000            0.058
+     GRIT6_1        GRIT8_2
+       Category 1     Category 1        0.003       0.004            -0.001           -0.755
+       Category 1     Category 2        0.011       0.013            -0.001           -0.438
+       Category 1     Category 3        0.005       0.007            -0.002           -1.036
+       Category 1     Category 4        0.003       0.005            -0.003           -1.474
+       Category 1     Category 5        0.001       0.001             0.000            0.432
+       Category 2     Category 1        0.015       0.013             0.002            0.733
+       Category 2     Category 2        0.048       0.049            -0.002           -0.281
+       Category 2     Category 3        0.045       0.035             0.011            2.280
+       Category 2     Category 4        0.022       0.030            -0.008           -1.840
+       Category 2     Category 5        0.010       0.007             0.004            1.716
+       Category 3     Category 1        0.018       0.021            -0.002           -0.611
+       Category 3     Category 2        0.103       0.098             0.004            0.555
+       Category 3     Category 3        0.113       0.083             0.030            4.311
+       Category 3     Category 4        0.085       0.083             0.002            0.250
+       Category 3     Category 5        0.019       0.023            -0.004           -1.105
+       Category 4     Category 1        0.022       0.018             0.005            1.411
+       Category 4     Category 2        0.083       0.111            -0.028           -3.495
+       Category 4     Category 3        0.108       0.116            -0.008           -0.965
+       Category 4     Category 4        0.143       0.142             0.002            0.176
+       Category 4     Category 5        0.054       0.053             0.001            0.179
+       Category 5     Category 1        0.004       0.002             0.003            2.590
+       Category 5     Category 2        0.011       0.016            -0.004           -1.337
+       Category 5     Category 3        0.018       0.021            -0.003           -0.871
+       Category 5     Category 4        0.038       0.033             0.004            0.979
+       Category 5     Category 5        0.017       0.017            -0.001           -0.213
+     GRIT7_1        GRIT8_1
+       Category 1     Category 1        0.036       0.029             0.007            2.152
+       Category 1     Category 2        0.080       0.090            -0.009           -1.676
+       Category 1     Category 3        0.040       0.048            -0.008           -1.901
+       Category 1     Category 4        0.029       0.028             0.001            0.311
+       Category 1     Category 5        0.009       0.003             0.006            5.474
+       Category 2     Category 1        0.013       0.024            -0.011           -3.528
+       Category 2     Category 2        0.193       0.152             0.041            5.733
+       Category 2     Category 3        0.134       0.136            -0.002           -0.303
+       Category 2     Category 4        0.113       0.127            -0.014           -2.127
+       Category 2     Category 5        0.024       0.027            -0.003           -1.019
+       Category 3     Category 1        0.003       0.004            -0.001           -0.734
+       Category 3     Category 2        0.028       0.041            -0.013           -3.232
+       Category 3     Category 3        0.059       0.055             0.004            0.866
+       Category 3     Category 4        0.068       0.073            -0.006           -1.107
+       Category 3     Category 5        0.017       0.024            -0.008           -2.534
+       Category 4     Category 1        0.002       0.001             0.001            1.152
+       Category 4     Category 2        0.015       0.015             0.000            0.024
+       Category 4     Category 3        0.018       0.026            -0.008           -2.441
+       Category 4     Category 4        0.074       0.047             0.027            6.546
+       Category 4     Category 5        0.018       0.023            -0.005           -1.656
+       Category 5     Category 1        0.000       0.000             0.000           -0.424
+       Category 5     Category 2        0.002       0.002             0.000           -0.384
+       Category 5     Category 3        0.002       0.005            -0.002           -1.716
+       Category 5     Category 4        0.005       0.012            -0.007           -3.215
+       Category 5     Category 5        0.019       0.010             0.010            5.005
+     GRIT7_1        GRIT1_2
+       Category 1     Category 1        0.039       0.030             0.009            2.064
+       Category 1     Category 2        0.062       0.052             0.010            1.778
+       Category 1     Category 3        0.050       0.052            -0.001           -0.221
+       Category 1     Category 4        0.048       0.056            -0.008           -1.322
+       Category 1     Category 5        0.007       0.007             0.000           -0.109
+       Category 2     Category 1        0.057       0.054             0.003            0.562
+       Category 2     Category 2        0.117       0.111             0.006            0.784
+       Category 2     Category 3        0.136       0.123             0.014            1.643
+       Category 2     Category 4        0.138       0.154            -0.016           -1.775
+       Category 2     Category 5        0.022       0.024            -0.003           -0.651
+       Category 3     Category 1        0.014       0.018            -0.004           -1.299
+       Category 3     Category 2        0.033       0.043            -0.010           -1.965
+       Category 3     Category 3        0.052       0.051             0.000            0.057
+       Category 3     Category 4        0.062       0.072            -0.010           -1.499
+       Category 3     Category 5        0.013       0.013             0.000           -0.103
+       Category 4     Category 1        0.008       0.009            -0.001           -0.489
+       Category 4     Category 2        0.027       0.022             0.005            1.425
+       Category 4     Category 3        0.027       0.028            -0.001           -0.259
+       Category 4     Category 4        0.053       0.043             0.010            1.895
+       Category 4     Category 5        0.013       0.009             0.005            1.935
+       Category 5     Category 1        0.004       0.002             0.003            2.511
+       Category 5     Category 2        0.004       0.005            -0.001           -0.297
+       Category 5     Category 3        0.004       0.007            -0.003           -1.200
+       Category 5     Category 4        0.006       0.012            -0.005           -1.982
+       Category 5     Category 5        0.001       0.003            -0.002           -1.135
+     GRIT7_1        GRIT5_2
+       Category 1     Category 1        0.023       0.019             0.004            1.149
+       Category 1     Category 2        0.055       0.066            -0.011           -1.693
+       Category 1     Category 3        0.052       0.050             0.002            0.300
+       Category 1     Category 4        0.052       0.046             0.006            1.119
+       Category 1     Category 5        0.025       0.017             0.009            2.739
+       Category 2     Category 1        0.032       0.025             0.007            1.666
+       Category 2     Category 2        0.119       0.123            -0.005           -0.548
+       Category 2     Category 3        0.130       0.118             0.012            1.425
+       Category 2     Category 4        0.129       0.134            -0.005           -0.558
+       Category 2     Category 5        0.061       0.065            -0.005           -0.726
+       Category 3     Category 1        0.008       0.007             0.001            0.526
+       Category 3     Category 2        0.025       0.041            -0.016           -3.138
+       Category 3     Category 3        0.040       0.047            -0.008           -1.478
+       Category 3     Category 4        0.067       0.063             0.004            0.586
+       Category 3     Category 5        0.033       0.038            -0.005           -1.061
+       Category 4     Category 1        0.006       0.003             0.003            2.527
+       Category 4     Category 2        0.022       0.019             0.003            0.951
+       Category 4     Category 3        0.029       0.025             0.004            0.951
+       Category 4     Category 4        0.043       0.038             0.006            1.172
+       Category 4     Category 5        0.029       0.027             0.001            0.358
+       Category 5     Category 1        0.000       0.000             0.000           -0.775
+       Category 5     Category 2        0.003       0.004            -0.001           -0.694
+       Category 5     Category 3        0.003       0.006            -0.002           -1.257
+       Category 5     Category 4        0.007       0.010            -0.003           -1.131
+       Category 5     Category 5        0.008       0.009            -0.001           -0.286
+     GRIT7_1        GRIT6_2
+       Category 1     Category 1        0.008       0.009            -0.001           -0.428
+       Category 1     Category 2        0.032       0.035            -0.003           -0.699
+       Category 1     Category 3        0.075       0.068             0.006            0.999
+       Category 1     Category 4        0.077       0.072             0.005            0.813
+       Category 1     Category 5        0.015       0.013             0.002            0.832
+       Category 2     Category 1        0.017       0.013             0.004            1.287
+       Category 2     Category 2        0.064       0.061             0.002            0.384
+       Category 2     Category 3        0.137       0.147            -0.010           -1.137
+       Category 2     Category 4        0.206       0.197             0.009            0.868
+       Category 2     Category 5        0.047       0.047             0.000           -0.036
+       Category 3     Category 1        0.001       0.004            -0.002           -1.502
+       Category 3     Category 2        0.007       0.020            -0.013           -3.668
+       Category 3     Category 3        0.055       0.056            -0.001           -0.226
+       Category 3     Category 4        0.089       0.090            -0.002           -0.239
+       Category 3     Category 5        0.021       0.027            -0.006           -1.446
+       Category 4     Category 1        0.001       0.001            -0.001           -0.821
+       Category 4     Category 2        0.006       0.009            -0.003           -1.403
+       Category 4     Category 3        0.025       0.029            -0.004           -0.930
+       Category 4     Category 4        0.078       0.053             0.024            4.316
+       Category 4     Category 5        0.020       0.019             0.001            0.273
+       Category 5     Category 1        0.001       0.000             0.000            1.069
+       Category 5     Category 2        0.003       0.002             0.001            0.797
+       Category 5     Category 3        0.003       0.006            -0.004           -1.876
+       Category 5     Category 4        0.006       0.014            -0.008           -2.557
+       Category 5     Category 5        0.009       0.006             0.003            1.417
+     GRIT7_1        GRIT7_2
+       Category 1     Category 1        0.088       0.077             0.011            1.686
+       Category 1     Category 2        0.078       0.086            -0.007           -1.048
+       Category 1     Category 3        0.024       0.023             0.001            0.288
+       Category 1     Category 4        0.010       0.011             0.000           -0.146
+       Category 1     Category 5        0.006       0.001             0.005            5.717
+       Category 2     Category 1        0.100       0.103            -0.003           -0.345
+       Category 2     Category 2        0.222       0.211             0.011            1.079
+       Category 2     Category 3        0.099       0.087             0.012            1.634
+       Category 2     Category 4        0.040       0.055            -0.016           -2.730
+       Category 2     Category 5        0.010       0.010             0.000            0.000
+       Category 3     Category 1        0.018       0.025            -0.006           -1.635
+       Category 3     Category 2        0.058       0.080            -0.022           -3.227
+       Category 3     Category 3        0.066       0.045             0.021            3.967
+       Category 3     Category 4        0.022       0.037            -0.015           -3.212
+       Category 3     Category 5        0.008       0.009            -0.001           -0.474
+       Category 4     Category 1        0.012       0.009             0.003            1.448
+       Category 4     Category 2        0.038       0.039             0.000           -0.056
+       Category 4     Category 3        0.040       0.028             0.013            3.050
+       Category 4     Category 4        0.032       0.027             0.004            1.081
+       Category 4     Category 5        0.006       0.009            -0.003           -1.180
+       Category 5     Category 1        0.001       0.001             0.000            0.198
+       Category 5     Category 2        0.006       0.007            -0.001           -0.400
+       Category 5     Category 3        0.005       0.007            -0.002           -0.842
+       Category 5     Category 4        0.005       0.009            -0.004           -1.580
+       Category 5     Category 5        0.003       0.004            -0.001           -0.671
+     GRIT7_1        GRIT8_2
+       Category 1     Category 1        0.030       0.023             0.007            1.943
+       Category 1     Category 2        0.058       0.077            -0.019           -2.859
+       Category 1     Category 3        0.062       0.050             0.012            2.102
+       Category 1     Category 4        0.040       0.039             0.001            0.157
+       Category 1     Category 5        0.017       0.008             0.009            4.201
+       Category 2     Category 1        0.023       0.027            -0.004           -0.893
+       Category 2     Category 2        0.144       0.141             0.003            0.301
+       Category 2     Category 3        0.145       0.127             0.018            2.136
+       Category 2     Category 4        0.124       0.133            -0.008           -0.981
+       Category 2     Category 5        0.034       0.039            -0.004           -0.865
+       Category 3     Category 1        0.006       0.006             0.000           -0.176
+       Category 3     Category 2        0.025       0.045            -0.020           -3.781
+       Category 3     Category 3        0.056       0.052             0.004            0.796
+       Category 3     Category 4        0.064       0.068            -0.004           -0.606
+       Category 3     Category 5        0.022       0.026            -0.005           -1.129
+       Category 4     Category 1        0.005       0.002             0.003            2.594
+       Category 4     Category 2        0.024       0.020             0.004            1.223
+       Category 4     Category 3        0.024       0.027            -0.003           -0.823
+       Category 4     Category 4        0.056       0.042             0.014            2.801
+       Category 4     Category 5        0.020       0.021            -0.001           -0.217
+       Category 5     Category 1        0.000       0.000             0.000           -0.654
+       Category 5     Category 2        0.005       0.003             0.002            1.099
+       Category 5     Category 3        0.003       0.006            -0.003           -1.697
+       Category 5     Category 4        0.006       0.011            -0.006           -2.075
+       Category 5     Category 5        0.008       0.008             0.000            0.064
+     GRIT8_1        GRIT1_2
+       Category 1     Category 1        0.013       0.011             0.002            0.702
+       Category 1     Category 2        0.015       0.016            -0.001           -0.367
+       Category 1     Category 3        0.011       0.014            -0.004           -1.200
+       Category 1     Category 4        0.014       0.014             0.000            0.147
+       Category 1     Category 5        0.003       0.001             0.001            1.212
+       Category 2     Category 1        0.048       0.042             0.006            1.200
+       Category 2     Category 2        0.083       0.078             0.005            0.718
+       Category 2     Category 3        0.087       0.079             0.008            1.216
+       Category 2     Category 4        0.083       0.088            -0.005           -0.757
+       Category 2     Category 5        0.012       0.012             0.000            0.171
+       Category 3     Category 1        0.031       0.030             0.001            0.331
+       Category 3     Category 2        0.063       0.063             0.000           -0.054
+       Category 3     Category 3        0.084       0.071             0.013            1.945
+       Category 3     Category 4        0.068       0.091            -0.023           -3.199
+       Category 3     Category 5        0.015       0.014             0.000            0.120
+       Category 4     Category 1        0.018       0.025            -0.007           -1.782
+       Category 4     Category 2        0.071       0.060             0.011            1.763
+       Category 4     Category 3        0.068       0.075            -0.007           -1.097
+       Category 4     Category 4        0.112       0.108             0.004            0.505
+       Category 4     Category 5        0.016       0.020            -0.004           -1.192
+       Category 5     Category 1        0.012       0.005             0.007            3.751
+       Category 5     Category 2        0.012       0.015            -0.003           -0.959
+       Category 5     Category 3        0.020       0.021            -0.001           -0.259
+       Category 5     Category 4        0.031       0.036            -0.005           -1.067
+       Category 5     Category 5        0.011       0.009             0.002            0.974
+     GRIT8_1        GRIT5_2
+       Category 1     Category 1        0.008       0.009            -0.001           -0.405
+       Category 1     Category 2        0.018       0.023            -0.004           -1.088
+       Category 1     Category 3        0.012       0.013            -0.001           -0.455
+       Category 1     Category 4        0.011       0.010             0.001            0.446
+       Category 1     Category 5        0.006       0.003             0.004            3.056
+       Category 2     Category 1        0.029       0.024             0.005            1.206
+       Category 2     Category 2        0.090       0.096            -0.006           -0.857
+       Category 2     Category 3        0.079       0.078             0.001            0.156
+       Category 2     Category 4        0.085       0.074             0.011            1.649
+       Category 2     Category 5        0.031       0.027             0.004            0.988
+       Category 3     Category 1        0.019       0.012             0.007            2.363
+       Category 3     Category 2        0.055       0.069            -0.013           -2.063
+       Category 3     Category 3        0.073       0.070             0.003            0.477
+       Category 3     Category 4        0.084       0.081             0.004            0.522
+       Category 3     Category 5        0.029       0.039            -0.009           -1.896
+       Category 4     Category 1        0.009       0.008             0.001            0.589
+       Category 4     Category 2        0.050       0.055            -0.005           -0.834
+       Category 4     Category 3        0.071       0.068             0.003            0.456
+       Category 4     Category 4        0.094       0.096            -0.002           -0.240
+       Category 4     Category 5        0.059       0.060            -0.002           -0.264
+       Category 5     Category 1        0.004       0.001             0.003            3.515
+       Category 5     Category 2        0.010       0.010             0.000           -0.098
+       Category 5     Category 3        0.018       0.017             0.001            0.318
+       Category 5     Category 4        0.024       0.030            -0.006           -1.444
+       Category 5     Category 5        0.031       0.028             0.003            0.689
+     GRIT8_1        GRIT6_2
+       Category 1     Category 1        0.006       0.004             0.002            0.982
+       Category 1     Category 2        0.013       0.013             0.000           -0.050
+       Category 1     Category 3        0.018       0.021            -0.002           -0.600
+       Category 1     Category 4        0.013       0.017            -0.004           -1.102
+       Category 1     Category 5        0.005       0.002             0.003            2.481
+       Category 2     Category 1        0.013       0.012             0.001            0.305
+       Category 2     Category 2        0.041       0.050            -0.009           -1.602
+       Category 2     Category 3        0.108       0.103             0.005            0.706
+       Category 2     Category 4        0.127       0.114             0.014            1.693
+       Category 2     Category 5        0.024       0.021             0.003            0.894
+       Category 3     Category 1        0.006       0.006            -0.001           -0.375
+       Category 3     Category 2        0.036       0.034             0.003            0.609
+       Category 3     Category 3        0.083       0.085            -0.002           -0.263
+       Category 3     Category 4        0.117       0.117             0.000            0.033
+       Category 3     Category 5        0.018       0.028            -0.010           -2.289
+       Category 4     Category 1        0.003       0.004            -0.002           -1.022
+       Category 4     Category 2        0.016       0.026            -0.010           -2.569
+       Category 4     Category 3        0.070       0.079            -0.009           -1.358
+       Category 4     Category 4        0.152       0.136             0.017            1.935
+       Category 4     Category 5        0.043       0.042             0.001            0.121
+       Category 5     Category 1        0.001       0.001             0.000            0.022
+       Category 5     Category 2        0.005       0.005             0.000            0.074
+       Category 5     Category 3        0.014       0.019            -0.005           -1.433
+       Category 5     Category 4        0.045       0.043             0.002            0.432
+       Category 5     Category 5        0.022       0.019             0.003            0.803
+     GRIT8_1        GRIT7_2
+       Category 1     Category 1        0.024       0.023             0.001            0.397
+       Category 1     Category 2        0.017       0.024            -0.007           -1.930
+       Category 1     Category 3        0.006       0.007             0.000           -0.084
+       Category 1     Category 4        0.006       0.003             0.003            1.862
+       Category 1     Category 5        0.003       0.000             0.002            4.191
+       Category 2     Category 1        0.080       0.084            -0.004           -0.590
+       Category 2     Category 2        0.140       0.133             0.006            0.742
+       Category 2     Category 3        0.055       0.048             0.007            1.231
+       Category 2     Category 4        0.031       0.028             0.003            0.659
+       Category 2     Category 5        0.008       0.005             0.003            1.482
+       Category 3     Category 1        0.060       0.056             0.004            0.685
+       Category 3     Category 2        0.113       0.118            -0.004           -0.528
+       Category 3     Category 3        0.064       0.052             0.012            2.178
+       Category 3     Category 4        0.016       0.036            -0.020           -4.284
+       Category 3     Category 5        0.007       0.008            -0.001           -0.374
+       Category 4     Category 1        0.041       0.043            -0.002           -0.316
+       Category 4     Category 2        0.110       0.117            -0.008           -0.940
+       Category 4     Category 3        0.083       0.063             0.020            3.286
+       Category 4     Category 4        0.041       0.051            -0.009           -1.697
+       Category 4     Category 5        0.008       0.014            -0.005           -1.850
+       Category 5     Category 1        0.014       0.008             0.006            2.727
+       Category 5     Category 2        0.024       0.030            -0.007           -1.511
+       Category 5     Category 3        0.026       0.021             0.006            1.567
+       Category 5     Category 4        0.014       0.021            -0.006           -1.815
+       Category 5     Category 5        0.009       0.007             0.001            0.685
+     GRIT8_1        GRIT8_2
+       Category 1     Category 1        0.011       0.009             0.002            0.878
+       Category 1     Category 2        0.017       0.025            -0.008           -2.089
+       Category 1     Category 3        0.014       0.013             0.001            0.335
+       Category 1     Category 4        0.010       0.008             0.001            0.505
+       Category 1     Category 5        0.004       0.001             0.003            2.859
+       Category 2     Category 1        0.027       0.026             0.001            0.210
+       Category 2     Category 2        0.113       0.108             0.004            0.564
+       Category 2     Category 3        0.085       0.080             0.005            0.675
+       Category 2     Category 4        0.071       0.069             0.001            0.212
+       Category 2     Category 5        0.018       0.015             0.003            0.973
+       Category 3     Category 1        0.015       0.013             0.002            0.675
+       Category 3     Category 2        0.067       0.078            -0.012           -1.695
+       Category 3     Category 3        0.094       0.074             0.020            2.960
+       Category 3     Category 4        0.068       0.080            -0.012           -1.742
+       Category 3     Category 5        0.017       0.024            -0.007           -1.870
+       Category 4     Category 1        0.008       0.008             0.000            0.110
+       Category 4     Category 2        0.047       0.064            -0.016           -2.676
+       Category 4     Category 3        0.076       0.075             0.001            0.121
+       Category 4     Category 4        0.117       0.101             0.016            2.167
+       Category 4     Category 5        0.035       0.040            -0.005           -1.012
+       Category 5     Category 1        0.002       0.001             0.001            1.077
+       Category 5     Category 2        0.013       0.012             0.001            0.445
+       Category 5     Category 3        0.020       0.019             0.001            0.403
+       Category 5     Category 4        0.024       0.034            -0.010           -2.156
+       Category 5     Category 5        0.027       0.020             0.007            1.850
+     GRIT1_2        GRIT5_2
+       Category 1     Category 1        0.020       0.012             0.009            3.244
+       Category 1     Category 2        0.034       0.039            -0.005           -1.003
+       Category 1     Category 3        0.029       0.028             0.001            0.216
+       Category 1     Category 4        0.022       0.025            -0.003           -0.786
+       Category 1     Category 5        0.017       0.009             0.008            3.153
+       Category 2     Category 1        0.016       0.016             0.000           -0.097
+       Category 2     Category 2        0.069       0.069             0.000            0.039
+       Category 2     Category 3        0.070       0.060             0.010            1.746
+       Category 2     Category 4        0.066       0.062             0.004            0.616
+       Category 2     Category 5        0.024       0.027            -0.003           -0.772
+       Category 3     Category 1        0.017       0.013             0.003            1.114
+       Category 3     Category 2        0.059       0.067            -0.008           -1.207
+       Category 3     Category 3        0.081       0.066             0.015            2.405
+       Category 3     Category 4        0.076       0.077            -0.001           -0.100
+       Category 3     Category 5        0.038       0.039            -0.001           -0.190
+       Category 4     Category 1        0.012       0.012             0.001            0.225
+       Category 4     Category 2        0.052       0.070            -0.018           -2.822
+       Category 4     Category 3        0.064       0.081            -0.016           -2.353
+       Category 4     Category 4        0.120       0.108             0.013            1.629
+       Category 4     Category 5        0.058       0.066            -0.008           -1.311
+       Category 5     Category 1        0.003       0.001             0.002            2.669
+       Category 5     Category 2        0.010       0.008             0.002            0.780
+       Category 5     Category 3        0.008       0.012            -0.004           -1.286
+       Category 5     Category 4        0.014       0.019            -0.005           -1.497
+       Category 5     Category 5        0.020       0.016             0.005            1.512
+     GRIT1_2        GRIT6_2
+       Category 1     Category 1        0.015       0.009             0.007            2.836
+       Category 1     Category 2        0.022       0.027            -0.005           -1.288
+       Category 1     Category 3        0.038       0.042            -0.004           -0.715
+       Category 1     Category 4        0.037       0.032             0.005            1.088
+       Category 1     Category 5        0.010       0.004             0.007            4.383
+       Category 2     Category 1        0.007       0.009            -0.002           -0.859
+       Category 2     Category 2        0.034       0.040            -0.006           -1.194
+       Category 2     Category 3        0.089       0.083             0.006            0.851
+       Category 2     Category 4        0.098       0.087             0.010            1.410
+       Category 2     Category 5        0.017       0.014             0.003            0.983
+       Category 3     Category 1        0.001       0.006            -0.005           -2.370
+       Category 3     Category 2        0.031       0.032            -0.001           -0.247
+       Category 3     Category 3        0.098       0.084             0.014            1.950
+       Category 3     Category 4        0.121       0.114             0.007            0.883
+       Category 3     Category 5        0.019       0.025            -0.006           -1.517
+       Category 4     Category 1        0.003       0.004            -0.001           -0.722
+       Category 4     Category 2        0.022       0.026            -0.005           -1.160
+       Category 4     Category 3        0.062       0.088            -0.026           -3.625
+       Category 4     Category 4        0.175       0.165             0.011            1.149
+       Category 4     Category 5        0.045       0.054            -0.008           -1.453
+       Category 5     Category 1        0.001       0.000             0.001            3.142
+       Category 5     Category 2        0.003       0.002             0.001            0.482
+       Category 5     Category 3        0.007       0.010            -0.003           -1.111
+       Category 5     Category 4        0.025       0.028            -0.004           -0.847
+       Category 5     Category 5        0.020       0.016             0.005            1.492
+     GRIT1_2        GRIT7_2
+       Category 1     Category 1        0.049       0.038             0.011            2.288
+       Category 1     Category 2        0.040       0.049            -0.010           -1.777
+       Category 1     Category 3        0.017       0.016             0.001            0.234
+       Category 1     Category 4        0.010       0.009             0.001            0.378
+       Category 1     Category 5        0.008       0.001             0.006            6.611
+       Category 2     Category 1        0.061       0.061             0.000            0.031
+       Category 2     Category 2        0.116       0.103             0.013            1.733
+       Category 2     Category 3        0.044       0.040             0.004            0.884
+       Category 2     Category 4        0.017       0.025            -0.008           -1.963
+       Category 2     Category 5        0.006       0.005             0.001            0.505
+       Category 3     Category 1        0.052       0.055            -0.003           -0.550
+       Category 3     Category 2        0.124       0.113             0.011            1.421
+       Category 3     Category 3        0.065       0.050             0.015            2.747
+       Category 3     Category 4        0.024       0.035            -0.011           -2.323
+       Category 3     Category 5        0.004       0.008            -0.003           -1.531
+       Category 4     Category 1        0.046       0.054            -0.008           -1.402
+       Category 4     Category 2        0.112       0.137            -0.026           -2.982
+       Category 4     Category 3        0.089       0.072             0.018            2.696
+       Category 4     Category 4        0.050       0.058            -0.007           -1.250
+       Category 4     Category 5        0.010       0.016            -0.006           -1.768
+       Category 5     Category 1        0.011       0.006             0.006            3.010
+       Category 5     Category 2        0.011       0.020            -0.009           -2.418
+       Category 5     Category 3        0.020       0.013             0.007            2.333
+       Category 5     Category 4        0.007       0.013            -0.006           -2.021
+       Category 5     Category 5        0.006       0.005             0.002            1.091
+     GRIT1_2        GRIT8_2
+       Category 1     Category 1        0.022       0.014             0.008            2.777
+       Category 1     Category 2        0.036       0.045            -0.009           -1.801
+       Category 1     Category 3        0.033       0.028             0.004            1.019
+       Category 1     Category 4        0.020       0.022            -0.002           -0.489
+       Category 1     Category 5        0.012       0.004             0.008            4.863
+       Category 2     Category 1        0.016       0.018            -0.002           -0.654
+       Category 2     Category 2        0.085       0.080             0.005            0.730
+       Category 2     Category 3        0.071       0.063             0.009            1.448
+       Category 2     Category 4        0.057       0.058            -0.001           -0.128
+       Category 2     Category 5        0.015       0.015             0.000            0.032
+       Category 3     Category 1        0.012       0.014            -0.002           -0.594
+       Category 3     Category 2        0.058       0.076            -0.018           -2.748
+       Category 3     Category 3        0.100       0.071             0.029            4.536
+       Category 3     Category 4        0.081       0.077             0.004            0.642
+       Category 3     Category 5        0.019       0.024            -0.004           -1.148
+       Category 4     Category 1        0.010       0.011            -0.001           -0.481
+       Category 4     Category 2        0.067       0.078            -0.011           -1.573
+       Category 4     Category 3        0.075       0.087            -0.012           -1.699
+       Category 4     Category 4        0.117       0.115             0.002            0.222
+       Category 4     Category 5        0.039       0.046            -0.007           -1.338
+       Category 5     Category 1        0.004       0.001             0.003            4.192
+       Category 5     Category 2        0.011       0.009             0.003            1.279
+       Category 5     Category 3        0.010       0.013            -0.003           -1.068
+       Category 5     Category 4        0.015       0.022            -0.006           -1.735
+       Category 5     Category 5        0.016       0.013             0.003            1.213
+     GRIT5_2        GRIT6_2
+       Category 1     Category 1        0.007       0.005             0.002            1.246
+       Category 1     Category 2        0.013       0.014             0.000           -0.120
+       Category 1     Category 3        0.019       0.020            -0.001           -0.185
+       Category 1     Category 4        0.021       0.014             0.007            2.379
+       Category 1     Category 5        0.008       0.001             0.006            6.550
+       Category 2     Category 1        0.003       0.011            -0.008           -3.044
+       Category 2     Category 2        0.046       0.046             0.000           -0.008
+       Category 2     Category 3        0.082       0.091            -0.009           -1.232
+       Category 2     Category 4        0.082       0.091            -0.009           -1.303
+       Category 2     Category 5        0.012       0.014            -0.002           -0.711
+       Category 3     Category 1        0.006       0.006             0.000           -0.217
+       Category 3     Category 2        0.024       0.032            -0.008           -1.822
+       Category 3     Category 3        0.103       0.080             0.022            3.236
+       Category 3     Category 4        0.106       0.105             0.001            0.101
+       Category 3     Category 5        0.015       0.022            -0.008           -2.061
+       Category 4     Category 1        0.004       0.004             0.000            0.206
+       Category 4     Category 2        0.022       0.027            -0.005           -1.138
+       Category 4     Category 3        0.067       0.082            -0.016           -2.234
+       Category 4     Category 4        0.173       0.138             0.036            4.097
+       Category 4     Category 5        0.031       0.040            -0.008           -1.685
+       Category 5     Category 1        0.007       0.001             0.006            7.750
+       Category 5     Category 2        0.005       0.008            -0.003           -1.401
+       Category 5     Category 3        0.024       0.034            -0.010           -2.184
+       Category 5     Category 4        0.074       0.079            -0.005           -0.709
+       Category 5     Category 5        0.047       0.035             0.012            2.572
+     GRIT5_2        GRIT7_2
+       Category 1     Category 1        0.040       0.025             0.016            4.006
+       Category 1     Category 2        0.018       0.022            -0.003           -0.912
+       Category 1     Category 3        0.006       0.005             0.001            0.374
+       Category 1     Category 4        0.002       0.002             0.000           -0.156
+       Category 1     Category 5        0.002       0.000             0.002            4.520
+       Category 2     Category 1        0.054       0.079            -0.025           -3.678
+       Category 2     Category 2        0.124       0.114             0.010            1.183
+       Category 2     Category 3        0.033       0.037            -0.004           -0.890
+       Category 2     Category 4        0.014       0.020            -0.006           -1.690
+       Category 2     Category 5        0.000       0.003            -0.003           -2.164
+       Category 3     Category 1        0.055       0.054             0.001            0.156
+       Category 3     Category 2        0.106       0.111            -0.004           -0.528
+       Category 3     Category 3        0.072       0.046             0.026            4.858
+       Category 3     Category 4        0.018       0.030            -0.012           -2.788
+       Category 3     Category 5        0.002       0.006            -0.004           -1.986
+       Category 4     Category 1        0.041       0.044            -0.003           -0.616
+       Category 4     Category 2        0.121       0.122            -0.001           -0.090
+       Category 4     Category 3        0.082       0.064             0.019            3.017
+       Category 4     Category 4        0.048       0.049            -0.001           -0.266
+       Category 4     Category 5        0.006       0.012            -0.006           -2.063
+       Category 5     Category 1        0.031       0.013             0.017            6.065
+       Category 5     Category 2        0.033       0.054            -0.021           -3.642
+       Category 5     Category 3        0.041       0.038             0.004            0.765
+       Category 5     Category 4        0.027       0.038            -0.011           -2.308
+       Category 5     Category 5        0.024       0.013             0.011            3.689
+     GRIT5_2        GRIT8_2
+       Category 1     Category 1        0.031       0.013             0.017            5.941
+       Category 1     Category 2        0.016       0.026            -0.010           -2.547
+       Category 1     Category 3        0.013       0.010             0.004            1.506
+       Category 1     Category 4        0.008       0.004             0.003            2.131
+       Category 1     Category 5        0.001       0.000             0.000            0.685
+       Category 2     Category 1        0.015       0.026            -0.011           -2.755
+       Category 2     Category 2        0.104       0.106            -0.003           -0.322
+       Category 2     Category 3        0.059       0.068            -0.009           -1.404
+       Category 2     Category 4        0.038       0.046            -0.008           -1.602
+       Category 2     Category 5        0.009       0.007             0.002            1.158
+       Category 3     Category 1        0.008       0.011            -0.004           -1.380
+       Category 3     Category 2        0.067       0.078            -0.011           -1.596
+       Category 3     Category 3        0.110       0.073             0.037            5.656
+       Category 3     Category 4        0.057       0.070            -0.012           -1.892
+       Category 3     Category 5        0.011       0.015            -0.004           -1.196
+       Category 4     Category 1        0.007       0.006             0.001            0.688
+       Category 4     Category 2        0.055       0.061            -0.007           -1.083
+       Category 4     Category 3        0.082       0.080             0.001            0.192
+       Category 4     Category 4        0.135       0.107             0.028            3.580
+       Category 4     Category 5        0.020       0.036            -0.017           -3.497
+       Category 5     Category 1        0.003       0.001             0.002            3.285
+       Category 5     Category 2        0.015       0.016             0.000           -0.133
+       Category 5     Category 3        0.025       0.031            -0.006           -1.325
+       Category 5     Category 4        0.052       0.066            -0.014           -2.176
+       Category 5     Category 5        0.060       0.042             0.017            3.435
+     GRIT6_2        GRIT7_2
+       Category 1     Category 1        0.012       0.012             0.000            0.068
+       Category 1     Category 2        0.004       0.011            -0.007           -2.549
+       Category 1     Category 3        0.002       0.003            -0.001           -0.676
+       Category 1     Category 4        0.003       0.001             0.002            2.158
+       Category 1     Category 5        0.006       0.000             0.006           18.007
+       Category 2     Category 1        0.030       0.043            -0.013           -2.464
+       Category 2     Category 2        0.059       0.056             0.002            0.429
+       Category 2     Category 3        0.013       0.018            -0.004           -1.315
+       Category 2     Category 4        0.007       0.009            -0.002           -0.997
+       Category 2     Category 5        0.002       0.001             0.000            0.501
+       Category 3     Category 1        0.067       0.077            -0.010           -1.461
+       Category 3     Category 2        0.127       0.136            -0.010           -1.103
+       Category 3     Category 3        0.076       0.053             0.022            3.937
+       Category 3     Category 4        0.020       0.034            -0.014           -3.043
+       Category 3     Category 5        0.004       0.006            -0.002           -0.962
+       Category 4     Category 1        0.088       0.072             0.016            2.427
+       Category 4     Category 2        0.186       0.179             0.007            0.756
+       Category 4     Category 3        0.108       0.090             0.018            2.520
+       Category 4     Category 4        0.062       0.069            -0.007           -1.090
+       Category 4     Category 5        0.012       0.017            -0.005           -1.573
+       Category 5     Category 1        0.023       0.011             0.012            4.652
+       Category 5     Category 2        0.027       0.040            -0.013           -2.637
+       Category 5     Category 3        0.036       0.026             0.009            2.268
+       Category 5     Category 4        0.017       0.026            -0.009           -2.338
+       Category 5     Category 5        0.010       0.009             0.001            0.438
+     GRIT6_2        GRIT8_2
+       Category 1     Category 1        0.006       0.006            -0.001           -0.305
+       Category 1     Category 2        0.007       0.013            -0.006           -2.060
+       Category 1     Category 3        0.006       0.005             0.001            0.604
+       Category 1     Category 4        0.004       0.003             0.001            0.919
+       Category 1     Category 5        0.004       0.000             0.004           10.099
+       Category 2     Category 1        0.010       0.017            -0.006           -1.984
+       Category 2     Category 2        0.055       0.054             0.001            0.195
+       Category 2     Category 3        0.024       0.032            -0.008           -1.844
+       Category 2     Category 4        0.018       0.021            -0.004           -0.969
+       Category 2     Category 5        0.004       0.003             0.001            0.408
+       Category 3     Category 1        0.017       0.021            -0.005           -1.285
+       Category 3     Category 2        0.094       0.106            -0.012           -1.605
+       Category 3     Category 3        0.115       0.085             0.030            4.242
+       Category 3     Category 4        0.059       0.077            -0.018           -2.696
+       Category 3     Category 5        0.010       0.017            -0.007           -2.281
+       Category 4     Category 1        0.024       0.013             0.012            4.156
+       Category 4     Category 2        0.089       0.100            -0.011           -1.478
+       Category 4     Category 3        0.126       0.115             0.011            1.345
+       Category 4     Category 4        0.170       0.146             0.023            2.587
+       Category 4     Category 5        0.047       0.052            -0.005           -0.931
+       Category 5     Category 1        0.007       0.001             0.006            7.824
+       Category 5     Category 2        0.011       0.014            -0.002           -0.716
+       Category 5     Category 3        0.017       0.024            -0.006           -1.662
+       Category 5     Category 4        0.040       0.046            -0.005           -1.036
+       Category 5     Category 5        0.036       0.028             0.008            1.865
+     GRIT7_2        GRIT8_2
+       Category 1     Category 1        0.047       0.030             0.017            3.995
+       Category 1     Category 2        0.066       0.093            -0.026           -3.594
+       Category 1     Category 3        0.052       0.052             0.000           -0.013
+       Category 1     Category 4        0.038       0.034             0.004            0.872
+       Category 1     Category 5        0.016       0.005             0.011            6.202
+       Category 2     Category 1        0.014       0.022            -0.008           -2.160
+       Category 2     Category 2        0.143       0.132             0.010            1.215
+       Category 2     Category 3        0.120       0.120             0.000           -0.027
+       Category 2     Category 4        0.106       0.119            -0.013           -1.580
+       Category 2     Category 5        0.020       0.029            -0.009           -2.073
+       Category 3     Category 1        0.002       0.004            -0.002           -1.382
+       Category 3     Category 2        0.033       0.040            -0.007           -1.448
+       Category 3     Category 3        0.089       0.051             0.037            6.717
+       Category 3     Category 4        0.082       0.069             0.013            2.030
+       Category 3     Category 5        0.029       0.025             0.003            0.880
+       Category 4     Category 1        0.001       0.001            -0.001           -0.826
+       Category 4     Category 2        0.013       0.020            -0.007           -1.967
+       Category 4     Category 3        0.024       0.032            -0.009           -1.926
+       Category 4     Category 4        0.054       0.057            -0.002           -0.405
+       Category 4     Category 5        0.017       0.029            -0.012           -2.838
+       Category 5     Category 1        0.000       0.000             0.000           -0.417
+       Category 5     Category 2        0.002       0.002            -0.001           -0.435
+       Category 5     Category 3        0.004       0.006            -0.001           -0.608
+       Category 5     Category 4        0.010       0.014            -0.005           -1.537
+       Category 5     Category 5        0.018       0.012             0.006            2.314
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON/BY Statements
+
+GRIT5_1  ON GRIT_1   /
+GRIT_1   BY GRIT5_1               21.526    -0.060     -0.067       -0.054
+GRIT5_1  ON GRIT_2   /
+GRIT_2   BY GRIT5_1               23.478    -0.143     -0.171       -0.139
+GRIT6_1  ON GRIT_1   /
+GRIT_1   BY GRIT6_1               12.771     0.036      0.040        0.036
+GRIT6_1  ON GRIT_2   /
+GRIT_2   BY GRIT6_1               22.071     0.112      0.133        0.118
+GRIT7_1  ON GRIT_1   /
+GRIT_1   BY GRIT7_1               15.148     0.049      0.055        0.045
+GRIT1_2  ON GRIT_1   /
+GRIT_1   BY GRIT1_2               21.137     0.106      0.119        0.107
+GRIT5_2  ON GRIT_2   /
+GRIT_2   BY GRIT5_2               21.500     0.103      0.122        0.100
+GRIT6_2  ON GRIT_2   /
+GRIT_2   BY GRIT6_2               12.789    -0.059     -0.071       -0.063
+GRIT7_2  ON GRIT_1   /
+GRIT_1   BY GRIT7_2               12.808    -0.118     -0.132       -0.097
+GRIT7_2  ON GRIT_2   /
+GRIT_2   BY GRIT7_2               15.176    -0.087     -0.103       -0.076
+GRIT_1   ON GRIT_1   /
+GRIT_1   BY GRIT_1               999.000     0.000      0.000        0.000
+GRIT_1   ON GRIT_2   /
+GRIT_2   BY GRIT_1               999.000     0.000      0.000        0.000
+
+ON Statements
+
+GRIT_1   ON GRIT1_1               28.567    -0.176     -0.157       -0.167
+GRIT_1   ON GRIT1_2               13.545     0.098      0.087        0.097
+GRIT_1   ON GRIT6_2               22.280     0.150      0.134        0.150
+GRIT_2   ON GRIT1_1               32.992     0.161      0.135        0.144
+GRIT_2   ON GRIT6_1               12.992     0.108      0.091        0.103
+GRIT_2   ON GRIT8_1               11.534    -0.173     -0.145       -0.218
+GRIT_2   ON GRIT5_2               26.123     0.257      0.216        0.263
+GRIT_2   ON GRIT6_2               20.677    -0.174     -0.146       -0.163
+GRIT1_1  ON GRIT5_1               19.120    -0.082     -0.082       -0.095
+GRIT1_1  ON GRIT8_1               15.883    -0.066     -0.066       -0.093
+GRIT1_1  ON GRIT1_2               12.820     0.186      0.186        0.195
+GRIT1_1  ON GRIT6_2               29.947     0.118      0.118        0.124
+GRIT5_1  ON GRIT1_1               18.258    -0.104     -0.104       -0.090
+GRIT5_1  ON GRIT5_1               21.708    -0.256     -0.256       -0.256
+GRIT5_1  ON GRIT8_1               11.247    -0.075     -0.075       -0.092
+GRIT5_1  ON GRIT5_2               23.492    -0.226     -0.226       -0.224
+GRIT5_1  ON GRIT7_2               12.183    -0.080     -0.080       -0.089
+GRIT5_1  ON GRIT8_2               18.443    -0.088     -0.088       -0.111
+GRIT6_1  ON GRIT1_1               30.677     0.317      0.317        0.298
+GRIT6_1  ON GRIT5_1               14.496     0.076      0.076        0.082
+GRIT6_1  ON GRIT6_1               12.738     0.200      0.200        0.200
+GRIT6_1  ON GRIT1_2               49.285     0.163      0.163        0.160
+GRIT6_1  ON GRIT5_2               15.731     0.088      0.088        0.094
+GRIT6_1  ON GRIT6_2               36.414     0.270      0.270        0.267
+GRIT6_1  ON GRIT8_2               16.008     0.069      0.069        0.095
+GRIT7_1  ON GRIT7_1               15.138     0.218      0.218        0.218
+GRIT7_1  ON GRIT8_1               34.721     0.131      0.131        0.162
+GRIT8_1  ON GRIT1_1               12.389    -0.115     -0.115       -0.082
+GRIT8_1  ON GRIT7_1               14.219     0.127      0.127        0.103
+GRIT8_1  ON GRIT5_2               11.211    -0.113     -0.113       -0.092
+GRIT1_2  ON GRIT1_1               41.310     0.327      0.327        0.313
+GRIT1_2  ON GRIT5_1               11.660     0.072      0.072        0.079
+GRIT1_2  ON GRIT6_1               47.337     0.151      0.151        0.154
+GRIT1_2  ON GRIT7_1               17.996     0.089      0.089        0.097
+GRIT1_2  ON GRIT8_1               11.006     0.055      0.055        0.075
+GRIT1_2  ON GRIT6_2               31.208     0.231      0.231        0.233
+GRIT1_2  ON GRIT7_2               12.383     0.127      0.127        0.155
+GRIT5_2  ON GRIT5_2               21.574     0.255      0.255        0.255
+GRIT5_2  ON GRIT8_2               32.896     0.139      0.139        0.176
+GRIT6_2  ON GRIT1_1               34.173     0.139      0.139        0.132
+GRIT6_2  ON GRIT6_2               12.805    -0.201     -0.201       -0.201
+GRIT6_2  ON GRIT7_2               38.437    -0.131     -0.131       -0.159
+GRIT6_2  ON GRIT8_2               17.594    -0.081     -0.081       -0.113
+GRIT7_2  ON GRIT8_1               15.392    -0.087     -0.087       -0.096
+GRIT7_2  ON GRIT1_2               12.880    -0.247     -0.247       -0.202
+GRIT7_2  ON GRIT6_2               41.937    -0.201     -0.201       -0.165
+GRIT7_2  ON GRIT7_2               15.260    -0.219     -0.219       -0.219
+GRIT8_2  ON GRIT5_2               10.875     0.130      0.130        0.102
+
+WITH Statements
+
+GRIT1_1  WITH GRIT_1              45.526    -0.206     -0.184       -0.184
+GRIT1_1  WITH GRIT_2              22.057     0.126      0.106        0.106
+GRIT5_1  WITH GRIT_2              10.189    -0.115     -0.097       -0.097
+GRIT5_1  WITH GRIT1_1             16.924    -0.104     -0.104       -0.104
+GRIT6_1  WITH GRIT_2              18.152     0.129      0.108        0.108
+GRIT7_1  WITH GRIT_1              14.360     0.151      0.134        0.134
+GRIT8_1  WITH GRIT_2              10.076    -0.162     -0.136       -0.136
+GRIT8_1  WITH GRIT1_1             14.810    -0.126     -0.126       -0.126
+GRIT8_1  WITH GRIT7_1             33.030     0.224      0.224        0.224
+GRIT1_2  WITH GRIT_1              20.847     0.125      0.112        0.107
+GRIT1_2  WITH GRIT6_1             39.388     0.181      0.181        0.173
+GRIT5_2  WITH GRIT_2              37.844     0.290      0.244        0.255
+GRIT6_2  WITH GRIT_1              13.140     0.107      0.095        0.098
+GRIT6_2  WITH GRIT_2              43.386    -0.243     -0.204       -0.211
+GRIT6_2  WITH GRIT1_1             42.798     0.178      0.178        0.184
+GRIT7_2  WITH GRIT6_2             39.915    -0.230     -0.230       -0.209
+GRIT8_2  WITH GRIT5_2             20.065     0.209      0.209        0.219
+GRIT8_2  WITH GRIT6_2             10.072    -0.132     -0.132       -0.137
+
+Means/Intercepts/Thresholds
+
+[ GRIT_1   ]                     999.000     0.000      0.000        0.000
+[ GRIT1_1  ]                      24.995     0.143      0.143        0.135
+[ GRIT6_1  ]                      25.959    -0.194     -0.194       -0.171
+[ GRIT1_2  ]                      24.980    -0.143     -0.143       -0.129
+[ GRIT6_2  ]                      25.934     0.193      0.193        0.173
+[ GRIT1_1$ ]                      12.572    -0.047     -0.047       -0.044
+[ GRIT5_1$ ]                      28.940    -0.074     -0.074       -0.060
+[ GRIT6_1$ ]                      11.951     0.052      0.052        0.046
+[ GRIT7_1$ ]                      33.438    -0.065     -0.065       -0.053
+[ GRIT8_1$ ]                      10.265     0.055      0.055        0.037
+[ GRIT1_2$ ]                      12.585     0.104      0.104        0.093
+[ GRIT5_2$ ]                      28.897     0.468      0.468        0.383
+[ GRIT6_2$ ]                      11.962    -0.094     -0.094       -0.083
+[ GRIT7_2$ ]                      33.460     0.369      0.369        0.271
+[ GRIT8_2$ ]                      10.234    -0.147     -0.147       -0.095
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    grit12_student_lg_inv_threshold.dat
+  Save format      Free
+
+     Beginning Time:  17:45:06
+        Ending Time:  17:45:06
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen
