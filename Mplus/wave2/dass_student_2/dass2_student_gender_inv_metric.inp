@@ -1,0 +1,99 @@
+Title: Student DASS Gender Measurement Invariance Metric Model;
+
+Data:
+   File is ../dat_stu_2.txt;
+
+Variable:
+   Names are studentid girl age_w grito1_2 grito5_2 grito6_2 
+   grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 
+   grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2 
+   dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+   dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2 
+   dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2 
+   treatment half; 
+   Missing are . ;
+
+  Usevariable are
+	dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+  dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2 
+  dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2;
+   
+  Categorical is
+	dass1_2 dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+  dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2 
+  dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2;
+
+  Idvariable is studentid;  
+  
+  Group is girl (1 = Female 0 = Male);
+
+Analysis:
+   Estimator = wlsmv;
+   Parameterization = theta;
+   Difftest = dass2_student_gender_inv_config.dat
+  
+  
+!!! Model for Male Group !!!
+
+Model:
+  ! Factor loadings all freely estimated
+  stress_2 by
+    dass1_2* dass6_2* dass8_2* dass11_2* dass12_2* dass14_2* dass18_2* (L1-L7);
+    
+  anxiety_2 by
+    dass2_2* dass4_2* dass7_2* dass9_2* dass15_2* dass19_2* dass20_2* (L8-L14);
+    
+  depress_2 by 
+    dass3_2* dass5_2* dass10_2* dass13_2* dass16_2* dass17_2* dass21_2* (L15-L21);
+  
+  !estimating thresholds freely
+  [dass1_2$1-dass21_2$1*] (T1_1-T1_21);
+  [dass1_2$2-dass21_2$2*] (T2_1-T2_21);
+  [dass1_2$3-dass21_2$3*] (T3_1-T3_21);
+  
+  !constraining item residual variance to 1 for identification
+  dass1_2-dass21_2@1;
+
+  !fixing latent mean to zero for identification
+  [stress_2@0];
+  [anxiety_2@0];
+  [depress_2@0];
+  
+  !fixing latent variance to one for identification
+  stress_2@1;
+  anxiety_2@1;
+  depress_2@1;
+  
+!!! Model for Female Group !!!
+
+Model Female:
+  ! Factor loadings constrained to *be equal to the control group*
+  stress_2 by
+    dass1_2* dass6_2* dass8_2* dass11_2* dass12_2* dass14_2* dass18_2* (L1-L7);
+    
+  anxiety_2 by
+    dass2_2* dass4_2* dass7_2* dass9_2* dass15_2* dass19_2* dass20_2* (L8-L14);
+    
+  depress_2 by 
+    dass3_2* dass5_2* dass10_2* dass13_2* dass16_2* dass17_2* dass21_2* (L15-L21);
+  
+  ! estimating thresholds freely
+  [dass1_2$1-dass21_2$1*];
+  [dass1_2$2-dass21_2$2*];
+  [dass1_2$3-dass21_2$3*];
+  
+  ! constraining item residual variance to 1 for identification
+  dass1_2-dass21_2@1;
+
+  ! fixing latent factor mean to zero for identification
+  [stress_2@0];
+  [anxiety_2@0];
+  [depress_2@0];
+  
+  ! latent factor variance *estimated*
+  stress_2*;
+  anxiety_2*;
+  depress_2*;
+     
+Output: sampstat stdyx modindices(all);
+Savedata: Difftest is dass2_student_gender_inv_metric.dat;

@@ -1,0 +1,23 @@
+Title: Parent DASS Baseline EFA;
+
+Data:
+   File is dass_parent_1.txt;
+
+Variable:
+   Names are studentid treatment female age_w dass1_1 dass2_1 
+   dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 half; 
+   Missing are . ;
+
+  Usevariable are
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+   
+  Categorical is
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+    
+  Useobservations is half eq 1;
+
+Analysis:
+   Type = efa 1 3;
+   Estimator = wlsmv;
+     
+Output: sampstat stdy modindices(all);

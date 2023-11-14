@@ -1,0 +1,684 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+11/02/2023   3:44 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Grit Treatment Measurement Invariance Metric Model;
+
+  Data:
+     File is ../dat_stu_2.txt;
+
+  Variable:
+     Names are studentid girl age_w grito1_2 grito5_2 grito6_2
+     grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2
+     grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2
+     dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2
+     treatment half;
+     Missing are . ;
+
+    Usevariable are
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+
+    Categorical is
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+
+    Idvariable is studentid;
+
+    Group is treatment (1 = Treated 0 = Control);
+
+  Analysis:
+     Estimator = wlsmv;
+     Parameterization = theta;
+     Difftest = grito2_student_tx_inv_config.dat
+
+
+  !!! Model for Control Group !!!
+
+  Model:
+    ! Factor loadings all freely estimated
+    grito_2 by
+      grito1_2* grito5_2* grito6_2* grito7_2* grito8_2* (L1-L5);
+
+    grito1_2 with grito6_2; !worded positively
+    grito1_2 with grito7_2; !both about schoolwork
+
+    !estimating thresholds freely
+    [grito1_2$1* grito5_2$1* grito6_2$1* grito7_2$1* grito8_2$1*] (T1_1 T5_1 T6_1 T7_1 T8_1)
+    [grito1_2$2* grito5_2$2* grito6_2$2* grito7_2$2* grito8_2$2*] (T1_2 T5_2 T6_2 T7_2 T8_2)
+    [grito1_2$3* grito5_2$3* grito6_2$3* grito7_2$3* grito8_2$3*] (T1_3 T5_3 T6_3 T7_3 T8_3)
+    [grito1_2$4* grito5_2$4* grito6_2$4* grito7_2$4* grito8_2$4*] (T1_4 T5_4 T6_4 T7_4 T8_4)
+
+    !constraining item residual variance to 1 for identification
+    grito1_2@1;
+    grito5_2@1;
+    grito6_2@1;
+    grito7_2@1;
+    grito8_2@1;
+
+    !fixing latent mean to zero for identification
+    [grito_2@0];
+
+    !fixing latent variance to one for identification
+    grito_2@1;
+
+
+  !!! Model for Treatment Group !!!
+
+  Model Treated:
+    ! Factor loadings constrained to *be equal to the control group*
+    grito_2 by
+      grito1_2* grito5_2* grito6_2* grito7_2* grito8_2* (L1-L5);
+
+    grito1_2 with grito6_2; !worded positively
+    grito1_2 with grito7_2; !both about schoolwork
+
+    !estimating thresholds freely
+    [grito1_2$1* grito5_2$1* grito6_2$1* grito7_2$1* grito8_2$1*];
+    [grito1_2$2* grito5_2$2* grito6_2$2* grito7_2$2* grito8_2$2*];
+    [grito1_2$3* grito5_2$3* grito6_2$3* grito7_2$3* grito8_2$3*];
+    [grito1_2$4* grito5_2$4* grito6_2$4* grito7_2$4* grito8_2$4*];
+
+    !constraining item residual variance to 1 for identification
+    grito1_2@1;
+    grito5_2@1;
+    grito6_2@1;
+    grito7_2@1;
+    grito8_2@1;
+
+    !fixing latent mean to zero for identification
+    [grito_2@0];
+
+    ! latent factor variance *estimated*
+    grito_2*;
+
+  Output: sampstat stdyx modindices(all);
+  Savedata: Difftest is grito2_student_tx_inv_metric.dat;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$1* grito5_2$1* grito6_2$1* grito7_2$1* grito8_2$1*] (T1_1 T5_1 T6_1 T7_1 T8_1);
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$2* grito5_2$2* grito6_2$2* grito7_2$2* grito8_2$2*] (T1_2 T5_2 T6_2 T7_2 T8_2);
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$3* grito5_2$3* grito6_2$3* grito7_2$3* grito8_2$3*] (T1_3 T5_3 T6_3 T7_3 T8_3);
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$4* grito5_2$4* grito6_2$4* grito7_2$4* grito8_2$4*] (T1_4 T5_4 T6_4 T7_4 T8_4);
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Student Grit Treatment Measurement Invariance Metric Model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group CONTROL                                               628
+   Group TREATED                                               740
+   Total sample size                                          1368
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GRITO1_2    GRITO5_2    GRITO6_2    GRITO7_2    GRITO8_2
+
+Continuous latent variables
+   GRITO_2
+
+Variables with special functions
+
+  Grouping variable     TREATMEN
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_2.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group CONTROL
+     Number of missing data patterns             1
+
+   Group TREATED
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR CONTROL
+
+
+           Covariance Coverage
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       1.000
+ GRITO5_2       1.000         1.000
+ GRITO6_2       1.000         1.000         1.000
+ GRITO7_2       1.000         1.000         1.000         1.000
+ GRITO8_2       1.000         1.000         1.000         1.000         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR TREATED
+
+
+           Covariance Coverage
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       1.000
+ GRITO5_2       1.000         1.000
+ GRITO6_2       1.000         1.000         1.000
+ GRITO7_2       1.000         1.000         1.000         1.000
+ GRITO8_2       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+  Group CONTROL
+    GRITO1_2
+      Category 1    0.131           82.000
+      Category 2    0.274          172.000
+      Category 3    0.274          172.000
+      Category 4    0.258          162.000
+      Category 5    0.064           40.000
+    GRITO5_2
+      Category 1    0.067           42.000
+      Category 2    0.287          180.000
+      Category 3    0.237          149.000
+      Category 4    0.266          167.000
+      Category 5    0.143           90.000
+    GRITO6_2
+      Category 1    0.038           24.000
+      Category 2    0.118           74.000
+      Category 3    0.277          174.000
+      Category 4    0.462          290.000
+      Category 5    0.105           66.000
+    GRITO7_2
+      Category 1    0.252          158.000
+      Category 2    0.419          263.000
+      Category 3    0.194          122.000
+      Category 4    0.108           68.000
+      Category 5    0.027           17.000
+    GRITO8_2
+      Category 1    0.102           64.000
+      Category 2    0.215          135.000
+      Category 3    0.264          166.000
+      Category 4    0.318          200.000
+      Category 5    0.100           63.000
+
+  Group TREATED
+    GRITO1_2
+      Category 1    0.107           79.000
+      Category 2    0.224          166.000
+      Category 3    0.241          178.000
+      Category 4    0.361          267.000
+      Category 5    0.068           50.000
+    GRITO5_2
+      Category 1    0.064           47.000
+      Category 2    0.264          195.000
+      Category 3    0.241          178.000
+      Category 4    0.309          229.000
+      Category 5    0.123           91.000
+    GRITO6_2
+      Category 1    0.036           27.000
+      Category 2    0.072           53.000
+      Category 3    0.246          182.000
+      Category 4    0.500          370.000
+      Category 5    0.146          108.000
+    GRITO7_2
+      Category 1    0.246          182.000
+      Category 2    0.451          334.000
+      Category 3    0.180          133.000
+      Category 4    0.091           67.000
+      Category 5    0.032           24.000
+    GRITO8_2
+      Category 1    0.070           52.000
+      Category 2    0.230          170.000
+      Category 3    0.243          180.000
+      Category 4    0.322          238.000
+      Category 5    0.135          100.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS FOR CONTROL
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO1_2      GRITO1_2      GRITO1_2      GRITO1_2      GRITO5_2
+              ________      ________      ________      ________      ________
+               -1.124        -0.242         0.463         1.524        -1.499
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO5_2      GRITO5_2      GRITO5_2      GRITO6_2      GRITO6_2
+              ________      ________      ________      ________      ________
+               -0.376         0.230         1.066        -1.772        -1.011
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO6_2      GRITO6_2      GRITO7_2      GRITO7_2      GRITO7_2
+              ________      ________      ________      ________      ________
+               -0.168         1.253        -0.669         0.441         1.101
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO7_2      GRITO8_2      GRITO8_2      GRITO8_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                1.926        -1.271        -0.476         0.205         1.280
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2
+ GRITO5_2       0.132
+ GRITO6_2       0.401         0.279
+ GRITO7_2       0.131         0.345         0.139
+ GRITO8_2       0.229         0.486         0.407         0.367
+
+
+     ESTIMATED SAMPLE STATISTICS FOR TREATED
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO1_2      GRITO1_2      GRITO1_2      GRITO1_2      GRITO5_2
+              ________      ________      ________      ________      ________
+               -1.244        -0.437         0.181         1.494        -1.526
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO5_2      GRITO5_2      GRITO5_2      GRITO6_2      GRITO6_2
+              ________      ________      ________      ________      ________
+               -0.448         0.170         1.160        -1.793        -1.237
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO6_2      GRITO6_2      GRITO7_2      GRITO7_2      GRITO7_2
+              ________      ________      ________      ________      ________
+               -0.374         1.054        -0.687         0.517         1.160
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO7_2      GRITO8_2      GRITO8_2      GRITO8_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                1.846        -1.474        -0.524         0.109         1.102
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2
+ GRITO5_2       0.233
+ GRITO6_2       0.371         0.350
+ GRITO7_2       0.139         0.380         0.177
+ GRITO8_2       0.229         0.521         0.368         0.369
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       50
+
+Chi-Square Test of Model Fit
+
+          Value                             23.681*
+          Degrees of Freedom                    10
+          P-Value                           0.0085
+
+Chi-Square Contribution From Each Group
+
+          CONTROL                           15.401
+          TREATED                            8.280
+
+Chi-Square Test for Difference Testing
+
+          Value                              5.482*
+          Degrees of Freedom                     4
+          P-Value                           0.2413
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.045
+          90 Percent C.I.                    0.021  0.068
+          Probability RMSEA <= .05           0.609
+
+CFI/TLI
+
+          CFI                                0.992
+          TLI                                0.984
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1761.422
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.017
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.65480273D-02
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group CONTROL
+
+ GRITO_2  BY
+    GRITO1_2           0.290      0.034      8.639      0.000
+    GRITO5_2           0.880      0.062     14.161      0.000
+    GRITO6_2           0.510      0.041     12.505      0.000
+    GRITO7_2           0.528      0.042     12.467      0.000
+    GRITO8_2           1.169      0.089     13.144      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.320      0.038      8.320      0.000
+    GRITO7_2           0.000      0.041      0.011      0.991
+
+ Means
+    GRITO_2            0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRITO1_2$1        -1.170      0.066    -17.724      0.000
+    GRITO1_2$2        -0.252      0.053     -4.781      0.000
+    GRITO1_2$3         0.482      0.054      8.904      0.000
+    GRITO1_2$4         1.587      0.081     19.553      0.000
+    GRITO5_2$1        -1.997      0.108    -18.451      0.000
+    GRITO5_2$2        -0.501      0.069     -7.269      0.000
+    GRITO5_2$3         0.306      0.068      4.523      0.000
+    GRITO5_2$4         1.419      0.085     16.776      0.000
+    GRITO6_2$1        -1.989      0.103    -19.229      0.000
+    GRITO6_2$2        -1.135      0.069    -16.517      0.000
+    GRITO6_2$3        -0.189      0.057     -3.347      0.001
+    GRITO6_2$4         1.407      0.075     18.790      0.000
+    GRITO7_2$1        -0.757      0.061    -12.345      0.000
+    GRITO7_2$2         0.499      0.059      8.471      0.000
+    GRITO7_2$3         1.246      0.072     17.392      0.000
+    GRITO7_2$4         2.178      0.117     18.554      0.000
+    GRITO8_2$1        -1.955      0.115    -16.961      0.000
+    GRITO8_2$2        -0.733      0.083     -8.850      0.000
+    GRITO8_2$3         0.315      0.078      4.034      0.000
+    GRITO8_2$4         1.969      0.122     16.176      0.000
+
+ Variances
+    GRITO_2            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRITO1_2           1.000      0.000    999.000    999.000
+    GRITO5_2           1.000      0.000    999.000    999.000
+    GRITO6_2           1.000      0.000    999.000    999.000
+    GRITO7_2           1.000      0.000    999.000    999.000
+    GRITO8_2           1.000      0.000    999.000    999.000
+
+Group TREATED
+
+ GRITO_2  BY
+    GRITO1_2           0.290      0.034      8.639      0.000
+    GRITO5_2           0.880      0.062     14.161      0.000
+    GRITO6_2           0.510      0.041     12.505      0.000
+    GRITO7_2           0.528      0.042     12.467      0.000
+    GRITO8_2           1.169      0.089     13.144      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.273      0.037      7.363      0.000
+    GRITO7_2          -0.008      0.040     -0.198      0.843
+
+ Means
+    GRITO_2            0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRITO1_2$1        -1.302      0.065    -20.182      0.000
+    GRITO1_2$2        -0.457      0.050     -9.148      0.000
+    GRITO1_2$3         0.189      0.049      3.896      0.000
+    GRITO1_2$4         1.564      0.074     21.197      0.000
+    GRITO5_2$1        -2.094      0.103    -20.345      0.000
+    GRITO5_2$2        -0.615      0.066     -9.310      0.000
+    GRITO5_2$3         0.234      0.064      3.665      0.000
+    GRITO5_2$4         1.592      0.085     18.743      0.000
+    GRITO6_2$1        -2.042      0.098    -20.921      0.000
+    GRITO6_2$2        -1.408      0.071    -19.869      0.000
+    GRITO6_2$3        -0.426      0.054     -7.879      0.000
+    GRITO6_2$4         1.200      0.065     18.506      0.000
+    GRITO7_2$1        -0.789      0.058    -13.620      0.000
+    GRITO7_2$2         0.593      0.056     10.589      0.000
+    GRITO7_2$3         1.332      0.069     19.292      0.000
+    GRITO7_2$4         2.120      0.103     20.500      0.000
+    GRITO8_2$1        -2.357      0.140    -16.829      0.000
+    GRITO8_2$2        -0.839      0.083    -10.079      0.000
+    GRITO8_2$3         0.174      0.074      2.342      0.019
+    GRITO8_2$4         1.763      0.110     15.990      0.000
+
+ Variances
+    GRITO_2            1.140      0.144      7.933      0.000
+
+ Residual Variances
+    GRITO1_2           1.000      0.000    999.000    999.000
+    GRITO5_2           1.000      0.000    999.000    999.000
+    GRITO6_2           1.000      0.000    999.000    999.000
+    GRITO7_2           1.000      0.000    999.000    999.000
+    GRITO8_2           1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group CONTROL
+
+ GRITO_2  BY
+    GRITO1_2           0.279      0.030      9.366      0.000
+    GRITO5_2           0.660      0.026     25.117      0.000
+    GRITO6_2           0.455      0.029     15.762      0.000
+    GRITO7_2           0.467      0.029     15.948      0.000
+    GRITO8_2           0.760      0.024     31.104      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.320      0.038      8.320      0.000
+    GRITO7_2           0.000      0.041      0.011      0.991
+
+ Means
+    GRITO_2            0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRITO1_2$1        -1.124      0.063    -17.735      0.000
+    GRITO1_2$2        -0.242      0.051     -4.784      0.000
+    GRITO1_2$3         0.463      0.052      8.904      0.000
+    GRITO1_2$4         1.525      0.078     19.527      0.000
+    GRITO5_2$1        -1.499      0.077    -19.498      0.000
+    GRITO5_2$2        -0.376      0.051     -7.323      0.000
+    GRITO5_2$3         0.229      0.050      4.544      0.000
+    GRITO5_2$4         1.066      0.062     17.233      0.000
+    GRITO6_2$1        -1.772      0.092    -19.232      0.000
+    GRITO6_2$2        -1.011      0.061    -16.707      0.000
+    GRITO6_2$3        -0.168      0.050     -3.351      0.001
+    GRITO6_2$4         1.253      0.067     18.631      0.000
+    GRITO7_2$1        -0.669      0.054    -12.328      0.000
+    GRITO7_2$2         0.441      0.052      8.510      0.000
+    GRITO7_2$3         1.101      0.063     17.550      0.000
+    GRITO7_2$4         1.926      0.104     18.575      0.000
+    GRITO8_2$1        -1.271      0.068    -18.730      0.000
+    GRITO8_2$2        -0.477      0.052     -9.141      0.000
+    GRITO8_2$3         0.205      0.050      4.068      0.000
+    GRITO8_2$4         1.280      0.068     18.779      0.000
+
+ Variances
+    GRITO_2            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRITO1_2           0.922      0.017     55.629      0.000
+    GRITO5_2           0.564      0.035     16.232      0.000
+    GRITO6_2           0.793      0.026     30.264      0.000
+    GRITO7_2           0.782      0.027     28.560      0.000
+    GRITO8_2           0.423      0.037     11.381      0.000
+
+Group TREATED
+
+ GRITO_2  BY
+    GRITO1_2           0.296      0.030      9.999      0.000
+    GRITO5_2           0.685      0.023     29.346      0.000
+    GRITO6_2           0.479      0.028     17.377      0.000
+    GRITO7_2           0.491      0.028     17.410      0.000
+    GRITO8_2           0.780      0.024     32.888      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.273      0.037      7.363      0.000
+    GRITO7_2          -0.008      0.040     -0.198      0.843
+
+ Means
+    GRITO_2            0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRITO1_2$1        -1.244      0.062    -20.168      0.000
+    GRITO1_2$2        -0.437      0.048     -9.158      0.000
+    GRITO1_2$3         0.180      0.046      3.894      0.000
+    GRITO1_2$4         1.494      0.071     21.157      0.000
+    GRITO5_2$1        -1.526      0.072    -21.198      0.000
+    GRITO5_2$2        -0.448      0.048     -9.377      0.000
+    GRITO5_2$3         0.170      0.046      3.675      0.000
+    GRITO5_2$4         1.160      0.059     19.556      0.000
+    GRITO6_2$1        -1.793      0.086    -20.797      0.000
+    GRITO6_2$2        -1.237      0.061    -20.120      0.000
+    GRITO6_2$3        -0.374      0.047     -7.921      0.000
+    GRITO6_2$4         1.054      0.057     18.592      0.000
+    GRITO7_2$1        -0.687      0.050    -13.677      0.000
+    GRITO7_2$2         0.517      0.048     10.680      0.000
+    GRITO7_2$3         1.160      0.059     19.561      0.000
+    GRITO7_2$4         1.846      0.090     20.575      0.000
+    GRITO8_2$1        -1.474      0.070    -21.122      0.000
+    GRITO8_2$2        -0.524      0.048    -10.823      0.000
+    GRITO8_2$3         0.109      0.046      2.352      0.019
+    GRITO8_2$4         1.102      0.058     19.058      0.000
+
+ Variances
+    GRITO_2            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRITO1_2           0.912      0.018     52.078      0.000
+    GRITO5_2           0.531      0.032     16.630      0.000
+    GRITO6_2           0.771      0.026     29.258      0.000
+    GRITO7_2           0.758      0.028     27.339      0.000
+    GRITO8_2           0.391      0.037     10.553      0.000
+
+
+R-SQUARE
+
+Group CONTROL
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    GRITO1_2           0.078      0.017      4.683      0.000      0.960
+    GRITO5_2           0.436      0.035     12.559      0.000      0.751
+    GRITO6_2           0.207      0.026      7.881      0.000      0.891
+    GRITO7_2           0.218      0.027      7.974      0.000      0.884
+    GRITO8_2           0.577      0.037     15.552      0.000      0.650
+
+Group TREATED
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    GRITO1_2           0.088      0.018      5.000      0.000      0.955
+    GRITO5_2           0.469      0.032     14.673      0.000      0.729
+    GRITO6_2           0.229      0.026      8.688      0.000      0.878
+    GRITO7_2           0.242      0.028      8.705      0.000      0.871
+    GRITO8_2           0.609      0.037     16.444      0.000      0.625
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.596E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+Group CONTROL
+
+
+ON Statements
+
+GRITO8_2 ON GRITO6_2              10.588     0.201      0.201        0.146
+
+Group TREATED
+
+
+No modification indices above the minimum value.
+
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    grito2_student_tx_inv_metric.dat
+  Save format      Free
+
+     Beginning Time:  15:44:07
+        Ending Time:  15:44:07
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

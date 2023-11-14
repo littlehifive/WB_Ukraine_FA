@@ -1,9 +1,9 @@
-------Begin Mplus Model Run: 21May2023 21:58:21------
+------Begin Mplus Model Run: 07Nov2023 23:16:03------
 Run options:
 	Recursive (run models in subdirectories): TRUE
 	Show output on console: FALSE
 	Replace existing outfile: always
 ------
-Currently running model: prosocial1_tutor_cfa2.inp
+Currently running model: dass2_student_tx_inv_scalar.inp
 
-------End Mplus Model Run: 21May2023 21:58:22------
+------End Mplus Model Run: 07Nov2023 23:16:08------

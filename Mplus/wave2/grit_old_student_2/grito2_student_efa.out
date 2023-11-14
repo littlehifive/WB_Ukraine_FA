@@ -1,0 +1,529 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+11/02/2023   3:43 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Grit Baseline EFA;
+
+  Data:
+     File is ../dat_stu_2.txt;
+
+  Variable:
+     Names are studentid girl age_w grito1_2 grito5_2 grito6_2
+     grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2
+     grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2
+     dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2
+     treatment half;
+     Missing are . ;
+
+    Usevariable are
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+
+    Categorical is
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+
+    Idvariable is studentid;
+
+    Useobservations is half eq 1;
+
+  Analysis:
+     Type = efa 1 3;
+     Estimator = wlsmv;
+
+  Output: sampstat stdy modindices(all);
+
+
+
+*** WARNING in ANALYSIS command
+  Too many factors were requested for EFA.
+  The maximum number of factors is set to 2.
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=EFA.
+  Request for STANDARDIZED options will be ignored.  Note that STANDARDIZED options
+  are available with the use of EFA factors (ESEM) declared in the MODEL command.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Student Grit Baseline EFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         684
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GRITO1_2    GRITO5_2    GRITO6_2    GRITO7_2    GRITO8_2
+
+Variables with special functions
+
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_2.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       1.000
+ GRITO5_2       1.000         1.000
+ GRITO6_2       1.000         1.000         1.000
+ GRITO7_2       1.000         1.000         1.000         1.000
+ GRITO8_2       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    GRITO1_2
+      Category 1    0.105           72.000
+      Category 2    0.243          166.000
+      Category 3    0.259          177.000
+      Category 4    0.325          222.000
+      Category 5    0.069           47.000
+    GRITO5_2
+      Category 1    0.067           46.000
+      Category 2    0.273          187.000
+      Category 3    0.244          167.000
+      Category 4    0.285          195.000
+      Category 5    0.130           89.000
+    GRITO6_2
+      Category 1    0.031           21.000
+      Category 2    0.099           68.000
+      Category 3    0.251          172.000
+      Category 4    0.491          336.000
+      Category 5    0.127           87.000
+    GRITO7_2
+      Category 1    0.234          160.000
+      Category 2    0.447          306.000
+      Category 3    0.186          127.000
+      Category 4    0.102           70.000
+      Category 5    0.031           21.000
+    GRITO8_2
+      Category 1    0.079           54.000
+      Category 2    0.211          144.000
+      Category 3    0.259          177.000
+      Category 4    0.335          229.000
+      Category 5    0.117           80.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO1_2      GRITO1_2      GRITO1_2      GRITO1_2      GRITO5_2
+              ________      ________      ________      ________      ________
+               -1.252        -0.391         0.271         1.485        -1.497
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO5_2      GRITO5_2      GRITO5_2      GRITO6_2      GRITO6_2
+              ________      ________      ________      ________      ________
+               -0.411         0.214         1.126        -1.871        -1.126
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO6_2      GRITO6_2      GRITO7_2      GRITO7_2      GRITO7_2
+              ________      ________      ________      ________      ________
+               -0.301         1.140        -0.726         0.471         1.112
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO7_2      GRITO8_2      GRITO8_2      GRITO8_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                1.871        -1.412        -0.555         0.121         1.190
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2
+ GRITO5_2       0.206
+ GRITO6_2       0.339         0.290
+ GRITO7_2       0.127         0.360         0.140
+ GRITO8_2       0.240         0.538         0.414         0.349
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor           5             58.532         5       0.0000
+     2-factor           9              0.016         1       0.9000
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor        56.914         4       0.0000
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+                2.240         1.002         0.726         0.596         0.436
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        5
+
+Chi-Square Test of Model Fit
+
+          Value                             58.532*
+          Degrees of Freedom                     5
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.125
+          90 Percent C.I.                    0.098  0.155
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.939
+          TLI                                0.878
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            887.142
+          Degrees of Freedom                    10
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.065
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       1.66191
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ GRITO1_2       0.371*
+ GRITO5_2       0.668*
+ GRITO6_2       0.511*
+ GRITO7_2       0.441*
+ GRITO8_2       0.789*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                0.863         0.553         0.739         0.805         0.378
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ GRITO1_2       0.038
+ GRITO5_2       0.031
+ GRITO6_2       0.035
+ GRITO7_2       0.039
+ GRITO8_2       0.029
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                0.028         0.042         0.036         0.034         0.046
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ GRITO1_2       9.806
+ GRITO5_2      21.381
+ GRITO6_2      14.467
+ GRITO7_2      11.386
+ GRITO8_2      27.105
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+               30.805        13.236        20.501        23.566         8.239
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        9
+
+Chi-Square Test of Model Fit
+
+          Value                              0.016*
+          Degrees of Freedom                     1
+          P-Value                           0.9000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.045
+          Probability RMSEA <= .05           0.957
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            887.142
+          Degrees of Freedom                    10
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.001
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.19545
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ GRITO1_2       0.266         0.178
+ GRITO5_2      -0.003         0.738*
+ GRITO6_2       1.009*        0.000
+ GRITO7_2      -0.062         0.513*
+ GRITO8_2       0.145         0.674*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.393*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                0.860         0.458        -0.019         0.758         0.448
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ GRITO1_2       0.142         0.116
+ GRITO5_2       0.004         0.038
+ GRITO6_2       0.363         0.001
+ GRITO7_2       0.054         0.052
+ GRITO8_2       0.088         0.068
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.145         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                0.051         0.057         0.734         0.040         0.050
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ GRITO1_2       1.874         1.534
+ GRITO5_2      -0.689        19.342
+ GRITO6_2       2.777        -0.230
+ GRITO7_2      -1.139         9.810
+ GRITO8_2       1.657         9.860
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         2.719         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+               16.944         8.069        -0.026        19.190         8.873
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ GRITO1_2       0.336         0.283
+ GRITO5_2       0.287         0.737
+ GRITO6_2       1.009         0.397
+ GRITO7_2       0.140         0.488
+ GRITO8_2       0.410         0.731
+
+
+MODIFICATION INDICES
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 1 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       0.000
+ GRITO5_2       4.141         0.000
+ GRITO6_2      45.007         9.650         0.000
+ GRITO7_2       1.796        12.350        11.066         0.000
+ GRITO8_2       7.720         2.208         0.657         0.002         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       0.000
+ GRITO5_2      -0.073         0.000
+ GRITO6_2       0.209        -0.125         0.000
+ GRITO7_2      -0.045         0.132        -0.116         0.000
+ GRITO8_2      -0.112         0.091         0.038         0.002         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 2 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       0.000
+ GRITO5_2       0.016         0.000
+ GRITO6_2       0.017         0.016         0.000
+ GRITO7_2       0.016         0.018         0.015         0.000
+ GRITO8_2       0.015         0.016         0.020         0.016         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       0.000
+ GRITO5_2      -0.005         0.000
+ GRITO6_2       0.431         0.021         0.000
+ GRITO7_2       0.005         0.054        -0.024         0.000
+ GRITO8_2       0.015         0.029        -0.054        -0.014         0.000
+
+
+     Beginning Time:  15:43:50
+        Ending Time:  15:43:50
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

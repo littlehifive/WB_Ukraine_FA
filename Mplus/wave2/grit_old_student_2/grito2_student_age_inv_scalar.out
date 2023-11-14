@@ -1,0 +1,709 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+11/03/2023   2:35 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Grit Age Measurement Invariance Scalar Model;
+
+  Data:
+     File is ../dat_stu_2.txt;
+
+  Variable:
+     Names are studentid girl age_w grito1_2 grito5_2 grito6_2
+     grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2
+     grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2
+     dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2
+     treatment half;
+     Missing are . ;
+
+    Usevariable are
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2 age_c;
+
+    Categorical is
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+
+    Idvariable is studentid;
+
+    Group is age_c (1 = Older 0 = Younger);
+
+  Define:
+  	age_c = 0;
+  	if(age_w ge 13) then age_c = 1;
+
+  Analysis:
+     Estimator = wlsmv;
+     Parameterization = theta;
+     Difftest = grito2_student_age_inv_metric.dat
+
+
+  !!! Model for Younger Students !!!
+
+  Model:
+  ! Factor loadings all freely estimated
+    grito_2 by
+      grito1_2* grito5_2* grito6_2* grito7_2* grito8_2* (L1-L5);
+
+    grito1_2 with grito6_2; !worded positively
+    grito1_2 with grito7_2; !both about schoolwork
+
+    !estimating thresholds freely
+    [grito1_2$1* grito5_2$1* grito6_2$1* grito7_2$1* grito8_2$1*] (T1_1 T5_1 T6_1 T7_1 T8_1)
+    [grito1_2$2* grito5_2$2* grito6_2$2* grito7_2$2* grito8_2$2*] (T1_2 T5_2 T6_2 T7_2 T8_2)
+    [grito1_2$3* grito5_2$3* grito6_2$3* grito7_2$3* grito8_2$3*] (T1_3 T5_3 T6_3 T7_3 T8_3)
+    [grito1_2$4* grito5_2$4* grito6_2$4* grito7_2$4* grito8_2$4*] (T1_4 T5_4 T6_4 T7_4 T8_4)
+
+    !constraining item residual variance to 1 for identification
+    grito1_2@1;
+    grito5_2@1;
+    grito6_2@1;
+    grito7_2@1;
+    grito8_2@1;
+
+    !fixing latent mean to zero for identification
+    [grito_2@0];
+
+    !fixing latent variance to one for identification
+    grito_2@1;
+
+  !!! Model for Older Students !!!
+
+  Model Older:
+    ! Factor loadings constrained to *be equal to the control group*
+    grito_2 by
+      grito1_2* grito5_2* grito6_2* grito7_2* grito8_2* (L1-L5);
+
+    grito1_2 with grito6_2; !worded positively
+    grito1_2 with grito7_2; !both about schoolwork
+
+    ! *thresholds held equal to the control group when left blank*
+
+    ! constraining item residual variance to 1 for identification
+    grito1_2@1;
+    grito5_2@1;
+    grito6_2@1;
+    grito7_2@1;
+    grito8_2@1;
+
+    ! latent factor mean *estimated*
+    [grito_2*];
+
+    ! latent factor variance *estimated*
+    grito_2*;
+
+  Output: sampstat stdyx modindices(all);
+  Savedata: Difftest is grito2_student_age_inv_scalar.dat;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$1* grito5_2$1* grito6_2$1* grito7_2$1* grito8_2$1*] (T1_1 T5_1 T6_1 T7_1 T8_1);
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$2* grito5_2$2* grito6_2$2* grito7_2$2* grito8_2$2*] (T1_2 T5_2 T6_2 T7_2 T8_2);
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$3* grito5_2$3* grito6_2$3* grito7_2$3* grito8_2$3*] (T1_3 T5_3 T6_3 T7_3 T8_3);
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    [grito1_2$4* grito5_2$4* grito6_2$4* grito7_2$4* grito8_2$4*] (T1_4 T5_4 T6_4 T7_4 T8_4);
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Student Grit Age Measurement Invariance Scalar Model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group YOUNGER                                               736
+   Group OLDER                                                 632
+   Total sample size                                          1368
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GRITO1_2    GRITO5_2    GRITO6_2    GRITO7_2    GRITO8_2
+
+Continuous latent variables
+   GRITO_2
+
+Variables with special functions
+
+  Grouping variable     AGE_C
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_2.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group YOUNGER
+     Number of missing data patterns             1
+
+   Group OLDER
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR YOUNGER
+
+
+           Covariance Coverage
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       1.000
+ GRITO5_2       1.000         1.000
+ GRITO6_2       1.000         1.000         1.000
+ GRITO7_2       1.000         1.000         1.000         1.000
+ GRITO8_2       1.000         1.000         1.000         1.000         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR OLDER
+
+
+           Covariance Coverage
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       1.000
+ GRITO5_2       1.000         1.000
+ GRITO6_2       1.000         1.000         1.000
+ GRITO7_2       1.000         1.000         1.000         1.000
+ GRITO8_2       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+  Group YOUNGER
+    GRITO1_2
+      Category 1    0.118           87.000
+      Category 2    0.249          183.000
+      Category 3    0.243          179.000
+      Category 4    0.315          232.000
+      Category 5    0.075           55.000
+    GRITO5_2
+      Category 1    0.062           46.000
+      Category 2    0.251          185.000
+      Category 3    0.232          171.000
+      Category 4    0.292          215.000
+      Category 5    0.162          119.000
+    GRITO6_2
+      Category 1    0.039           29.000
+      Category 2    0.084           62.000
+      Category 3    0.232          171.000
+      Category 4    0.493          363.000
+      Category 5    0.151          111.000
+    GRITO7_2
+      Category 1    0.258          190.000
+      Category 2    0.405          298.000
+      Category 3    0.193          142.000
+      Category 4    0.105           77.000
+      Category 5    0.039           29.000
+    GRITO8_2
+      Category 1    0.096           71.000
+      Category 2    0.208          153.000
+      Category 3    0.226          166.000
+      Category 4    0.329          242.000
+      Category 5    0.141          104.000
+
+  Group OLDER
+    GRITO1_2
+      Category 1    0.117           74.000
+      Category 2    0.245          155.000
+      Category 3    0.271          171.000
+      Category 4    0.312          197.000
+      Category 5    0.055           35.000
+    GRITO5_2
+      Category 1    0.068           43.000
+      Category 2    0.301          190.000
+      Category 3    0.247          156.000
+      Category 4    0.286          181.000
+      Category 5    0.098           62.000
+    GRITO6_2
+      Category 1    0.035           22.000
+      Category 2    0.103           65.000
+      Category 3    0.293          185.000
+      Category 4    0.470          297.000
+      Category 5    0.100           63.000
+    GRITO7_2
+      Category 1    0.237          150.000
+      Category 2    0.473          299.000
+      Category 3    0.179          113.000
+      Category 4    0.092           58.000
+      Category 5    0.019           12.000
+    GRITO8_2
+      Category 1    0.071           45.000
+      Category 2    0.241          152.000
+      Category 3    0.285          180.000
+      Category 4    0.310          196.000
+      Category 5    0.093           59.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS FOR YOUNGER
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO1_2      GRITO1_2      GRITO1_2      GRITO1_2      GRITO5_2
+              ________      ________      ________      ________      ________
+               -1.184        -0.340         0.279         1.441        -1.534
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO5_2      GRITO5_2      GRITO5_2      GRITO6_2      GRITO6_2
+              ________      ________      ________      ________      ________
+               -0.485         0.116         0.988        -1.758        -1.157
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO6_2      GRITO6_2      GRITO7_2      GRITO7_2      GRITO7_2
+              ________      ________      ________      ________      ________
+               -0.369         1.033        -0.649         0.421         1.062
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO7_2      GRITO8_2      GRITO8_2      GRITO8_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                1.758        -1.302        -0.512         0.075         1.074
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2
+ GRITO5_2       0.129
+ GRITO6_2       0.368         0.300
+ GRITO7_2       0.090         0.310         0.134
+ GRITO8_2       0.196         0.492         0.378         0.342
+
+
+     ESTIMATED SAMPLE STATISTICS FOR OLDER
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO1_2      GRITO1_2      GRITO1_2      GRITO1_2      GRITO5_2
+              ________      ________      ________      ________      ________
+               -1.190        -0.352         0.340         1.595        -1.491
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO5_2      GRITO5_2      GRITO5_2      GRITO6_2      GRITO6_2
+              ________      ________      ________      ________      ________
+               -0.335         0.294         1.292        -1.814        -1.091
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO6_2      GRITO6_2      GRITO7_2      GRITO7_2      GRITO7_2
+              ________      ________      ________      ________      ________
+               -0.175         1.283        -0.715         0.555         1.222
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO7_2      GRITO8_2      GRITO8_2      GRITO8_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                2.075        -1.467        -0.491         0.244         1.320
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2
+ GRITO5_2       0.258
+ GRITO6_2       0.421         0.328
+ GRITO7_2       0.190         0.430         0.186
+ GRITO8_2       0.282         0.514         0.399         0.402
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       31
+
+Chi-Square Test of Model Fit
+
+          Value                             79.661*
+          Degrees of Freedom                    29
+          P-Value                           0.0000
+
+Chi-Square Contribution From Each Group
+
+          YOUNGER                           34.459
+          OLDER                             45.201
+
+Chi-Square Test for Difference Testing
+
+          Value                             54.021*
+          Degrees of Freedom                    19
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.051
+          90 Percent C.I.                    0.037  0.064
+          Probability RMSEA <= .05           0.451
+
+CFI/TLI
+
+          CFI                                0.970
+          TLI                                0.980
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1734.698
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.026
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.24544373D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group YOUNGER
+
+ GRITO_2  BY
+    GRITO1_2           0.305      0.032      9.382      0.000
+    GRITO5_2           0.918      0.061     15.048      0.000
+    GRITO6_2           0.530      0.039     13.575      0.000
+    GRITO7_2           0.549      0.041     13.398      0.000
+    GRITO8_2           1.186      0.087     13.593      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.273      0.037      7.320      0.000
+    GRITO7_2          -0.060      0.041     -1.486      0.137
+
+ Means
+    GRITO_2            0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRITO1_2$1        -1.267      0.048    -26.666      0.000
+    GRITO1_2$2        -0.388      0.038    -10.350      0.000
+    GRITO1_2$3         0.294      0.037      7.998      0.000
+    GRITO1_2$4         1.549      0.055     28.422      0.000
+    GRITO5_2$1        -2.137      0.089    -24.071      0.000
+    GRITO5_2$2        -0.645      0.057    -11.346      0.000
+    GRITO5_2$3         0.187      0.053      3.510      0.000
+    GRITO5_2$4         1.434      0.068     21.246      0.000
+    GRITO6_2$1        -2.062      0.075    -27.505      0.000
+    GRITO6_2$2        -1.322      0.053    -24.727      0.000
+    GRITO6_2$3        -0.362      0.043     -8.490      0.000
+    GRITO6_2$4         1.243      0.051     24.213      0.000
+    GRITO7_2$1        -0.822      0.046    -17.928      0.000
+    GRITO7_2$2         0.501      0.043     11.601      0.000
+    GRITO7_2$3         1.245      0.052     23.900      0.000
+    GRITO7_2$4         2.092      0.080     26.209      0.000
+    GRITO8_2$1        -2.220      0.108    -20.505      0.000
+    GRITO8_2$2        -0.884      0.072    -12.260      0.000
+    GRITO8_2$3         0.133      0.064      2.060      0.039
+    GRITO8_2$4         1.728      0.093     18.615      0.000
+
+ Variances
+    GRITO_2            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRITO1_2           1.000      0.000    999.000    999.000
+    GRITO5_2           1.000      0.000    999.000    999.000
+    GRITO6_2           1.000      0.000    999.000    999.000
+    GRITO7_2           1.000      0.000    999.000    999.000
+    GRITO8_2           1.000      0.000    999.000    999.000
+
+Group OLDER
+
+ GRITO_2  BY
+    GRITO1_2           0.305      0.032      9.382      0.000
+    GRITO5_2           0.918      0.061     15.048      0.000
+    GRITO6_2           0.530      0.039     13.575      0.000
+    GRITO7_2           0.549      0.041     13.398      0.000
+    GRITO8_2           1.186      0.087     13.593      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.338      0.039      8.655      0.000
+    GRITO7_2           0.061      0.041      1.478      0.139
+
+ Means
+    GRITO_2           -0.191      0.066     -2.912      0.004
+
+ Thresholds
+    GRITO1_2$1        -1.267      0.048    -26.666      0.000
+    GRITO1_2$2        -0.388      0.038    -10.350      0.000
+    GRITO1_2$3         0.294      0.037      7.998      0.000
+    GRITO1_2$4         1.549      0.055     28.422      0.000
+    GRITO5_2$1        -2.137      0.089    -24.071      0.000
+    GRITO5_2$2        -0.645      0.057    -11.346      0.000
+    GRITO5_2$3         0.187      0.053      3.510      0.000
+    GRITO5_2$4         1.434      0.068     21.246      0.000
+    GRITO6_2$1        -2.062      0.075    -27.505      0.000
+    GRITO6_2$2        -1.322      0.053    -24.727      0.000
+    GRITO6_2$3        -0.362      0.043     -8.490      0.000
+    GRITO6_2$4         1.243      0.051     24.213      0.000
+    GRITO7_2$1        -0.822      0.046    -17.928      0.000
+    GRITO7_2$2         0.501      0.043     11.601      0.000
+    GRITO7_2$3         1.245      0.052     23.900      0.000
+    GRITO7_2$4         2.092      0.080     26.209      0.000
+    GRITO8_2$1        -2.220      0.108    -20.505      0.000
+    GRITO8_2$2        -0.884      0.072    -12.260      0.000
+    GRITO8_2$3         0.133      0.064      2.060      0.039
+    GRITO8_2$4         1.728      0.093     18.615      0.000
+
+ Variances
+    GRITO_2            0.994      0.119      8.359      0.000
+
+ Residual Variances
+    GRITO1_2           1.000      0.000    999.000    999.000
+    GRITO5_2           1.000      0.000    999.000    999.000
+    GRITO6_2           1.000      0.000    999.000    999.000
+    GRITO7_2           1.000      0.000    999.000    999.000
+    GRITO8_2           1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group YOUNGER
+
+ GRITO_2  BY
+    GRITO1_2           0.291      0.028     10.252      0.000
+    GRITO5_2           0.676      0.024     27.733      0.000
+    GRITO6_2           0.469      0.027     17.394      0.000
+    GRITO7_2           0.482      0.028     17.443      0.000
+    GRITO8_2           0.765      0.023     32.714      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.273      0.037      7.320      0.000
+    GRITO7_2          -0.060      0.041     -1.486      0.137
+
+ Means
+    GRITO_2            0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRITO1_2$1        -1.212      0.045    -27.088      0.000
+    GRITO1_2$2        -0.371      0.036    -10.431      0.000
+    GRITO1_2$3         0.282      0.035      7.958      0.000
+    GRITO1_2$4         1.482      0.053     28.139      0.000
+    GRITO5_2$1        -1.574      0.058    -27.225      0.000
+    GRITO5_2$2        -0.475      0.041    -11.673      0.000
+    GRITO5_2$3         0.138      0.039      3.500      0.000
+    GRITO5_2$4         1.056      0.049     21.486      0.000
+    GRITO6_2$1        -1.822      0.064    -28.364      0.000
+    GRITO6_2$2        -1.168      0.045    -25.754      0.000
+    GRITO6_2$3        -0.320      0.037     -8.608      0.000
+    GRITO6_2$4         1.098      0.046     23.746      0.000
+    GRITO7_2$1        -0.720      0.039    -18.379      0.000
+    GRITO7_2$2         0.439      0.038     11.536      0.000
+    GRITO7_2$3         1.091      0.046     23.784      0.000
+    GRITO7_2$4         1.834      0.071     25.882      0.000
+    GRITO8_2$1        -1.431      0.055    -25.847      0.000
+    GRITO8_2$2        -0.570      0.043    -13.300      0.000
+    GRITO8_2$3         0.085      0.042      2.057      0.040
+    GRITO8_2$4         1.114      0.052     21.288      0.000
+
+ Variances
+    GRITO_2            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRITO1_2           0.915      0.017     55.252      0.000
+    GRITO5_2           0.543      0.033     16.449      0.000
+    GRITO6_2           0.780      0.025     30.913      0.000
+    GRITO7_2           0.768      0.027     28.890      0.000
+    GRITO8_2           0.416      0.036     11.629      0.000
+
+Group OLDER
+
+ GRITO_2  BY
+    GRITO1_2           0.291      0.030      9.556      0.000
+    GRITO5_2           0.675      0.026     26.152      0.000
+    GRITO6_2           0.467      0.029     16.106      0.000
+    GRITO7_2           0.480      0.030     16.179      0.000
+    GRITO8_2           0.764      0.024     31.176      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.338      0.039      8.655      0.000
+    GRITO7_2           0.061      0.041      1.478      0.139
+
+ Means
+    GRITO_2           -0.192      0.067     -2.880      0.004
+
+ Thresholds
+    GRITO1_2$1        -1.212      0.045    -26.976      0.000
+    GRITO1_2$2        -0.371      0.036    -10.422      0.000
+    GRITO1_2$3         0.282      0.035      7.956      0.000
+    GRITO1_2$4         1.482      0.053     27.991      0.000
+    GRITO5_2$1        -1.576      0.062    -25.423      0.000
+    GRITO5_2$2        -0.476      0.042    -11.453      0.000
+    GRITO5_2$3         0.138      0.039      3.514      0.000
+    GRITO5_2$4         1.058      0.049     21.411      0.000
+    GRITO6_2$1        -1.823      0.066    -27.496      0.000
+    GRITO6_2$2        -1.169      0.046    -25.274      0.000
+    GRITO6_2$3        -0.320      0.037     -8.572      0.000
+    GRITO6_2$4         1.099      0.046     23.918      0.000
+    GRITO7_2$1        -0.721      0.040    -18.193      0.000
+    GRITO7_2$2         0.440      0.038     11.570      0.000
+    GRITO7_2$3         1.092      0.046     23.735      0.000
+    GRITO7_2$4         1.835      0.071     25.969      0.000
+    GRITO8_2$1        -1.433      0.062    -23.059      0.000
+    GRITO8_2$2        -0.571      0.045    -12.816      0.000
+    GRITO8_2$3         0.086      0.041      2.065      0.039
+    GRITO8_2$4         1.116      0.053     20.933      0.000
+
+ Variances
+    GRITO_2            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRITO1_2           0.916      0.018     51.814      0.000
+    GRITO5_2           0.544      0.035     15.607      0.000
+    GRITO6_2           0.781      0.027     28.799      0.000
+    GRITO7_2           0.769      0.029     26.961      0.000
+    GRITO8_2           0.417      0.037     11.150      0.000
+
+
+R-SQUARE
+
+Group YOUNGER
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    GRITO1_2           0.085      0.017      5.126      0.000      0.957
+    GRITO5_2           0.457      0.033     13.866      0.000      0.737
+    GRITO6_2           0.220      0.025      8.697      0.000      0.883
+    GRITO7_2           0.232      0.027      8.722      0.000      0.876
+    GRITO8_2           0.584      0.036     16.357      0.000      0.645
+
+Group OLDER
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    GRITO1_2           0.084      0.018      4.778      0.000      0.957
+    GRITO5_2           0.456      0.035     13.076      0.000      0.738
+    GRITO6_2           0.219      0.027      8.053      0.000      0.884
+    GRITO7_2           0.231      0.029      8.090      0.000      0.877
+    GRITO8_2           0.583      0.037     15.588      0.000      0.646
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.113E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+Group YOUNGER
+
+
+ON Statements
+
+GRITO7_2 ON GRITO1_2              10.037    -0.371     -0.371       -0.340
+GRITO8_2 ON GRITO8_2              14.446     0.174      0.174        0.174
+
+Variances/Residual Variances
+
+GRITO7_2                          11.029     0.306      0.306        0.235
+GRITO8_2                          12.958     0.558      0.558        0.232
+
+Means/Intercepts/Thresholds
+
+[ GRITO8_2 ]                      10.810     0.203      0.203        0.131
+
+Group OLDER
+
+
+ON Statements
+
+GRITO5_2 ON GRITO7_2              11.946     0.185      0.185        0.156
+GRITO8_2 ON GRITO8_2              14.486    -0.175     -0.175       -0.175
+
+WITH Statements
+
+GRITO7_2 WITH GRITO5_2            11.766     0.202      0.202        0.202
+
+Variances/Residual Variances
+
+GRITO7_2                          11.056    -0.306     -0.306       -0.236
+GRITO8_2                          13.000    -0.559     -0.559       -0.233
+
+Means/Intercepts/Thresholds
+
+[ GRITO8_2 ]                      10.836    -0.264     -0.264       -0.170
+
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    grito2_student_age_inv_scalar.dat
+  Save format      Free
+
+     Beginning Time:  14:35:41
+        Ending Time:  14:35:41
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

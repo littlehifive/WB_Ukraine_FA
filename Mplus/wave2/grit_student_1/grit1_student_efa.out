@@ -1,0 +1,903 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/28/2023  10:06 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Grit Baseline EFA;
+
+  Data:
+     File is ../dat_stu_1.txt;
+
+  Variable:
+     Names are studentid index treatment girl age_w child_grade in_ukr
+     guardian_living guardian_region
+     grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1
+     loc1_1 loc2_1 loc3_1 loc4_1
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+     dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+     sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1
+     edugoals_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1;
+
+    Categorical is
+  	grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1;
+
+    Idvariable is studentid;
+
+    Useobservations is half eq 1;
+
+  Analysis:
+     Type = efa 1 3;
+     Estimator = wlsmv;
+
+  Output: sampstat stdy modindices(all);
+
+
+
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=EFA.
+  Request for STANDARDIZED options will be ignored.  Note that STANDARDIZED options
+  are available with the use of EFA factors (ESEM) declared in the MODEL command.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Student Grit Baseline EFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1384
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GRIT1_1     GRIT2_1     GRIT3_1     GRIT4_1     GRIT5_1     GRIT6_1
+   GRIT7_1     GRIT8_1
+
+Variables with special functions
+
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_1.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        1.000
+ GRIT2_1        1.000         1.000
+ GRIT3_1        1.000         1.000         1.000
+ GRIT4_1        1.000         1.000         1.000         1.000
+ GRIT5_1        1.000         1.000         1.000         1.000         1.000
+ GRIT6_1        1.000         1.000         1.000         1.000         1.000
+ GRIT7_1        1.000         1.000         1.000         1.000         1.000
+ GRIT8_1        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT6_1        1.000
+ GRIT7_1        1.000         1.000
+ GRIT8_1        1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    GRIT1_1
+      Category 1    0.103          142.000
+      Category 2    0.228          316.000
+      Category 3    0.276          382.000
+      Category 4    0.348          481.000
+      Category 5    0.046           63.000
+    GRIT2_1
+      Category 1    0.090          124.000
+      Category 2    0.361          500.000
+      Category 3    0.206          285.000
+      Category 4    0.248          343.000
+      Category 5    0.095          132.000
+    GRIT3_1
+      Category 1    0.062           86.000
+      Category 2    0.217          300.000
+      Category 3    0.166          230.000
+      Category 4    0.342          474.000
+      Category 5    0.212          294.000
+    GRIT4_1
+      Category 1    0.033           45.000
+      Category 2    0.258          357.000
+      Category 3    0.235          325.000
+      Category 4    0.343          475.000
+      Category 5    0.132          182.000
+    GRIT5_1
+      Category 1    0.063           87.000
+      Category 2    0.306          424.000
+      Category 3    0.227          314.000
+      Category 4    0.297          411.000
+      Category 5    0.107          148.000
+    GRIT6_1
+      Category 1    0.036           50.000
+      Category 2    0.168          232.000
+      Category 3    0.317          439.000
+      Category 4    0.395          547.000
+      Category 5    0.084          116.000
+    GRIT7_1
+      Category 1    0.190          263.000
+      Category 2    0.499          691.000
+      Category 3    0.150          207.000
+      Category 4    0.131          181.000
+      Category 5    0.030           42.000
+    GRIT8_1
+      Category 1    0.054           75.000
+      Category 2    0.346          479.000
+      Category 3    0.222          307.000
+      Category 4    0.320          443.000
+      Category 5    0.058           80.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT1_1$      GRIT2_1$
+              ________      ________      ________      ________      ________
+               -1.267        -0.437         0.271         1.690        -1.343
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT2_1$      GRIT2_1$      GRIT2_1$      GRIT3_1$      GRIT3_1$
+              ________      ________      ________      ________      ________
+               -0.123         0.404         1.308        -1.537        -0.586
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT3_1$      GRIT3_1$      GRIT4_1$      GRIT4_1$      GRIT4_1$
+              ________      ________      ________      ________      ________
+               -0.138         0.798        -1.845        -0.552         0.063
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT4_1$      GRIT5_1$      GRIT5_1$      GRIT5_1$      GRIT5_1$
+              ________      ________      ________      ________      ________
+                1.119        -1.531        -0.334         0.243         1.243
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT6_1$      GRIT6_1$      GRIT6_1$      GRIT6_1$      GRIT7_1$
+              ________      ________      ________      ________      ________
+               -1.798        -0.828         0.053         1.380        -0.878
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT7_1$      GRIT7_1$      GRIT7_1$      GRIT8_1$      GRIT8_1$
+              ________      ________      ________      ________      ________
+                0.494         0.990         1.876        -1.606        -0.253
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT8_1$      GRIT8_1$
+              ________      ________
+                0.311         1.573
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1
+ GRIT2_1        0.040
+ GRIT3_1        0.055         0.303
+ GRIT4_1        0.178         0.318         0.428
+ GRIT5_1        0.117         0.254         0.278         0.349
+ GRIT6_1        0.402         0.114         0.154         0.327         0.274
+ GRIT7_1        0.217         0.166         0.142         0.220         0.336
+ GRIT8_1        0.244         0.251         0.316         0.417         0.469
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT7_1        0.233
+ GRIT8_1        0.358         0.428
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor           8            445.158        20       0.0000
+     2-factor          15            159.272        13       0.0000
+     3-factor          21             15.505         7       0.0300
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor       246.558         7       0.0000
+     2-factor against 3-factor       124.893         6       0.0000
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+                2.914         1.231         0.911         0.735         0.653
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6             7             8
+              ________      ________      ________
+                0.558         0.518         0.481
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Chi-Square Test of Model Fit
+
+          Value                            445.158*
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.124
+          90 Percent C.I.                    0.114  0.134
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.865
+          TLI                                0.812
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           3186.777
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.077
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       2.29386
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ GRIT1_1        0.349*
+ GRIT2_1        0.397*
+ GRIT3_1        0.484*
+ GRIT4_1        0.631*
+ GRIT5_1        0.594*
+ GRIT6_1        0.506*
+ GRIT7_1        0.493*
+ GRIT8_1        0.728*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+                0.878         0.842         0.766         0.602         0.647
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+                0.744         0.757         0.471
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ GRIT1_1        0.027
+ GRIT2_1        0.026
+ GRIT3_1        0.024
+ GRIT4_1        0.020
+ GRIT5_1        0.021
+ GRIT6_1        0.023
+ GRIT7_1        0.023
+ GRIT8_1        0.017
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+                0.019         0.021         0.023         0.026         0.025
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+                0.023         0.023         0.025
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ GRIT1_1       13.100
+ GRIT2_1       15.051
+ GRIT3_1       20.583
+ GRIT4_1       30.849
+ GRIT5_1       28.247
+ GRIT6_1       22.063
+ GRIT7_1       21.195
+ GRIT8_1       41.998
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+               47.292        40.137        33.621        23.353        25.882
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+               32.026        33.065        18.666
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       15
+
+Chi-Square Test of Model Fit
+
+          Value                            159.272*
+          Degrees of Freedom                    13
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.090
+          90 Percent C.I.                    0.078  0.103
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.954
+          TLI                                0.900
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           3186.777
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.041
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.62261
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ GRIT1_1       -0.002         0.601*
+ GRIT2_1        0.523*       -0.170*
+ GRIT3_1        0.648*       -0.217*
+ GRIT4_1        0.655*        0.002
+ GRIT5_1        0.561*        0.079
+ GRIT6_1        0.212*        0.527*
+ GRIT7_1        0.350*        0.245*
+ GRIT8_1        0.598*        0.229*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.389*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+                0.640         0.767         0.642         0.569         0.644
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+                0.590         0.750         0.483
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ GRIT1_1        0.003         0.041
+ GRIT2_1        0.034         0.041
+ GRIT3_1        0.037         0.048
+ GRIT4_1        0.022         0.004
+ GRIT5_1        0.030         0.041
+ GRIT6_1        0.044         0.047
+ GRIT7_1        0.038         0.043
+ GRIT8_1        0.031         0.041
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.058         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+                0.050         0.028         0.034         0.028         0.025
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+                0.036         0.023         0.025
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ GRIT1_1       -0.805        14.693
+ GRIT2_1       15.359        -4.120
+ GRIT3_1       17.597        -4.557
+ GRIT4_1       30.454         0.643
+ GRIT5_1       18.462         1.932
+ GRIT6_1        4.765        11.231
+ GRIT7_1        9.207         5.757
+ GRIT8_1       19.203         5.585
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         6.739         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+               12.907        27.826        18.881        20.372        25.330
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+               16.446        32.983        19.583
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ GRIT1_1        0.232         0.600
+ GRIT2_1        0.457         0.034
+ GRIT3_1        0.563         0.035
+ GRIT4_1        0.656         0.257
+ GRIT5_1        0.592         0.298
+ GRIT6_1        0.417         0.610
+ GRIT7_1        0.446         0.382
+ GRIT8_1        0.687         0.462
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       21
+
+Chi-Square Test of Model Fit
+
+          Value                             15.505*
+          Degrees of Freedom                     7
+          P-Value                           0.0300
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.030
+          90 Percent C.I.                    0.009  0.050
+          Probability RMSEA <= .05           0.953
+
+CFI/TLI
+
+          CFI                                0.997
+          TLI                                0.989
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           3186.777
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.012
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.15513
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+ GRIT1_1        0.627*       -0.148*       -0.004
+ GRIT2_1       -0.015         0.381*        0.145*
+ GRIT3_1        0.074         0.607*        0.003
+ GRIT4_1        0.314*        0.576*        0.000
+ GRIT5_1       -0.019         0.075         0.590*
+ GRIT6_1        0.669*        0.018         0.022
+ GRIT7_1        0.004        -0.239*        0.707*
+ GRIT8_1        0.103         0.003         0.690*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+      1         1.000
+      2         0.233*        1.000
+      3         0.576*        0.605*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+                0.630         0.772         0.603         0.485         0.605
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+                0.528         0.644         0.430
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ GRIT1_1        0.063         0.052         0.018
+ GRIT2_1        0.017         0.054         0.064
+ GRIT3_1        0.081         0.064         0.062
+ GRIT4_1        0.076         0.046         0.025
+ GRIT5_1        0.042         0.056         0.062
+ GRIT6_1        0.089         0.017         0.089
+ GRIT7_1        0.007         0.075         0.071
+ GRIT8_1        0.054         0.005         0.048
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.109         0.000
+      3         0.056         0.080         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+                0.066         0.027         0.043         0.039         0.030
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+                0.062         0.039         0.033
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ GRIT1_1        9.936        -2.819        -0.212
+ GRIT2_1       -0.857         7.097         2.282
+ GRIT3_1        0.912         9.510         0.046
+ GRIT4_1        4.155        12.404         0.019
+ GRIT5_1       -0.451         1.353         9.541
+ GRIT6_1        7.545         1.051         0.250
+ GRIT7_1        0.580        -3.166         9.948
+ GRIT8_1        1.889         0.565        14.350
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         2.143         0.000
+      3        10.284         7.530         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+                9.544        28.746        13.920        12.531        20.086
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+                8.556        16.647        13.066
+
+
+           FACTOR STRUCTURE
+                  1             2             3
+              ________      ________      ________
+ GRIT1_1        0.591        -0.004         0.268
+ GRIT2_1        0.158         0.466         0.367
+ GRIT3_1        0.217         0.626         0.412
+ GRIT4_1        0.448         0.649         0.530
+ GRIT5_1        0.339         0.428         0.625
+ GRIT6_1        0.686         0.187         0.419
+ GRIT7_1        0.356         0.190         0.565
+ GRIT8_1        0.500         0.443         0.750
+
+
+MODIFICATION INDICES
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 1 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        0.000
+ GRIT2_1       25.660         0.000
+ GRIT3_1       30.767        38.858         0.000
+ GRIT4_1        5.622        16.045        75.353         0.000
+ GRIT5_1       23.867         1.103         0.361         2.732         0.000
+ GRIT6_1      202.182        20.052        22.741         0.259         3.069
+ GRIT7_1        5.720         2.419        22.637        25.649         6.905
+ GRIT8_1        0.334         5.110         5.451        11.216         9.948
+
+
+           THETA
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT6_1        0.000
+ GRIT7_1        0.858         0.000
+ GRIT8_1        0.591        28.540         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        0.000
+ GRIT2_1       -0.113         0.000
+ GRIT3_1       -0.132         0.137         0.000
+ GRIT4_1       -0.055         0.093         0.194         0.000
+ GRIT5_1       -0.114         0.024        -0.014        -0.041         0.000
+ GRIT6_1        0.286        -0.106        -0.115         0.012        -0.040
+ GRIT7_1        0.054        -0.036        -0.119        -0.127         0.062
+ GRIT8_1       -0.014        -0.056        -0.059        -0.088         0.078
+
+
+           THETA
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT6_1        0.000
+ GRIT7_1       -0.022         0.000
+ GRIT8_1       -0.018         0.127         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 2 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        0.000
+ GRIT2_1        3.466         0.000
+ GRIT3_1       12.221         1.660         0.000
+ GRIT4_1        4.641         2.194        42.539         0.000
+ GRIT5_1       22.208         0.162        11.324         9.643         0.000
+ GRIT6_1       75.535         0.006         1.901        23.076         0.570
+ GRIT7_1        0.995         0.032        15.940        22.514        14.788
+ GRIT8_1        9.770         4.692         5.839        10.369        20.563
+
+
+           THETA
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT6_1        0.000
+ GRIT7_1       27.321         0.000
+ GRIT8_1       12.359        41.657         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        0.000
+ GRIT2_1        0.058         0.000
+ GRIT3_1        0.132         0.037         0.000
+ GRIT4_1        0.058         0.037         0.179         0.000
+ GRIT5_1       -0.123        -0.009        -0.084        -0.073         0.000
+ GRIT6_1        0.524        -0.002         0.043         0.115        -0.018
+ GRIT7_1       -0.030        -0.004        -0.099        -0.108         0.081
+ GRIT8_1       -0.095        -0.051        -0.061        -0.077         0.098
+
+
+           THETA
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT6_1        0.000
+ GRIT7_1       -0.144         0.000
+ GRIT8_1       -0.099         0.137         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 3 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        0.000
+ GRIT2_1        1.572         0.000
+ GRIT3_1        2.053         1.551         0.000
+ GRIT4_1        1.248         0.000         0.163         0.000
+ GRIT5_1        9.374         0.193         0.797         0.139         0.000
+ GRIT6_1        0.395         0.746         1.949         1.049         9.461
+ GRIT7_1        6.948         1.892         0.018         0.031         3.028
+ GRIT8_1        0.022         2.928         0.627         0.210         0.920
+
+
+           THETA
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT6_1        0.000
+ GRIT7_1        5.593         0.000
+ GRIT8_1        0.052         0.680         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              GRIT1_1       GRIT2_1       GRIT3_1       GRIT4_1       GRIT5_1
+              ________      ________      ________      ________      ________
+ GRIT1_1        0.000
+ GRIT2_1        0.040         0.000
+ GRIT3_1        0.050         0.052         0.000
+ GRIT4_1       -0.068         0.001        -0.031         0.000
+ GRIT5_1       -0.086         0.009        -0.022        -0.009         0.000
+ GRIT6_1        0.210        -0.026        -0.047         0.070         0.084
+ GRIT7_1        0.079         0.033        -0.004        -0.006        -0.166
+ GRIT8_1       -0.004        -0.040         0.021         0.012         0.091
+
+
+           THETA
+              GRIT6_1       GRIT7_1       GRIT8_1
+              ________      ________      ________
+ GRIT6_1        0.000
+ GRIT7_1       -0.070         0.000
+ GRIT8_1       -0.006         0.100         0.000
+
+
+     Beginning Time:  22:06:47
+        Ending Time:  22:06:47
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

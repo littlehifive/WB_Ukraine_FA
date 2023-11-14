@@ -1,0 +1,1298 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/30/2023   3:46 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student DASS Age Measurement Invariance Scalar Model;
+
+  Data:
+     File is ../dat_stu_1.txt;
+
+  Variable:
+     Names are studentid index treatment girl age_w child_grade in_ukr
+     guardian_living guardian_region
+     grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1
+     loc1_1 loc2_1 loc3_1 loc4_1
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+     dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+     sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1
+     edugoals_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+    dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1 age_c;
+
+    Categorical is
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+    dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1;
+
+    Idvariable is studentid;
+
+    Group is age_c (1 = Older 0 = Younger);
+
+  Define:
+  	age_c = 0;
+  	if(age_w ge 13) then age_c = 1;
+
+  Analysis:
+     Estimator = wlsmv;
+     Parameterization = theta;
+     Difftest = dass1_student_age_inv_metric.dat
+
+
+  !!! Model for Younger Students !!!
+
+  Model:
+    ! Factor loadings all freely estimated
+    stress_1 by
+      dass1_1* dass4_1* dass6_1* dass8_1* dass9_1* dass10_1* dass12_1* (L1-L7);
+
+    anxiety_1 by
+      dass2_1* dass3_1* dass5_1* dass7_1* dass11_1* dass13_1* dass14_1* (L8-L14);
+
+    !estimating thresholds freely
+    [dass1_1$1-dass14_1$1*] (T1_1-T1_14);
+    [dass1_1$2-dass14_1$2*] (T2_1-T2_14);
+    [dass1_1$3-dass14_1$3*] (T3_1-T3_14);
+
+    !constraining item residual variance to 1 for identification
+    dass1_1-dass14_1@1;
+
+    !fixing latent mean to zero for identification
+    [stress_1@0];
+    [anxiety_1@0];
+
+    !fixing latent variance to one for identification
+    stress_1@1;
+    anxiety_1@1;
+
+  !!! Model for Older Students !!!
+
+  Model Older:
+    ! Factor loadings constrained to *be equal to the control group*
+    stress_1 by
+      dass1_1* dass4_1* dass6_1* dass8_1* dass9_1* dass10_1* dass12_1* (L1-L7);
+
+    anxiety_1 by
+      dass2_1* dass3_1* dass5_1* dass7_1* dass11_1* dass13_1* dass14_1* (L8-L14);
+
+    ! *thresholds held equal to the control group when left blank*
+
+    ! constraining item residual variance to 1 for identification
+    dass1_1-dass14_1@1;
+
+    ! latent factor mean *estimated*
+    [stress_1*];
+    [anxiety_1*];
+
+    ! latent factor variance *estimated*
+    stress_1*;
+    anxiety_1*;
+
+  Output: sampstat stdyx modindices(all);
+  Savedata: Difftest is dass1_student_age_inv_scalar.dat;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Student DASS Age Measurement Invariance Scalar Model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group YOUNGER                                              1374
+   Group OLDER                                                1393
+   Total sample size                                          2767
+
+Number of dependent variables                                   14
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   DASS1_1     DASS2_1     DASS3_1     DASS4_1     DASS5_1     DASS6_1
+   DASS7_1     DASS8_1     DASS9_1     DASS10_1    DASS11_1    DASS12_1
+   DASS13_1    DASS14_1
+
+Continuous latent variables
+   STRESS_1    ANXIETY_
+
+Variables with special functions
+
+  Grouping variable     AGE_C
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_1.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group YOUNGER
+     Number of missing data patterns             1
+
+   Group OLDER
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR YOUNGER
+
+
+           Covariance Coverage
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        1.000
+ DASS2_1        1.000         1.000
+ DASS3_1        1.000         1.000         1.000
+ DASS4_1        1.000         1.000         1.000         1.000
+ DASS5_1        1.000         1.000         1.000         1.000         1.000
+ DASS6_1        1.000         1.000         1.000         1.000         1.000
+ DASS7_1        1.000         1.000         1.000         1.000         1.000
+ DASS8_1        1.000         1.000         1.000         1.000         1.000
+ DASS9_1        1.000         1.000         1.000         1.000         1.000
+ DASS10_1       1.000         1.000         1.000         1.000         1.000
+ DASS11_1       1.000         1.000         1.000         1.000         1.000
+ DASS12_1       1.000         1.000         1.000         1.000         1.000
+ DASS13_1       1.000         1.000         1.000         1.000         1.000
+ DASS14_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS6_1       DASS7_1       DASS8_1       DASS9_1       DASS10_1
+              ________      ________      ________      ________      ________
+ DASS6_1        1.000
+ DASS7_1        1.000         1.000
+ DASS8_1        1.000         1.000         1.000
+ DASS9_1        1.000         1.000         1.000         1.000
+ DASS10_1       1.000         1.000         1.000         1.000         1.000
+ DASS11_1       1.000         1.000         1.000         1.000         1.000
+ DASS12_1       1.000         1.000         1.000         1.000         1.000
+ DASS13_1       1.000         1.000         1.000         1.000         1.000
+ DASS14_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS11_1      DASS12_1      DASS13_1      DASS14_1
+              ________      ________      ________      ________
+ DASS11_1       1.000
+ DASS12_1       1.000         1.000
+ DASS13_1       1.000         1.000         1.000
+ DASS14_1       1.000         1.000         1.000         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR OLDER
+
+
+           Covariance Coverage
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        1.000
+ DASS2_1        1.000         1.000
+ DASS3_1        1.000         1.000         1.000
+ DASS4_1        1.000         1.000         1.000         1.000
+ DASS5_1        1.000         1.000         1.000         1.000         1.000
+ DASS6_1        1.000         1.000         1.000         1.000         1.000
+ DASS7_1        1.000         1.000         1.000         1.000         1.000
+ DASS8_1        1.000         1.000         1.000         1.000         1.000
+ DASS9_1        1.000         1.000         1.000         1.000         1.000
+ DASS10_1       1.000         1.000         1.000         1.000         1.000
+ DASS11_1       1.000         1.000         1.000         1.000         1.000
+ DASS12_1       1.000         1.000         1.000         1.000         1.000
+ DASS13_1       1.000         1.000         1.000         1.000         1.000
+ DASS14_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS6_1       DASS7_1       DASS8_1       DASS9_1       DASS10_1
+              ________      ________      ________      ________      ________
+ DASS6_1        1.000
+ DASS7_1        1.000         1.000
+ DASS8_1        1.000         1.000         1.000
+ DASS9_1        1.000         1.000         1.000         1.000
+ DASS10_1       1.000         1.000         1.000         1.000         1.000
+ DASS11_1       1.000         1.000         1.000         1.000         1.000
+ DASS12_1       1.000         1.000         1.000         1.000         1.000
+ DASS13_1       1.000         1.000         1.000         1.000         1.000
+ DASS14_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS11_1      DASS12_1      DASS13_1      DASS14_1
+              ________      ________      ________      ________
+ DASS11_1       1.000
+ DASS12_1       1.000         1.000
+ DASS13_1       1.000         1.000         1.000
+ DASS14_1       1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+  Group YOUNGER
+    DASS1_1
+      Category 1    0.284          390.000
+      Category 2    0.452          621.000
+      Category 3    0.197          271.000
+      Category 4    0.067           92.000
+    DASS2_1
+      Category 1    0.514          706.000
+      Category 2    0.306          421.000
+      Category 3    0.138          190.000
+      Category 4    0.041           57.000
+    DASS3_1
+      Category 1    0.579          796.000
+      Category 2    0.264          363.000
+      Category 3    0.108          149.000
+      Category 4    0.048           66.000
+    DASS4_1
+      Category 1    0.215          296.000
+      Category 2    0.438          602.000
+      Category 3    0.226          310.000
+      Category 4    0.121          166.000
+    DASS5_1
+      Category 1    0.504          692.000
+      Category 2    0.309          425.000
+      Category 3    0.130          179.000
+      Category 4    0.057           78.000
+    DASS6_1
+      Category 1    0.353          485.000
+      Category 2    0.378          520.000
+      Category 3    0.175          240.000
+      Category 4    0.094          129.000
+    DASS7_1
+      Category 1    0.299          411.000
+      Category 2    0.412          566.000
+      Category 3    0.194          266.000
+      Category 4    0.095          131.000
+    DASS8_1
+      Category 1    0.269          370.000
+      Category 2    0.434          597.000
+      Category 3    0.212          291.000
+      Category 4    0.084          116.000
+    DASS9_1
+      Category 1    0.338          464.000
+      Category 2    0.400          550.000
+      Category 3    0.177          243.000
+      Category 4    0.085          117.000
+    DASS10_1
+      Category 1    0.266          365.000
+      Category 2    0.438          602.000
+      Category 3    0.206          283.000
+      Category 4    0.090          124.000
+    DASS11_1
+      Category 1    0.413          567.000
+      Category 2    0.375          515.000
+      Category 3    0.161          221.000
+      Category 4    0.052           71.000
+    DASS12_1
+      Category 1    0.273          375.000
+      Category 2    0.413          568.000
+      Category 3    0.215          296.000
+      Category 4    0.098          135.000
+    DASS13_1
+      Category 1    0.478          657.000
+      Category 2    0.314          431.000
+      Category 3    0.144          198.000
+      Category 4    0.064           88.000
+    DASS14_1
+      Category 1    0.491          674.000
+      Category 2    0.328          451.000
+      Category 3    0.119          163.000
+      Category 4    0.063           86.000
+
+  Group OLDER
+    DASS1_1
+      Category 1    0.319          444.000
+      Category 2    0.434          605.000
+      Category 3    0.182          254.000
+      Category 4    0.065           90.000
+    DASS2_1
+      Category 1    0.495          689.000
+      Category 2    0.319          444.000
+      Category 3    0.141          197.000
+      Category 4    0.045           63.000
+    DASS3_1
+      Category 1    0.550          766.000
+      Category 2    0.284          395.000
+      Category 3    0.120          167.000
+      Category 4    0.047           65.000
+    DASS4_1
+      Category 1    0.266          371.000
+      Category 2    0.385          537.000
+      Category 3    0.235          327.000
+      Category 4    0.113          158.000
+    DASS5_1
+      Category 1    0.454          633.000
+      Category 2    0.309          430.000
+      Category 3    0.156          218.000
+      Category 4    0.080          112.000
+    DASS6_1
+      Category 1    0.304          423.000
+      Category 2    0.397          553.000
+      Category 3    0.201          280.000
+      Category 4    0.098          137.000
+    DASS7_1
+      Category 1    0.314          438.000
+      Category 2    0.388          540.000
+      Category 3    0.187          260.000
+      Category 4    0.111          155.000
+    DASS8_1
+      Category 1    0.289          403.000
+      Category 2    0.391          545.000
+      Category 3    0.222          309.000
+      Category 4    0.098          136.000
+    DASS9_1
+      Category 1    0.350          487.000
+      Category 2    0.393          548.000
+      Category 3    0.183          255.000
+      Category 4    0.074          103.000
+    DASS10_1
+      Category 1    0.280          390.000
+      Category 2    0.416          580.000
+      Category 3    0.229          319.000
+      Category 4    0.075          104.000
+    DASS11_1
+      Category 1    0.447          622.000
+      Category 2    0.349          486.000
+      Category 3    0.139          193.000
+      Category 4    0.066           92.000
+    DASS12_1
+      Category 1    0.338          471.000
+      Category 2    0.376          524.000
+      Category 3    0.185          258.000
+      Category 4    0.101          140.000
+    DASS13_1
+      Category 1    0.488          680.000
+      Category 2    0.295          411.000
+      Category 3    0.133          185.000
+      Category 4    0.084          117.000
+    DASS14_1
+      Category 1    0.527          734.000
+      Category 2    0.285          397.000
+      Category 3    0.114          159.000
+      Category 4    0.074          103.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS FOR YOUNGER
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS1_1$      DASS1_1$      DASS1_1$      DASS2_1$      DASS2_1$
+              ________      ________      ________      ________      ________
+               -0.571         0.630         1.499         0.035         0.916
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS2_1$      DASS3_1$      DASS3_1$      DASS3_1$      DASS4_1$
+              ________      ________      ________      ________      ________
+                1.734         0.200         1.009         1.664        -0.788
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS4_1$      DASS4_1$      DASS5_1$      DASS5_1$      DASS5_1$
+              ________      ________      ________      ________      ________
+                0.395         1.171         0.009         0.889         1.582
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS6_1$      DASS6_1$      DASS6_1$      DASS7_1$      DASS7_1$
+              ________      ________      ________      ________      ________
+               -0.377         0.617         1.317        -0.527         0.556
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS7_1$      DASS8_1$      DASS8_1$      DASS8_1$      DASS9_1$
+              ________      ________      ________      ________      ________
+                1.309        -0.615         0.535         1.376        -0.419
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS9_1$      DASS9_1$      DASS10_1      DASS10_1      DASS10_1
+              ________      ________      ________      ________      ________
+                0.637         1.371        -0.626         0.535         1.339
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS11_1      DASS11_1      DASS11_1      DASS12_1      DASS12_1
+              ________      ________      ________      ________      ________
+               -0.221         0.798         1.629        -0.604         0.485
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS12_1      DASS13_1      DASS13_1      DASS13_1      DASS14_1
+              ________      ________      ________      ________      ________
+                1.292        -0.055         0.813         1.522        -0.024
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS14_1      DASS14_1
+              ________      ________
+                0.911         1.533
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1
+ DASS2_1        0.434
+ DASS3_1        0.449         0.566
+ DASS4_1        0.518         0.401         0.421
+ DASS5_1        0.447         0.504         0.552         0.460
+ DASS6_1        0.524         0.483         0.497         0.585         0.597
+ DASS7_1        0.451         0.462         0.466         0.505         0.519
+ DASS8_1        0.484         0.429         0.466         0.512         0.547
+ DASS9_1        0.545         0.383         0.469         0.509         0.519
+ DASS10_1       0.412         0.362         0.393         0.495         0.413
+ DASS11_1       0.488         0.436         0.505         0.492         0.567
+ DASS12_1       0.484         0.358         0.413         0.538         0.432
+ DASS13_1       0.395         0.448         0.577         0.448         0.581
+ DASS14_1       0.440         0.445         0.527         0.458         0.550
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS6_1       DASS7_1       DASS8_1       DASS9_1       DASS10_1
+              ________      ________      ________      ________      ________
+ DASS7_1        0.576
+ DASS8_1        0.591         0.693
+ DASS9_1        0.618         0.543         0.581
+ DASS10_1       0.493         0.466         0.494         0.495
+ DASS11_1       0.565         0.606         0.626         0.613         0.496
+ DASS12_1       0.547         0.561         0.553         0.534         0.480
+ DASS13_1       0.528         0.511         0.510         0.514         0.422
+ DASS14_1       0.534         0.556         0.524         0.541         0.477
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS11_1      DASS12_1      DASS13_1      DASS14_1
+              ________      ________      ________      ________
+ DASS12_1       0.645
+ DASS13_1       0.600         0.507
+ DASS14_1       0.616         0.524         0.615
+
+
+     ESTIMATED SAMPLE STATISTICS FOR OLDER
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS1_1$      DASS1_1$      DASS1_1$      DASS2_1$      DASS2_1$
+              ________      ________      ________      ________      ________
+               -0.471         0.684         1.517        -0.013         0.890
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS2_1$      DASS3_1$      DASS3_1$      DASS3_1$      DASS4_1$
+              ________      ________      ________      ________      ________
+                1.693         0.125         0.968         1.678        -0.624
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS4_1$      DASS4_1$      DASS5_1$      DASS5_1$      DASS5_1$
+              ________      ________      ________      ________      ________
+                0.390         1.209        -0.115         0.716         1.402
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS6_1$      DASS6_1$      DASS6_1$      DASS7_1$      DASS7_1$
+              ________      ________      ________      ________      ________
+               -0.514         0.526         1.291        -0.483         0.530
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS7_1$      DASS8_1$      DASS8_1$      DASS8_1$      DASS9_1$
+              ________      ________      ________      ________      ________
+                1.220        -0.555         0.469         1.295        -0.386
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS9_1$      DASS9_1$      DASS10_1      DASS10_1      DASS10_1
+              ________      ________      ________      ________      ________
+                0.653         1.447        -0.583         0.514         1.442
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS11_1      DASS11_1      DASS11_1      DASS12_1      DASS12_1
+              ________      ________      ________      ________      ________
+               -0.134         0.825         1.506        -0.418         0.566
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS12_1      DASS13_1      DASS13_1      DASS13_1      DASS14_1
+              ________      ________      ________      ________      ________
+                1.279        -0.030         0.783         1.379         0.068
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS14_1      DASS14_1
+              ________      ________
+                0.885         1.447
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1
+ DASS2_1        0.437
+ DASS3_1        0.477         0.576
+ DASS4_1        0.587         0.401         0.436
+ DASS5_1        0.504         0.516         0.592         0.480
+ DASS6_1        0.604         0.494         0.567         0.617         0.612
+ DASS7_1        0.546         0.408         0.538         0.522         0.490
+ DASS8_1        0.593         0.454         0.532         0.534         0.559
+ DASS9_1        0.607         0.472         0.517         0.554         0.511
+ DASS10_1       0.411         0.341         0.365         0.520         0.341
+ DASS11_1       0.548         0.470         0.577         0.558         0.536
+ DASS12_1       0.534         0.415         0.476         0.586         0.473
+ DASS13_1       0.457         0.439         0.607         0.451         0.603
+ DASS14_1       0.547         0.479         0.591         0.521         0.592
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS6_1       DASS7_1       DASS8_1       DASS9_1       DASS10_1
+              ________      ________      ________      ________      ________
+ DASS7_1        0.642
+ DASS8_1        0.642         0.640
+ DASS9_1        0.648         0.556         0.612
+ DASS10_1       0.486         0.480         0.429         0.504
+ DASS11_1       0.628         0.616         0.646         0.606         0.503
+ DASS12_1       0.602         0.585         0.588         0.556         0.427
+ DASS13_1       0.556         0.522         0.550         0.537         0.455
+ DASS14_1       0.606         0.565         0.572         0.603         0.430
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS11_1      DASS12_1      DASS13_1      DASS14_1
+              ________      ________      ________      ________
+ DASS12_1       0.634
+ DASS13_1       0.611         0.562
+ DASS14_1       0.637         0.574         0.647
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       62
+
+Chi-Square Test of Model Fit
+
+          Value                            903.612*
+          Degrees of Freedom                   204
+          P-Value                           0.0000
+
+Chi-Square Contribution From Each Group
+
+          YOUNGER                          489.108
+          OLDER                            414.504
+
+Chi-Square Test for Difference Testing
+
+          Value                            105.499*
+          Degrees of Freedom                    40
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.050
+          90 Percent C.I.                    0.046  0.053
+          Probability RMSEA <= .05           0.535
+
+CFI/TLI
+
+          CFI                                0.983
+          TLI                                0.985
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          40473.612
+          Degrees of Freedom                   182
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.033
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.12921411D+00
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group YOUNGER
+
+ STRESS_1 BY
+    DASS1_1            0.948      0.035     27.380      0.000
+    DASS4_1            0.976      0.034     28.770      0.000
+    DASS6_1            1.322      0.046     28.842      0.000
+    DASS8_1            1.245      0.043     29.257      0.000
+    DASS9_1            1.162      0.040     29.267      0.000
+    DASS10_1           0.770      0.029     26.863      0.000
+    DASS12_1           1.077      0.037     28.853      0.000
+
+ ANXIETY_ BY
+    DASS2_1            0.774      0.032     24.085      0.000
+    DASS3_1            0.991      0.040     24.765      0.000
+    DASS5_1            1.049      0.040     26.266      0.000
+    DASS7_1            1.191      0.042     28.150      0.000
+    DASS11_1           1.362      0.050     27.409      0.000
+    DASS13_1           1.082      0.039     27.583      0.000
+    DASS14_1           1.177      0.044     26.638      0.000
+
+ ANXIETY_ WITH
+    STRESS_1           0.942      0.008    120.203      0.000
+
+ Means
+    STRESS_1           0.000      0.000    999.000    999.000
+    ANXIETY_1          0.000      0.000    999.000    999.000
+
+ Thresholds
+    DASS1_1$1         -0.752      0.040    -18.994      0.000
+    DASS1_1$2          0.898      0.042     21.594      0.000
+    DASS1_1$3          2.090      0.055     38.205      0.000
+    DASS2_1$1          0.023      0.035      0.649      0.516
+    DASS2_1$2          1.163      0.040     28.826      0.000
+    DASS2_1$3          2.198      0.056     39.438      0.000
+    DASS3_1$1          0.244      0.040      6.025      0.000
+    DASS3_1$2          1.421      0.048     29.353      0.000
+    DASS3_1$3          2.394      0.064     37.548      0.000
+    DASS4_1$1         -1.024      0.042    -24.514      0.000
+    DASS4_1$2          0.535      0.040     13.328      0.000
+    DASS4_1$3          1.667      0.047     35.287      0.000
+    DASS5_1$1         -0.064      0.042     -1.549      0.121
+    DASS5_1$2          1.187      0.047     25.345      0.000
+    DASS5_1$3          2.196      0.058     37.839      0.000
+    DASS6_1$1         -0.780      0.049    -15.844      0.000
+    DASS6_1$2          0.937      0.051     18.210      0.000
+    DASS6_1$3          2.178      0.060     36.074      0.000
+    DASS7_1$1         -0.784      0.046    -16.972      0.000
+    DASS7_1$2          0.872      0.048     18.242      0.000
+    DASS7_1$3          2.009      0.056     35.674      0.000
+    DASS8_1$1         -0.983      0.048    -20.476      0.000
+    DASS8_1$2          0.790      0.049     16.207      0.000
+    DASS8_1$3          2.147      0.060     35.564      0.000
+    DASS9_1$1         -0.657      0.044    -14.877      0.000
+    DASS9_1$2          0.981      0.047     20.745      0.000
+    DASS9_1$3          2.172      0.057     37.849      0.000
+    DASS10_1$1        -0.791      0.036    -21.850      0.000
+    DASS10_1$2         0.653      0.036     18.039      0.000
+    DASS10_1$3         1.756      0.046     38.572      0.000
+    DASS11_1$1        -0.290      0.049     -5.865      0.000
+    DASS11_1$2         1.409      0.058     24.452      0.000
+    DASS11_1$3         2.707      0.072     37.481      0.000
+    DASS12_1$1        -0.788      0.043    -18.439      0.000
+    DASS12_1$2         0.760      0.044     17.303      0.000
+    DASS12_1$3         1.899      0.052     36.241      0.000
+    DASS13_1$1        -0.051      0.042     -1.204      0.228
+    DASS13_1$2         1.205      0.048     25.155      0.000
+    DASS13_1$3         2.174      0.057     37.892      0.000
+    DASS14_1$1         0.047      0.045      1.055      0.291
+    DASS14_1$2         1.421      0.053     27.068      0.000
+    DASS14_1$3         2.349      0.061     38.308      0.000
+
+ Variances
+    STRESS_1           1.000      0.000    999.000    999.000
+    ANXIETY_1          1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DASS1_1            1.000      0.000    999.000    999.000
+    DASS2_1            1.000      0.000    999.000    999.000
+    DASS3_1            1.000      0.000    999.000    999.000
+    DASS4_1            1.000      0.000    999.000    999.000
+    DASS5_1            1.000      0.000    999.000    999.000
+    DASS6_1            1.000      0.000    999.000    999.000
+    DASS7_1            1.000      0.000    999.000    999.000
+    DASS8_1            1.000      0.000    999.000    999.000
+    DASS9_1            1.000      0.000    999.000    999.000
+    DASS10_1           1.000      0.000    999.000    999.000
+    DASS11_1           1.000      0.000    999.000    999.000
+    DASS12_1           1.000      0.000    999.000    999.000
+    DASS13_1           1.000      0.000    999.000    999.000
+    DASS14_1           1.000      0.000    999.000    999.000
+
+Group OLDER
+
+ STRESS_1 BY
+    DASS1_1            0.948      0.035     27.380      0.000
+    DASS4_1            0.976      0.034     28.770      0.000
+    DASS6_1            1.322      0.046     28.842      0.000
+    DASS8_1            1.245      0.043     29.257      0.000
+    DASS9_1            1.162      0.040     29.267      0.000
+    DASS10_1           0.770      0.029     26.863      0.000
+    DASS12_1           1.077      0.037     28.853      0.000
+
+ ANXIETY_ BY
+    DASS2_1            0.774      0.032     24.085      0.000
+    DASS3_1            0.991      0.040     24.765      0.000
+    DASS5_1            1.049      0.040     26.266      0.000
+    DASS7_1            1.191      0.042     28.150      0.000
+    DASS11_1           1.362      0.050     27.409      0.000
+    DASS13_1           1.082      0.039     27.583      0.000
+    DASS14_1           1.177      0.044     26.638      0.000
+
+ ANXIETY_ WITH
+    STRESS_1           1.063      0.070     15.263      0.000
+
+ Means
+    STRESS_1          -0.048      0.043     -1.114      0.265
+    ANXIETY_1          0.024      0.043      0.545      0.586
+
+ Thresholds
+    DASS1_1$1         -0.752      0.040    -18.994      0.000
+    DASS1_1$2          0.898      0.042     21.594      0.000
+    DASS1_1$3          2.090      0.055     38.205      0.000
+    DASS2_1$1          0.023      0.035      0.649      0.516
+    DASS2_1$2          1.163      0.040     28.826      0.000
+    DASS2_1$3          2.198      0.056     39.438      0.000
+    DASS3_1$1          0.244      0.040      6.025      0.000
+    DASS3_1$2          1.421      0.048     29.353      0.000
+    DASS3_1$3          2.394      0.064     37.548      0.000
+    DASS4_1$1         -1.024      0.042    -24.514      0.000
+    DASS4_1$2          0.535      0.040     13.328      0.000
+    DASS4_1$3          1.667      0.047     35.287      0.000
+    DASS5_1$1         -0.064      0.042     -1.549      0.121
+    DASS5_1$2          1.187      0.047     25.345      0.000
+    DASS5_1$3          2.196      0.058     37.839      0.000
+    DASS6_1$1         -0.780      0.049    -15.844      0.000
+    DASS6_1$2          0.937      0.051     18.210      0.000
+    DASS6_1$3          2.178      0.060     36.074      0.000
+    DASS7_1$1         -0.784      0.046    -16.972      0.000
+    DASS7_1$2          0.872      0.048     18.242      0.000
+    DASS7_1$3          2.009      0.056     35.674      0.000
+    DASS8_1$1         -0.983      0.048    -20.476      0.000
+    DASS8_1$2          0.790      0.049     16.207      0.000
+    DASS8_1$3          2.147      0.060     35.564      0.000
+    DASS9_1$1         -0.657      0.044    -14.877      0.000
+    DASS9_1$2          0.981      0.047     20.745      0.000
+    DASS9_1$3          2.172      0.057     37.849      0.000
+    DASS10_1$1        -0.791      0.036    -21.850      0.000
+    DASS10_1$2         0.653      0.036     18.039      0.000
+    DASS10_1$3         1.756      0.046     38.572      0.000
+    DASS11_1$1        -0.290      0.049     -5.865      0.000
+    DASS11_1$2         1.409      0.058     24.452      0.000
+    DASS11_1$3         2.707      0.072     37.481      0.000
+    DASS12_1$1        -0.788      0.043    -18.439      0.000
+    DASS12_1$2         0.760      0.044     17.303      0.000
+    DASS12_1$3         1.899      0.052     36.241      0.000
+    DASS13_1$1        -0.051      0.042     -1.204      0.228
+    DASS13_1$2         1.205      0.048     25.155      0.000
+    DASS13_1$3         2.174      0.057     37.892      0.000
+    DASS14_1$1         0.047      0.045      1.055      0.291
+    DASS14_1$2         1.421      0.053     27.068      0.000
+    DASS14_1$3         2.349      0.061     38.308      0.000
+
+ Variances
+    STRESS_1           1.144      0.079     14.396      0.000
+    ANXIETY_1          1.108      0.083     13.386      0.000
+
+ Residual Variances
+    DASS1_1            1.000      0.000    999.000    999.000
+    DASS2_1            1.000      0.000    999.000    999.000
+    DASS3_1            1.000      0.000    999.000    999.000
+    DASS4_1            1.000      0.000    999.000    999.000
+    DASS5_1            1.000      0.000    999.000    999.000
+    DASS6_1            1.000      0.000    999.000    999.000
+    DASS7_1            1.000      0.000    999.000    999.000
+    DASS8_1            1.000      0.000    999.000    999.000
+    DASS9_1            1.000      0.000    999.000    999.000
+    DASS10_1           1.000      0.000    999.000    999.000
+    DASS11_1           1.000      0.000    999.000    999.000
+    DASS12_1           1.000      0.000    999.000    999.000
+    DASS13_1           1.000      0.000    999.000    999.000
+    DASS14_1           1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group YOUNGER
+
+ STRESS_1 BY
+    DASS1_1            0.688      0.013     51.989      0.000
+    DASS4_1            0.698      0.012     56.179      0.000
+    DASS6_1            0.798      0.010     79.244      0.000
+    DASS8_1            0.780      0.010     74.614      0.000
+    DASS9_1            0.758      0.011     68.784      0.000
+    DASS10_1           0.610      0.014     42.800      0.000
+    DASS12_1           0.733      0.012     62.314      0.000
+
+ ANXIETY_ BY
+    DASS2_1            0.612      0.016     38.530      0.000
+    DASS3_1            0.704      0.014     49.085      0.000
+    DASS5_1            0.724      0.013     55.187      0.000
+    DASS7_1            0.766      0.011     68.055      0.000
+    DASS11_1           0.806      0.010     78.283      0.000
+    DASS13_1           0.734      0.012     59.858      0.000
+    DASS14_1           0.762      0.012     63.515      0.000
+
+ ANXIETY_ WITH
+    STRESS_1           0.942      0.008    120.203      0.000
+
+ Means
+    STRESS_1           0.000      0.000    999.000    999.000
+    ANXIETY_1          0.000      0.000    999.000    999.000
+
+ Thresholds
+    DASS1_1$1         -0.546      0.029    -18.638      0.000
+    DASS1_1$2          0.652      0.030     21.854      0.000
+    DASS1_1$3          1.516      0.041     37.111      0.000
+    DASS2_1$1          0.018      0.028      0.650      0.516
+    DASS2_1$2          0.919      0.031     29.576      0.000
+    DASS2_1$3          1.738      0.044     39.226      0.000
+    DASS3_1$1          0.173      0.028      6.148      0.000
+    DASS3_1$2          1.010      0.033     30.763      0.000
+    DASS3_1$3          1.701      0.045     37.874      0.000
+    DASS4_1$1         -0.732      0.031    -23.833      0.000
+    DASS4_1$2          0.383      0.029     13.284      0.000
+    DASS4_1$3          1.193      0.036     33.536      0.000
+    DASS5_1$1         -0.044      0.029     -1.543      0.123
+    DASS5_1$2          0.819      0.032     25.904      0.000
+    DASS5_1$3          1.515      0.041     36.865      0.000
+    DASS6_1$1         -0.470      0.030    -15.552      0.000
+    DASS6_1$2          0.565      0.031     18.156      0.000
+    DASS6_1$3          1.314      0.039     33.722      0.000
+    DASS7_1$1         -0.504      0.031    -16.296      0.000
+    DASS7_1$2          0.561      0.030     18.455      0.000
+    DASS7_1$3          1.292      0.038     33.815      0.000
+    DASS8_1$1         -0.616      0.031    -19.697      0.000
+    DASS8_1$2          0.495      0.030     16.256      0.000
+    DASS8_1$3          1.345      0.039     34.432      0.000
+    DASS9_1$1         -0.428      0.030    -14.495      0.000
+    DASS9_1$2          0.640      0.031     20.589      0.000
+    DASS9_1$3          1.417      0.040     35.356      0.000
+    DASS10_1$1        -0.627      0.029    -21.535      0.000
+    DASS10_1$2         0.517      0.029     18.013      0.000
+    DASS10_1$3         1.391      0.038     36.738      0.000
+    DASS11_1$1        -0.172      0.030     -5.724      0.000
+    DASS11_1$2         0.834      0.033     25.525      0.000
+    DASS11_1$3         1.602      0.045     35.364      0.000
+    DASS12_1$1        -0.536      0.030    -17.820      0.000
+    DASS12_1$2         0.517      0.030     17.369      0.000
+    DASS12_1$3         1.292      0.038     34.348      0.000
+    DASS13_1$1        -0.034      0.029     -1.199      0.231
+    DASS13_1$2         0.818      0.032     25.865      0.000
+    DASS13_1$3         1.476      0.040     36.496      0.000
+    DASS14_1$1         0.031      0.029      1.059      0.290
+    DASS14_1$2         0.920      0.033     27.861      0.000
+    DASS14_1$3         1.521      0.042     36.436      0.000
+
+ Variances
+    STRESS_1           1.000      0.000    999.000    999.000
+    ANXIETY_1          1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DASS1_1            0.527      0.018     28.922      0.000
+    DASS2_1            0.625      0.019     32.122      0.000
+    DASS3_1            0.505      0.020     24.991      0.000
+    DASS4_1            0.512      0.017     29.484      0.000
+    DASS5_1            0.476      0.019     25.060      0.000
+    DASS6_1            0.364      0.016     22.673      0.000
+    DASS7_1            0.414      0.017     24.004      0.000
+    DASS8_1            0.392      0.016     24.064      0.000
+    DASS9_1            0.425      0.017     25.471      0.000
+    DASS10_1           0.628      0.017     36.070      0.000
+    DASS11_1           0.350      0.017     21.088      0.000
+    DASS12_1           0.463      0.017     26.867      0.000
+    DASS13_1           0.461      0.018     25.578      0.000
+    DASS14_1           0.419      0.018     22.940      0.000
+
+Group OLDER
+
+ STRESS_1 BY
+    DASS1_1            0.712      0.013     55.477      0.000
+    DASS4_1            0.722      0.012     59.001      0.000
+    DASS6_1            0.816      0.009     86.466      0.000
+    DASS8_1            0.800      0.010     78.993      0.000
+    DASS9_1            0.779      0.011     73.495      0.000
+    DASS10_1           0.636      0.015     43.568      0.000
+    DASS12_1           0.755      0.011     66.798      0.000
+
+ ANXIETY_ BY
+    DASS2_1            0.632      0.016     39.653      0.000
+    DASS3_1            0.722      0.014     52.111      0.000
+    DASS5_1            0.741      0.013     57.494      0.000
+    DASS7_1            0.782      0.011     71.080      0.000
+    DASS11_1           0.820      0.010     82.972      0.000
+    DASS13_1           0.751      0.012     60.416      0.000
+    DASS14_1           0.778      0.011     68.055      0.000
+
+ ANXIETY_ WITH
+    STRESS_1           0.944      0.007    128.370      0.000
+
+ Means
+    STRESS_1          -0.045      0.040     -1.117      0.264
+    ANXIETY_1          0.022      0.041      0.543      0.587
+
+ Thresholds
+    DASS1_1$1         -0.528      0.028    -18.752      0.000
+    DASS1_1$2          0.630      0.029     21.451      0.000
+    DASS1_1$3          1.467      0.041     35.385      0.000
+    DASS2_1$1          0.018      0.027      0.649      0.516
+    DASS2_1$2          0.901      0.032     28.513      0.000
+    DASS2_1$3          1.703      0.046     36.800      0.000
+    DASS3_1$1          0.169      0.028      6.083      0.000
+    DASS3_1$2          0.984      0.034     28.925      0.000
+    DASS3_1$3          1.657      0.047     35.167      0.000
+    DASS4_1$1         -0.708      0.029    -24.071      0.000
+    DASS4_1$2          0.370      0.028     13.180      0.000
+    DASS4_1$3          1.153      0.036     32.451      0.000
+    DASS5_1$1         -0.043      0.028     -1.546      0.122
+    DASS5_1$2          0.797      0.032     24.849      0.000
+    DASS5_1$3          1.474      0.042     34.688      0.000
+    DASS6_1$1         -0.450      0.029    -15.504      0.000
+    DASS6_1$2          0.541      0.030     17.961      0.000
+    DASS6_1$3          1.258      0.039     32.079      0.000
+    DASS7_1$1         -0.489      0.029    -16.772      0.000
+    DASS7_1$2          0.544      0.031     17.723      0.000
+    DASS7_1$3          1.253      0.039     32.089      0.000
+    DASS8_1$1         -0.590      0.030    -19.942      0.000
+    DASS8_1$2          0.474      0.030     16.072      0.000
+    DASS8_1$3          1.289      0.040     32.620      0.000
+    DASS9_1$1         -0.412      0.028    -14.560      0.000
+    DASS9_1$2          0.615      0.030     20.239      0.000
+    DASS9_1$3          1.361      0.041     33.488      0.000
+    DASS10_1$1        -0.611      0.028    -21.650      0.000
+    DASS10_1$2         0.504      0.028     17.822      0.000
+    DASS10_1$3         1.355      0.038     35.742      0.000
+    DASS11_1$1        -0.166      0.029     -5.810      0.000
+    DASS11_1$2         0.806      0.034     23.863      0.000
+    DASS11_1$3         1.548      0.046     33.432      0.000
+    DASS12_1$1        -0.516      0.029    -18.044      0.000
+    DASS12_1$2         0.498      0.029     17.036      0.000
+    DASS12_1$3         1.245      0.038     33.111      0.000
+    DASS13_1$1        -0.033      0.028     -1.202      0.229
+    DASS13_1$2         0.795      0.032     24.560      0.000
+    DASS13_1$3         1.435      0.042     33.875      0.000
+    DASS14_1$1         0.030      0.028      1.057      0.291
+    DASS14_1$2         0.893      0.034     26.348      0.000
+    DASS14_1$3         1.476      0.043     33.953      0.000
+
+ Variances
+    STRESS_1           1.000      0.000    999.000    999.000
+    ANXIETY_1          1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DASS1_1            0.493      0.018     26.967      0.000
+    DASS2_1            0.601      0.020     29.828      0.000
+    DASS3_1            0.479      0.020     23.940      0.000
+    DASS4_1            0.478      0.018     27.056      0.000
+    DASS5_1            0.450      0.019     23.557      0.000
+    DASS6_1            0.333      0.015     21.617      0.000
+    DASS7_1            0.389      0.017     22.621      0.000
+    DASS8_1            0.360      0.016     22.261      0.000
+    DASS9_1            0.393      0.017     23.781      0.000
+    DASS10_1           0.596      0.019     32.083      0.000
+    DASS11_1           0.327      0.016     20.167      0.000
+    DASS12_1           0.430      0.017     25.165      0.000
+    DASS13_1           0.435      0.019     23.294      0.000
+    DASS14_1           0.395      0.018     22.178      0.000
+
+
+R-SQUARE
+
+Group YOUNGER
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    DASS1_1            0.473      0.018     25.995      0.000      0.726
+    DASS2_1            0.375      0.019     19.265      0.000      0.791
+    DASS3_1            0.495      0.020     24.542      0.000      0.710
+    DASS4_1            0.488      0.017     28.090      0.000      0.716
+    DASS5_1            0.524      0.019     27.594      0.000      0.690
+    DASS6_1            0.636      0.016     39.622      0.000      0.603
+    DASS7_1            0.586      0.017     34.028      0.000      0.643
+    DASS8_1            0.608      0.016     37.307      0.000      0.626
+    DASS9_1            0.575      0.017     34.392      0.000      0.652
+    DASS10_1           0.372      0.017     21.400      0.000      0.792
+    DASS11_1           0.650      0.017     39.141      0.000      0.592
+    DASS12_1           0.537      0.017     31.157      0.000      0.680
+    DASS13_1           0.539      0.018     29.929      0.000      0.679
+    DASS14_1           0.581      0.018     31.758      0.000      0.648
+
+Group OLDER
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    DASS1_1            0.507      0.018     27.738      0.000      0.702
+    DASS2_1            0.399      0.020     19.827      0.000      0.775
+    DASS3_1            0.521      0.020     26.055      0.000      0.692
+    DASS4_1            0.522      0.018     29.500      0.000      0.692
+    DASS5_1            0.550      0.019     28.747      0.000      0.671
+    DASS6_1            0.667      0.015     43.233      0.000      0.577
+    DASS7_1            0.611      0.017     35.540      0.000      0.624
+    DASS8_1            0.640      0.016     39.496      0.000      0.600
+    DASS9_1            0.607      0.017     36.748      0.000      0.627
+    DASS10_1           0.404      0.019     21.784      0.000      0.772
+    DASS11_1           0.673      0.016     41.486      0.000      0.572
+    DASS12_1           0.570      0.017     33.399      0.000      0.656
+    DASS13_1           0.565      0.019     30.208      0.000      0.660
+    DASS14_1           0.605      0.018     34.027      0.000      0.628
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.664E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+Group YOUNGER
+
+
+ON/BY Statements
+
+DASS1_1  ON STRESS_1 /
+STRESS_1 BY DASS1_1               18.541    -0.058     -0.058       -0.042
+DASS1_1  ON ANXIETY_ /
+ANXIETY_ BY DASS1_1               21.664    -0.139     -0.139       -0.101
+DASS10_1 ON STRESS_1 /
+STRESS_1 BY DASS10_1              33.065     0.061      0.061        0.048
+DASS10_1 ON ANXIETY_ /
+ANXIETY_ BY DASS10_1              31.170     0.132      0.132        0.105
+
+ON Statements
+
+STRESS_1 ON DASS3_1               25.108    -0.105     -0.105       -0.148
+STRESS_1 ON DASS4_1               12.588     0.083      0.083        0.116
+STRESS_1 ON DASS7_1               49.010     0.135      0.135        0.209
+STRESS_1 ON DASS8_1               37.687    -0.155     -0.155       -0.248
+STRESS_1 ON DASS11_1              13.754     0.080      0.080        0.135
+STRESS_1 ON DASS13_1              13.816    -0.075     -0.075       -0.111
+STRESS_1 ON DASS14_1              10.630    -0.069     -0.069       -0.107
+ANXIETY_ ON DASS1_1               20.389    -0.088     -0.088       -0.122
+ANXIETY_ ON DASS3_1               20.567     0.116      0.116        0.163
+ANXIETY_ ON DASS4_1               13.688    -0.071     -0.071       -0.099
+ANXIETY_ ON DASS7_1               55.893    -0.187     -0.187       -0.291
+ANXIETY_ ON DASS8_1               29.415     0.109      0.109        0.174
+ANXIETY_ ON DASS11_1              15.538    -0.107     -0.107       -0.181
+ANXIETY_ ON DASS13_1              16.302     0.102      0.102        0.150
+DASS1_1  ON DASS3_1               14.329    -0.089     -0.089       -0.091
+DASS1_1  ON DASS5_1               17.314    -0.094     -0.094       -0.099
+DASS1_1  ON DASS6_1               17.089    -0.083     -0.083       -0.099
+DASS1_1  ON DASS7_1               22.305    -0.096     -0.096       -0.109
+DASS1_1  ON DASS8_1               22.670    -0.098     -0.098       -0.114
+DASS1_1  ON DASS11_1              20.857    -0.085     -0.085       -0.105
+DASS1_1  ON DASS12_1              15.119    -0.088     -0.088       -0.094
+DASS1_1  ON DASS13_1              28.785    -0.120     -0.120       -0.128
+DASS1_1  ON DASS14_1              23.499    -0.102     -0.102       -0.115
+DASS2_1  ON DASS3_1               19.730     0.091      0.091        0.101
+DASS3_1  ON DASS2_1               13.541     0.102      0.102        0.092
+DASS3_1  ON DASS12_1              10.914    -0.080     -0.080       -0.084
+DASS5_1  ON DASS5_1               10.436    -0.127     -0.127       -0.127
+DASS7_1  ON DASS8_1               58.348     0.155      0.155        0.159
+DASS7_1  ON DASS12_1              10.256     0.077      0.077        0.073
+DASS8_1  ON DASS7_1               48.267     0.149      0.149        0.146
+DASS10_1 ON DASS1_1               18.495     0.087      0.087        0.095
+DASS10_1 ON DASS2_1               19.158     0.099      0.099        0.100
+DASS10_1 ON DASS3_1               19.771     0.088      0.088        0.099
+DASS10_1 ON DASS4_1               40.222     0.121      0.121        0.134
+DASS10_1 ON DASS5_1               21.116     0.087      0.087        0.100
+DASS10_1 ON DASS6_1               26.202     0.083      0.083        0.108
+DASS10_1 ON DASS7_1               26.383     0.085      0.085        0.104
+DASS10_1 ON DASS8_1               27.503     0.087      0.087        0.111
+DASS10_1 ON DASS9_1               30.130     0.095      0.095        0.116
+DASS10_1 ON DASS11_1              28.836     0.081      0.081        0.108
+DASS10_1 ON DASS12_1              29.347     0.098      0.098        0.114
+DASS10_1 ON DASS13_1              21.306     0.084      0.084        0.098
+DASS10_1 ON DASS14_1              29.277     0.092      0.092        0.112
+DASS11_1 ON DASS12_1              21.920     0.123      0.123        0.107
+
+WITH Statements
+
+DASS1_1  WITH ANXIETY_            20.382    -0.088     -0.088       -0.088
+DASS3_1  WITH STRESS_1            25.132    -0.105     -0.105       -0.105
+DASS3_1  WITH ANXIETY_            20.578     0.116      0.116        0.116
+DASS3_1  WITH DASS2_1             45.327     0.267      0.267        0.267
+DASS4_1  WITH STRESS_1            12.568     0.083      0.083        0.083
+DASS4_1  WITH ANXIETY_            13.682    -0.071     -0.071       -0.071
+DASS7_1  WITH STRESS_1            48.971     0.135      0.135        0.135
+DASS7_1  WITH ANXIETY_            55.870    -0.187     -0.187       -0.187
+DASS8_1  WITH STRESS_1            37.734    -0.155     -0.155       -0.155
+DASS8_1  WITH ANXIETY_            29.426     0.109      0.109        0.109
+DASS8_1  WITH DASS7_1            107.811     0.393      0.393        0.393
+DASS10_1 WITH DASS4_1             13.615     0.133      0.133        0.133
+DASS11_1 WITH STRESS_1            13.728     0.080      0.080        0.080
+DASS11_1 WITH ANXIETY_            15.523    -0.107     -0.107       -0.107
+DASS12_1 WITH DASS11_1            36.230     0.257      0.257        0.257
+DASS13_1 WITH STRESS_1            13.835    -0.075     -0.075       -0.075
+DASS13_1 WITH ANXIETY_            16.313     0.102      0.102        0.102
+DASS13_1 WITH DASS1_1             12.631    -0.176     -0.176       -0.176
+DASS13_1 WITH DASS3_1             10.369     0.141      0.141        0.141
+DASS14_1 WITH STRESS_1            10.649    -0.069     -0.069       -0.069
+DASS14_1 WITH DASS13_1            10.941     0.147      0.147        0.147
+
+Variances/Residual Variances
+
+DASS1_1                           19.646     0.277      0.277        0.146
+DASS10_1                          18.476    -0.244     -0.244       -0.153
+
+Means/Intercepts/Thresholds
+
+[ DASS5_1  ]                      20.081    -0.214     -0.214       -0.147
+[ DASS6_1  ]                      20.437    -0.242     -0.242       -0.146
+[ DASS6_1$ ]                      19.437     0.155      0.155        0.094
+
+Group OLDER
+
+
+ON/BY Statements
+
+DASS1_1  ON STRESS_1 /
+STRESS_1 BY DASS1_1               18.554     0.077      0.082        0.058
+DASS1_1  ON ANXIETY_ /
+ANXIETY_ BY DASS1_1               14.776     0.115      0.122        0.085
+DASS10_1 ON STRESS_1 /
+STRESS_1 BY DASS10_1              33.076    -0.080     -0.086       -0.066
+DASS10_1 ON ANXIETY_ /
+ANXIETY_ BY DASS10_1              32.564    -0.136     -0.144       -0.111
+
+ON Statements
+
+STRESS_1 ON DASS3_1               10.616    -0.073     -0.068       -0.098
+STRESS_1 ON DASS4_1               23.102     0.121      0.113        0.163
+STRESS_1 ON DASS7_1               17.705     0.086      0.081        0.129
+ANXIETY_ ON DASS3_1               24.291     0.133      0.126        0.182
+ANXIETY_ ON DASS4_1               13.112    -0.073     -0.070       -0.101
+ANXIETY_ ON DASS7_1               38.246    -0.162     -0.154       -0.246
+ANXIETY_ ON DASS11_1              12.751    -0.101     -0.096       -0.168
+ANXIETY_ ON DASS13_1              12.056     0.092      0.087        0.132
+DASS1_1  ON DASS4_1               32.564     0.135      0.135        0.137
+DASS1_1  ON DASS5_1               10.422     0.074      0.074        0.078
+DASS1_1  ON DASS6_1               18.512     0.087      0.087        0.106
+DASS1_1  ON DASS7_1               13.743     0.077      0.077        0.087
+DASS1_1  ON DASS8_1               18.389     0.090      0.090        0.105
+DASS1_1  ON DASS9_1               26.256     0.110      0.110        0.124
+DASS1_1  ON DASS11_1              10.627     0.062      0.062        0.076
+DASS1_1  ON DASS12_1              11.091     0.077      0.077        0.083
+DASS1_1  ON DASS14_1              14.338     0.081      0.081        0.091
+DASS3_1  ON DASS2_1               27.331     0.149      0.149        0.133
+DASS4_1  ON DASS1_1               10.919     0.081      0.081        0.080
+DASS5_1  ON DASS5_1               10.437     0.127      0.127        0.127
+DASS5_1  ON DASS10_1              10.146    -0.095     -0.095       -0.083
+DASS6_1  ON DASS7_1               10.072     0.084      0.084        0.078
+DASS7_1  ON DASS2_1               12.801    -0.121     -0.121       -0.098
+DASS7_1  ON DASS5_1               13.119    -0.104     -0.104       -0.097
+DASS10_1 ON DASS1_1               31.056    -0.115     -0.115       -0.127
+DASS10_1 ON DASS2_1               26.203    -0.119     -0.119       -0.118
+DASS10_1 ON DASS3_1               34.549    -0.119     -0.119       -0.133
+DASS10_1 ON DASS5_1               41.413    -0.124     -0.124       -0.142
+DASS10_1 ON DASS6_1               31.977    -0.093     -0.093       -0.124
+DASS10_1 ON DASS7_1               20.882    -0.077     -0.077       -0.095
+DASS10_1 ON DASS8_1               40.505    -0.108     -0.108       -0.139
+DASS10_1 ON DASS9_1               21.608    -0.082     -0.082       -0.101
+DASS10_1 ON DASS11_1              23.265    -0.074     -0.074       -0.100
+DASS10_1 ON DASS12_1              32.884    -0.106     -0.106       -0.125
+DASS10_1 ON DASS13_1              22.086    -0.087     -0.087       -0.102
+DASS10_1 ON DASS14_1              29.010    -0.093     -0.093       -0.114
+DASS14_1 ON DASS13_1              13.824     0.101      0.101        0.096
+
+WITH Statements
+
+DASS3_1  WITH STRESS_1            10.597    -0.073     -0.068       -0.068
+DASS3_1  WITH ANXIETY_            24.303     0.133      0.126        0.126
+DASS3_1  WITH DASS2_1             36.810     0.252      0.252        0.252
+DASS4_1  WITH STRESS_1            23.132     0.121      0.113        0.113
+DASS4_1  WITH ANXIETY_            13.106    -0.073     -0.070       -0.070
+DASS4_1  WITH DASS1_1             20.090     0.189      0.189        0.189
+DASS5_1  WITH DASS3_1             10.162     0.154      0.154        0.154
+DASS7_1  WITH STRESS_1            17.731     0.086      0.081        0.081
+DASS7_1  WITH ANXIETY_            38.227    -0.162     -0.154       -0.154
+DASS7_1  WITH DASS2_1             12.524    -0.176     -0.176       -0.176
+DASS7_1  WITH DASS5_1             17.575    -0.222     -0.222       -0.222
+DASS9_1  WITH DASS1_1             12.810     0.165      0.165        0.165
+DASS10_1 WITH DASS4_1             10.546     0.125      0.125        0.125
+DASS10_1 WITH DASS5_1             16.250    -0.193     -0.193       -0.193
+DASS10_1 WITH DASS8_1             14.407    -0.172     -0.172       -0.172
+DASS11_1 WITH ANXIETY_            12.738    -0.101     -0.096       -0.096
+DASS11_1 WITH DASS5_1             12.833    -0.197     -0.197       -0.197
+DASS13_1 WITH ANXIETY_            12.066     0.092      0.087        0.087
+DASS13_1 WITH DASS3_1             12.035     0.160      0.160        0.160
+DASS13_1 WITH DASS7_1             11.316    -0.175     -0.175       -0.175
+DASS14_1 WITH DASS13_1            14.975     0.182      0.182        0.182
+
+Variances/Residual Variances
+
+DASS1_1                           19.653    -0.277     -0.277       -0.137
+DASS10_1                          18.474     0.244      0.244        0.146
+
+Means/Intercepts/Thresholds
+
+[ DASS5_1  ]                      20.100     0.214      0.214        0.144
+[ DASS6_1  ]                      20.428     0.242      0.242        0.140
+[ DASS6_1$ ]                      19.430    -0.197     -0.197       -0.114
+
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    dass1_student_age_inv_scalar.dat
+  Save format      Free
+
+     Beginning Time:  15:46:47
+        Ending Time:  15:46:48
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

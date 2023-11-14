@@ -1,0 +1,444 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/28/2023  11:00 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Sleep Baseline CFA;
+
+  Data:
+     File is ../dat_stu_1.txt;
+
+  Variable:
+     Names are studentid index treatment girl age_w child_grade in_ukr
+     guardian_living guardian_region
+     grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1
+     loc1_1 loc2_1 loc3_1 loc4_1
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1
+     dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1
+     sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1
+     edugoals_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1;
+
+    Categorical is
+  	sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1;
+
+    Idvariable is studentid;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    sleep_1 by
+      sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1;
+
+    sleep1_1 with sleep2_1;
+    sleep1_1 with sleep3_1;
+    sleep2_1 with sleep3_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Student Sleep Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1383
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SLEEP1_1    SLEEP2_1    SLEEP3_1    SLEEP4_1    SLEEP5_1    SLEEP6_1
+   SLEEP7_1
+
+Continuous latent variables
+   SLEEP_1
+
+Variables with special functions
+
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_1.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1       1.000
+ SLEEP2_1       1.000         1.000
+ SLEEP3_1       1.000         1.000         1.000
+ SLEEP4_1       1.000         1.000         1.000         1.000
+ SLEEP5_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP6_1       1.000         1.000         1.000         1.000         1.000
+ SLEEP7_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP6_1       1.000
+ SLEEP7_1       1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SLEEP1_1
+      Category 1    0.272          376.000
+      Category 2    0.411          568.000
+      Category 3    0.210          290.000
+      Category 4    0.089          123.000
+      Category 5    0.019           26.000
+    SLEEP2_1
+      Category 1    0.380          526.000
+      Category 2    0.364          503.000
+      Category 3    0.183          253.000
+      Category 4    0.061           84.000
+      Category 5    0.012           17.000
+    SLEEP3_1
+      Category 1    0.450          622.000
+      Category 2    0.356          493.000
+      Category 3    0.145          201.000
+      Category 4    0.039           54.000
+      Category 5    0.009           13.000
+    SLEEP4_1
+      Category 1    0.156          216.000
+      Category 2    0.346          479.000
+      Category 3    0.356          492.000
+      Category 4    0.114          157.000
+      Category 5    0.028           39.000
+    SLEEP5_1
+      Category 1    0.528          730.000
+      Category 2    0.304          420.000
+      Category 3    0.131          181.000
+      Category 4    0.023           32.000
+      Category 5    0.014           20.000
+    SLEEP6_1
+      Category 1    0.700          968.000
+      Category 2    0.228          316.000
+      Category 3    0.057           79.000
+      Category 4    0.009           13.000
+      Category 5    0.005            7.000
+    SLEEP7_1
+      Category 1    0.475          657.000
+      Category 2    0.328          453.000
+      Category 3    0.133          184.000
+      Category 4    0.050           69.000
+      Category 5    0.014           20.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP1_1      SLEEP2_1
+              ________      ________      ________      ________      ________
+               -0.607         0.475         1.239         2.079        -0.305
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP2_1      SLEEP2_1      SLEEP2_1      SLEEP3_1      SLEEP3_1
+              ________      ________      ________      ________      ________
+                0.656         1.454         2.248        -0.126         0.864
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP3_1      SLEEP3_1      SLEEP4_1      SLEEP4_1      SLEEP4_1
+              ________      ________      ________      ________      ________
+                1.660         2.349        -1.010         0.006         1.073
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP4_1      SLEEP5_1      SLEEP5_1      SLEEP5_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+                1.908         0.070         0.960         1.779         2.185
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP6_1      SLEEP7_1
+              ________      ________      ________      ________      ________
+                0.524         1.464         2.185         2.572        -0.063
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SLEEP7_1      SLEEP7_1      SLEEP7_1
+              ________      ________      ________
+                0.851         1.519         2.185
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP1_1      SLEEP2_1      SLEEP3_1      SLEEP4_1      SLEEP5_1
+              ________      ________      ________      ________      ________
+ SLEEP1_1
+ SLEEP2_1       0.796
+ SLEEP3_1       0.517         0.614
+ SLEEP4_1       0.508         0.572         0.380
+ SLEEP5_1       0.472         0.514         0.381         0.457
+ SLEEP6_1       0.503         0.579         0.426         0.549         0.570
+ SLEEP7_1       0.507         0.546         0.404         0.566         0.525
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SLEEP6_1      SLEEP7_1
+              ________      ________
+ SLEEP7_1       0.679
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       38
+
+Chi-Square Test of Model Fit
+
+          Value                             47.818*
+          Degrees of Freedom                    11
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.049
+          90 Percent C.I.                    0.035  0.064
+          Probability RMSEA <= .05           0.508
+
+CFI/TLI
+
+          CFI                                0.996
+          TLI                                0.993
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9464.110
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.014
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.79771313D-02
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SLEEP_1  BY
+    SLEEP1_1           1.000      0.000    999.000    999.000
+    SLEEP2_1           1.110      0.029     38.898      0.000
+    SLEEP3_1           0.794      0.038     21.146      0.000
+    SLEEP4_1           1.083      0.040     27.197      0.000
+    SLEEP5_1           1.023      0.042     24.318      0.000
+    SLEEP6_1           1.211      0.041     29.750      0.000
+    SLEEP7_1           1.171      0.040     28.999      0.000
+
+ SLEEP1_1 WITH
+    SLEEP2_1           0.301      0.020     14.896      0.000
+    SLEEP3_1           0.163      0.024      6.887      0.000
+
+ SLEEP2_1 WITH
+    SLEEP3_1           0.221      0.023      9.636      0.000
+
+ Thresholds
+    SLEEP1_1$1        -0.607      0.036    -16.838      0.000
+    SLEEP1_1$2         0.475      0.035     13.523      0.000
+    SLEEP1_1$3         1.239      0.045     27.522      0.000
+    SLEEP1_1$4         2.079      0.080     26.153      0.000
+    SLEEP2_1$1        -0.305      0.034     -8.887      0.000
+    SLEEP2_1$2         0.656      0.036     17.982      0.000
+    SLEEP2_1$3         1.454      0.050     28.818      0.000
+    SLEEP2_1$4         2.248      0.093     24.195      0.000
+    SLEEP3_1$1        -0.126      0.034     -3.737      0.000
+    SLEEP3_1$2         0.864      0.039     22.328      0.000
+    SLEEP3_1$3         1.660      0.057     28.918      0.000
+    SLEEP3_1$4         2.349      0.103     22.862      0.000
+    SLEEP4_1$1        -1.010      0.041    -24.785      0.000
+    SLEEP4_1$2         0.006      0.034      0.188      0.851
+    SLEEP4_1$3         1.073      0.042     25.669      0.000
+    SLEEP4_1$4         1.908      0.069     27.702      0.000
+    SLEEP5_1$1         0.070      0.034      2.070      0.038
+    SLEEP5_1$2         0.960      0.040     24.003      0.000
+    SLEEP5_1$3         1.779      0.062     28.501      0.000
+    SLEEP5_1$4         2.185      0.087     24.973      0.000
+    SLEEP6_1$1         0.524      0.035     14.791      0.000
+    SLEEP6_1$2         1.464      0.051     28.850      0.000
+    SLEEP6_1$3         2.185      0.087     24.973      0.000
+    SLEEP6_1$4         2.572      0.131     19.700      0.000
+    SLEEP7_1$1        -0.063      0.034     -1.855      0.064
+    SLEEP7_1$2         0.851      0.039     22.083      0.000
+    SLEEP7_1$3         1.519      0.052     28.968      0.000
+    SLEEP7_1$4         2.185      0.087     24.973      0.000
+
+ Variances
+    SLEEP_1            0.446      0.026     16.845      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SLEEP_1  BY
+    SLEEP1_1           0.668      0.020     33.691      0.000
+    SLEEP2_1           0.741      0.018     41.878      0.000
+    SLEEP3_1           0.530      0.025     20.836      0.000
+    SLEEP4_1           0.723      0.017     43.083      0.000
+    SLEEP5_1           0.683      0.021     31.845      0.000
+    SLEEP6_1           0.808      0.017     47.374      0.000
+    SLEEP7_1           0.782      0.016     49.004      0.000
+
+ SLEEP1_1 WITH
+    SLEEP2_1           0.603      0.020     30.865      0.000
+    SLEEP3_1           0.258      0.034      7.620      0.000
+
+ SLEEP2_1 WITH
+    SLEEP3_1           0.389      0.032     12.067      0.000
+
+ Thresholds
+    SLEEP1_1$1        -0.607      0.036    -16.838      0.000
+    SLEEP1_1$2         0.475      0.035     13.523      0.000
+    SLEEP1_1$3         1.239      0.045     27.522      0.000
+    SLEEP1_1$4         2.079      0.080     26.153      0.000
+    SLEEP2_1$1        -0.305      0.034     -8.887      0.000
+    SLEEP2_1$2         0.656      0.036     17.982      0.000
+    SLEEP2_1$3         1.454      0.050     28.818      0.000
+    SLEEP2_1$4         2.248      0.093     24.195      0.000
+    SLEEP3_1$1        -0.126      0.034     -3.737      0.000
+    SLEEP3_1$2         0.864      0.039     22.328      0.000
+    SLEEP3_1$3         1.660      0.057     28.918      0.000
+    SLEEP3_1$4         2.349      0.103     22.862      0.000
+    SLEEP4_1$1        -1.010      0.041    -24.785      0.000
+    SLEEP4_1$2         0.006      0.034      0.188      0.851
+    SLEEP4_1$3         1.073      0.042     25.669      0.000
+    SLEEP4_1$4         1.908      0.069     27.702      0.000
+    SLEEP5_1$1         0.070      0.034      2.070      0.038
+    SLEEP5_1$2         0.960      0.040     24.003      0.000
+    SLEEP5_1$3         1.779      0.062     28.501      0.000
+    SLEEP5_1$4         2.185      0.087     24.973      0.000
+    SLEEP6_1$1         0.524      0.035     14.791      0.000
+    SLEEP6_1$2         1.464      0.051     28.850      0.000
+    SLEEP6_1$3         2.185      0.087     24.973      0.000
+    SLEEP6_1$4         2.572      0.131     19.700      0.000
+    SLEEP7_1$1        -0.063      0.034     -1.855      0.064
+    SLEEP7_1$2         0.851      0.039     22.083      0.000
+    SLEEP7_1$3         1.519      0.052     28.968      0.000
+    SLEEP7_1$4         2.185      0.087     24.973      0.000
+
+ Variances
+    SLEEP_1            1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    SLEEP1_1           0.446      0.026     16.845      0.000      0.554
+    SLEEP2_1           0.549      0.026     20.939      0.000      0.451
+    SLEEP3_1           0.281      0.027     10.418      0.000      0.719
+    SLEEP4_1           0.523      0.024     21.541      0.000      0.477
+    SLEEP5_1           0.466      0.029     15.922      0.000      0.534
+    SLEEP6_1           0.653      0.028     23.687      0.000      0.347
+    SLEEP7_1           0.612      0.025     24.502      0.000      0.388
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.146E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON Statements
+
+SLEEP2_1 ON SLEEP4_1              13.540     0.070      0.070        0.070
+SLEEP4_1 ON SLEEP1_1              13.355     0.073      0.073        0.073
+SLEEP4_1 ON SLEEP2_1              21.510     0.093      0.093        0.093
+SLEEP6_1 ON SLEEP7_1              22.543     0.097      0.097        0.097
+SLEEP7_1 ON SLEEP2_1              14.072    -0.083     -0.083       -0.083
+SLEEP7_1 ON SLEEP6_1              22.531     0.097      0.097        0.097
+
+WITH Statements
+
+SLEEP4_1 WITH SLEEP2_1            13.544     0.070      0.070        0.150
+SLEEP7_1 WITH SLEEP6_1            22.533     0.097      0.097        0.264
+
+
+     Beginning Time:  23:00:40
+        Ending Time:  23:00:41
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

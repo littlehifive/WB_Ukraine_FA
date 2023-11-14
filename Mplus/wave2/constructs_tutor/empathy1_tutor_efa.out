@@ -1,0 +1,939 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/30/2023   8:47 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Empathy Baseline EFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+    empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+    Categorical is
+  	empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+    empathy6_1 empathy7_1 empathy8_1 empathy9_1;
+
+    Useobservations is half eq 1;
+
+  Analysis:
+     Type = efa 1 3;
+     Estimator = wlsmv;
+
+  Output: sampstat stdy modindices(all);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=EFA.
+  Request for STANDARDIZED options will be ignored.  Note that STANDARDIZED options
+  are available with the use of EFA factors (ESEM) declared in the MODEL command.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Tutor Empathy Baseline EFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         174
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   EMPATHY1    EMPATHY2    EMPATHY3    EMPATHY4    EMPATHY5    EMPATHY6
+   EMPATHY7    EMPATHY8    EMPATHY9
+
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       1.000
+ EMPATHY2       1.000         1.000
+ EMPATHY3       1.000         1.000         1.000
+ EMPATHY4       0.994         0.994         0.994         0.994
+ EMPATHY5       1.000         1.000         1.000         0.994         1.000
+ EMPATHY6       1.000         1.000         1.000         0.994         1.000
+ EMPATHY7       1.000         1.000         1.000         0.994         1.000
+ EMPATHY8       1.000         1.000         1.000         0.994         1.000
+ EMPATHY9       1.000         1.000         1.000         0.994         1.000
+
+
+           Covariance Coverage
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       1.000
+ EMPATHY7       1.000         1.000
+ EMPATHY8       1.000         1.000         1.000
+ EMPATHY9       1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    EMPATHY1
+      Category 1    0.011            2.000
+      Category 2    0.115           20.000
+      Category 3    0.615          107.000
+      Category 4    0.259           45.000
+    EMPATHY2
+      Category 1    0.017            3.000
+      Category 2    0.374           65.000
+      Category 3    0.534           93.000
+      Category 4    0.075           13.000
+    EMPATHY3
+      Category 1    0.006            1.000
+      Category 2    0.178           31.000
+      Category 3    0.632          110.000
+      Category 4    0.184           32.000
+    EMPATHY4
+      Category 1    0.081           14.000
+      Category 2    0.561           97.000
+      Category 3    0.358           62.000
+    EMPATHY5
+      Category 1    0.011            2.000
+      Category 2    0.069           12.000
+      Category 3    0.644          112.000
+      Category 4    0.276           48.000
+    EMPATHY6
+      Category 1    0.023            4.000
+      Category 2    0.345           60.000
+      Category 3    0.523           91.000
+      Category 4    0.109           19.000
+    EMPATHY7
+      Category 1    0.075           13.000
+      Category 2    0.454           79.000
+      Category 3    0.402           70.000
+      Category 4    0.069           12.000
+    EMPATHY8
+      Category 1    0.011            2.000
+      Category 2    0.184           32.000
+      Category 3    0.684          119.000
+      Category 4    0.121           21.000
+    EMPATHY9
+      Category 1    0.040            7.000
+      Category 2    0.299           52.000
+      Category 3    0.586          102.000
+      Category 4    0.075           13.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY1      EMPATHY1      EMPATHY1      EMPATHY2      EMPATHY2
+              ________      ________      ________      ________      ________
+               -2.274        -1.143         0.648        -2.114        -0.277
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY2      EMPATHY3      EMPATHY3      EMPATHY3      EMPATHY4
+              ________      ________      ________      ________      ________
+                1.442        -2.527        -0.901         0.901        -1.399
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY4      EMPATHY5      EMPATHY5      EMPATHY5      EMPATHY6
+              ________      ________      ________      ________      ________
+                0.363        -2.274        -1.402         0.595        -1.996
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY6      EMPATHY6      EMPATHY7      EMPATHY7      EMPATHY7
+              ________      ________      ________      ________      ________
+               -0.338         1.231        -1.442         0.072         1.484
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY8      EMPATHY8      EMPATHY8      EMPATHY9      EMPATHY9
+              ________      ________      ________      ________      ________
+               -2.274        -0.858         1.172        -1.748        -0.415
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              EMPATHY9
+              ________
+                1.442
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1
+ EMPATHY2       0.167
+ EMPATHY3       0.461         0.153
+ EMPATHY4       0.555         0.230         0.312
+ EMPATHY5       0.405         0.250         0.457         0.700
+ EMPATHY6       0.532         0.220         0.649         0.400         0.570
+ EMPATHY7       0.353         0.283         0.469         0.305         0.512
+ EMPATHY8       0.380         0.110         0.498         0.369         0.300
+ EMPATHY9       0.447         0.173         0.420         0.261         0.330
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY7       0.618
+ EMPATHY8       0.527         0.638
+ EMPATHY9       0.468         0.678         0.729
+
+
+     WARNING:  IN EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S)
+     THE CONDITION NUMBER OF THE ROTATED SOLUTION IS 0.117D-09.
+     THE OPTIMAL ROTATION MAY BE POORLY IDENTIFIED.
+     CHANGING THE ROTATION METHOD MAY RESOLVE THIS PROBLEM.
+
+
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor           9            128.159        27       0.0000
+     2-factor          17             50.304        19       0.0001
+     3-factor          24             18.422        12       0.1035
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor        66.212         8       0.0000
+     2-factor against 3-factor        32.816         7       0.0000
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+                4.444         1.208         0.928         0.706         0.637
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6             7             8             9
+              ________      ________      ________      ________
+                0.415         0.312         0.223         0.126
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        9
+
+Chi-Square Test of Model Fit
+
+          Value                            128.159*
+          Degrees of Freedom                    27
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.147
+          90 Percent C.I.                    0.122  0.173
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.913
+          TLI                                0.884
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1195.747
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.115
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       4.23272
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ EMPATHY1       0.623*
+ EMPATHY2       0.261*
+ EMPATHY3       0.664*
+ EMPATHY4       0.676*
+ EMPATHY5       0.710*
+ EMPATHY6       0.779*
+ EMPATHY7       0.777*
+ EMPATHY8       0.764*
+ EMPATHY9       0.760*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                0.612         0.932         0.559         0.543         0.496
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                0.393         0.396         0.416         0.422
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ EMPATHY1       0.053
+ EMPATHY2       0.063
+ EMPATHY3       0.050
+ EMPATHY4       0.049
+ EMPATHY5       0.049
+ EMPATHY6       0.042
+ EMPATHY7       0.040
+ EMPATHY8       0.036
+ EMPATHY9       0.041
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                0.066         0.033         0.067         0.066         0.069
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                0.066         0.062         0.055         0.062
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ EMPATHY1      11.814
+ EMPATHY2       4.119
+ EMPATHY3      13.263
+ EMPATHY4      13.931
+ EMPATHY5      14.617
+ EMPATHY6      18.335
+ EMPATHY7      19.542
+ EMPATHY8      21.066
+ EMPATHY9      18.585
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                9.313        28.267         8.399         8.262         7.180
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                5.935         6.415         7.498         6.788
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       17
+
+Chi-Square Test of Model Fit
+
+          Value                             50.304*
+          Degrees of Freedom                    19
+          P-Value                           0.0001
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.097
+          90 Percent C.I.                    0.065  0.130
+          Probability RMSEA <= .05           0.010
+
+CFI/TLI
+
+          CFI                                0.973
+          TLI                                0.949
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1195.747
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.061
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.83582
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ EMPATHY1       0.489*        0.235*
+ EMPATHY2       0.256*        0.071
+ EMPATHY3       0.358*        0.422*
+ EMPATHY4       0.908*       -0.133
+ EMPATHY5       0.796*        0.019
+ EMPATHY6       0.464*        0.456*
+ EMPATHY7       0.184         0.688*
+ EMPATHY8       0.005         0.820*
+ EMPATHY9      -0.073         0.898*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.499*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                0.592         0.912         0.543         0.279         0.352
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                0.365         0.366         0.323         0.254
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ EMPATHY1       0.095         0.114
+ EMPATHY2       0.101         0.083
+ EMPATHY3       0.099         0.089
+ EMPATHY4       0.088         0.098
+ EMPATHY5       0.082         0.069
+ EMPATHY6       0.109         0.111
+ EMPATHY7       0.100         0.081
+ EMPATHY8       0.006         0.044
+ EMPATHY9       0.116         0.091
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.076         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                0.066         0.045         0.068         0.100         0.090
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                0.067         0.066         0.072         0.085
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ EMPATHY1       5.156         2.060
+ EMPATHY2       2.541         0.854
+ EMPATHY3       3.601         4.748
+ EMPATHY4      10.293        -1.353
+ EMPATHY5       9.750         0.274
+ EMPATHY6       4.257         4.128
+ EMPATHY7       1.830         8.457
+ EMPATHY8       0.849        18.490
+ EMPATHY9      -0.625         9.848
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         6.564         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                8.988        20.419         7.951         2.797         3.907
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                5.454         5.542         4.476         2.990
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ EMPATHY1       0.606         0.478
+ EMPATHY2       0.291         0.198
+ EMPATHY3       0.569         0.601
+ EMPATHY4       0.842         0.320
+ EMPATHY5       0.805         0.416
+ EMPATHY6       0.692         0.688
+ EMPATHY7       0.527         0.780
+ EMPATHY8       0.415         0.823
+ EMPATHY9       0.375         0.862
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       24
+
+Chi-Square Test of Model Fit
+
+          Value                             18.422*
+          Degrees of Freedom                    12
+          P-Value                           0.1035
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.055
+          90 Percent C.I.                    0.000  0.103
+          Probability RMSEA <= .05           0.383
+
+CFI/TLI
+
+          CFI                                0.994
+          TLI                                0.983
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1195.747
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.036
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.17351
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+ EMPATHY1       0.046         0.516*        0.115
+ EMPATHY2       0.014         0.283*       -0.001
+ EMPATHY3      -0.017         0.653*        0.094
+ EMPATHY4       5.038         0.000         0.000
+ EMPATHY5       0.064         0.707*       -0.064
+ EMPATHY6      -0.020         0.885*        0.007
+ EMPATHY7      -0.011         0.369*        0.519*
+ EMPATHY8       0.017         0.105         0.750*
+ EMPATHY9      -0.001        -0.015         0.912*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+      1         1.000
+      2         0.112         1.000
+      3         0.060         0.621*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                0.639         0.919         0.491       -24.381         0.539
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                0.213         0.359         0.328         0.185
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ EMPATHY1       0.351         0.170         0.138
+ EMPATHY2       0.135         0.128         0.104
+ EMPATHY3       0.032         0.135         0.171
+ EMPATHY4      27.377         0.000         0.002
+ EMPATHY5       0.490         0.182         0.161
+ EMPATHY6       0.060         0.061         0.086
+ EMPATHY7       0.020         0.112         0.113
+ EMPATHY8       0.082         0.155         0.131
+ EMPATHY9       0.048         0.022         0.048
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.427         0.000
+      3         0.367         0.107         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                0.068         0.044         0.073       275.844         0.100
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                0.095         0.065         0.075         0.103
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ EMPATHY1       0.130         3.038         0.829
+ EMPATHY2       0.104         2.216        -0.011
+ EMPATHY3      -0.526         4.851         0.550
+ EMPATHY4       0.184         0.202         0.056
+ EMPATHY5       0.130         3.883        -0.401
+ EMPATHY6      -0.334        14.503         0.081
+ EMPATHY7      -0.579         3.292         4.592
+ EMPATHY8       0.201         0.676         5.733
+ EMPATHY9      -0.015        -0.690        18.979
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.262         0.000
+      3         0.162         5.816         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+                9.346        20.845         6.726        -0.088         5.375
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+                2.239         5.517         4.369         1.802
+
+
+           FACTOR STRUCTURE
+                  1             2             3
+              ________      ________      ________
+ EMPATHY1       0.110         0.592         0.438
+ EMPATHY2       0.046         0.284         0.176
+ EMPATHY3       0.062         0.709         0.498
+ EMPATHY4       5.038         0.563         0.301
+ EMPATHY5       0.139         0.674         0.378
+ EMPATHY6       0.079         0.887         0.555
+ EMPATHY7       0.061         0.690         0.747
+ EMPATHY8       0.073         0.572         0.816
+ EMPATHY9       0.052         0.551         0.902
+
+
+MODIFICATION INDICES
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 1 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       0.000
+ EMPATHY2       0.004         0.000
+ EMPATHY3       0.491         0.108         0.000
+ EMPATHY4       9.620         0.547         3.785         0.000
+ EMPATHY5       0.736         0.825         0.079        43.460         0.000
+ EMPATHY6       0.838         0.072        10.941         3.990         0.103
+ EMPATHY7       4.848         2.242         0.925         8.480         0.486
+ EMPATHY8       1.927         4.143         0.036         5.623        12.873
+ EMPATHY9       0.208         0.223         1.892        12.084        10.632
+
+
+           THETA
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       0.000
+ EMPATHY7       0.099         0.000
+ EMPATHY8       1.488         2.054         0.000
+ EMPATHY9       4.883         5.638        26.499         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       0.000
+ EMPATHY2       0.005         0.000
+ EMPATHY3       0.057        -0.023         0.000
+ EMPATHY4       0.196         0.059        -0.165         0.000
+ EMPATHY5      -0.055         0.072        -0.020         0.394         0.000
+ EMPATHY6       0.065         0.019         0.212        -0.165         0.023
+ EMPATHY7      -0.168         0.098        -0.067        -0.266        -0.053
+ EMPATHY8      -0.117        -0.118        -0.013        -0.190        -0.303
+ EMPATHY9      -0.035        -0.031        -0.108        -0.308        -0.267
+
+
+           THETA
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       0.000
+ EMPATHY7       0.021         0.000
+ EMPATHY8      -0.095         0.088         0.000
+ EMPATHY9      -0.171         0.154         0.308         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 2 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       0.000
+ EMPATHY2       0.124         0.000
+ EMPATHY3       0.584         0.481         0.000
+ EMPATHY4       9.429         0.027         6.586         0.000
+ EMPATHY5      10.697         0.088         0.037         7.070         0.000
+ EMPATHY6       0.623         0.014        11.690        10.932         0.032
+ EMPATHY7       3.509         4.514         1.572         1.736         3.969
+ EMPATHY8       0.092         2.801         0.004         8.734         1.024
+ EMPATHY9       2.205         0.162         2.995         0.810         0.153
+
+
+           THETA
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       0.000
+ EMPATHY7       0.295         0.000
+ EMPATHY8       0.942         0.073         0.000
+ EMPATHY9       6.027         0.789         3.916         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       0.000
+ EMPATHY2      -0.025         0.000
+ EMPATHY3       0.053        -0.041         0.000
+ EMPATHY4       0.262        -0.014        -0.222         0.000
+ EMPATHY5      -0.245         0.023        -0.014         0.406         0.000
+ EMPATHY6       0.049        -0.007         0.189        -0.294         0.013
+ EMPATHY7      -0.128         0.120        -0.077        -0.120         0.152
+ EMPATHY8      -0.023        -0.092         0.004         0.300        -0.090
+ EMPATHY9       0.113         0.025        -0.131         0.105         0.038
+
+
+           THETA
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       0.000
+ EMPATHY7       0.033         0.000
+ EMPATHY8      -0.070        -0.022         0.000
+ EMPATHY9      -0.185         0.082         0.233         0.000
+
+
+     MODIFICATION INDICES FOR ANALYSIS WITH 3 FACTOR(S)
+
+
+
+     MODIFICATION INDICES
+
+
+           THETA
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       0.000
+ EMPATHY2       0.001         0.000
+ EMPATHY3       0.530         1.110         0.000
+ EMPATHY4       0.352         0.139         0.045         0.000
+ EMPATHY5       0.293         1.159         0.308         0.407         0.000
+ EMPATHY6       0.080         0.620         1.915         1.997         1.553
+ EMPATHY7       3.959         4.071         1.891         0.710         2.875
+ EMPATHY8       0.061         2.844         2.296         3.585         1.592
+ EMPATHY9       2.622         0.230         0.362         1.136         0.017
+
+
+           THETA
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       0.000
+ EMPATHY7       0.026         0.000
+ EMPATHY8       0.231         0.763         0.000
+ EMPATHY9       0.681         1.743         7.422         0.000
+
+
+     EXPECTED PARAMETER CHANGE
+
+
+           THETA
+              EMPATHY1      EMPATHY2      EMPATHY3      EMPATHY4      EMPATHY5
+              ________      ________      ________      ________      ________
+ EMPATHY1       0.000
+ EMPATHY2      -0.002         0.000
+ EMPATHY3       0.057        -0.067         0.000
+ EMPATHY4      -5.787        -1.432        -1.296         0.000
+ EMPATHY5       0.076         0.079        -0.049       -10.976         0.000
+ EMPATHY6       0.027        -0.059         0.172        12.615        -0.149
+ EMPATHY7      -0.136         0.113        -0.088        -3.435         0.123
+ EMPATHY8      -0.020        -0.096         0.108         9.202        -0.111
+ EMPATHY9       0.143         0.033        -0.052        -5.739        -0.013
+
+
+           THETA
+              EMPATHY6      EMPATHY7      EMPATHY8      EMPATHY9
+              ________      ________      ________      ________
+ EMPATHY6       0.000
+ EMPATHY7       0.012         0.000
+ EMPATHY8       0.042         0.202         0.000
+ EMPATHY9      -0.085         0.392        -1.471         0.000
+
+
+     Beginning Time:  20:47:06
+        Ending Time:  20:47:06
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

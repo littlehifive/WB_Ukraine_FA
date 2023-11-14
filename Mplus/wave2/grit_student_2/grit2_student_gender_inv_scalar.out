@@ -1,0 +1,936 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+11/03/2023   3:28 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Grit Gender Measurement Invariance Scalar Model;
+
+  Data:
+     File is ../dat_stu_2.txt;
+
+  Variable:
+     Names are studentid girl age_w grito1_2 grito5_2 grito6_2
+     grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2
+     grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2
+     dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2
+     treatment half;
+     Missing are . ;
+
+    Usevariable are
+  	grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2;
+
+    Categorical is
+  	grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2;
+
+    Idvariable is studentid;
+
+    Group is girl (1 = Female 0 = Male);
+
+  Analysis:
+     Estimator = wlsmv;
+     Parameterization = theta;
+     Difftest = grit2_student_gender_inv_metric.dat
+
+
+  !!! Model for Male !!!
+
+  Model:
+    ! Factor loadings all freely estimated
+    pers_2 by
+      grit2_2* grit4_2* grit7_2* grit8_2* (L1-L4);
+
+    goal_2 by
+      grit1_2* grit3_2* grit5_2* grit6_2* (L5-L8);
+
+    !estimating thresholds freely
+
+    [grit1_2$1-grit8_2$1*] (T1_1-T1_8);
+    [grit1_2$2-grit8_2$2*] (T2_1-T2_8);
+    [grit1_2$3-grit8_2$3*] (T3_1-T3_8);
+    [grit1_2$4-grit8_2$4*] (T4_1-T4_8);
+
+    !constraining item residual variance to 1 for identification
+    grit1_2-grit8_2@1;
+
+    !fixing latent mean to zero for identification
+    [pers_2@0];
+    [goal_2@0];
+
+    !fixing latent variance to one for identification
+    pers_2@1;
+    goal_2@1;
+
+  !!! Model for Female !!!
+
+  Model Female:
+    ! Factor loadings constrained to *be equal to the control group*
+    pers_2 by
+      grit2_2* grit4_2* grit7_2* grit8_2* (L1-L4);
+
+    goal_2 by
+      grit1_2* grit3_2* grit5_2* grit6_2* (L5-L8);
+
+    ! *thresholds held equal to the control group when left blank*
+
+    ! constraining item residual variance to 1 for identification
+    grit1_2-grit8_2@1;
+
+    ! latent factor mean *estimated*
+    [pers_2*];
+    [goal_2*];
+
+    ! latent factor variance *estimated*
+    pers_2*;
+    goal_2*;
+
+  Output: sampstat stdyx modindices(all);
+  Savedata: Difftest is grit2_student_gender_inv_scalar.dat;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Student Grit Gender Measurement Invariance Scalar Model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group MALE                                                  655
+   Group FEMALE                                                713
+   Total sample size                                          1368
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GRIT1_2     GRIT2_2     GRIT3_2     GRIT4_2     GRIT5_2     GRIT6_2
+   GRIT7_2     GRIT8_2
+
+Continuous latent variables
+   PERS_2      GOAL_2
+
+Variables with special functions
+
+  Grouping variable     GIRL
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_2.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group MALE
+     Number of missing data patterns             1
+
+   Group FEMALE
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR MALE
+
+
+           Covariance Coverage
+              GRIT1_2       GRIT2_2       GRIT3_2       GRIT4_2       GRIT5_2
+              ________      ________      ________      ________      ________
+ GRIT1_2        1.000
+ GRIT2_2        1.000         1.000
+ GRIT3_2        1.000         1.000         1.000
+ GRIT4_2        1.000         1.000         1.000         1.000
+ GRIT5_2        1.000         1.000         1.000         1.000         1.000
+ GRIT6_2        1.000         1.000         1.000         1.000         1.000
+ GRIT7_2        1.000         1.000         1.000         1.000         1.000
+ GRIT8_2        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________
+ GRIT6_2        1.000
+ GRIT7_2        1.000         1.000
+ GRIT8_2        1.000         1.000         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR FEMALE
+
+
+           Covariance Coverage
+              GRIT1_2       GRIT2_2       GRIT3_2       GRIT4_2       GRIT5_2
+              ________      ________      ________      ________      ________
+ GRIT1_2        1.000
+ GRIT2_2        1.000         1.000
+ GRIT3_2        1.000         1.000         1.000
+ GRIT4_2        1.000         1.000         1.000         1.000
+ GRIT5_2        1.000         1.000         1.000         1.000         1.000
+ GRIT6_2        1.000         1.000         1.000         1.000         1.000
+ GRIT7_2        1.000         1.000         1.000         1.000         1.000
+ GRIT8_2        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________
+ GRIT6_2        1.000
+ GRIT7_2        1.000         1.000
+ GRIT8_2        1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+  Group MALE
+    GRIT1_2
+      Category 1    0.095           62.000
+      Category 2    0.344          225.000
+      Category 3    0.273          179.000
+      Category 4    0.244          160.000
+      Category 5    0.044           29.000
+    GRIT2_2
+      Category 1    0.093           61.000
+      Category 2    0.202          132.000
+      Category 3    0.319          209.000
+      Category 4    0.313          205.000
+      Category 5    0.073           48.000
+    GRIT3_2
+      Category 1    0.078           51.000
+      Category 2    0.250          164.000
+      Category 3    0.311          204.000
+      Category 4    0.296          194.000
+      Category 5    0.064           42.000
+    GRIT4_2
+      Category 1    0.038           25.000
+      Category 2    0.125           82.000
+      Category 3    0.270          177.000
+      Category 4    0.432          283.000
+      Category 5    0.134           88.000
+    GRIT5_2
+      Category 1    0.069           45.000
+      Category 2    0.255          167.000
+      Category 3    0.301          197.000
+      Category 4    0.301          197.000
+      Category 5    0.075           49.000
+    GRIT6_2
+      Category 1    0.076           50.000
+      Category 2    0.316          207.000
+      Category 3    0.264          173.000
+      Category 4    0.272          178.000
+      Category 5    0.072           47.000
+    GRIT7_2
+      Category 1    0.034           22.000
+      Category 2    0.173          113.000
+      Category 3    0.325          213.000
+      Category 4    0.359          235.000
+      Category 5    0.110           72.000
+    GRIT8_2
+      Category 1    0.029           19.000
+      Category 2    0.115           75.000
+      Category 3    0.266          174.000
+      Category 4    0.464          304.000
+      Category 5    0.127           83.000
+
+  Group FEMALE
+    GRIT1_2
+      Category 1    0.104           74.000
+      Category 2    0.377          269.000
+      Category 3    0.275          196.000
+      Category 4    0.195          139.000
+      Category 5    0.049           35.000
+    GRIT2_2
+      Category 1    0.065           46.000
+      Category 2    0.243          173.000
+      Category 3    0.330          235.000
+      Category 4    0.285          203.000
+      Category 5    0.079           56.000
+    GRIT3_2
+      Category 1    0.101           72.000
+      Category 2    0.317          226.000
+      Category 3    0.250          178.000
+      Category 4    0.268          191.000
+      Category 5    0.065           46.000
+    GRIT4_2
+      Category 1    0.041           29.000
+      Category 2    0.104           74.000
+      Category 3    0.282          201.000
+      Category 4    0.432          308.000
+      Category 5    0.142          101.000
+    GRIT5_2
+      Category 1    0.067           48.000
+      Category 2    0.297          212.000
+      Category 3    0.309          220.000
+      Category 4    0.269          192.000
+      Category 5    0.058           41.000
+    GRIT6_2
+      Category 1    0.107           76.000
+      Category 2    0.313          223.000
+      Category 3    0.219          156.000
+      Category 4    0.286          204.000
+      Category 5    0.076           54.000
+    GRIT7_2
+      Category 1    0.039           28.000
+      Category 2    0.185          132.000
+      Category 3    0.337          240.000
+      Category 4    0.332          237.000
+      Category 5    0.107           76.000
+    GRIT8_2
+      Category 1    0.032           23.000
+      Category 2    0.079           56.000
+      Category 3    0.252          180.000
+      Category 4    0.498          355.000
+      Category 5    0.139           99.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS FOR MALE
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT2_2$
+              ________      ________      ________      ________      ________
+               -1.313        -0.156         0.558         1.703        -1.322
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT2_2$      GRIT2_2$      GRIT2_2$      GRIT3_2$      GRIT3_2$
+              ________      ________      ________      ________      ________
+               -0.540         0.289         1.452        -1.420        -0.445
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT3_2$      GRIT3_2$      GRIT4_2$      GRIT4_2$      GRIT4_2$
+              ________      ________      ________      ________      ________
+                0.358         1.521        -1.772        -0.981        -0.167
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT4_2$      GRIT5_2$      GRIT5_2$      GRIT5_2$      GRIT5_2$
+              ________      ________      ________      ________      ________
+                1.106        -1.486        -0.457         0.317         1.441
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT6_2$      GRIT6_2$      GRIT6_2$      GRIT6_2$      GRIT7_2$
+              ________      ________      ________      ________      ________
+               -1.430        -0.273         0.403         1.463        -1.830
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT7_2$      GRIT7_2$      GRIT7_2$      GRIT8_2$      GRIT8_2$
+              ________      ________      ________      ________      ________
+               -0.820         0.079         1.227        -1.896        -1.065
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT8_2$      GRIT8_2$
+              ________      ________
+               -0.230         1.142
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT1_2       GRIT2_2       GRIT3_2       GRIT4_2       GRIT5_2
+              ________      ________      ________      ________      ________
+ GRIT1_2
+ GRIT2_2        0.018
+ GRIT3_2        0.247         0.027
+ GRIT4_2        0.263         0.072         0.238
+ GRIT5_2        0.207         0.016         0.340         0.148
+ GRIT6_2        0.278         0.036         0.341         0.380         0.309
+ GRIT7_2        0.198         0.082         0.235         0.571         0.205
+ GRIT8_2        0.172         0.051         0.188         0.655         0.121
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________
+ GRIT7_2        0.300
+ GRIT8_2        0.309         0.485
+
+
+     ESTIMATED SAMPLE STATISTICS FOR FEMALE
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT1_2$      GRIT2_2$
+              ________      ________      ________      ________      ________
+               -1.260        -0.047         0.693         1.654        -1.518
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT2_2$      GRIT2_2$      GRIT2_2$      GRIT3_2$      GRIT3_2$
+              ________      ________      ________      ________      ________
+               -0.504         0.350         1.415        -1.276        -0.207
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT3_2$      GRIT3_2$      GRIT4_2$      GRIT4_2$      GRIT4_2$
+              ________      ________      ________      ________      ________
+                0.433         1.518        -1.743        -1.060        -0.186
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT4_2$      GRIT5_2$      GRIT5_2$      GRIT5_2$      GRIT5_2$
+              ________      ________      ________      ________      ________
+                1.073        -1.496        -0.346         0.449         1.576
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT6_2$      GRIT6_2$      GRIT6_2$      GRIT6_2$      GRIT7_2$
+              ________      ________      ________      ________      ________
+               -1.245        -0.204         0.354         1.434        -1.759
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT7_2$      GRIT7_2$      GRIT7_2$      GRIT8_2$      GRIT8_2$
+              ________      ________      ________      ________      ________
+               -0.757         0.154         1.245        -1.849        -1.222
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRIT8_2$      GRIT8_2$
+              ________      ________
+               -0.350         1.086
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT1_2       GRIT2_2       GRIT3_2       GRIT4_2       GRIT5_2
+              ________      ________      ________      ________      ________
+ GRIT1_2
+ GRIT2_2        0.012
+ GRIT3_2        0.323         0.014
+ GRIT4_2        0.146         0.063         0.221
+ GRIT5_2        0.301         0.025         0.457         0.284
+ GRIT6_2        0.238        -0.004         0.455         0.250         0.460
+ GRIT7_2        0.206         0.010         0.287         0.527         0.313
+ GRIT8_2        0.094         0.075         0.256         0.682         0.264
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRIT6_2       GRIT7_2       GRIT8_2
+              ________      ________      ________
+ GRIT7_2        0.311
+ GRIT8_2        0.290         0.523
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       46
+
+Chi-Square Test of Model Fit
+
+          Value                            170.885*
+          Degrees of Freedom                    74
+          P-Value                           0.0000
+
+Chi-Square Contribution From Each Group
+
+          MALE                              84.274
+          FEMALE                            86.611
+
+Chi-Square Test for Difference Testing
+
+          Value                             40.142*
+          Degrees of Freedom                    30
+          P-Value                           0.1021
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.044
+          90 Percent C.I.                    0.035  0.052
+          Probability RMSEA <= .05           0.880
+
+CFI/TLI
+
+          CFI                                0.980
+          TLI                                0.985
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4904.603
+          Degrees of Freedom                    56
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.030
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.50555107D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALE
+
+ PERS_2   BY
+    GRIT2_2            0.073      0.028      2.641      0.008
+    GRIT4_2            1.520      0.097     15.735      0.000
+    GRIT7_2            0.927      0.050     18.597      0.000
+    GRIT8_2            1.215      0.073     16.649      0.000
+
+ GOAL_2   BY
+    GRIT1_2            0.426      0.034     12.536      0.000
+    GRIT3_2            0.719      0.052     13.783      0.000
+    GRIT5_2            0.659      0.046     14.368      0.000
+    GRIT6_2            0.835      0.058     14.414      0.000
+
+ GOAL_2   WITH
+    PERS_2             0.558      0.040     13.849      0.000
+
+ Means
+    PERS_2             0.000      0.000    999.000    999.000
+    GOAL_2             0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRIT1_2$1         -1.458      0.053    -27.297      0.000
+    GRIT1_2$2         -0.146      0.040     -3.618      0.000
+    GRIT1_2$3          0.656      0.043     15.319      0.000
+    GRIT1_2$4          1.818      0.066     27.355      0.000
+    GRIT2_2$1         -1.416      0.050    -28.337      0.000
+    GRIT2_2$2         -0.521      0.036    -14.555      0.000
+    GRIT2_2$3          0.323      0.035      9.293      0.000
+    GRIT2_2$4          1.438      0.050     28.523      0.000
+    GRIT3_2$1         -1.779      0.072    -24.733      0.000
+    GRIT3_2$2         -0.470      0.051     -9.239      0.000
+    GRIT3_2$3          0.447      0.051      8.846      0.000
+    GRIT3_2$4          1.881      0.076     24.771      0.000
+    GRIT4_2$1         -3.184      0.153    -20.751      0.000
+    GRIT4_2$2         -1.839      0.107    -17.222      0.000
+    GRIT4_2$3         -0.295      0.080     -3.677      0.000
+    GRIT4_2$4          2.019      0.110     18.322      0.000
+    GRIT5_2$1         -1.896      0.069    -27.629      0.000
+    GRIT5_2$2         -0.549      0.049    -11.216      0.000
+    GRIT5_2$3          0.420      0.048      8.734      0.000
+    GRIT5_2$4          1.806      0.070     25.790      0.000
+    GRIT6_2$1         -1.885      0.079    -23.947      0.000
+    GRIT6_2$2         -0.390      0.055     -7.097      0.000
+    GRIT6_2$3          0.447      0.055      8.070      0.000
+    GRIT6_2$4          1.902      0.078     24.257      0.000
+    GRIT7_2$1         -2.434      0.091    -26.728      0.000
+    GRIT7_2$2         -1.059      0.061    -17.500      0.000
+    GRIT7_2$3          0.178      0.055      3.205      0.001
+    GRIT7_2$4          1.708      0.069     24.736      0.000
+    GRIT8_2$1         -2.934      0.125    -23.445      0.000
+    GRIT8_2$2         -1.782      0.089    -20.123      0.000
+    GRIT8_2$3         -0.438      0.068     -6.424      0.000
+    GRIT8_2$4          1.781      0.086     20.666      0.000
+
+ Variances
+    PERS_2             1.000      0.000    999.000    999.000
+    GOAL_2             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRIT1_2            1.000      0.000    999.000    999.000
+    GRIT2_2            1.000      0.000    999.000    999.000
+    GRIT3_2            1.000      0.000    999.000    999.000
+    GRIT4_2            1.000      0.000    999.000    999.000
+    GRIT5_2            1.000      0.000    999.000    999.000
+    GRIT6_2            1.000      0.000    999.000    999.000
+    GRIT7_2            1.000      0.000    999.000    999.000
+    GRIT8_2            1.000      0.000    999.000    999.000
+
+Group FEMALE
+
+ PERS_2   BY
+    GRIT2_2            0.073      0.028      2.641      0.008
+    GRIT4_2            1.520      0.097     15.735      0.000
+    GRIT7_2            0.927      0.050     18.597      0.000
+    GRIT8_2            1.215      0.073     16.649      0.000
+
+ GOAL_2   BY
+    GRIT1_2            0.426      0.034     12.536      0.000
+    GRIT3_2            0.719      0.052     13.783      0.000
+    GRIT5_2            0.659      0.046     14.368      0.000
+    GRIT6_2            0.835      0.058     14.414      0.000
+
+ GOAL_2   WITH
+    PERS_2             0.644      0.078      8.235      0.000
+
+ Means
+    PERS_2             0.036      0.062      0.576      0.565
+    GOAL_2            -0.165      0.074     -2.232      0.026
+
+ Thresholds
+    GRIT1_2$1         -1.458      0.053    -27.297      0.000
+    GRIT1_2$2         -0.146      0.040     -3.618      0.000
+    GRIT1_2$3          0.656      0.043     15.319      0.000
+    GRIT1_2$4          1.818      0.066     27.355      0.000
+    GRIT2_2$1         -1.416      0.050    -28.337      0.000
+    GRIT2_2$2         -0.521      0.036    -14.555      0.000
+    GRIT2_2$3          0.323      0.035      9.293      0.000
+    GRIT2_2$4          1.438      0.050     28.523      0.000
+    GRIT3_2$1         -1.779      0.072    -24.733      0.000
+    GRIT3_2$2         -0.470      0.051     -9.239      0.000
+    GRIT3_2$3          0.447      0.051      8.846      0.000
+    GRIT3_2$4          1.881      0.076     24.771      0.000
+    GRIT4_2$1         -3.184      0.153    -20.751      0.000
+    GRIT4_2$2         -1.839      0.107    -17.222      0.000
+    GRIT4_2$3         -0.295      0.080     -3.677      0.000
+    GRIT4_2$4          2.019      0.110     18.322      0.000
+    GRIT5_2$1         -1.896      0.069    -27.629      0.000
+    GRIT5_2$2         -0.549      0.049    -11.216      0.000
+    GRIT5_2$3          0.420      0.048      8.734      0.000
+    GRIT5_2$4          1.806      0.070     25.790      0.000
+    GRIT6_2$1         -1.885      0.079    -23.947      0.000
+    GRIT6_2$2         -0.390      0.055     -7.097      0.000
+    GRIT6_2$3          0.447      0.055      8.070      0.000
+    GRIT6_2$4          1.902      0.078     24.257      0.000
+    GRIT7_2$1         -2.434      0.091    -26.728      0.000
+    GRIT7_2$2         -1.059      0.061    -17.500      0.000
+    GRIT7_2$3          0.178      0.055      3.205      0.001
+    GRIT7_2$4          1.708      0.069     24.736      0.000
+    GRIT8_2$1         -2.934      0.125    -23.445      0.000
+    GRIT8_2$2         -1.782      0.089    -20.123      0.000
+    GRIT8_2$3         -0.438      0.068     -6.424      0.000
+    GRIT8_2$4          1.781      0.086     20.666      0.000
+
+ Variances
+    PERS_2             1.028      0.111      9.256      0.000
+    GOAL_2             1.455      0.183      7.965      0.000
+
+ Residual Variances
+    GRIT1_2            1.000      0.000    999.000    999.000
+    GRIT2_2            1.000      0.000    999.000    999.000
+    GRIT3_2            1.000      0.000    999.000    999.000
+    GRIT4_2            1.000      0.000    999.000    999.000
+    GRIT5_2            1.000      0.000    999.000    999.000
+    GRIT6_2            1.000      0.000    999.000    999.000
+    GRIT7_2            1.000      0.000    999.000    999.000
+    GRIT8_2            1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALE
+
+ PERS_2   BY
+    GRIT2_2            0.073      0.027      2.655      0.008
+    GRIT4_2            0.835      0.016     52.095      0.000
+    GRIT7_2            0.680      0.020     34.588      0.000
+    GRIT8_2            0.772      0.019     41.241      0.000
+
+ GOAL_2   BY
+    GRIT1_2            0.392      0.026     14.806      0.000
+    GRIT3_2            0.584      0.028     20.902      0.000
+    GRIT5_2            0.550      0.027     20.608      0.000
+    GRIT6_2            0.641      0.026     24.461      0.000
+
+ GOAL_2   WITH
+    PERS_2             0.558      0.040     13.849      0.000
+
+ Means
+    PERS_2             0.000      0.000    999.000    999.000
+    GOAL_2             0.000      0.000    999.000    999.000
+
+ Thresholds
+    GRIT1_2$1         -1.341      0.050    -27.064      0.000
+    GRIT1_2$2         -0.134      0.037     -3.619      0.000
+    GRIT1_2$3          0.604      0.039     15.304      0.000
+    GRIT1_2$4          1.673      0.062     27.187      0.000
+    GRIT2_2$1         -1.412      0.050    -28.316      0.000
+    GRIT2_2$2         -0.520      0.036    -14.550      0.000
+    GRIT2_2$3          0.322      0.035      9.295      0.000
+    GRIT2_2$4          1.434      0.050     28.525      0.000
+    GRIT3_2$1         -1.445      0.056    -25.695      0.000
+    GRIT3_2$2         -0.382      0.041     -9.315      0.000
+    GRIT3_2$3          0.363      0.041      8.903      0.000
+    GRIT3_2$4          1.528      0.060     25.512      0.000
+    GRIT4_2$1         -1.750      0.074    -23.563      0.000
+    GRIT4_2$2         -1.011      0.053    -19.245      0.000
+    GRIT4_2$3         -0.162      0.043     -3.734      0.000
+    GRIT4_2$4          1.110      0.056     19.857      0.000
+    GRIT5_2$1         -1.583      0.058    -27.429      0.000
+    GRIT5_2$2         -0.459      0.041    -11.310      0.000
+    GRIT5_2$3          0.351      0.040      8.740      0.000
+    GRIT5_2$4          1.508      0.058     25.914      0.000
+    GRIT6_2$1         -1.447      0.057    -25.206      0.000
+    GRIT6_2$2         -0.299      0.042     -7.149      0.000
+    GRIT6_2$3          0.343      0.043      8.063      0.000
+    GRIT6_2$4          1.460      0.060     24.398      0.000
+    GRIT7_2$1         -1.784      0.070    -25.377      0.000
+    GRIT7_2$2         -0.777      0.045    -17.328      0.000
+    GRIT7_2$3          0.130      0.041      3.192      0.001
+    GRIT7_2$4          1.253      0.053     23.456      0.000
+    GRIT8_2$1         -1.864      0.078    -23.995      0.000
+    GRIT8_2$2         -1.132      0.052    -21.865      0.000
+    GRIT8_2$3         -0.278      0.042     -6.584      0.000
+    GRIT8_2$4          1.131      0.054     20.821      0.000
+
+ Variances
+    PERS_2             1.000      0.000    999.000    999.000
+    GOAL_2             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRIT1_2            0.847      0.021     40.885      0.000
+    GRIT2_2            0.995      0.004    249.714      0.000
+    GRIT3_2            0.659      0.033     20.234      0.000
+    GRIT4_2            0.302      0.027     11.273      0.000
+    GRIT5_2            0.697      0.029     23.726      0.000
+    GRIT6_2            0.589      0.034     17.546      0.000
+    GRIT7_2            0.538      0.027     20.112      0.000
+    GRIT8_2            0.404      0.029     13.960      0.000
+
+Group FEMALE
+
+ PERS_2   BY
+    GRIT2_2            0.074      0.028      2.666      0.008
+    GRIT4_2            0.839      0.016     52.219      0.000
+    GRIT7_2            0.685      0.020     35.077      0.000
+    GRIT8_2            0.776      0.018     44.024      0.000
+
+ GOAL_2   BY
+    GRIT1_2            0.457      0.028     16.495      0.000
+    GRIT3_2            0.655      0.025     26.044      0.000
+    GRIT5_2            0.622      0.024     25.834      0.000
+    GRIT6_2            0.710      0.024     29.836      0.000
+
+ GOAL_2   WITH
+    PERS_2             0.526      0.037     14.069      0.000
+
+ Means
+    PERS_2             0.035      0.061      0.577      0.564
+    GOAL_2            -0.137      0.061     -2.231      0.026
+
+ Thresholds
+    GRIT1_2$1         -1.297      0.048    -27.034      0.000
+    GRIT1_2$2         -0.130      0.036     -3.622      0.000
+    GRIT1_2$3          0.584      0.039     15.163      0.000
+    GRIT1_2$4          1.618      0.061     26.641      0.000
+    GRIT2_2$1         -1.412      0.050    -28.319      0.000
+    GRIT2_2$2         -0.520      0.036    -14.548      0.000
+    GRIT2_2$3          0.322      0.035      9.295      0.000
+    GRIT2_2$4          1.434      0.050     28.541      0.000
+    GRIT3_2$1         -1.344      0.053    -25.489      0.000
+    GRIT3_2$2         -0.355      0.038     -9.314      0.000
+    GRIT3_2$3          0.338      0.038      8.884      0.000
+    GRIT3_2$4          1.422      0.058     24.634      0.000
+    GRIT4_2$1         -1.733      0.075    -23.096      0.000
+    GRIT4_2$2         -1.001      0.053    -18.928      0.000
+    GRIT4_2$3         -0.161      0.043     -3.717      0.000
+    GRIT4_2$4          1.099      0.053     20.770      0.000
+    GRIT5_2$1         -1.484      0.056    -26.580      0.000
+    GRIT5_2$2         -0.430      0.038    -11.233      0.000
+    GRIT5_2$3          0.329      0.038      8.674      0.000
+    GRIT5_2$4          1.414      0.057     24.894      0.000
+    GRIT6_2$1         -1.328      0.054    -24.735      0.000
+    GRIT6_2$2         -0.275      0.039     -7.109      0.000
+    GRIT6_2$3          0.315      0.039      8.112      0.000
+    GRIT6_2$4          1.340      0.057     23.714      0.000
+    GRIT7_2$1         -1.773      0.071    -24.961      0.000
+    GRIT7_2$2         -0.772      0.045    -17.317      0.000
+    GRIT7_2$3          0.129      0.040      3.201      0.001
+    GRIT7_2$4          1.245      0.052     24.028      0.000
+    GRIT8_2$1         -1.849      0.077    -24.123      0.000
+    GRIT8_2$2         -1.123      0.053    -21.131      0.000
+    GRIT8_2$3         -0.276      0.042     -6.514      0.000
+    GRIT8_2$4          1.122      0.052     21.783      0.000
+
+ Variances
+    PERS_2             1.000      0.000    999.000    999.000
+    GOAL_2             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    GRIT1_2            0.792      0.025     31.315      0.000
+    GRIT2_2            0.995      0.004    243.993      0.000
+    GRIT3_2            0.571      0.033     17.334      0.000
+    GRIT4_2            0.296      0.027     10.995      0.000
+    GRIT5_2            0.613      0.030     20.448      0.000
+    GRIT6_2            0.497      0.034     14.714      0.000
+    GRIT7_2            0.531      0.027     19.846      0.000
+    GRIT8_2            0.397      0.027     14.500      0.000
+
+
+R-SQUARE
+
+Group MALE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    GRIT1_2            0.153      0.021      7.403      0.000      0.920
+    GRIT2_2            0.005      0.004      1.327      0.184      0.997
+    GRIT3_2            0.341      0.033     10.451      0.000      0.812
+    GRIT4_2            0.698      0.027     26.047      0.000      0.550
+    GRIT5_2            0.303      0.029     10.304      0.000      0.835
+    GRIT6_2            0.411      0.034     12.230      0.000      0.768
+    GRIT7_2            0.462      0.027     17.294      0.000      0.733
+    GRIT8_2            0.596      0.029     20.620      0.000      0.635
+
+Group FEMALE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    GRIT1_2            0.208      0.025      8.247      0.000      0.890
+    GRIT2_2            0.005      0.004      1.333      0.183      0.997
+    GRIT3_2            0.429      0.033     13.022      0.000      0.756
+    GRIT4_2            0.704      0.027     26.109      0.000      0.544
+    GRIT5_2            0.387      0.030     12.917      0.000      0.783
+    GRIT6_2            0.503      0.034     14.918      0.000      0.705
+    GRIT7_2            0.469      0.027     17.538      0.000      0.729
+    GRIT8_2            0.603      0.027     22.012      0.000      0.630
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.527E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+Group MALE
+
+
+ON/BY Statements
+
+GRIT1_2  ON PERS_2   /
+PERS_2   BY GRIT1_2               10.788     0.110      0.110        0.101
+GRIT5_2  ON PERS_2   /
+PERS_2   BY GRIT5_2               28.537    -0.222     -0.222       -0.185
+GRIT6_2  ON PERS_2   /
+PERS_2   BY GRIT6_2               20.088     0.219      0.219        0.168
+
+ON Statements
+
+PERS_2   ON GRIT5_2               31.060    -0.207     -0.207       -0.248
+PERS_2   ON GRIT6_2               25.266     0.216      0.216        0.281
+GOAL_2   ON GRIT6_2               11.173    -0.248     -0.248       -0.323
+GRIT1_2  ON GRIT4_2               11.691     0.063      0.063        0.105
+GRIT5_2  ON GRIT4_2               29.993    -0.123     -0.123       -0.187
+GRIT5_2  ON GRIT7_2               12.590    -0.103     -0.103       -0.118
+GRIT5_2  ON GRIT8_2               31.537    -0.144     -0.144       -0.190
+GRIT6_2  ON GRIT4_2               21.668     0.120      0.120        0.168
+GRIT6_2  ON GRIT7_2               16.392     0.135      0.135        0.141
+GRIT6_2  ON GRIT8_2               14.947     0.116      0.116        0.140
+GRIT8_2  ON GRIT5_2               17.051    -0.198     -0.198       -0.151
+
+WITH Statements
+
+GRIT5_2  WITH PERS_2              31.063    -0.207     -0.207       -0.207
+GRIT5_2  WITH GRIT4_2             13.646    -0.287     -0.287       -0.287
+GRIT6_2  WITH PERS_2              25.263     0.216      0.216        0.216
+GRIT6_2  WITH GOAL_2              11.201    -0.248     -0.248       -0.248
+GRIT6_2  WITH GRIT4_2             10.597     0.261      0.261        0.261
+GRIT8_2  WITH GRIT5_2             16.153    -0.261     -0.261       -0.261
+
+Variances/Residual Variances
+
+GRIT5_2                           22.909     0.518      0.518        0.361
+
+Group FEMALE
+
+
+ON/BY Statements
+
+GRIT4_2  ON GOAL_2   /
+GOAL_2   BY GRIT4_2               13.393    -0.234     -0.282       -0.153
+GRIT5_2  ON PERS_2   /
+PERS_2   BY GRIT5_2               11.328     0.150      0.152        0.119
+GRIT7_2  ON GOAL_2   /
+GOAL_2   BY GRIT7_2               25.231     0.203      0.245        0.179
+
+ON Statements
+
+PERS_2   ON GRIT7_2               12.208    -0.212     -0.210       -0.288
+GOAL_2   ON GRIT4_2               15.297    -0.311     -0.258       -0.473
+GOAL_2   ON GRIT7_2               29.291     0.275      0.228        0.313
+GRIT1_2  ON GRIT6_2               14.733    -0.129     -0.129       -0.162
+GRIT4_2  ON GRIT3_2               14.546    -0.205     -0.205       -0.148
+GRIT4_2  ON GRIT6_2               12.145    -0.166     -0.166       -0.128
+GRIT5_2  ON GRIT3_2               13.936     0.167      0.167        0.173
+GRIT5_2  ON GRIT7_2               18.348     0.133      0.133        0.143
+GRIT6_2  ON GRIT1_2               12.129    -0.180     -0.180       -0.142
+GRIT7_2  ON GRIT1_2               10.791     0.136      0.136        0.111
+GRIT7_2  ON GRIT3_2               17.157     0.142      0.142        0.137
+GRIT7_2  ON GRIT5_2               28.430     0.190      0.190        0.177
+GRIT7_2  ON GRIT6_2               18.930     0.138      0.138        0.143
+
+WITH Statements
+
+GRIT4_2  WITH GOAL_2              15.279    -0.310     -0.257       -0.257
+GRIT6_2  WITH GRIT1_2             10.564    -0.179     -0.179       -0.179
+GRIT7_2  WITH PERS_2              12.220    -0.213     -0.210       -0.210
+GRIT7_2  WITH GOAL_2              29.300     0.275      0.228        0.228
+GRIT7_2  WITH GRIT5_2             15.299     0.227      0.227        0.227
+
+Variances/Residual Variances
+
+GRIT5_2                           22.888    -0.518     -0.518       -0.317
+
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    grit2_student_gender_inv_scalar.dat
+  Save format      Free
+
+     Beginning Time:  15:28:02
+        Ending Time:  15:28:02
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

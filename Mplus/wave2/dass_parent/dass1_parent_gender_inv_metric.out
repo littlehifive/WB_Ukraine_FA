@@ -1,0 +1,788 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/27/2023   8:51 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Parent DASS Gender Measurement Invariance Metric Model;
+
+  Data:
+     File is dass_parent_1.txt;
+
+  Variable:
+     Names are studentid treatment female age_w dass1_1 dass2_1 dass3_1
+     dass4_1 dass5_1 dass6_1 dass7_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+
+    Categorical is
+  	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+
+    Group is female (1 = Female 0 = Male);
+
+  Analysis:
+     Estimator = wlsmv;
+     Parameterization = theta;
+     Difftest = dass1_parent_gender_inv_config.dat
+
+
+  !!! Model for Male !!!
+
+  Model:
+    ! Factor loadings all freely estimated
+    dassp_1 by
+      dass1_1-dass7_1* (L1-L7);
+
+    dass1_1 with dass2_1;
+    dass6_1 with dass7_1;
+
+    !estimating thresholds freely
+    [dass1_1$1-dass7_1$1*] (T1_1-T1_7);
+    [dass1_1$2-dass7_1$2*] (T2_1-T2_7);
+    [dass1_1$3-dass7_1$3*] (T3_1-T3_7);
+
+    !constraining item residual variance to 1 for identification
+    dass1_1-dass7_1@1;
+
+    !fixing latent mean to zero for identification
+    [dassp_1@0];
+
+    !fixing latent variance to one for identification
+    dassp_1@1;
+
+  !!! Model for Female !!!
+
+  Model Female:
+    ! Factor loadings constrained to *be equal to the comparison group*
+    dassp_1 by dass1_1-dass7_1* (L1-L7);
+
+    dass1_1 with dass2_1;
+    dass6_1 with dass7_1;
+
+    ! estimating thresholds freely
+    [dass1_1$1-dass7_1$1*];
+    [dass1_1$2-dass7_1$2*];
+    [dass1_1$3-dass7_1$3*];
+
+    ! constraining item residual variance to 1 for identification
+    dass1_1-dass7_1@1;
+
+    ! fixing latent factor mean to zero for identification
+    [dassp_1@0];
+
+    ! latent factor variance *estimated*
+    dassp_1*;
+
+  Output: sampstat stdyx modindices(all);
+  Savedata: Difftest is dass1_parent_gender_inv_metric.dat;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Parent DASS Gender Measurement Invariance Metric Model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group MALE                                                  194
+   Group FEMALE                                               2381
+   Total sample size                                          2575
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   DASS1_1     DASS2_1     DASS3_1     DASS4_1     DASS5_1     DASS6_1
+   DASS7_1
+
+Continuous latent variables
+   DASSP_1
+
+Variables with special functions
+
+  Grouping variable     FEMALE
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  dass_parent_1.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group MALE
+     Number of missing data patterns             1
+
+   Group FEMALE
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR MALE
+
+
+           Covariance Coverage
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        1.000
+ DASS2_1        1.000         1.000
+ DASS3_1        1.000         1.000         1.000
+ DASS4_1        1.000         1.000         1.000         1.000
+ DASS5_1        1.000         1.000         1.000         1.000         1.000
+ DASS6_1        1.000         1.000         1.000         1.000         1.000
+ DASS7_1        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        1.000
+ DASS7_1        1.000         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR FEMALE
+
+
+           Covariance Coverage
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1        1.000
+ DASS2_1        1.000         1.000
+ DASS3_1        1.000         1.000         1.000
+ DASS4_1        1.000         1.000         1.000         1.000
+ DASS5_1        1.000         1.000         1.000         1.000         1.000
+ DASS6_1        1.000         1.000         1.000         1.000         1.000
+ DASS7_1        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS6_1        1.000
+ DASS7_1        1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+  Group MALE
+    DASS1_1
+      Category 1    0.289           56.000
+      Category 2    0.433           84.000
+      Category 3    0.186           36.000
+      Category 4    0.093           18.000
+    DASS2_1
+      Category 1    0.278           54.000
+      Category 2    0.490           95.000
+      Category 3    0.165           32.000
+      Category 4    0.067           13.000
+    DASS3_1
+      Category 1    0.294           57.000
+      Category 2    0.423           82.000
+      Category 3    0.186           36.000
+      Category 4    0.098           19.000
+    DASS4_1
+      Category 1    0.294           57.000
+      Category 2    0.448           87.000
+      Category 3    0.180           35.000
+      Category 4    0.077           15.000
+    DASS5_1
+      Category 1    0.335           65.000
+      Category 2    0.351           68.000
+      Category 3    0.227           44.000
+      Category 4    0.088           17.000
+    DASS6_1
+      Category 1    0.304           59.000
+      Category 2    0.474           92.000
+      Category 3    0.144           28.000
+      Category 4    0.077           15.000
+    DASS7_1
+      Category 1    0.402           78.000
+      Category 2    0.423           82.000
+      Category 3    0.134           26.000
+      Category 4    0.041            8.000
+
+  Group FEMALE
+    DASS1_1
+      Category 1    0.126          300.000
+      Category 2    0.444         1056.000
+      Category 3    0.262          624.000
+      Category 4    0.168          401.000
+    DASS2_1
+      Category 1    0.115          274.000
+      Category 2    0.466         1110.000
+      Category 3    0.290          691.000
+      Category 4    0.129          306.000
+    DASS3_1
+      Category 1    0.103          246.000
+      Category 2    0.374          891.000
+      Category 3    0.332          790.000
+      Category 4    0.191          454.000
+    DASS4_1
+      Category 1    0.089          211.000
+      Category 2    0.454         1082.000
+      Category 3    0.306          729.000
+      Category 4    0.151          359.000
+    DASS5_1
+      Category 1    0.137          327.000
+      Category 2    0.406          967.000
+      Category 3    0.289          689.000
+      Category 4    0.167          398.000
+    DASS6_1
+      Category 1    0.207          494.000
+      Category 2    0.499         1187.000
+      Category 3    0.219          522.000
+      Category 4    0.075          178.000
+    DASS7_1
+      Category 1    0.145          346.000
+      Category 2    0.441         1050.000
+      Category 3    0.291          693.000
+      Category 4    0.123          292.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS FOR MALE
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS1_1$      DASS1_1$      DASS1_1$      DASS2_1$      DASS2_1$
+              ________      ________      ________      ________      ________
+               -0.557         0.588         1.324        -0.588         0.732
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS2_1$      DASS3_1$      DASS3_1$      DASS3_1$      DASS4_1$
+              ________      ________      ________      ________      ________
+                1.498        -0.542         0.572         1.293        -0.542
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS4_1$      DASS4_1$      DASS5_1$      DASS5_1$      DASS5_1$
+              ________      ________      ________      ________      ________
+                0.650         1.423        -0.426         0.483         1.356
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS6_1$      DASS6_1$      DASS6_1$      DASS7_1$      DASS7_1$
+              ________      ________      ________      ________      ________
+               -0.513         0.767         1.423        -0.248         0.934
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS7_1$
+              ________
+                1.737
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1
+ DASS2_1        0.726
+ DASS3_1        0.741         0.795
+ DASS4_1        0.666         0.701         0.806
+ DASS5_1        0.596         0.618         0.690         0.743
+ DASS6_1        0.517         0.561         0.584         0.596         0.696
+ DASS7_1        0.619         0.677         0.652         0.646         0.706
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS7_1        0.772
+
+
+     ESTIMATED SAMPLE STATISTICS FOR FEMALE
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS1_1$      DASS1_1$      DASS1_1$      DASS2_1$      DASS2_1$
+              ________      ________      ________      ________      ________
+               -1.146         0.175         0.960        -1.200         0.205
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS2_1$      DASS3_1$      DASS3_1$      DASS3_1$      DASS4_1$
+              ________      ________      ________      ________      ________
+                1.133        -1.263        -0.056         0.875        -1.349
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS4_1$      DASS4_1$      DASS5_1$      DASS5_1$      DASS5_1$
+              ________      ________      ________      ________      ________
+                0.108         1.033        -1.092         0.109         0.965
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS6_1$      DASS6_1$      DASS6_1$      DASS7_1$      DASS7_1$
+              ________      ________      ________      ________      ________
+               -0.815         0.542         1.441        -1.057         0.218
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              DASS7_1$
+              ________
+                1.162
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS1_1       DASS2_1       DASS3_1       DASS4_1       DASS5_1
+              ________      ________      ________      ________      ________
+ DASS1_1
+ DASS2_1        0.753
+ DASS3_1        0.684         0.747
+ DASS4_1        0.669         0.695         0.781
+ DASS5_1        0.662         0.651         0.741         0.760
+ DASS6_1        0.525         0.599         0.638         0.626         0.623
+ DASS7_1        0.609         0.654         0.725         0.702         0.708
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              DASS6_1       DASS7_1
+              ________      ________
+ DASS7_1        0.675
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       54
+
+Chi-Square Test of Model Fit
+
+          Value                            104.131*
+          Degrees of Freedom                    30
+          P-Value                           0.0000
+
+Chi-Square Contribution From Each Group
+
+          MALE                              47.276
+          FEMALE                            56.855
+
+Chi-Square Test for Difference Testing
+
+          Value                              3.271*
+          Degrees of Freedom                     6
+          P-Value                           0.7741
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.044
+          90 Percent C.I.                    0.035  0.053
+          Probability RMSEA <= .05           0.858
+
+CFI/TLI
+
+          CFI                                0.998
+          TLI                                0.997
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          38039.264
+          Degrees of Freedom                    42
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.012
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.11626925D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALE
+
+ DASSP_1  BY
+    DASS1_1            1.178      0.084     13.973      0.000
+    DASS2_1            1.379      0.099     13.978      0.000
+    DASS3_1            2.010      0.144     13.913      0.000
+    DASS4_1            1.797      0.127     14.153      0.000
+    DASS5_1            1.613      0.115     14.027      0.000
+    DASS6_1            1.034      0.075     13.845      0.000
+    DASS7_1            1.380      0.100     13.856      0.000
+
+ DASS1_1  WITH
+    DASS2_1            0.287      0.070      4.072      0.000
+
+ DASS6_1  WITH
+    DASS7_1            0.466      0.060      7.731      0.000
+
+ Means
+    DASSP_1            0.000      0.000    999.000    999.000
+
+ Thresholds
+    DASS1_1$1         -0.862      0.144     -5.989      0.000
+    DASS1_1$2          0.909      0.146      6.215      0.000
+    DASS1_1$3          2.044      0.178     11.492      0.000
+    DASS2_1$1         -1.002      0.159     -6.295      0.000
+    DASS2_1$2          1.249      0.167      7.473      0.000
+    DASS2_1$3          2.555      0.218     11.740      0.000
+    DASS3_1$1         -1.217      0.205     -5.925      0.000
+    DASS3_1$2          1.284      0.216      5.959      0.000
+    DASS3_1$3          2.902      0.254     11.428      0.000
+    DASS4_1$1         -1.114      0.189     -5.893      0.000
+    DASS4_1$2          1.336      0.195      6.839      0.000
+    DASS4_1$3          2.928      0.239     12.269      0.000
+    DASS5_1$1         -0.809      0.172     -4.708      0.000
+    DASS5_1$2          0.917      0.178      5.160      0.000
+    DASS5_1$3          2.577      0.222     11.596      0.000
+    DASS6_1$1         -0.737      0.133     -5.563      0.000
+    DASS6_1$2          1.104      0.140      7.884      0.000
+    DASS6_1$3          2.046      0.177     11.560      0.000
+    DASS7_1$1         -0.423      0.153     -2.761      0.006
+    DASS7_1$2          1.591      0.177      8.981      0.000
+    DASS7_1$3          2.957      0.239     12.369      0.000
+
+ Variances
+    DASSP_1            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DASS1_1            1.000      0.000    999.000    999.000
+    DASS2_1            1.000      0.000    999.000    999.000
+    DASS3_1            1.000      0.000    999.000    999.000
+    DASS4_1            1.000      0.000    999.000    999.000
+    DASS5_1            1.000      0.000    999.000    999.000
+    DASS6_1            1.000      0.000    999.000    999.000
+    DASS7_1            1.000      0.000    999.000    999.000
+
+Group FEMALE
+
+ DASSP_1  BY
+    DASS1_1            1.178      0.084     13.973      0.000
+    DASS2_1            1.379      0.099     13.978      0.000
+    DASS3_1            2.010      0.144     13.913      0.000
+    DASS4_1            1.797      0.127     14.153      0.000
+    DASS5_1            1.613      0.115     14.027      0.000
+    DASS6_1            1.034      0.075     13.845      0.000
+    DASS7_1            1.380      0.100     13.856      0.000
+
+ DASS1_1  WITH
+    DASS2_1            0.355      0.022     16.126      0.000
+
+ DASS6_1  WITH
+    DASS7_1            0.226      0.022     10.042      0.000
+
+ Means
+    DASSP_1            0.000      0.000    999.000    999.000
+
+ Thresholds
+    DASS1_1$1         -1.772      0.052    -34.064      0.000
+    DASS1_1$2          0.271      0.040      6.755      0.000
+    DASS1_1$3          1.486      0.048     31.129      0.000
+    DASS2_1$1         -2.046      0.060    -34.296      0.000
+    DASS2_1$2          0.350      0.044      7.874      0.000
+    DASS2_1$3          1.933      0.057     33.930      0.000
+    DASS3_1$1         -2.839      0.082    -34.461      0.000
+    DASS3_1$2         -0.127      0.058     -2.189      0.029
+    DASS3_1$3          1.968      0.069     28.347      0.000
+    DASS4_1$1         -2.779      0.076    -36.518      0.000
+    DASS4_1$2          0.223      0.053      4.194      0.000
+    DASS4_1$3          2.128      0.065     32.559      0.000
+    DASS5_1$1         -2.075      0.062    -33.715      0.000
+    DASS5_1$2          0.207      0.049      4.232      0.000
+    DASS5_1$3          1.834      0.058     31.788      0.000
+    DASS6_1$1         -1.174      0.041    -28.306      0.000
+    DASS6_1$2          0.780      0.040     19.696      0.000
+    DASS6_1$3          2.075      0.055     37.720      0.000
+    DASS7_1$1         -1.803      0.054    -33.446      0.000
+    DASS7_1$2          0.372      0.044      8.367      0.000
+    DASS7_1$3          1.982      0.056     35.382      0.000
+
+ Variances
+    DASSP_1            1.004      0.141      7.107      0.000
+
+ Residual Variances
+    DASS1_1            1.000      0.000    999.000    999.000
+    DASS2_1            1.000      0.000    999.000    999.000
+    DASS3_1            1.000      0.000    999.000    999.000
+    DASS4_1            1.000      0.000    999.000    999.000
+    DASS5_1            1.000      0.000    999.000    999.000
+    DASS6_1            1.000      0.000    999.000    999.000
+    DASS7_1            1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALE
+
+ DASSP_1  BY
+    DASS1_1            0.762      0.023     33.366      0.000
+    DASS2_1            0.809      0.020     40.543      0.000
+    DASS3_1            0.895      0.013     70.113      0.000
+    DASS4_1            0.874      0.015     59.872      0.000
+    DASS5_1            0.850      0.017     50.501      0.000
+    DASS6_1            0.719      0.025     28.642      0.000
+    DASS7_1            0.810      0.020     40.231      0.000
+
+ DASS1_1  WITH
+    DASS2_1            0.287      0.070      4.072      0.000
+
+ DASS6_1  WITH
+    DASS7_1            0.466      0.060      7.731      0.000
+
+ Means
+    DASSP_1            0.000      0.000    999.000    999.000
+
+ Thresholds
+    DASS1_1$1         -0.558      0.095     -5.858      0.000
+    DASS1_1$2          0.588      0.096      6.139      0.000
+    DASS1_1$3          1.323      0.125     10.549      0.000
+    DASS2_1$1         -0.589      0.096     -6.139      0.000
+    DASS2_1$2          0.733      0.099      7.381      0.000
+    DASS2_1$3          1.500      0.138     10.850      0.000
+    DASS3_1$1         -0.542      0.095     -5.707      0.000
+    DASS3_1$2          0.572      0.096      5.988      0.000
+    DASS3_1$3          1.293      0.123     10.470      0.000
+    DASS4_1$1         -0.542      0.095     -5.704      0.000
+    DASS4_1$2          0.650      0.097      6.679      0.000
+    DASS4_1$3          1.424      0.132     10.754      0.000
+    DASS5_1$1         -0.426      0.093     -4.583      0.000
+    DASS5_1$2          0.484      0.094      5.149      0.000
+    DASS5_1$3          1.358      0.128     10.650      0.000
+    DASS6_1$1         -0.513      0.094     -5.430      0.000
+    DASS6_1$2          0.767      0.100      7.651      0.000
+    DASS6_1$3          1.423      0.132     10.747      0.000
+    DASS7_1$1         -0.248      0.091     -2.730      0.006
+    DASS7_1$2          0.934      0.106      8.825      0.000
+    DASS7_1$3          1.735      0.162     10.738      0.000
+
+ Variances
+    DASSP_1            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DASS1_1            0.419      0.035     12.020      0.000
+    DASS2_1            0.345      0.032     10.667      0.000
+    DASS3_1            0.198      0.023      8.678      0.000
+    DASS4_1            0.236      0.026      9.267      0.000
+    DASS5_1            0.278      0.029      9.710      0.000
+    DASS6_1            0.483      0.036     13.400      0.000
+    DASS7_1            0.344      0.033     10.567      0.000
+
+Group FEMALE
+
+ DASSP_1  BY
+    DASS1_1            0.763      0.010     76.663      0.000
+    DASS2_1            0.810      0.008     96.497      0.000
+    DASS3_1            0.896      0.005    163.995      0.000
+    DASS4_1            0.874      0.006    150.433      0.000
+    DASS5_1            0.850      0.007    128.417      0.000
+    DASS6_1            0.719      0.011     66.243      0.000
+    DASS7_1            0.810      0.008    102.377      0.000
+
+ DASS1_1  WITH
+    DASS2_1            0.355      0.022     16.126      0.000
+
+ DASS6_1  WITH
+    DASS7_1            0.226      0.022     10.042      0.000
+
+ Means
+    DASSP_1            0.000      0.000    999.000    999.000
+
+ Thresholds
+    DASS1_1$1         -1.145      0.033    -34.866      0.000
+    DASS1_1$2          0.175      0.026      6.780      0.000
+    DASS1_1$3          0.960      0.030     31.499      0.000
+    DASS2_1$1         -1.200      0.034    -35.634      0.000
+    DASS2_1$2          0.205      0.026      7.927      0.000
+    DASS2_1$3          1.134      0.033     34.686      0.000
+    DASS3_1$1         -1.263      0.035    -36.383      0.000
+    DASS3_1$2         -0.056      0.026     -2.193      0.028
+    DASS3_1$3          0.875      0.030     29.569      0.000
+    DASS4_1$1         -1.349      0.036    -37.191      0.000
+    DASS4_1$2          0.108      0.026      4.203      0.000
+    DASS4_1$3          1.033      0.031     32.965      0.000
+    DASS5_1$1         -1.092      0.032    -34.020      0.000
+    DASS5_1$2          0.109      0.026      4.241      0.000
+    DASS5_1$3          0.965      0.031     31.607      0.000
+    DASS6_1$1         -0.815      0.029    -28.071      0.000
+    DASS6_1$2          0.542      0.027     19.988      0.000
+    DASS6_1$3          1.441      0.038     37.762      0.000
+    DASS7_1$1         -1.057      0.032    -33.399      0.000
+    DASS7_1$2          0.218      0.026      8.422      0.000
+    DASS7_1$3          1.162      0.033     35.104      0.000
+
+ Variances
+    DASSP_1            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DASS1_1            0.418      0.015     27.518      0.000
+    DASS2_1            0.344      0.014     25.296      0.000
+    DASS3_1            0.198      0.010     20.226      0.000
+    DASS4_1            0.236      0.010     23.201      0.000
+    DASS5_1            0.277      0.011     24.602      0.000
+    DASS6_1            0.482      0.016     30.880      0.000
+    DASS7_1            0.344      0.013     26.794      0.000
+
+
+R-SQUARE
+
+Group MALE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    DASS1_1            0.581      0.035     16.683      0.000      0.647
+    DASS2_1            0.655      0.032     20.272      0.000      0.587
+    DASS3_1            0.802      0.023     35.056      0.000      0.445
+    DASS4_1            0.764      0.026     29.936      0.000      0.486
+    DASS5_1            0.722      0.029     25.251      0.000      0.527
+    DASS6_1            0.517      0.036     14.321      0.000      0.695
+    DASS7_1            0.656      0.033     20.116      0.000      0.587
+
+Group FEMALE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    DASS1_1            0.582      0.015     38.332      0.000      0.646
+    DASS2_1            0.656      0.014     48.248      0.000      0.586
+    DASS3_1            0.802      0.010     81.998      0.000      0.445
+    DASS4_1            0.764      0.010     75.216      0.000      0.486
+    DASS5_1            0.723      0.011     64.208      0.000      0.526
+    DASS6_1            0.518      0.016     33.121      0.000      0.695
+    DASS7_1            0.656      0.013     51.189      0.000      0.586
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.165E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+Group MALE
+
+
+ON/BY Statements
+
+DASSP_1  ON DASSP_1  /
+DASSP_1  BY DASSP_1              999.000     0.000      0.000        0.000
+
+ON Statements
+
+DASS3_1  ON DASS2_1               12.378     0.309      0.309        0.234
+
+WITH Statements
+
+DASS3_1  WITH DASS2_1             11.072     0.387      0.387        0.387
+DASS6_1  WITH DASS5_1             10.473     0.304      0.304        0.304
+
+Variances/Residual Variances
+
+DASSP_1                          999.000     0.000      0.000        0.000
+
+Group FEMALE
+
+
+ON Statements
+
+DASS1_1  ON DASS6_1               29.302    -0.356     -0.356       -0.332
+DASS2_1  ON DASS3_1               14.355     0.192      0.192        0.253
+DASS2_1  ON DASS4_1               20.532    -0.276     -0.276       -0.334
+DASS2_1  ON DASS5_1               88.198    -0.637     -0.637       -0.710
+DASS3_1  ON DASS2_1               69.278     0.722      0.722        0.548
+DASS3_1  ON DASS5_1               68.411    -0.825     -0.825       -0.697
+DASS4_1  ON DASS2_1               17.825    -0.379     -0.379       -0.313
+DASS4_1  ON DASS5_1               41.096     0.516      0.516        0.476
+DASS5_1  ON DASS2_1               63.384    -0.680     -0.680       -0.611
+DASS5_1  ON DASS3_1               18.985    -0.299     -0.299       -0.354
+DASS5_1  ON DASS4_1               37.745     0.422      0.422        0.457
+DASS5_1  ON DASS6_1               23.025     0.363      0.363        0.275
+DASS5_1  ON DASS7_1               56.261     0.576      0.576        0.517
+DASS7_1  ON DASS5_1               39.511     0.394      0.394        0.439
+
+WITH Statements
+
+DASS3_1  WITH DASS2_1            135.870     1.360      1.360        1.360
+DASS4_1  WITH DASS2_1             50.398    -0.974     -0.974       -0.974
+DASS5_1  WITH DASS1_1             32.439     0.727      0.727        0.727
+DASS5_1  WITH DASS2_1            282.152    -2.387     -2.387       -2.387
+DASS5_1  WITH DASS3_1            130.155    -1.693     -1.693       -1.693
+DASS5_1  WITH DASS4_1             95.366     1.232      1.232        1.232
+DASS6_1  WITH DASS1_1             46.589    -0.682     -0.682       -0.682
+DASS6_1  WITH DASS2_1             29.087     0.550      0.550        0.550
+DASS6_1  WITH DASS5_1             13.160     0.342      0.342        0.342
+DASS7_1  WITH DASS4_1             12.345    -0.499     -0.499       -0.499
+DASS7_1  WITH DASS5_1             87.893     1.102      1.102        1.102
+
+Means/Intercepts/Thresholds
+
+[ DASSP_1  ]                     999.000     0.000      0.000        0.000
+
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    dass1_parent_gender_inv_metric.dat
+  Save format      Free
+
+     Beginning Time:  20:51:18
+        Ending Time:  20:51:18
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

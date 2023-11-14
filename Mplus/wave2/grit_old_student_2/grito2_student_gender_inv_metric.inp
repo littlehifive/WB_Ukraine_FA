@@ -1,0 +1,92 @@
+Title: Student Grit Gender Measurement Invariance Metric Model;
+
+Data:
+   File is ../dat_stu_2.txt;
+
+Variable:
+   Names are studentid girl age_w grito1_2 grito5_2 grito6_2 
+   grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 
+   grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2 
+   dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+   dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2 
+   dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2 
+   treatment half; 
+   Missing are . ;
+
+  Usevariable are
+	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+   
+  Categorical is
+	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+  
+  Idvariable is studentid;  
+    
+  Group is girl (1 = Female 0 = Male);
+
+Analysis:
+   Estimator = wlsmv;
+   Parameterization = theta;
+   Difftest = grito2_student_gender_inv_config.dat
+  
+  
+!!! Model for Male !!!
+
+Model:
+  ! Factor loadings all freely estimated
+  grito_2 by
+    grito1_2* grito5_2* grito6_2* grito7_2* grito8_2* (L1-L5);
+    
+  grito1_2 with grito6_2; !worded positively
+  grito1_2 with grito7_2; !both about schoolwork
+  
+  !estimating thresholds freely
+  [grito1_2$1* grito5_2$1* grito6_2$1* grito7_2$1* grito8_2$1*] (T1_1 T5_1 T6_1 T7_1 T8_1);
+  [grito1_2$2* grito5_2$2* grito6_2$2* grito7_2$2* grito8_2$2*] (T1_2 T5_2 T6_2 T7_2 T8_2);
+  [grito1_2$3* grito5_2$3* grito6_2$3* grito7_2$3* grito8_2$3*] (T1_3 T5_3 T6_3 T7_3 T8_3);
+  [grito1_2$4* grito5_2$4* grito6_2$4* grito7_2$4* grito8_2$4*] (T1_4 T5_4 T6_4 T7_4 T8_4);
+  
+  !constraining item residual variance to 1 for identification
+  grito1_2@1;
+  grito5_2@1; 
+  grito6_2@1;
+  grito7_2@1;
+  grito8_2@1;
+
+  !fixing latent mean to zero for identification
+  [grito_2@0];
+  
+  !fixing latent variance to one for identification
+  grito_2@1;
+  
+  
+!!! Model for Female !!!
+
+Model Female:
+  ! Factor loadings constrained to *be equal to the control group*
+  grito_2 by
+    grito1_2* grito5_2* grito6_2* grito7_2* grito8_2* (L1-L5);
+    
+  grito1_2 with grito6_2; !worded positively
+  grito1_2 with grito7_2; !both about schoolwork
+  
+  !estimating thresholds freely
+  [grito1_2$1* grito5_2$1* grito6_2$1* grito7_2$1* grito8_2$1*];
+  [grito1_2$2* grito5_2$2* grito6_2$2* grito7_2$2* grito8_2$2*];
+  [grito1_2$3* grito5_2$3* grito6_2$3* grito7_2$3* grito8_2$3*];
+  [grito1_2$4* grito5_2$4* grito6_2$4* grito7_2$4* grito8_2$4*];
+  
+  !constraining item residual variance to 1 for identification
+  grito1_2@1;
+  grito5_2@1; 
+  grito6_2@1;
+  grito7_2@1;
+  grito8_2@1;
+
+  !fixing latent mean to zero for identification
+  [grito_2@0];
+  
+  ! latent factor variance *estimated*
+  grito_2*;
+     
+Output: sampstat stdyx modindices(all);
+Savedata: Difftest is grito2_student_gender_inv_metric.dat;

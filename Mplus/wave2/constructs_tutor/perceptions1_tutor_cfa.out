@@ -1,0 +1,971 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/30/2023   8:48 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Perceptions Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosoc1_1 prosoc2_1 prosoc3_1 prosoc4_1
+     prosoc5_1 prosoc6_1 prosoc7_1 prosoc8_1
+     prosoc9_1 prosoc10_1 prosoc11_1 prosoc12_1
+     prosoc13_1 prosoc14_1 prosoc15_1 prosoc16_1
+     percep1_1 percep2a_1 percep2b_1 percep2c_1
+     percep2d_1 percep2e_1 percep2f_1 percep2g_1
+     percep2h_1 percep3_1 percep4_1 percep5_1
+     percep6a_1 percep6b_1 percep6c_1 percep6d_1
+     percep7_1 percep8a_1 percep8b_1 percep8c_1
+     percep8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	 percep1_1 percep2a_1 percep2b_1 percep2c_1
+     percep2d_1 percep2e_1 percep2f_1 percep2g_1
+     percep2h_1 percep3_1 percep4_1 percep5_1
+     percep6a_1 percep6b_1 percep6c_1 percep6d_1
+     percep7_1 percep8a_1 percep8b_1 percep8c_1
+     percep8d_1 ;
+
+    Categorical is
+  	 percep1_1 percep2a_1 percep2b_1 percep2c_1
+     percep2d_1 percep2e_1 percep2f_1 percep2g_1
+     percep2h_1 percep3_1 percep4_1 percep5_1
+     percep6a_1 percep6b_1 percep6c_1 percep6d_1
+     percep7_1 percep8a_1 percep8b_1 percep8c_1
+     percep8d_1 ;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+     f1_1 by percep2a_1 percep2b_1 percep2c_1
+     percep2d_1 percep2e_1 percep2f_1 percep2g_1
+     percep2h_1;
+
+     f2_1 by percep1_1 percep3_1 percep4_1 percep5_1 percep7_1;
+
+     f3_1 by percep6a_1 percep6b_1 percep6c_1 percep6d_1;
+
+     f4_1 by  percep8a_1 percep8b_1 percep8c_1 percep8d_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Tutor Perceptions Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         173
+
+Number of dependent variables                                   21
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   PERCEP1_    PERCEP2A    PERCEP2B    PERCEP2C    PERCEP2D    PERCEP2E
+   PERCEP2F    PERCEP2G    PERCEP2H    PERCEP3_    PERCEP4_    PERCEP5_
+   PERCEP6A    PERCEP6B    PERCEP6C    PERCEP6D    PERCEP7_    PERCEP8A
+   PERCEP8B    PERCEP8C    PERCEP8D
+
+Continuous latent variables
+   F1_1        F2_1        F3_1        F4_1
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PERCEP1_      PERCEP2A      PERCEP2B      PERCEP2C      PERCEP2D
+              ________      ________      ________      ________      ________
+ PERCEP1_       1.000
+ PERCEP2A       1.000         1.000
+ PERCEP2B       1.000         1.000         1.000
+ PERCEP2C       1.000         1.000         1.000         1.000
+ PERCEP2D       1.000         1.000         1.000         1.000         1.000
+ PERCEP2E       1.000         1.000         1.000         1.000         1.000
+ PERCEP2F       1.000         1.000         1.000         1.000         1.000
+ PERCEP2G       1.000         1.000         1.000         1.000         1.000
+ PERCEP2H       1.000         1.000         1.000         1.000         1.000
+ PERCEP3_       1.000         1.000         1.000         1.000         1.000
+ PERCEP4_       1.000         1.000         1.000         1.000         1.000
+ PERCEP5_       1.000         1.000         1.000         1.000         1.000
+ PERCEP6A       1.000         1.000         1.000         1.000         1.000
+ PERCEP6B       1.000         1.000         1.000         1.000         1.000
+ PERCEP6C       1.000         1.000         1.000         1.000         1.000
+ PERCEP6D       1.000         1.000         1.000         1.000         1.000
+ PERCEP7_       1.000         1.000         1.000         1.000         1.000
+ PERCEP8A       1.000         1.000         1.000         1.000         1.000
+ PERCEP8B       1.000         1.000         1.000         1.000         1.000
+ PERCEP8C       1.000         1.000         1.000         1.000         1.000
+ PERCEP8D       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PERCEP2E      PERCEP2F      PERCEP2G      PERCEP2H      PERCEP3_
+              ________      ________      ________      ________      ________
+ PERCEP2E       1.000
+ PERCEP2F       1.000         1.000
+ PERCEP2G       1.000         1.000         1.000
+ PERCEP2H       1.000         1.000         1.000         1.000
+ PERCEP3_       1.000         1.000         1.000         1.000         1.000
+ PERCEP4_       1.000         1.000         1.000         1.000         1.000
+ PERCEP5_       1.000         1.000         1.000         1.000         1.000
+ PERCEP6A       1.000         1.000         1.000         1.000         1.000
+ PERCEP6B       1.000         1.000         1.000         1.000         1.000
+ PERCEP6C       1.000         1.000         1.000         1.000         1.000
+ PERCEP6D       1.000         1.000         1.000         1.000         1.000
+ PERCEP7_       1.000         1.000         1.000         1.000         1.000
+ PERCEP8A       1.000         1.000         1.000         1.000         1.000
+ PERCEP8B       1.000         1.000         1.000         1.000         1.000
+ PERCEP8C       1.000         1.000         1.000         1.000         1.000
+ PERCEP8D       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PERCEP4_      PERCEP5_      PERCEP6A      PERCEP6B      PERCEP6C
+              ________      ________      ________      ________      ________
+ PERCEP4_       1.000
+ PERCEP5_       1.000         1.000
+ PERCEP6A       1.000         1.000         1.000
+ PERCEP6B       1.000         1.000         1.000         1.000
+ PERCEP6C       1.000         1.000         1.000         1.000         1.000
+ PERCEP6D       1.000         1.000         1.000         1.000         1.000
+ PERCEP7_       1.000         1.000         1.000         1.000         1.000
+ PERCEP8A       1.000         1.000         1.000         1.000         1.000
+ PERCEP8B       1.000         1.000         1.000         1.000         1.000
+ PERCEP8C       1.000         1.000         1.000         1.000         1.000
+ PERCEP8D       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PERCEP6D      PERCEP7_      PERCEP8A      PERCEP8B      PERCEP8C
+              ________      ________      ________      ________      ________
+ PERCEP6D       1.000
+ PERCEP7_       1.000         1.000
+ PERCEP8A       1.000         1.000         1.000
+ PERCEP8B       1.000         1.000         1.000         1.000
+ PERCEP8C       1.000         1.000         1.000         1.000         1.000
+ PERCEP8D       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PERCEP8D
+              ________
+ PERCEP8D       1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    PERCEP1_
+      Category 1    0.052            9.000
+      Category 2    0.347           60.000
+      Category 3    0.341           59.000
+      Category 4    0.202           35.000
+      Category 5    0.058           10.000
+    PERCEP2A
+      Category 1    0.040            7.000
+      Category 2    0.277           48.000
+      Category 3    0.301           52.000
+      Category 4    0.295           51.000
+      Category 5    0.087           15.000
+    PERCEP2B
+      Category 1    0.040            7.000
+      Category 2    0.249           43.000
+      Category 3    0.318           55.000
+      Category 4    0.306           53.000
+      Category 5    0.087           15.000
+    PERCEP2C
+      Category 1    0.081           14.000
+      Category 2    0.295           51.000
+      Category 3    0.364           63.000
+      Category 4    0.214           37.000
+      Category 5    0.046            8.000
+    PERCEP2D
+      Category 1    0.116           20.000
+      Category 2    0.335           58.000
+      Category 3    0.306           53.000
+      Category 4    0.191           33.000
+      Category 5    0.052            9.000
+    PERCEP2E
+      Category 1    0.156           27.000
+      Category 2    0.393           68.000
+      Category 3    0.312           54.000
+      Category 4    0.110           19.000
+      Category 5    0.029            5.000
+    PERCEP2F
+      Category 1    0.225           39.000
+      Category 2    0.451           78.000
+      Category 3    0.260           45.000
+      Category 4    0.064           11.000
+    PERCEP2G
+      Category 1    0.012            2.000
+      Category 2    0.069           12.000
+      Category 3    0.197           34.000
+      Category 4    0.630          109.000
+      Category 5    0.092           16.000
+    PERCEP2H
+      Category 1    0.029            5.000
+      Category 2    0.202           35.000
+      Category 3    0.347           60.000
+      Category 4    0.358           62.000
+      Category 5    0.064           11.000
+    PERCEP3_
+      Category 1    0.087           15.000
+      Category 2    0.341           59.000
+      Category 3    0.410           71.000
+      Category 4    0.162           28.000
+    PERCEP4_
+      Category 1    0.017            3.000
+      Category 2    0.098           17.000
+      Category 3    0.503           87.000
+      Category 4    0.382           66.000
+    PERCEP5_
+      Category 1    0.012            2.000
+      Category 2    0.156           27.000
+      Category 3    0.364           63.000
+      Category 4    0.370           64.000
+      Category 5    0.098           17.000
+    PERCEP6A
+      Category 1    0.133           23.000
+      Category 2    0.630          109.000
+      Category 3    0.220           38.000
+      Category 4    0.017            3.000
+    PERCEP6B
+      Category 1    0.133           23.000
+      Category 2    0.642          111.000
+      Category 3    0.202           35.000
+      Category 4    0.023            4.000
+    PERCEP6C
+      Category 1    0.150           26.000
+      Category 2    0.630          109.000
+      Category 3    0.197           34.000
+      Category 4    0.023            4.000
+    PERCEP6D
+      Category 1    0.370           64.000
+      Category 2    0.561           97.000
+      Category 3    0.069           12.000
+    PERCEP7_
+      Category 1    0.006            1.000
+      Category 2    0.006            1.000
+      Category 3    0.283           49.000
+      Category 4    0.572           99.000
+      Category 5    0.133           23.000
+    PERCEP8A
+      Category 1    0.012            2.000
+      Category 2    0.098           17.000
+      Category 3    0.642          111.000
+      Category 4    0.249           43.000
+    PERCEP8B
+      Category 1    0.006            1.000
+      Category 2    0.110           19.000
+      Category 3    0.694          120.000
+      Category 4    0.191           33.000
+    PERCEP8C
+      Category 1    0.006            1.000
+      Category 2    0.052            9.000
+      Category 3    0.422           73.000
+      Category 4    0.434           75.000
+      Category 5    0.087           15.000
+    PERCEP8D
+      Category 1    0.046            8.000
+      Category 2    0.324           56.000
+      Category 3    0.526           91.000
+      Category 4    0.104           18.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP1_      PERCEP1_      PERCEP1_      PERCEP1_      PERCEP2A
+              ________      ________      ________      ________      ________
+               -1.626        -0.256         0.643         1.573        -1.745
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP2A      PERCEP2A      PERCEP2A      PERCEP2B      PERCEP2B
+              ________      ________      ________      ________      ________
+               -0.474         0.302         1.361        -1.745        -0.556
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP2B      PERCEP2B      PERCEP2C      PERCEP2C      PERCEP2C
+              ________      ________      ________      ________      ________
+                0.271         1.361        -1.399        -0.317         0.643
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP2C      PERCEP2D      PERCEP2D      PERCEP2D      PERCEP2D
+              ________      ________      ________      ________      ________
+                1.682        -1.197        -0.123         0.697         1.626
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP2E      PERCEP2E      PERCEP2E      PERCEP2E      PERCEP2F
+              ________      ________      ________      ________      ________
+               -1.011         0.123         1.086         1.897        -0.754
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP2F      PERCEP2F      PERCEP2G      PERCEP2G      PERCEP2G
+              ________      ________      ________      ________      ________
+                0.457         1.525        -2.271        -1.399        -0.590
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP2G      PERCEP2H      PERCEP2H      PERCEP2H      PERCEP2H
+              ________      ________      ________      ________      ________
+                1.326        -1.897        -0.735         0.197         1.525
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP3_      PERCEP3_      PERCEP3_      PERCEP4_      PERCEP4_
+              ________      ________      ________      ________      ________
+               -1.361        -0.182         0.987        -2.112        -1.197
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP4_      PERCEP5_      PERCEP5_      PERCEP5_      PERCEP5_
+              ________      ________      ________      ________      ________
+                0.302        -2.271        -0.964         0.080         1.291
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP6A      PERCEP6A      PERCEP6A      PERCEP6B      PERCEP6B
+              ________      ________      ________      ________      ________
+               -1.113         0.716         2.112        -1.113         0.754
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP6B      PERCEP6C      PERCEP6C      PERCEP6C      PERCEP6D
+              ________      ________      ________      ________      ________
+                1.993        -1.035         0.773         1.993        -0.332
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP6D      PERCEP7_      PERCEP7_      PERCEP7_      PERCEP7_
+              ________      ________      ________      ________      ________
+                1.481        -2.525        -2.271        -0.539         1.113
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP8A      PERCEP8A      PERCEP8A      PERCEP8B      PERCEP8B
+              ________      ________      ________      ________      ________
+               -2.271        -1.227         0.679        -2.525        -1.197
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP8B      PERCEP8C      PERCEP8C      PERCEP8C      PERCEP8C
+              ________      ________      ________      ________      ________
+                0.875        -2.525        -1.573        -0.051         1.361
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PERCEP8D      PERCEP8D      PERCEP8D
+              ________      ________      ________
+               -1.682        -0.332         1.259
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PERCEP1_      PERCEP2A      PERCEP2B      PERCEP2C      PERCEP2D
+              ________      ________      ________      ________      ________
+ PERCEP1_
+ PERCEP2A       0.225
+ PERCEP2B       0.154         0.688
+ PERCEP2C       0.049         0.623         0.784
+ PERCEP2D       0.047         0.532         0.631         0.782
+ PERCEP2E       0.002         0.511         0.557         0.698         0.844
+ PERCEP2F       0.090         0.485         0.490         0.572         0.666
+ PERCEP2G      -0.080         0.077         0.217         0.236         0.307
+ PERCEP2H       0.064         0.476         0.506         0.466         0.559
+ PERCEP3_      -0.111        -0.008         0.118         0.051         0.133
+ PERCEP4_      -0.011        -0.002         0.089        -0.012        -0.062
+ PERCEP5_      -0.035        -0.031         0.044         0.035        -0.066
+ PERCEP6A       0.075         0.259         0.243         0.349         0.382
+ PERCEP6B       0.131         0.303         0.240         0.444         0.366
+ PERCEP6C       0.139         0.411         0.259         0.502         0.486
+ PERCEP6D       0.128         0.224         0.236         0.377         0.403
+ PERCEP7_      -0.201        -0.082        -0.084        -0.153        -0.206
+ PERCEP8A      -0.355        -0.166        -0.130        -0.105        -0.221
+ PERCEP8B      -0.302        -0.086        -0.025        -0.046        -0.165
+ PERCEP8C      -0.461        -0.048         0.014         0.068        -0.025
+ PERCEP8D      -0.400        -0.089        -0.093         0.016        -0.085
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PERCEP2E      PERCEP2F      PERCEP2G      PERCEP2H      PERCEP3_
+              ________      ________      ________      ________      ________
+ PERCEP2F       0.758
+ PERCEP2G       0.287         0.224
+ PERCEP2H       0.539         0.453         0.287
+ PERCEP3_       0.099        -0.061         0.143         0.201
+ PERCEP4_       0.008        -0.102         0.283         0.121         0.364
+ PERCEP5_      -0.039         0.027         0.073         0.070         0.271
+ PERCEP6A       0.308         0.230        -0.063         0.055        -0.066
+ PERCEP6B       0.358         0.371        -0.081         0.101        -0.115
+ PERCEP6C       0.508         0.498        -0.085         0.331        -0.214
+ PERCEP6D       0.438         0.538        -0.030         0.270        -0.209
+ PERCEP7_      -0.174        -0.247         0.026        -0.050         0.300
+ PERCEP8A      -0.192        -0.315         0.013         0.114         0.388
+ PERCEP8B      -0.128        -0.250        -0.091         0.111         0.333
+ PERCEP8C      -0.034        -0.141         0.098         0.082         0.131
+ PERCEP8D      -0.020        -0.054        -0.007         0.008         0.191
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PERCEP4_      PERCEP5_      PERCEP6A      PERCEP6B      PERCEP6C
+              ________      ________      ________      ________      ________
+ PERCEP5_       0.306
+ PERCEP6A      -0.291        -0.147
+ PERCEP6B      -0.246        -0.205         0.710
+ PERCEP6C      -0.272        -0.059         0.554         0.656
+ PERCEP6D      -0.317        -0.194         0.487         0.536         0.668
+ PERCEP7_       0.293         0.132        -0.403        -0.346        -0.288
+ PERCEP8A       0.229         0.207        -0.299        -0.268        -0.279
+ PERCEP8B       0.366         0.182        -0.326        -0.210        -0.191
+ PERCEP8C       0.181         0.078        -0.199        -0.196        -0.119
+ PERCEP8D       0.221         0.125        -0.188        -0.189        -0.175
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PERCEP6D      PERCEP7_      PERCEP8A      PERCEP8B      PERCEP8C
+              ________      ________      ________      ________      ________
+ PERCEP7_      -0.361
+ PERCEP8A      -0.315         0.349
+ PERCEP8B      -0.307         0.599         0.730
+ PERCEP8C      -0.113         0.405         0.483         0.631
+ PERCEP8D      -0.227         0.310         0.460         0.626         0.568
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              PERCEP8D
+              ________
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      100
+
+Chi-Square Test of Model Fit
+
+          Value                            407.911*
+          Degrees of Freedom                   183
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.084
+          90 Percent C.I.                    0.073  0.095
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.942
+          TLI                                0.934
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4100.895
+          Degrees of Freedom                   210
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.077
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.11886818D+01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1_1     BY
+    PERCEP2A_1         1.000      0.000    999.000    999.000
+    PERCEP2B_1         1.131      0.060     18.987      0.000
+    PERCEP2C_1         1.249      0.068     18.296      0.000
+    PERCEP2D_1         1.277      0.064     19.910      0.000
+    PERCEP2E_1         1.257      0.067     18.691      0.000
+    PERCEP2F_1         1.105      0.064     17.164      0.000
+    PERCEP2G_1         0.353      0.084      4.173      0.000
+    PERCEP2H_1         0.838      0.075     11.173      0.000
+
+ F2_1     BY
+    PERCEP1_1          1.000      0.000    999.000    999.000
+    PERCEP3_1         -0.946      0.219     -4.312      0.000
+    PERCEP4_1         -1.056      0.251     -4.214      0.000
+    PERCEP5_1         -0.647      0.192     -3.368      0.001
+    PERCEP7_1         -1.635      0.288     -5.675      0.000
+
+ F3_1     BY
+    PERCEP6A_1         1.000      0.000    999.000    999.000
+    PERCEP6B_1         1.051      0.079     13.348      0.000
+    PERCEP6C_1         1.118      0.076     14.770      0.000
+    PERCEP6D_1         1.008      0.075     13.525      0.000
+
+ F4_1     BY
+    PERCEP8A_1         1.000      0.000    999.000    999.000
+    PERCEP8B_1         1.259      0.080     15.767      0.000
+    PERCEP8C_1         0.905      0.070     12.922      0.000
+    PERCEP8D_1         0.927      0.071     12.988      0.000
+
+ F2_1     WITH
+    F1_1               0.040      0.026      1.568      0.117
+
+ F3_1     WITH
+    F1_1               0.297      0.040      7.400      0.000
+    F2_1               0.196      0.043      4.527      0.000
+
+ F4_1     WITH
+    F1_1              -0.064      0.041     -1.556      0.120
+    F2_1              -0.273      0.056     -4.860      0.000
+    F3_1              -0.212      0.055     -3.886      0.000
+
+ Thresholds
+    PERCEP1_$1        -1.626      0.159    -10.248      0.000
+    PERCEP1_$2        -0.256      0.096     -2.658      0.008
+    PERCEP1_$3         0.643      0.103      6.255      0.000
+    PERCEP1_$4         1.573      0.153     10.259      0.000
+    PERCEP2A$1        -1.745      0.172    -10.134      0.000
+    PERCEP2A$2        -0.474      0.099     -4.770      0.000
+    PERCEP2A$3         0.302      0.097      3.113      0.002
+    PERCEP2A$4         1.361      0.135     10.050      0.000
+    PERCEP2B$1        -1.745      0.172    -10.134      0.000
+    PERCEP2B$2        -0.556      0.101     -5.516      0.000
+    PERCEP2B$3         0.271      0.097      2.810      0.005
+    PERCEP2B$4         1.361      0.135     10.050      0.000
+    PERCEP2C$1        -1.399      0.138    -10.117      0.000
+    PERCEP2C$2        -0.317      0.097     -3.264      0.001
+    PERCEP2C$3         0.643      0.103      6.255      0.000
+    PERCEP2C$4         1.682      0.165     10.209      0.000
+    PERCEP2D$1        -1.197      0.125     -9.595      0.000
+    PERCEP2D$2        -0.123      0.096     -1.292      0.196
+    PERCEP2D$3         0.697      0.104      6.693      0.000
+    PERCEP2D$4         1.626      0.159     10.248      0.000
+    PERCEP2E$1        -1.011      0.115     -8.768      0.000
+    PERCEP2E$2         0.123      0.096      1.292      0.196
+    PERCEP2E$3         1.086      0.119      9.141      0.000
+    PERCEP2E$4         1.897      0.193      9.826      0.000
+    PERCEP2F$1        -0.754      0.106     -7.125      0.000
+    PERCEP2F$2         0.457      0.099      4.620      0.000
+    PERCEP2F$3         1.525      0.149     10.248      0.000
+    PERCEP2G$1        -2.271      0.269     -8.451      0.000
+    PERCEP2G$2        -1.399      0.138    -10.117      0.000
+    PERCEP2G$3        -0.590      0.102     -5.813      0.000
+    PERCEP2G$4         1.326      0.133      9.973      0.000
+    PERCEP2H$1        -1.897      0.193     -9.826      0.000
+    PERCEP2H$2        -0.735      0.105     -6.982      0.000
+    PERCEP2H$3         0.197      0.096      2.052      0.040
+    PERCEP2H$4         1.525      0.149     10.248      0.000
+    PERCEP3_$1        -1.361      0.135    -10.050      0.000
+    PERCEP3_$2        -0.182      0.096     -1.900      0.057
+    PERCEP3_$3         0.987      0.114      8.640      0.000
+    PERCEP4_$1        -2.112      0.231     -9.126      0.000
+    PERCEP4_$2        -1.197      0.125     -9.595      0.000
+    PERCEP4_$3         0.302      0.097      3.113      0.002
+    PERCEP5_$1        -2.271      0.269     -8.451      0.000
+    PERCEP5_$2        -0.964      0.113     -8.509      0.000
+    PERCEP5_$3         0.080      0.095      0.836      0.403
+    PERCEP5_$4         1.291      0.131      9.888      0.000
+    PERCEP6A$1        -1.113      0.120     -9.260      0.000
+    PERCEP6A$2         0.716      0.105      6.837      0.000
+    PERCEP6A$3         2.112      0.231      9.126      0.000
+    PERCEP6B$1        -1.113      0.120     -9.260      0.000
+    PERCEP6B$2         0.754      0.106      7.125      0.000
+    PERCEP6B$3         1.993      0.209      9.547      0.000
+    PERCEP6C$1        -1.035      0.116     -8.895      0.000
+    PERCEP6C$2         0.773      0.106      7.268      0.000
+    PERCEP6C$3         1.993      0.209      9.547      0.000
+    PERCEP6D$1        -0.332      0.097     -3.415      0.001
+    PERCEP6D$2         1.481      0.145     10.219      0.000
+    PERCEP7_$1        -2.525      0.350     -7.207      0.000
+    PERCEP7_$2        -2.271      0.269     -8.451      0.000
+    PERCEP7_$3        -0.539      0.101     -5.367      0.000
+    PERCEP7_$4         1.113      0.120      9.260      0.000
+    PERCEP8A$1        -2.271      0.269     -8.451      0.000
+    PERCEP8A$2        -1.227      0.127     -9.698      0.000
+    PERCEP8A$3         0.679      0.104      6.547      0.000
+    PERCEP8B$1        -2.525      0.350     -7.207      0.000
+    PERCEP8B$2        -1.197      0.125     -9.595      0.000
+    PERCEP8B$3         0.875      0.110      7.969      0.000
+    PERCEP8C$1        -2.525      0.350     -7.207      0.000
+    PERCEP8C$2        -1.573      0.153    -10.259      0.000
+    PERCEP8C$3        -0.051      0.095     -0.532      0.595
+    PERCEP8C$4         1.361      0.135     10.050      0.000
+    PERCEP8D$1        -1.682      0.165    -10.209      0.000
+    PERCEP8D$2        -0.332      0.097     -3.415      0.001
+    PERCEP8D$3         1.259      0.129      9.796      0.000
+
+ Variances
+    F1_1               0.500      0.052      9.700      0.000
+    F2_1               0.173      0.061      2.828      0.005
+    F3_1               0.578      0.063      9.125      0.000
+    F4_1               0.570      0.059      9.615      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1_1     BY
+    PERCEP2A_1         0.707      0.036     19.399      0.000
+    PERCEP2B_1         0.799      0.028     28.227      0.000
+    PERCEP2C_1         0.883      0.019     47.328      0.000
+    PERCEP2D_1         0.903      0.017     51.583      0.000
+    PERCEP2E_1         0.889      0.019     46.488      0.000
+    PERCEP2F_1         0.781      0.035     22.640      0.000
+    PERCEP2G_1         0.249      0.057      4.350      0.000
+    PERCEP2H_1         0.592      0.045     13.196      0.000
+
+ F2_1     BY
+    PERCEP1_1          0.416      0.074      5.655      0.000
+    PERCEP3_1         -0.394      0.065     -6.020      0.000
+    PERCEP4_1         -0.440      0.065     -6.758      0.000
+    PERCEP5_1         -0.269      0.071     -3.796      0.000
+    PERCEP7_1         -0.681      0.044    -15.559      0.000
+
+ F3_1     BY
+    PERCEP6A_1         0.760      0.042     18.249      0.000
+    PERCEP6B_1         0.799      0.037     21.583      0.000
+    PERCEP6C_1         0.850      0.036     23.369      0.000
+    PERCEP6D_1         0.766      0.041     18.658      0.000
+
+ F4_1     BY
+    PERCEP8A_1         0.755      0.039     19.230      0.000
+    PERCEP8B_1         0.951      0.030     31.679      0.000
+    PERCEP8C_1         0.684      0.046     14.754      0.000
+    PERCEP8D_1         0.700      0.047     14.909      0.000
+
+ F2_1     WITH
+    F1_1               0.137      0.082      1.665      0.096
+
+ F3_1     WITH
+    F1_1               0.553      0.052     10.589      0.000
+    F2_1               0.620      0.073      8.505      0.000
+
+ F4_1     WITH
+    F1_1              -0.121      0.074     -1.620      0.105
+    F2_1              -0.869      0.070    -12.485      0.000
+    F3_1              -0.370      0.087     -4.251      0.000
+
+ Thresholds
+    PERCEP1_$1        -1.626      0.159    -10.248      0.000
+    PERCEP1_$2        -0.256      0.096     -2.658      0.008
+    PERCEP1_$3         0.643      0.103      6.255      0.000
+    PERCEP1_$4         1.573      0.153     10.259      0.000
+    PERCEP2A$1        -1.745      0.172    -10.134      0.000
+    PERCEP2A$2        -0.474      0.099     -4.770      0.000
+    PERCEP2A$3         0.302      0.097      3.113      0.002
+    PERCEP2A$4         1.361      0.135     10.050      0.000
+    PERCEP2B$1        -1.745      0.172    -10.134      0.000
+    PERCEP2B$2        -0.556      0.101     -5.516      0.000
+    PERCEP2B$3         0.271      0.097      2.810      0.005
+    PERCEP2B$4         1.361      0.135     10.050      0.000
+    PERCEP2C$1        -1.399      0.138    -10.117      0.000
+    PERCEP2C$2        -0.317      0.097     -3.264      0.001
+    PERCEP2C$3         0.643      0.103      6.255      0.000
+    PERCEP2C$4         1.682      0.165     10.209      0.000
+    PERCEP2D$1        -1.197      0.125     -9.595      0.000
+    PERCEP2D$2        -0.123      0.096     -1.292      0.196
+    PERCEP2D$3         0.697      0.104      6.693      0.000
+    PERCEP2D$4         1.626      0.159     10.248      0.000
+    PERCEP2E$1        -1.011      0.115     -8.768      0.000
+    PERCEP2E$2         0.123      0.096      1.292      0.196
+    PERCEP2E$3         1.086      0.119      9.141      0.000
+    PERCEP2E$4         1.897      0.193      9.826      0.000
+    PERCEP2F$1        -0.754      0.106     -7.125      0.000
+    PERCEP2F$2         0.457      0.099      4.620      0.000
+    PERCEP2F$3         1.525      0.149     10.248      0.000
+    PERCEP2G$1        -2.271      0.269     -8.451      0.000
+    PERCEP2G$2        -1.399      0.138    -10.117      0.000
+    PERCEP2G$3        -0.590      0.102     -5.813      0.000
+    PERCEP2G$4         1.326      0.133      9.973      0.000
+    PERCEP2H$1        -1.897      0.193     -9.826      0.000
+    PERCEP2H$2        -0.735      0.105     -6.982      0.000
+    PERCEP2H$3         0.197      0.096      2.052      0.040
+    PERCEP2H$4         1.525      0.149     10.248      0.000
+    PERCEP3_$1        -1.361      0.135    -10.050      0.000
+    PERCEP3_$2        -0.182      0.096     -1.900      0.057
+    PERCEP3_$3         0.987      0.114      8.640      0.000
+    PERCEP4_$1        -2.112      0.231     -9.126      0.000
+    PERCEP4_$2        -1.197      0.125     -9.595      0.000
+    PERCEP4_$3         0.302      0.097      3.113      0.002
+    PERCEP5_$1        -2.271      0.269     -8.451      0.000
+    PERCEP5_$2        -0.964      0.113     -8.509      0.000
+    PERCEP5_$3         0.080      0.095      0.836      0.403
+    PERCEP5_$4         1.291      0.131      9.888      0.000
+    PERCEP6A$1        -1.113      0.120     -9.260      0.000
+    PERCEP6A$2         0.716      0.105      6.837      0.000
+    PERCEP6A$3         2.112      0.231      9.126      0.000
+    PERCEP6B$1        -1.113      0.120     -9.260      0.000
+    PERCEP6B$2         0.754      0.106      7.125      0.000
+    PERCEP6B$3         1.993      0.209      9.547      0.000
+    PERCEP6C$1        -1.035      0.116     -8.895      0.000
+    PERCEP6C$2         0.773      0.106      7.268      0.000
+    PERCEP6C$3         1.993      0.209      9.547      0.000
+    PERCEP6D$1        -0.332      0.097     -3.415      0.001
+    PERCEP6D$2         1.481      0.145     10.219      0.000
+    PERCEP7_$1        -2.525      0.350     -7.207      0.000
+    PERCEP7_$2        -2.271      0.269     -8.451      0.000
+    PERCEP7_$3        -0.539      0.101     -5.367      0.000
+    PERCEP7_$4         1.113      0.120      9.260      0.000
+    PERCEP8A$1        -2.271      0.269     -8.451      0.000
+    PERCEP8A$2        -1.227      0.127     -9.698      0.000
+    PERCEP8A$3         0.679      0.104      6.547      0.000
+    PERCEP8B$1        -2.525      0.350     -7.207      0.000
+    PERCEP8B$2        -1.197      0.125     -9.595      0.000
+    PERCEP8B$3         0.875      0.110      7.969      0.000
+    PERCEP8C$1        -2.525      0.350     -7.207      0.000
+    PERCEP8C$2        -1.573      0.153    -10.259      0.000
+    PERCEP8C$3        -0.051      0.095     -0.532      0.595
+    PERCEP8C$4         1.361      0.135     10.050      0.000
+    PERCEP8D$1        -1.682      0.165    -10.209      0.000
+    PERCEP8D$2        -0.332      0.097     -3.415      0.001
+    PERCEP8D$3         1.259      0.129      9.796      0.000
+
+ Variances
+    F1_1               1.000      0.000    999.000    999.000
+    F2_1               1.000      0.000    999.000    999.000
+    F3_1               1.000      0.000    999.000    999.000
+    F4_1               1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    PERCEP1_           0.173      0.061      2.828      0.005      0.827
+    PERCEP2A           0.500      0.052      9.700      0.000      0.500
+    PERCEP2B           0.639      0.045     14.114      0.000      0.361
+    PERCEP2C           0.780      0.033     23.664      0.000      0.220
+    PERCEP2D           0.815      0.032     25.792      0.000      0.185
+    PERCEP2E           0.790      0.034     23.244      0.000      0.210
+    PERCEP2F           0.610      0.054     11.320      0.000      0.390
+    PERCEP2G           0.062      0.029      2.175      0.030      0.938
+    PERCEP2H           0.351      0.053      6.598      0.000      0.649
+    PERCEP3_           0.155      0.052      3.010      0.003      0.845
+    PERCEP4_           0.193      0.057      3.379      0.001      0.807
+    PERCEP5_           0.073      0.038      1.898      0.058      0.927
+    PERCEP6A           0.578      0.063      9.125      0.000      0.422
+    PERCEP6B           0.638      0.059     10.791      0.000      0.362
+    PERCEP6C           0.722      0.062     11.685      0.000      0.278
+    PERCEP6D           0.587      0.063      9.329      0.000      0.413
+    PERCEP7_           0.463      0.060      7.779      0.000      0.537
+    PERCEP8A           0.570      0.059      9.615      0.000      0.430
+    PERCEP8B           0.904      0.057     15.839      0.000      0.096
+    PERCEP8C           0.467      0.063      7.377      0.000      0.533
+    PERCEP8D           0.490      0.066      7.454      0.000      0.510
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.457E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON/BY Statements
+
+PERCEP1_ ON F4_1     /
+F4_1     BY PERCEP1_              11.943    -0.971     -0.733       -0.733
+PERCEP2F ON F2_1     /
+F2_1     BY PERCEP2F              21.008     0.550      0.229        0.229
+PERCEP2F ON F3_1     /
+F3_1     BY PERCEP2F              16.957     0.371      0.282        0.282
+PERCEP2F ON F4_1     /
+F4_1     BY PERCEP2F              19.314    -0.306     -0.231       -0.231
+PERCEP2G ON F2_1     /
+F2_1     BY PERCEP2G              18.853    -0.500     -0.208       -0.208
+PERCEP2G ON F3_1     /
+F3_1     BY PERCEP2G              28.128    -0.487     -0.370       -0.370
+PERCEP2G ON F4_1     /
+F4_1     BY PERCEP2G              11.707     0.224      0.169        0.169
+PERCEP2H ON F2_1     /
+F2_1     BY PERCEP2H              15.903    -0.464     -0.193       -0.193
+PERCEP2H ON F3_1     /
+F3_1     BY PERCEP2H              10.527    -0.299     -0.227       -0.227
+PERCEP2H ON F4_1     /
+F4_1     BY PERCEP2H              15.935     0.263      0.199        0.199
+PERCEP3_ ON F1_1     /
+F1_1     BY PERCEP3_              20.708     0.274      0.194        0.194
+PERCEP3_ ON F3_1     /
+F3_1     BY PERCEP3_              15.066     0.346      0.263        0.263
+PERCEP6C ON F1_1     /
+F1_1     BY PERCEP6C              11.218     0.326      0.230        0.230
+PERCEP7_ ON F1_1     /
+F1_1     BY PERCEP7_              18.287    -0.294     -0.208       -0.208
+PERCEP7_ ON F3_1     /
+F3_1     BY PERCEP7_              13.241    -0.361     -0.274       -0.274
+PERCEP8A ON F1_1     /
+F1_1     BY PERCEP8A              11.907    -0.223     -0.158       -0.158
+PERCEP8A ON F3_1     /
+F3_1     BY PERCEP8A              10.764    -0.278     -0.211       -0.211
+
+ON Statements
+
+F1_1     ON PERCEP2F              11.245    -0.235     -0.332       -0.332
+F1_1     ON PERCEP2G              23.048     0.353      0.500        0.500
+F1_1     ON PERCEP3_              18.707     0.130      0.184        0.184
+F1_1     ON PERCEP6C              10.359     0.116      0.164        0.164
+F1_1     ON PERCEP7_              16.755    -0.141     -0.199       -0.199
+F2_1     ON PERCEP2G              12.036    -0.112     -0.268       -0.268
+F3_1     ON PERCEP2G              17.391    -0.189     -0.248       -0.248
+F4_1     ON PERCEP1_              14.295    -0.235     -0.312       -0.312
+PERCEP1_ ON PERCEP8C              12.417    -0.272     -0.272       -0.272
+PERCEP2A ON PERCEP2B              15.335     0.194      0.194        0.194
+PERCEP2B ON PERCEP2A              15.335     0.194      0.194        0.194
+PERCEP2B ON PERCEP2C              17.583     0.187      0.187        0.187
+PERCEP2B ON PERCEP2E              12.128    -0.207     -0.207       -0.207
+PERCEP2C ON PERCEP2B              17.583     0.187      0.187        0.187
+PERCEP2E ON PERCEP2B              12.128    -0.207     -0.207       -0.207
+PERCEP2F ON PERCEP6C              12.285     0.151      0.151        0.151
+PERCEP2F ON PERCEP6D              16.610     0.214      0.214        0.214
+PERCEP2F ON PERCEP7_              18.042    -0.182     -0.182       -0.182
+PERCEP2F ON PERCEP8A              19.563    -0.205     -0.205       -0.205
+PERCEP2F ON PERCEP8B              15.624    -0.161     -0.161       -0.161
+PERCEP2F ON PERCEP8C              11.257    -0.168     -0.168       -0.168
+PERCEP2F ON PERCEP8D              10.618    -0.184     -0.184       -0.184
+PERCEP2G ON PERCEP1_              10.443    -0.218     -0.218       -0.218
+PERCEP2G ON PERCEP3_              13.334     0.232      0.232        0.232
+PERCEP2G ON PERCEP4_              26.240     0.285      0.285        0.285
+PERCEP2G ON PERCEP6A              19.196    -0.254     -0.254       -0.254
+PERCEP2G ON PERCEP6B              20.375    -0.239     -0.239       -0.239
+PERCEP2G ON PERCEP6C              21.139    -0.220     -0.220       -0.220
+PERCEP2G ON PERCEP6D              17.807    -0.249     -0.249       -0.249
+PERCEP2H ON PERCEP3_              17.880     0.262      0.262        0.262
+PERCEP2H ON PERCEP4_              12.429     0.231      0.231        0.231
+PERCEP2H ON PERCEP6A              10.885    -0.185     -0.185       -0.185
+PERCEP2H ON PERCEP8A              13.903     0.183      0.183        0.183
+PERCEP2H ON PERCEP8B              14.059     0.139      0.139        0.139
+PERCEP2H ON PERCEP8C              12.028     0.165      0.165        0.165
+PERCEP3_ ON PERCEP2A              11.880     0.148      0.148        0.148
+PERCEP3_ ON PERCEP2B              18.380     0.172      0.172        0.172
+PERCEP3_ ON PERCEP2C              15.448     0.141      0.141        0.141
+PERCEP3_ ON PERCEP2D              19.280     0.154      0.154        0.154
+PERCEP3_ ON PERCEP2E              17.807     0.156      0.156        0.156
+PERCEP3_ ON PERCEP2F              11.481     0.141      0.141        0.141
+PERCEP3_ ON PERCEP2G              12.515     0.258      0.258        0.258
+PERCEP3_ ON PERCEP2H              22.680     0.229      0.229        0.229
+PERCEP3_ ON PERCEP6A              11.227     0.192      0.192        0.192
+PERCEP4_ ON PERCEP2G              17.041     0.276      0.276        0.276
+PERCEP6A ON PERCEP6B              14.540     0.250      0.250        0.250
+PERCEP6B ON PERCEP6A              14.540     0.250      0.250        0.250
+PERCEP6C ON PERCEP2F              11.139     0.163      0.163        0.163
+PERCEP7_ ON PERCEP2C              13.268    -0.147     -0.147       -0.147
+PERCEP7_ ON PERCEP2D              16.121    -0.153     -0.153       -0.153
+PERCEP7_ ON PERCEP2E              14.014    -0.139     -0.139       -0.139
+PERCEP7_ ON PERCEP2F              19.652    -0.186     -0.186       -0.186
+PERCEP8A ON PERCEP2D              11.095    -0.126     -0.126       -0.126
+PERCEP8A ON PERCEP2E              10.137    -0.123     -0.123       -0.123
+PERCEP8A ON PERCEP2F              15.421    -0.169     -0.169       -0.169
+
+WITH Statements
+
+PERCEP1_ WITH F4_1                14.295    -0.235     -0.312       -0.343
+PERCEP2B WITH PERCEP2A            15.335     0.194      0.194        0.457
+PERCEP2C WITH PERCEP2B            17.583     0.187      0.187        0.663
+PERCEP2E WITH PERCEP2B            12.128    -0.207     -0.207       -0.751
+PERCEP2F WITH F1_1                11.243    -0.235     -0.332       -0.532
+PERCEP2G WITH F1_1                23.049     0.353      0.500        0.516
+PERCEP2G WITH F2_1                12.036    -0.112     -0.268       -0.277
+PERCEP2G WITH F3_1                17.391    -0.189     -0.248       -0.256
+PERCEP3_ WITH F1_1                18.707     0.130      0.184        0.200
+PERCEP4_ WITH PERCEP2G            15.655     0.299      0.299        0.344
+PERCEP6B WITH PERCEP6A            14.540     0.250      0.250        0.641
+PERCEP6C WITH F1_1                10.360     0.116      0.164        0.310
+PERCEP7_ WITH F1_1                16.755    -0.141     -0.199       -0.271
+
+
+     Beginning Time:  20:48:12
+        Ending Time:  20:48:12
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

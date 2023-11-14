@@ -1,0 +1,356 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/30/2023   8:47 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Bias Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	bias1_1 bias2_1 bias3_1 bias4_1 bias6_1 bias7_1
+  	bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1;
+
+    Categorical is
+  	bias1_1 bias2_1 bias3_1 bias4_1 bias6_1 bias7_1
+  	bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    !Self-Efficacy and Attitude towards Challenges:
+    f1 by bias1_1 bias2_1 bias3_1 bias4_1 bias11_1;
+
+    ! Interpersonal Skills and Ethics:
+    f2 by bias7_1 bias9_1 bias6_1 bias13_1;
+
+    ! Attitude Towards Conflict, Open-Mindedness, and Tolerance:
+    f3 by bias8_1 bias10_1 bias12_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Tutor Bias Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         173
+
+Number of dependent variables                                   12
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   BIAS1_1     BIAS2_1     BIAS3_1     BIAS4_1     BIAS6_1     BIAS7_1
+   BIAS8_1     BIAS9_1     BIAS10_1    BIAS11_1    BIAS12_1    BIAS13_1
+
+Continuous latent variables
+   F1          F2          F3
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              BIAS1_1       BIAS2_1       BIAS3_1       BIAS4_1       BIAS6_1
+              ________      ________      ________      ________      ________
+ BIAS1_1        1.000
+ BIAS2_1        1.000         1.000
+ BIAS3_1        1.000         1.000         1.000
+ BIAS4_1        1.000         1.000         1.000         1.000
+ BIAS6_1        1.000         1.000         1.000         1.000         1.000
+ BIAS7_1        1.000         1.000         1.000         1.000         1.000
+ BIAS8_1        1.000         1.000         1.000         1.000         1.000
+ BIAS9_1        1.000         1.000         1.000         1.000         1.000
+ BIAS10_1       1.000         1.000         1.000         1.000         1.000
+ BIAS11_1       1.000         1.000         1.000         1.000         1.000
+ BIAS12_1       1.000         1.000         1.000         1.000         1.000
+ BIAS13_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              BIAS7_1       BIAS8_1       BIAS9_1       BIAS10_1      BIAS11_1
+              ________      ________      ________      ________      ________
+ BIAS7_1        1.000
+ BIAS8_1        1.000         1.000
+ BIAS9_1        1.000         1.000         1.000
+ BIAS10_1       1.000         1.000         1.000         1.000
+ BIAS11_1       1.000         1.000         1.000         1.000         1.000
+ BIAS12_1       1.000         1.000         1.000         1.000         1.000
+ BIAS13_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              BIAS12_1      BIAS13_1
+              ________      ________
+ BIAS12_1       1.000
+ BIAS13_1       1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    BIAS1_1
+      Category 1    0.584          101.000
+      Category 2    0.416           72.000
+    BIAS2_1
+      Category 1    0.422           73.000
+      Category 2    0.578          100.000
+    BIAS3_1
+      Category 1    0.844          146.000
+      Category 2    0.156           27.000
+    BIAS4_1
+      Category 1    0.855          148.000
+      Category 2    0.145           25.000
+    BIAS6_1
+      Category 1    0.694          120.000
+      Category 2    0.306           53.000
+    BIAS7_1
+      Category 1    0.069           12.000
+      Category 2    0.931          161.000
+    BIAS8_1
+      Category 1    0.861          149.000
+      Category 2    0.139           24.000
+    BIAS9_1
+      Category 1    0.168           29.000
+      Category 2    0.832          144.000
+    BIAS10_1
+      Category 1    0.358           62.000
+      Category 2    0.642          111.000
+    BIAS11_1
+      Category 1    0.682          118.000
+      Category 2    0.318           55.000
+    BIAS12_1
+      Category 1    0.723          125.000
+      Category 2    0.277           48.000
+    BIAS13_1
+      Category 1    0.977          169.000
+      Category 2    0.023            4.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BIAS1_1$      BIAS2_1$      BIAS3_1$      BIAS4_1$      BIAS6_1$
+              ________      ________      ________      ________      ________
+                0.212        -0.197         1.011         1.060         0.506
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BIAS7_1$      BIAS8_1$      BIAS9_1$      BIAS10_1      BIAS11_1
+              ________      ________      ________      ________      ________
+               -1.481         1.086        -0.964        -0.363         0.474
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BIAS12_1      BIAS13_1
+              ________      ________
+                0.590         1.993
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BIAS1_1       BIAS2_1       BIAS3_1       BIAS4_1       BIAS6_1
+              ________      ________      ________      ________      ________
+ BIAS1_1
+ BIAS2_1        0.493
+ BIAS3_1        0.168         0.559
+ BIAS4_1        0.530         0.452         0.201
+ BIAS6_1        0.123         0.353         0.179         0.025
+ BIAS7_1       -0.324        -0.371        -0.023        -0.642        -0.155
+ BIAS8_1        0.001        -0.058         0.219        -0.056         0.254
+ BIAS9_1        0.004        -0.256        -0.133        -0.079        -0.008
+ BIAS10_1      -0.047        -0.204        -0.084        -0.070        -0.131
+ BIAS11_1       0.288         0.258         0.280         0.207         0.314
+ BIAS12_1       0.260         0.323         0.298         0.217         0.063
+ BIAS13_1       0.358         0.197         0.145         0.167        -0.070
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BIAS7_1       BIAS8_1       BIAS9_1       BIAS10_1      BIAS11_1
+              ________      ________      ________      ________      ________
+ BIAS8_1       -0.353
+ BIAS9_1        0.285        -0.348
+ BIAS10_1       0.398         0.115         0.326
+ BIAS11_1      -0.138         0.167        -0.173        -0.056
+ BIAS12_1      -0.409         0.173        -0.192        -0.215         0.309
+ BIAS13_1      -0.144         0.459        -0.407        -0.416         0.200
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BIAS12_1      BIAS13_1
+              ________      ________
+ BIAS13_1       0.501
+
+     WARNING:  THE BIVARIATE TABLE OF BIAS13_1 AND BIAS7_1 HAS AN EMPTY CELL.
+
+
+     NO CONVERGENCE.  NUMBER OF ITERATIONS EXCEEDED.
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ F1       BY
+    BIAS1_1            1.000
+    BIAS2_1            1.377
+    BIAS3_1            0.943
+    BIAS4_1            0.947
+    BIAS11_1           0.775
+
+ F2       BY
+    BIAS7_1            1.000
+    BIAS9_1         -148.079
+    BIAS6_1          131.320
+    BIAS13_1         260.894
+
+ F3       BY
+    BIAS8_1            1.000
+    BIAS10_1          -1.121
+    BIAS12_1           1.797
+
+ F2       WITH
+    F1                 0.001
+
+ F3       WITH
+    F1                 0.122
+    F2                 0.001
+
+ Thresholds
+    BIAS1_1$1          0.213
+    BIAS2_1$1         -0.196
+    BIAS3_1$1          1.010
+    BIAS4_1$1          1.061
+    BIAS6_1$1          0.506
+    BIAS7_1$1         -1.482
+    BIAS8_1$1          1.085
+    BIAS9_1$1         -0.964
+    BIAS10_1$1        -0.363
+    BIAS11_1$1         0.474
+    BIAS12_1$1         0.590
+    BIAS13_1$1         1.993
+
+ Variances
+    F1                 0.356
+    F2                 0.000
+    F3                 0.079
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     f1 BY bias1_1@1;
+     f1 BY bias2_1*1.37718;
+     f1 BY bias3_1*0.94295;
+     f1 BY bias4_1*0.94701;
+     f1 BY bias11_1*0.77493;
+     f2 BY bias7_1@1;
+     f2 BY bias9_1*-148.07896;
+     f2 BY bias6_1*131.31964;
+     f2 BY bias13_1*260.89429;
+     f3 BY bias8_1@1;
+     f3 BY bias10_1*-1.12096;
+     f3 BY bias12_1*1.79685;
+
+     f2 WITH f1*0.00111;
+     f3 WITH f1*0.12171;
+     f3 WITH f2*0.00107;
+
+     [ bias1_1$1*0.21275 ];
+     [ bias2_1$1*-0.19593 ];
+     [ bias3_1$1*1.00989 ];
+     [ bias4_1$1*1.06067 ];
+     [ bias6_1$1*0.50626 ];
+     [ bias7_1$1*-1.48174 ];
+     [ bias8_1$1*1.08511 ];
+     [ bias9_1$1*-0.96409 ];
+     [ bias10_1$1*-0.36279 ];
+     [ bias11_1$1*0.47374 ];
+     [ bias12_1$1*0.58983 ];
+     [ bias13_1$1*1.99277 ];
+
+     f1*0.35558;
+     f2*0.00000;
+     f3*0.07859;
+
+
+
+     Beginning Time:  20:47:26
+        Ending Time:  20:47:27
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

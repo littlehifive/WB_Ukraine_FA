@@ -1,0 +1,481 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+10/30/2023   8:47 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Tutor Work-related Efficacy Baseline CFA;
+
+  Data:
+     File is ../dat_tutor.txt;
+
+  Variable:
+     Names are tutorid
+     dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     empathy1_1 empathy2_1 empathy3_1 empathy4_1 empathy5_1
+     empathy6_1 empathy7_1 empathy8_1 empathy9_1
+     auto1_1 auto2_1 auto3_1 auto4_1 auto5_1
+     auto6_1 auto7_1 auto8_1 auto9_1 auto10_1
+     bias1_1 bias2_1 bias3_1 bias4_1 bias5_1 bias6_1 bias7_1
+     bias8_1 bias9_1 bias10_1 bias11_1 bias12_1 bias13_1
+     hard_work1_1 hard_work2_1 hard_work3_1
+     prosocial1_1 prosocial2_1 prosocial3_1 prosocial4_1
+     prosocial5_1 prosocial6_1 prosocial7_1 prosocial8_1
+     prosocial9_1 prosocial10_1 prosocial11_1 prosocial12_1
+     prosocial13_1 prosocial14_1 prosocial15_1 prosocial16_1
+     perceptions1_1 perceptions2a_1 perceptions2b_1 perceptions2c_1
+     perceptions2d_1 perceptions2e_1 perceptions2f_1 perceptions2g_1
+     perceptions2h_1 perceptions3_1 perceptions4_1 perceptions5_1
+     perceptions6a_1 perceptions6b_1 perceptions6c_1 perceptions6d_1
+     perceptions7_1 perceptions8a_1 perceptions8b_1 perceptions8c_1
+     perceptions8d_1 half;
+     Missing are . ;
+
+    Usevariable are
+  	auto1_1 auto2_1 auto3_1 auto4_1 auto5_1 auto6_1 auto7_1 auto8_1 auto9_1 auto10_1;
+
+    Categorical is
+  	auto1_1 auto2_1 auto3_1 auto4_1 auto5_1 auto6_1 auto7_1 auto8_1 auto9_1 auto10_1;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    pos_1 by
+      auto1_1 auto2_1 auto6_1 auto7_1;
+
+    neg_1 by
+      auto3_1 auto4_1 auto5_1 auto8_1 auto9_1 auto10_1;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Tutor Work-related Efficacy Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         173
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   AUTO1_1     AUTO2_1     AUTO3_1     AUTO4_1     AUTO5_1     AUTO6_1
+   AUTO7_1     AUTO8_1     AUTO9_1     AUTO10_1
+
+Continuous latent variables
+   POS_1       NEG_1
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_tutor.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1        1.000
+ AUTO2_1        1.000         1.000
+ AUTO3_1        1.000         1.000         1.000
+ AUTO4_1        1.000         1.000         1.000         1.000
+ AUTO5_1        1.000         1.000         1.000         1.000         1.000
+ AUTO6_1        1.000         1.000         1.000         1.000         1.000
+ AUTO7_1        1.000         1.000         1.000         1.000         1.000
+ AUTO8_1        1.000         1.000         1.000         1.000         1.000
+ AUTO9_1        1.000         1.000         1.000         1.000         1.000
+ AUTO10_1       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO6_1        1.000
+ AUTO7_1        1.000         1.000
+ AUTO8_1        1.000         1.000         1.000
+ AUTO9_1        1.000         1.000         1.000         1.000
+ AUTO10_1       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    AUTO1_1
+      Category 1    0.012            2.000
+      Category 2    0.006            1.000
+      Category 3    0.133           23.000
+      Category 4    0.618          107.000
+      Category 5    0.231           40.000
+    AUTO2_1
+      Category 1    0.208           36.000
+      Category 2    0.647          112.000
+      Category 3    0.145           25.000
+    AUTO3_1
+      Category 1    0.064           11.000
+      Category 2    0.451           78.000
+      Category 3    0.335           58.000
+      Category 4    0.145           25.000
+      Category 5    0.006            1.000
+    AUTO4_1
+      Category 1    0.243           42.000
+      Category 2    0.636          110.000
+      Category 3    0.098           17.000
+      Category 4    0.023            4.000
+    AUTO5_1
+      Category 1    0.139           24.000
+      Category 2    0.462           80.000
+      Category 3    0.341           59.000
+      Category 4    0.058           10.000
+    AUTO6_1
+      Category 1    0.023            4.000
+      Category 2    0.324           56.000
+      Category 3    0.555           96.000
+      Category 4    0.098           17.000
+    AUTO7_1
+      Category 1    0.012            2.000
+      Category 2    0.191           33.000
+      Category 3    0.630          109.000
+      Category 4    0.168           29.000
+    AUTO8_1
+      Category 1    0.197           34.000
+      Category 2    0.549           95.000
+      Category 3    0.202           35.000
+      Category 4    0.052            9.000
+    AUTO9_1
+      Category 1    0.237           41.000
+      Category 2    0.601          104.000
+      Category 3    0.110           19.000
+      Category 4    0.046            8.000
+      Category 5    0.006            1.000
+    AUTO10_1
+      Category 1    0.121           21.000
+      Category 2    0.387           67.000
+      Category 3    0.283           49.000
+      Category 4    0.208           36.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO1_1$      AUTO1_1$      AUTO1_1$      AUTO1_1$      AUTO2_1$
+              ________      ________      ________      ________      ________
+               -2.271        -2.112        -1.035         0.735        -0.813
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO2_1$      AUTO3_1$      AUTO3_1$      AUTO3_1$      AUTO3_1$
+              ________      ________      ________      ________      ________
+                1.060        -1.525         0.036         1.035         2.525
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO4_1$      AUTO4_1$      AUTO4_1$      AUTO5_1$      AUTO5_1$
+              ________      ________      ________      ________      ________
+               -0.697         1.168         1.993        -1.086         0.256
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO5_1$      AUTO6_1$      AUTO6_1$      AUTO6_1$      AUTO7_1$
+              ________      ________      ________      ________      ________
+                1.573        -1.993        -0.394         1.291        -2.271
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO7_1$      AUTO7_1$      AUTO8_1$      AUTO8_1$      AUTO8_1$
+              ________      ________      ________      ________      ________
+               -0.833         0.964        -0.854         0.661         1.626
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO9_1$      AUTO9_1$      AUTO9_1$      AUTO9_1$      AUTO10_1
+              ________      ________      ________      ________      ________
+               -0.716         0.987         1.626         2.525        -1.168
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              AUTO10_1      AUTO10_1
+              ________      ________
+                0.022         0.813
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              AUTO1_1       AUTO2_1       AUTO3_1       AUTO4_1       AUTO5_1
+              ________      ________      ________      ________      ________
+ AUTO1_1
+ AUTO2_1        0.749
+ AUTO3_1       -0.315        -0.413
+ AUTO4_1       -0.567        -0.496         0.489
+ AUTO5_1       -0.176        -0.302         0.270         0.386
+ AUTO6_1        0.480         0.590        -0.356        -0.334        -0.258
+ AUTO7_1        0.568         0.596        -0.359        -0.483        -0.192
+ AUTO8_1       -0.377        -0.282         0.400         0.577         0.276
+ AUTO9_1       -0.442        -0.336         0.256         0.381         0.209
+ AUTO10_1      -0.312        -0.352         0.352         0.358         0.165
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              AUTO6_1       AUTO7_1       AUTO8_1       AUTO9_1       AUTO10_1
+              ________      ________      ________      ________      ________
+ AUTO7_1        0.633
+ AUTO8_1       -0.375        -0.231
+ AUTO9_1       -0.209        -0.335         0.447
+ AUTO10_1      -0.214        -0.210         0.355         0.372
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       43
+
+Chi-Square Test of Model Fit
+
+          Value                             50.882*
+          Degrees of Freedom                    34
+          P-Value                           0.0314
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.054
+          90 Percent C.I.                    0.017  0.083
+          Probability RMSEA <= .05           0.396
+
+CFI/TLI
+
+          CFI                                0.985
+          TLI                                0.980
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1188.241
+          Degrees of Freedom                    45
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.043
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.89766275D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ POS_1    BY
+    AUTO1_1            1.000      0.000    999.000    999.000
+    AUTO2_1            1.047      0.067     15.633      0.000
+    AUTO6_1            0.832      0.078     10.647      0.000
+    AUTO7_1            0.882      0.069     12.725      0.000
+
+ NEG_1    BY
+    AUTO3_1            1.000      0.000    999.000    999.000
+    AUTO4_1            1.356      0.134     10.148      0.000
+    AUTO5_1            0.692      0.120      5.779      0.000
+    AUTO8_1            1.084      0.124      8.722      0.000
+    AUTO9_1            0.928      0.134      6.915      0.000
+    AUTO10_1           0.842      0.136      6.192      0.000
+
+ NEG_1    WITH
+    POS_1             -0.362      0.045     -8.012      0.000
+
+ Thresholds
+    AUTO1_1$1         -2.271      0.269     -8.451      0.000
+    AUTO1_1$2         -2.112      0.231     -9.126      0.000
+    AUTO1_1$3         -1.035      0.116     -8.895      0.000
+    AUTO1_1$4          0.735      0.105      6.982      0.000
+    AUTO2_1$1         -0.813      0.108     -7.552      0.000
+    AUTO2_1$2          1.060      0.118      9.020      0.000
+    AUTO3_1$1         -1.525      0.149    -10.248      0.000
+    AUTO3_1$2          0.036      0.095      0.380      0.704
+    AUTO3_1$3          1.035      0.116      8.895      0.000
+    AUTO3_1$4          2.525      0.350      7.207      0.000
+    AUTO4_1$1         -0.697      0.104     -6.693      0.000
+    AUTO4_1$2          1.168      0.123      9.487      0.000
+    AUTO4_1$3          1.993      0.209      9.547      0.000
+    AUTO5_1$1         -1.086      0.119     -9.141      0.000
+    AUTO5_1$2          0.256      0.096      2.658      0.008
+    AUTO5_1$3          1.573      0.153     10.259      0.000
+    AUTO6_1$1         -1.993      0.209     -9.547      0.000
+    AUTO6_1$2         -0.394      0.098     -4.019      0.000
+    AUTO6_1$3          1.291      0.131      9.888      0.000
+    AUTO7_1$1         -2.271      0.269     -8.451      0.000
+    AUTO7_1$2         -0.833      0.108     -7.692      0.000
+    AUTO7_1$3          0.964      0.113      8.509      0.000
+    AUTO8_1$1         -0.854      0.109     -7.831      0.000
+    AUTO8_1$2          0.661      0.103      6.401      0.000
+    AUTO8_1$3          1.626      0.159     10.248      0.000
+    AUTO9_1$1         -0.716      0.105     -6.837      0.000
+    AUTO9_1$2          0.987      0.114      8.640      0.000
+    AUTO9_1$3          1.626      0.159     10.248      0.000
+    AUTO9_1$4          2.525      0.350      7.207      0.000
+    AUTO10_1$1        -1.168      0.123     -9.487      0.000
+    AUTO10_1$2         0.022      0.095      0.228      0.820
+    AUTO10_1$3         0.813      0.108      7.552      0.000
+
+ Variances
+    POS_1              0.695      0.060     11.657      0.000
+    NEG_1              0.370      0.061      6.113      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ POS_1    BY
+    AUTO1_1            0.834      0.036     23.314      0.000
+    AUTO2_1            0.872      0.033     26.446      0.000
+    AUTO6_1            0.693      0.057     12.150      0.000
+    AUTO7_1            0.735      0.047     15.628      0.000
+
+ NEG_1    BY
+    AUTO3_1            0.608      0.050     12.226      0.000
+    AUTO4_1            0.825      0.046     17.950      0.000
+    AUTO5_1            0.421      0.071      5.957      0.000
+    AUTO8_1            0.659      0.055     11.977      0.000
+    AUTO9_1            0.564      0.062      9.031      0.000
+    AUTO10_1           0.512      0.065      7.877      0.000
+
+ NEG_1    WITH
+    POS_1             -0.714      0.073     -9.818      0.000
+
+ Thresholds
+    AUTO1_1$1         -2.271      0.269     -8.451      0.000
+    AUTO1_1$2         -2.112      0.231     -9.126      0.000
+    AUTO1_1$3         -1.035      0.116     -8.895      0.000
+    AUTO1_1$4          0.735      0.105      6.982      0.000
+    AUTO2_1$1         -0.813      0.108     -7.552      0.000
+    AUTO2_1$2          1.060      0.118      9.020      0.000
+    AUTO3_1$1         -1.525      0.149    -10.248      0.000
+    AUTO3_1$2          0.036      0.095      0.380      0.704
+    AUTO3_1$3          1.035      0.116      8.895      0.000
+    AUTO3_1$4          2.525      0.350      7.207      0.000
+    AUTO4_1$1         -0.697      0.104     -6.693      0.000
+    AUTO4_1$2          1.168      0.123      9.487      0.000
+    AUTO4_1$3          1.993      0.209      9.547      0.000
+    AUTO5_1$1         -1.086      0.119     -9.141      0.000
+    AUTO5_1$2          0.256      0.096      2.658      0.008
+    AUTO5_1$3          1.573      0.153     10.259      0.000
+    AUTO6_1$1         -1.993      0.209     -9.547      0.000
+    AUTO6_1$2         -0.394      0.098     -4.019      0.000
+    AUTO6_1$3          1.291      0.131      9.888      0.000
+    AUTO7_1$1         -2.271      0.269     -8.451      0.000
+    AUTO7_1$2         -0.833      0.108     -7.692      0.000
+    AUTO7_1$3          0.964      0.113      8.509      0.000
+    AUTO8_1$1         -0.854      0.109     -7.831      0.000
+    AUTO8_1$2          0.661      0.103      6.401      0.000
+    AUTO8_1$3          1.626      0.159     10.248      0.000
+    AUTO9_1$1         -0.716      0.105     -6.837      0.000
+    AUTO9_1$2          0.987      0.114      8.640      0.000
+    AUTO9_1$3          1.626      0.159     10.248      0.000
+    AUTO9_1$4          2.525      0.350      7.207      0.000
+    AUTO10_1$1        -1.168      0.123     -9.487      0.000
+    AUTO10_1$2         0.022      0.095      0.228      0.820
+    AUTO10_1$3         0.813      0.108      7.552      0.000
+
+ Variances
+    POS_1              1.000      0.000    999.000    999.000
+    NEG_1              1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    AUTO1_1            0.695      0.060     11.657      0.000      0.305
+    AUTO2_1            0.761      0.058     13.223      0.000      0.239
+    AUTO3_1            0.370      0.061      6.113      0.000      0.630
+    AUTO4_1            0.681      0.076      8.975      0.000      0.319
+    AUTO5_1            0.177      0.059      2.979      0.003      0.823
+    AUTO6_1            0.480      0.079      6.075      0.000      0.520
+    AUTO7_1            0.541      0.069      7.814      0.000      0.459
+    AUTO8_1            0.435      0.073      5.989      0.000      0.565
+    AUTO9_1            0.319      0.071      4.516      0.000      0.681
+    AUTO10_1           0.263      0.067      3.939      0.000      0.737
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.275E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+     Beginning Time:  20:47:21
+        Ending Time:  20:47:21
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

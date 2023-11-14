@@ -1,0 +1,39 @@
+Title: Student DASS Baseline CFA;
+
+Data:
+   File is ../dat_stu_1.txt;
+
+Variable:
+   Names are studentid index treatment girl age_w child_grade in_ukr
+   guardian_living guardian_region 
+   grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1 
+   loc1_1 loc2_1 loc3_1 loc4_1 
+   dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+   dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1 
+   sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1 
+   edugoals_1 half; 
+   Missing are . ;
+
+  Usevariable are
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+  dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1;
+   
+  Categorical is
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+  dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1;
+    
+  Idvariable is studentid;  
+  
+  Useobservations is half eq 0;
+
+Analysis:
+   Estimator = wlsmv;
+   
+Model:
+  stress_1 by
+    dass1_1 dass4_1 dass6_1 dass8_1 dass9_1 dass10_1 dass12_1;
+    
+  anxiety_1 by
+    dass2_1 dass3_1 dass5_1 dass7_1 dass11_1 dass13_1 dass14_1;   
+
+Output: sampstat stdyx modindices(all);

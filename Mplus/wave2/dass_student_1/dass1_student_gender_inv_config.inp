@@ -1,0 +1,87 @@
+Title: Student DASS Gender Measurement Invariance Configural Model;
+
+Data:
+   File is ../dat_stu_1.txt;
+
+Variable:
+   Names are studentid index treatment girl age_w child_grade in_ukr
+   guardian_living guardian_region 
+   grit1_1 grit2_1 grit3_1 grit4_1 grit5_1 grit6_1 grit7_1 grit8_1 
+   loc1_1 loc2_1 loc3_1 loc4_1 
+   dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+   dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1 
+   sleep1_1 sleep2_1 sleep3_1 sleep4_1 sleep5_1 sleep6_1 sleep7_1 
+   edugoals_1 half; 
+   Missing are . ;
+
+  Usevariable are
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+  dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1;
+   
+  Categorical is
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1 dass8_1 
+  dass9_1 dass10_1 dass11_1 dass12_1 dass13_1 dass14_1;
+  
+  Idvariable is studentid;  
+    
+  Group is girl (1 = Female 0 = Male);
+
+Analysis:
+   Estimator = wlsmv;
+   Parameterization = theta;
+   
+  
+!!! Model for Male Group !!!
+
+Model:
+  ! Factor loadings all freely estimated
+  stress_1 by
+    dass1_1* dass4_1* dass6_1* dass8_1* dass9_1* dass10_1* dass12_1* (L1-L7);
+    
+  anxiety_1 by
+    dass2_1* dass3_1* dass5_1* dass7_1* dass11_1* dass13_1* dass14_1* (L8-L14);  
+  
+  !estimating thresholds freely
+  [dass1_1$1-dass14_1$1*] (T1_1-T1_14);
+  [dass1_1$2-dass14_1$2*] (T2_1-T2_14);
+  [dass1_1$3-dass14_1$3*] (T3_1-T3_14);
+  
+  !constraining item residual variance to 1 for identification
+  dass1_1-dass14_1@1;
+
+  !fixing latent mean to zero for identification
+  [stress_1@0];
+  [anxiety_1@0];
+  
+  !fixing latent variance to one for identification
+  stress_1@1;
+  anxiety_1@1;
+  
+!!! Model for Female Group !!!
+
+Model Female:
+  ! Factor loadings all freely estimated
+  stress_1 by
+    dass1_1* dass4_1* dass6_1* dass8_1* dass9_1* dass10_1* dass12_1*;
+    
+  anxiety_1 by
+    dass2_1* dass3_1* dass5_1* dass7_1* dass11_1* dass13_1* dass14_1*;
+  
+  ! estimating thresholds freely
+  [dass1_1$1-dass14_1$1*];
+  [dass1_1$2-dass14_1$2*];
+  [dass1_1$3-dass14_1$3*];
+  
+  ! constraining item residual variance to 1 for identification
+  dass1_1-dass14_1@1;
+
+  ! fixing latent factor mean to zero for identification
+  [stress_1@0];
+  [anxiety_1@0];
+  
+  ! fixing latent factor variance to one for identification
+  stress_1@1;
+  anxiety_1@1;
+     
+Output: sampstat stdyx modindices(all);
+Savedata: Difftest is dass1_student_gender_inv_config.dat;

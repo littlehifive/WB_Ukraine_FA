@@ -1,0 +1,30 @@
+Title: Student Grit Baseline EFA;
+
+Data:
+   File is ../dat_stu_2.txt;
+
+Variable:
+   Names are studentid girl age_w grito1_2 grito5_2 grito6_2 
+   grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 
+   grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2 
+   dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2 
+   dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2 
+   dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2 
+   treatment half; 
+   Missing are . ;
+   
+  Usevariable are
+	grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2;
+   
+  Categorical is
+	grit1_2 grit2_2 grit3_2 grit4_2 grit5_2 grit6_2 grit7_2 grit8_2;
+  
+  Idvariable is studentid;
+  
+  Useobservations is half eq 1;
+
+Analysis:
+   Type = efa 1 3;
+   Estimator = wlsmv;
+     
+Output: sampstat stdy modindices(all);

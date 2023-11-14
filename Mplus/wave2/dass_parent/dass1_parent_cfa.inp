@@ -1,0 +1,26 @@
+Title: Parent DASS Baseline CFA;
+
+Data:
+   File is dass_parent_1.txt;
+
+Variable:
+   Names are studentid treatment female age_w dass1_1 dass2_1 dass3_1
+   dass4_1 dass5_1 dass6_1 dass7_1 half; 
+   Missing are . ;
+
+  Usevariable are
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+   
+  Categorical is
+	dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1;
+    
+  Useobservations is half eq 0;
+
+Analysis:
+   Estimator = wlsmv;
+   
+Model:
+  dass_p_1 by
+    dass1_1 dass2_1 dass3_1 dass4_1 dass5_1 dass6_1 dass7_1
+     
+Output: sampstat stdyx modindices(all);

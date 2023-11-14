@@ -1,0 +1,361 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+11/02/2023   3:43 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Grit Baseline CFA;
+
+  Data:
+     File is ../dat_stu_2.txt;
+
+  Variable:
+     Names are studentid girl age_w grito1_2 grito5_2 grito6_2
+     grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2
+     grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2
+     dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2
+     treatment half;
+     Missing are . ;
+
+    Usevariable are
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+
+    Categorical is
+  	grito1_2 grito5_2 grito6_2 grito7_2 grito8_2;
+
+    Idvariable is studentid;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    grito_2 by
+      grito1_2  grito5_2 grito6_2 grito7_2 grito8_2;
+
+    grito1_2 with grito6_2; !worded positively
+    grito1_2 with grito7_2; !both about schoolwork
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Student Grit Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         684
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GRITO1_2    GRITO5_2    GRITO6_2    GRITO7_2    GRITO8_2
+
+Continuous latent variables
+   GRITO_2
+
+Variables with special functions
+
+  ID variable           STUDENTI
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_2.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2       1.000
+ GRITO5_2       1.000         1.000
+ GRITO6_2       1.000         1.000         1.000
+ GRITO7_2       1.000         1.000         1.000         1.000
+ GRITO8_2       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    GRITO1_2
+      Category 1    0.130           89.000
+      Category 2    0.251          172.000
+      Category 3    0.253          173.000
+      Category 4    0.303          207.000
+      Category 5    0.063           43.000
+    GRITO5_2
+      Category 1    0.063           43.000
+      Category 2    0.275          188.000
+      Category 3    0.234          160.000
+      Category 4    0.294          201.000
+      Category 5    0.135           92.000
+    GRITO6_2
+      Category 1    0.044           30.000
+      Category 2    0.086           59.000
+      Category 3    0.269          184.000
+      Category 4    0.474          324.000
+      Category 5    0.127           87.000
+    GRITO7_2
+      Category 1    0.263          180.000
+      Category 2    0.425          291.000
+      Category 3    0.187          128.000
+      Category 4    0.095           65.000
+      Category 5    0.029           20.000
+    GRITO8_2
+      Category 1    0.091           62.000
+      Category 2    0.235          161.000
+      Category 3    0.247          169.000
+      Category 4    0.306          209.000
+      Category 5    0.121           83.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO1_2      GRITO1_2      GRITO1_2      GRITO1_2      GRITO5_2
+              ________      ________      ________      ________      ________
+               -1.126        -0.301         0.344         1.531        -1.531
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO5_2      GRITO5_2      GRITO5_2      GRITO6_2      GRITO6_2
+              ________      ________      ________      ________      ________
+               -0.419         0.181         1.105        -1.708        -1.126
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO6_2      GRITO6_2      GRITO7_2      GRITO7_2      GRITO7_2
+              ________      ________      ________      ________      ________
+               -0.256         1.140        -0.634         0.492         1.154
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              GRITO7_2      GRITO8_2      GRITO8_2      GRITO8_2      GRITO8_2
+              ________      ________      ________      ________      ________
+                1.892        -1.337        -0.451         0.184         1.168
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              GRITO1_2      GRITO5_2      GRITO6_2      GRITO7_2      GRITO8_2
+              ________      ________      ________      ________      ________
+ GRITO1_2
+ GRITO5_2       0.169
+ GRITO6_2       0.440         0.343
+ GRITO7_2       0.137         0.365         0.173
+ GRITO8_2       0.224         0.469         0.364         0.385
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Chi-Square Test of Model Fit
+
+          Value                             11.326*
+          Degrees of Freedom                     3
+          P-Value                           0.0101
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.064
+          90 Percent C.I.                    0.027  0.105
+          Probability RMSEA <= .05           0.232
+
+CFI/TLI
+
+          CFI                                0.990
+          TLI                                0.968
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            864.282
+          Degrees of Freedom                    10
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.015
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.45641380D-02
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GRITO_2  BY
+    GRITO1_2           1.000      0.000    999.000    999.000
+    GRITO5_2           2.359      0.364      6.480      0.000
+    GRITO6_2           1.697      0.229      7.407      0.000
+    GRITO7_2           1.794      0.295      6.086      0.000
+    GRITO8_2           2.587      0.404      6.410      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.304      0.036      8.398      0.000
+    GRITO7_2          -0.006      0.030     -0.198      0.843
+
+ Thresholds
+    GRITO1_2$1        -1.126      0.061    -18.526      0.000
+    GRITO1_2$2        -0.301      0.049     -6.185      0.000
+    GRITO1_2$3         0.344      0.049      7.021      0.000
+    GRITO1_2$4         1.531      0.075     20.383      0.000
+    GRITO5_2$1        -1.531      0.075    -20.383      0.000
+    GRITO5_2$2        -0.419      0.049     -8.462      0.000
+    GRITO5_2$3         0.181      0.048      3.745      0.000
+    GRITO5_2$4         1.105      0.060     18.350      0.000
+    GRITO6_2$1        -1.708      0.084    -20.248      0.000
+    GRITO6_2$2        -1.126      0.061    -18.526      0.000
+    GRITO6_2$3        -0.256      0.048     -5.271      0.000
+    GRITO6_2$4         1.140      0.061     18.641      0.000
+    GRITO7_2$1        -0.634      0.052    -12.283      0.000
+    GRITO7_2$2         0.492      0.050      9.820      0.000
+    GRITO7_2$3         1.154      0.062     18.755      0.000
+    GRITO7_2$4         1.892      0.097     19.564      0.000
+    GRITO8_2$1        -1.337      0.067    -19.880      0.000
+    GRITO8_2$2        -0.451      0.050     -9.066      0.000
+    GRITO8_2$3         0.184      0.048      3.822      0.000
+    GRITO8_2$4         1.168      0.062     18.866      0.000
+
+ Variances
+    GRITO_2            0.080      0.024      3.363      0.001
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GRITO_2  BY
+    GRITO1_2           0.283      0.042      6.726      0.000
+    GRITO5_2           0.667      0.031     21.400      0.000
+    GRITO6_2           0.480      0.036     13.318      0.000
+    GRITO7_2           0.507      0.035     14.294      0.000
+    GRITO8_2           0.731      0.031     23.937      0.000
+
+ GRITO1_2 WITH
+    GRITO6_2           0.361      0.038      9.401      0.000
+    GRITO7_2          -0.007      0.037     -0.198      0.843
+
+ Thresholds
+    GRITO1_2$1        -1.126      0.061    -18.526      0.000
+    GRITO1_2$2        -0.301      0.049     -6.185      0.000
+    GRITO1_2$3         0.344      0.049      7.021      0.000
+    GRITO1_2$4         1.531      0.075     20.383      0.000
+    GRITO5_2$1        -1.531      0.075    -20.383      0.000
+    GRITO5_2$2        -0.419      0.049     -8.462      0.000
+    GRITO5_2$3         0.181      0.048      3.745      0.000
+    GRITO5_2$4         1.105      0.060     18.350      0.000
+    GRITO6_2$1        -1.708      0.084    -20.248      0.000
+    GRITO6_2$2        -1.126      0.061    -18.526      0.000
+    GRITO6_2$3        -0.256      0.048     -5.271      0.000
+    GRITO6_2$4         1.140      0.061     18.641      0.000
+    GRITO7_2$1        -0.634      0.052    -12.283      0.000
+    GRITO7_2$2         0.492      0.050      9.820      0.000
+    GRITO7_2$3         1.154      0.062     18.755      0.000
+    GRITO7_2$4         1.892      0.097     19.564      0.000
+    GRITO8_2$1        -1.337      0.067    -19.880      0.000
+    GRITO8_2$2        -0.451      0.050     -9.066      0.000
+    GRITO8_2$3         0.184      0.048      3.822      0.000
+    GRITO8_2$4         1.168      0.062     18.866      0.000
+
+ Variances
+    GRITO_2            1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    GRITO1_2           0.080      0.024      3.363      0.001      0.920
+    GRITO5_2           0.444      0.042     10.700      0.000      0.556
+    GRITO6_2           0.230      0.035      6.659      0.000      0.770
+    GRITO7_2           0.257      0.036      7.147      0.000      0.743
+    GRITO8_2           0.534      0.045     11.968      0.000      0.466
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.275E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+     Beginning Time:  15:43:56
+        Ending Time:  15:43:56
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen
