@@ -1,0 +1,343 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+11/15/2023   3:42 PM
+
+INPUT INSTRUCTIONS
+
+  Title: Student Locus of Control Baseline CFA;
+
+  Data:
+     File is ../dat_stu_2.txt;
+
+  Variable:
+     Names are studentid girl age_w grito1_2 grito5_2 grito6_2
+     grito7_2 grito8_2 grit1_2 grit2_2 grit3_2 grit4_2 grit5_2
+     grit6_2 grit7_2 grit8_2 loc1_2 loc2_2 loc3_2 loc4_2 dass1_2
+     dass2_2 dass3_2 dass4_2 dass5_2 dass6_2 dass7_2 dass8_2
+     dass9_2 dass10_2 dass11_2 dass12_2 dass13_2 dass14_2
+     dass15_2 dass16_2 dass17_2 dass18_2 dass19_2 dass20_2 dass21_2
+     treatment half;
+     Missing are . ;
+
+    Usevariable are
+  	loc1_2 loc2_2 loc3_2 loc4_2;
+
+    Categorical is
+  	loc1_2 loc2_2 loc3_2 loc4_2;
+
+    Useobservations is half eq 0;
+
+  Analysis:
+     Estimator = wlsmv;
+
+  Model:
+    loc_2 by
+      loc1_2 loc2_2 loc3_2 loc4_2;
+
+  Output: sampstat stdyx modindices(all);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Student Locus of Control Baseline CFA;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         684
+
+Number of dependent variables                                    4
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   LOC1_2      LOC2_2      LOC3_2      LOC4_2
+
+Continuous latent variables
+   LOC_2
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  ../dat_stu_2.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              LOC1_2        LOC2_2        LOC3_2        LOC4_2
+              ________      ________      ________      ________
+ LOC1_2         1.000
+ LOC2_2         1.000         1.000
+ LOC3_2         1.000         1.000         1.000
+ LOC4_2         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    LOC1_2
+      Category 1    0.037           25.000
+      Category 2    0.137           94.000
+      Category 3    0.335          229.000
+      Category 4    0.338          231.000
+      Category 5    0.154          105.000
+    LOC2_2
+      Category 1    0.006            4.000
+      Category 2    0.038           26.000
+      Category 3    0.129           88.000
+      Category 4    0.512          350.000
+      Category 5    0.316          216.000
+    LOC3_2
+      Category 1    0.161          110.000
+      Category 2    0.365          250.000
+      Category 3    0.278          190.000
+      Category 4    0.143           98.000
+      Category 5    0.053           36.000
+    LOC4_2
+      Category 1    0.064           44.000
+      Category 2    0.247          169.000
+      Category 3    0.376          257.000
+      Category 4    0.254          174.000
+      Category 5    0.058           40.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              LOC1_2$1      LOC1_2$2      LOC1_2$3      LOC1_2$4      LOC2_2$1
+              ________      ________      ________      ________      ________
+               -1.792        -0.939         0.022         1.022        -2.521
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              LOC2_2$2      LOC2_2$3      LOC2_2$4      LOC3_2$1      LOC3_2$2
+              ________      ________      ________      ________      ________
+               -1.708        -0.944         0.480        -0.991         0.066
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              LOC3_2$3      LOC3_2$4      LOC4_2$1      LOC4_2$2      LOC4_2$3
+              ________      ________      ________      ________      ________
+                0.856         1.620        -1.519        -0.492         0.488
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              LOC4_2$4
+              ________
+                1.568
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              LOC1_2        LOC2_2        LOC3_2        LOC4_2
+              ________      ________      ________      ________
+ LOC1_2
+ LOC2_2         0.282
+ LOC3_2        -0.097        -0.105
+ LOC4_2         0.021        -0.007         0.401
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     WARNING:  THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE
+     DEFINITE.  THIS COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A
+     LATENT VARIABLE, A CORRELATION GREATER OR EQUAL TO ONE BETWEEN TWO LATENT
+     VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE THAN TWO LATENT VARIABLES.
+     CHECK THE TECH4 OUTPUT FOR MORE INFORMATION.
+     PROBLEM INVOLVING VARIABLE LOC3_2.
+
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       20
+
+Chi-Square Test of Model Fit
+
+          Value                             71.662*
+          Degrees of Freedom                     2
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.226
+          90 Percent C.I.                    0.183  0.272
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.692
+          TLI                                0.077
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            232.340
+          Degrees of Freedom                     6
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.055
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.45089182D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ LOC_2    BY
+    LOC1_2             1.000      0.000    999.000    999.000
+    LOC2_2             1.128      0.459      2.455      0.014
+    LOC3_2           -13.100     11.722     -1.118      0.264
+    LOC4_2            -3.821      1.285     -2.974      0.003
+
+ Thresholds
+    LOC1_2$1          -1.792      0.090    -19.998      0.000
+    LOC1_2$2          -0.939      0.056    -16.629      0.000
+    LOC1_2$3           0.022      0.048      0.459      0.646
+    LOC1_2$4           1.021      0.058     17.547      0.000
+    LOC2_2$1          -2.521      0.175    -14.373      0.000
+    LOC2_2$2          -1.708      0.084    -20.248      0.000
+    LOC2_2$3          -0.944      0.057    -16.696      0.000
+    LOC2_2$4           0.480      0.050      9.594      0.000
+    LOC3_2$1          -0.991      0.058    -17.225      0.000
+    LOC3_2$2           0.066      0.048      1.376      0.169
+    LOC3_2$3           0.856      0.055     15.602      0.000
+    LOC3_2$4           1.620      0.079     20.382      0.000
+    LOC4_2$1          -1.519      0.075    -20.372      0.000
+    LOC4_2$2          -0.492      0.050     -9.820      0.000
+    LOC4_2$3           0.488      0.050      9.745      0.000
+    LOC4_2$4           1.568      0.077     20.399      0.000
+
+ Variances
+    LOC_2              0.008      0.009      0.907      0.364
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ LOC_2    BY
+    LOC1_2             0.089      0.049      1.815      0.070
+    LOC2_2             0.100      0.051      1.967      0.049
+    LOC3_2            -1.166      0.452     -2.579      0.010
+    LOC4_2            -0.340      0.134     -2.537      0.011
+
+ Thresholds
+    LOC1_2$1          -1.792      0.090    -19.998      0.000
+    LOC1_2$2          -0.939      0.056    -16.629      0.000
+    LOC1_2$3           0.022      0.048      0.459      0.646
+    LOC1_2$4           1.021      0.058     17.547      0.000
+    LOC2_2$1          -2.521      0.175    -14.373      0.000
+    LOC2_2$2          -1.708      0.084    -20.248      0.000
+    LOC2_2$3          -0.944      0.057    -16.696      0.000
+    LOC2_2$4           0.480      0.050      9.594      0.000
+    LOC3_2$1          -0.991      0.058    -17.225      0.000
+    LOC3_2$2           0.066      0.048      1.376      0.169
+    LOC3_2$3           0.856      0.055     15.602      0.000
+    LOC3_2$4           1.620      0.079     20.382      0.000
+    LOC4_2$1          -1.519      0.075    -20.372      0.000
+    LOC4_2$2          -0.492      0.050     -9.820      0.000
+    LOC4_2$3           0.488      0.050      9.745      0.000
+    LOC4_2$4           1.568      0.077     20.399      0.000
+
+ Variances
+    LOC_2              1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    LOC1_2             0.008      0.009      0.907      0.364      0.992
+    LOC2_2             0.010      0.010      0.984      0.325      0.990
+    LOC3_2          Undefined   0.13595E+01                       -0.360
+    LOC4_2             0.116      0.091      1.268      0.205      0.884
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.122E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON Statements
+
+LOC1_2   ON LOC2_2                71.225     0.285      0.285        0.285
+LOC2_2   ON LOC1_2                71.225     0.285      0.285        0.285
+LOC3_2   ON LOC4_2                71.206    12.639     12.639       12.639
+LOC4_2   ON LOC3_2                71.185    12.637     12.637       12.637
+
+WITH Statements
+
+LOC2_2   WITH LOC1_2              71.225     0.285      0.285        0.287
+LOC4_2   WITH LOC3_2              71.208    12.639     12.639      999.000
+
+
+     Beginning Time:  15:42:07
+        Ending Time:  15:42:07
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

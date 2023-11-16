@@ -1233,6 +1233,102 @@ runModels(
   recursive=TRUE)
 ```
 
+```{r}
+render_report(output_dir = "/Volumes/GoogleDrive/My Drive/WB Ukraine Study/Reports/wave2/auto-generated",
+               output_file = "Report_loc_student_baseline.docx",
+               parameters = list(
+                 # set R code print options
+                 printcode = FALSE,
+                 printwarning = FALSE,
+                 storecache = FALSE,
+
+                 # set report overall parameters
+                 template = here::here("Mplus/wave2/loc_student_1/input_loc_student_1.xlsx"),
+                 set_title = "Measurement Report - Locus of Control Baseline (Student)",
+                 set_author = "Zezhen Wu",
+
+                 # select report sections
+                 item = TRUE,
+                 descriptive = TRUE,
+                 ds_plot = TRUE,
+                 correlation_matrix_lg = FALSE,
+                 correlation_matrix_bivar = FALSE,
+                 correlation_matrix_item = TRUE, # BE CAREFUL! This might crash the document.
+                 efa_screeplot = TRUE,
+                 cfa_model_fit = TRUE,
+                 cfa_model_plot = TRUE,
+                 cfa_model_parameters = TRUE,
+                 cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
+                 cfa_r2 = FALSE,
+                 internal_reliability = TRUE,
+                 summary_item_statistics = TRUE,
+                 item_total_statistics = TRUE,
+                 inv_tx = FALSE,
+                 inv_gender = FALSE,
+                 inv_age = FALSE,
+                 inv_lg = FALSE)
+                 )
+
+get.omega.bywave(model = "loc1_student_cfa.out",
+                 path = here::here("Mplus/wave2/loc_student_1"))
+```
+
+### Locus of Control Time 2
+```{r}
+# EFA
+runModels(
+  "Mplus/wave2/loc_student_2/loc2_student_efa.inp",
+  recursive=TRUE)
+
+# CFA
+runModels(
+  "Mplus/wave2/loc_student_2/loc2_student_cfa.inp",
+  recursive=TRUE)
+
+runModels(
+  "Mplus/wave2/loc_student_2/loc2_student_cfa1.inp",
+  recursive=TRUE)
+```
+
+```{r}
+render_report(output_dir = "/Volumes/GoogleDrive/My Drive/WB Ukraine Study/Reports/wave2/auto-generated",
+               output_file = "Report_loc_student_endline.docx",
+               parameters = list(
+                 # set R code print options
+                 printcode = FALSE,
+                 printwarning = FALSE,
+                 storecache = FALSE,
+
+                 # set report overall parameters
+                 template = here::here("Mplus/wave2/loc_student_2/input_loc_student_2.xlsx"),
+                 set_title = "Measurement Report - Locus of Control Endline (Student)",
+                 set_author = "Zezhen Wu",
+
+                 # select report sections
+                 item = TRUE,
+                 descriptive = TRUE,
+                 ds_plot = TRUE,
+                 correlation_matrix_lg = FALSE,
+                 correlation_matrix_bivar = FALSE,
+                 correlation_matrix_item = TRUE, # BE CAREFUL! This might crash the document.
+                 efa_screeplot = TRUE,
+                 cfa_model_fit = TRUE,
+                 cfa_model_plot = TRUE,
+                 cfa_model_parameters = TRUE,
+                 cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
+                 cfa_r2 = FALSE,
+                 internal_reliability = TRUE,
+                 summary_item_statistics = TRUE,
+                 item_total_statistics = TRUE,
+                 inv_tx = FALSE,
+                 inv_gender = FALSE,
+                 inv_age = FALSE,
+                 inv_lg = FALSE)
+                 )
+
+get.omega.bywave(model = "loc2_student_cfa.out",
+                 path = here::here("Mplus/wave2/loc_student_2"))
+```
 
 ### Grit Old Time 2
 
